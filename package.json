@@ -1,0 +1,20 @@
+{
+  "name": "basileian-reader",
+  "version": "1.0.0",
+  "description": "Basileian Canon source-text reader with public-domain translation comparison",
+  "private": true,
+  "scripts": {
+    "fetch-translations": "node scripts/fetch-translations.js",
+    "fetch-commentary": "node scripts/fetch-commentary.js",
+    "ingest-wh": "node ingest-wh.js",
+    "build-lexicons": "node scripts/build-lexicons.js",
+    "build:ot-concordance": "node scripts/fetch-ot-concordance.js",
+    "setup-data": "npm run fetch-translations && npm run ingest-wh && npm run build-lexicons && npm run fetch-commentary"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "strongs": "^1.0.2"
+  }
+}

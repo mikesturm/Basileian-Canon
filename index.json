@@ -1,0 +1,126 @@
+{
+  "schema_version": "2.0",
+  "canon_name": "Basileian Canon (Jesus Tradition)",
+  "canon_version": "v3",
+  "reader_guide": {
+    "title": "Note to the Reader",
+    "narrative": "The canon is arranged in three tiers, distinguishing not degrees of authority but kinds of source. Different reading purposes call for different subsets, and the reader is encouraged to choose the subset appropriate to the task.",
+    "reading_paths": [
+      {
+        "name": "Strongest core",
+        "description": "The most strongly attested Jesus tradition — material with multiple early independent witnesses, or material from sources who explicitly relayed received tradition.",
+        "subset": ["tier1_a_mark", "tier1_b_q", "tier2_a_last_supper", "tier2_b_appearances", "tier2_c_dominical_sayings"],
+        "rationale": "This is the leanest historically conservative reading of the canon. It corresponds approximately to what could be defended on the criterion of multiple attestation alone."
+      },
+      {
+        "name": "Full reliable canon",
+        "description": "Adds the gospel evangelists' special material, the corroborated Thomas selections, the Johannine narrative material, and the explicitly received non-gospel traditions.",
+        "subset": ["tier1_a_mark", "tier1_b_q", "tier1_c_special_l", "tier1_d_special_m", "tier1_e_thomas", "tier1_f_john", "tier2_a_last_supper", "tier2_b_appearances", "tier2_c_dominical_sayings", "tier2_d_pauline_claims", "tier2_e_ascension", "tier2_f_agraphon", "tier2_g_didache"],
+        "rationale": "Inclusion at this level rests on the broader reliability filter rather than multiple attestation strictly understood. Per-section introductory notes make the editorial judgments visible."
+      },
+      {
+        "name": "With candidate apocryphal material",
+        "description": "Engages the four papyri, the Gospel of Peter passion fragment, and the Jewish-Christian gospel citations alongside the relevant Tier 1 or 2 material they parallel or supplement.",
+        "subset": "all sections",
+        "rationale": "Tier 3 sources are included not because they reach the same evidentiary threshold as the canonical material, but because there are responsible scholarly arguments for early independent tradition in each fragment selected. Approach Tier 3 with the case for inclusion made carefully fragment by fragment, and with skepticism preserved."
+      }
+    ],
+    "tier_structure_note": "The tier structure tracks type of source, not theological weight. The hermeneutical key to the whole canon — Jesus's articulation of the two great commandments at Mark 12:28–34 and parallels — sits in Tier 1A; the eucharistic words sit in Tier 2A; the earliest accessible Christian eschatological tradition sits in Tier 2C."
+  },
+  "description": "Original-language source texts for the Basileian / Jesus Tradition canon. The canon comprises Koine Greek New Testament and apostolic-fathers material plus Sahidic Coptic from Nag Hammadi. All NT Greek material follows Westcott-Hort 1881 (public domain); John 7:53–8:11 follows Robinson-Pierpont 2018 (public domain). Greek is presented in canon-style unaccented form preserving uncial-manuscript convention through approximately the 9th century. A parallel token layer (lexicons/wh-tokens.json) provides per-token Strong's G-numbers and morphological tags for all WH/RP2005-sourced verses.",
+  "languages": {
+    "grc": {
+      "name": "Koine Greek",
+      "script": "Greek",
+      "convention": "unaccented (no breathings, no accents, no iota subscripts); final sigma rendered as σ; medial mu rendered as µ"
+    },
+    "cop": {
+      "name": "Sahidic Coptic",
+      "script": "Coptic",
+      "convention": "standard scholarly transcription preserving supralinear strokes and nomina sacra"
+    }
+  },
+  "verse_id_format": "{book}.{chapter_or_logion}.{verse}",
+  "verse_id_examples": [
+    "mark.1.3",
+    "thomas.113.1",
+    "1cor.15.3",
+    "acts.9.1",
+    "luke.23.34a",
+    "didache.9.4"
+  ],
+  "verse_id_book_codes": {
+    "matthew": "Gospel of Matthew",
+    "mark": "Gospel of Mark",
+    "luke": "Gospel of Luke",
+    "john": "Gospel of John",
+    "acts": "Acts of the Apostles",
+    "1cor": "1 Corinthians",
+    "1thess": "1 Thessalonians",
+    "galatians": "Galatians",
+    "thomas": "Gospel of Thomas (logion-keyed)",
+    "didache": "Didache"
+  },
+  "sections": [
+    {"id": "tier1_a_mark", "tier": 1, "letter": "A", "title": "The Gospel of Mark", "language": "grc", "filename": "tier1_a_mark.json", "completeness": "complete"},
+    {"id": "tier1_b_q", "tier": 1, "letter": "B", "title": "Q — The Sayings Source", "language": "grc", "filename": "tier1_b_q.json", "completeness": "complete", "structure_note": "Q is reconstructed; each pericope provides Lukan and Matthean parallels (where extant) under lk_versions and mt_versions arrays rather than a single verses array."},
+    {"id": "tier1_c_special_l", "tier": 1, "letter": "C", "title": "Special L — Lukan Material with Strong Coherence", "language": "grc", "filename": "tier1_c_special_l.json", "completeness": "complete"},
+    {"id": "tier1_d_special_m", "tier": 1, "letter": "D", "title": "Special M — Matthean Material with Strong Coherence", "language": "grc", "filename": "tier1_d_special_m.json", "completeness": "complete"},
+    {"id": "tier1_e_thomas", "tier": 1, "letter": "E", "title": "The Gospel of Thomas — Selected Sayings", "language": "cop", "filename": "tier1_e_thomas.json", "completeness": "partial", "completeness_note": "16 of 57 logia have Coptic text; 41 are pending source-fetch from public-domain Nag Hammadi editions."},
+    {"id": "tier1_f_john", "tier": 1, "letter": "F", "title": "The Gospel of John — Selected Pericopes", "language": "grc", "filename": "tier1_f_john.json", "completeness": "complete", "completeness_note": "All 12 pericopes complete. 291 verses from WH 1881; Pericope Adulterae (7:53–8:11, 12 verses) from Robinson-Pierpont 2018, marked wh_status=absent_in_wh."},
+    {"id": "tier2_a_last_supper", "tier": 2, "letter": "A", "title": "The Last Supper Words (1 Cor 11:23–26)", "language": "grc", "filename": "tier2_a_last_supper.json", "completeness": "complete"},
+    {"id": "tier2_b_appearances", "tier": 2, "letter": "B", "title": "The Resurrection Appearances List (1 Cor 15:3b–7)", "language": "grc", "filename": "tier2_b_appearances.json", "completeness": "complete"},
+    {"id": "tier2_c_dominical_sayings", "tier": 2, "letter": "C", "title": "Other Dominical Sayings Cited by Paul (1 Cor 7:10–11; 9:14; 1 Thess 4:15–17)", "language": "grc", "filename": "tier2_c_dominical_sayings.json", "completeness": "complete"},
+    {"id": "tier2_d_pauline_claims", "tier": 2, "letter": "D", "title": "Pauline First-Person Appearance Claims and Damascus Accounts", "language": "grc", "filename": "tier2_d_pauline_claims.json", "completeness": "complete"},
+    {"id": "tier2_e_ascension", "tier": 2, "letter": "E", "title": "Ascension Narratives (Acts 1:1–11; Luke 24:50–53)", "language": "grc", "filename": "tier2_e_ascension.json", "completeness": "complete"},
+    {"id": "tier2_f_agraphon", "tier": 2, "letter": "F", "title": "Agraphon (Acts 20:35)", "language": "grc", "filename": "tier2_f_agraphon.json", "completeness": "complete"},
+    {"id": "tier2_g_didache", "tier": 2, "letter": "G", "title": "The Didache 8:2 and 9–10", "language": "grc", "filename": "tier2_g_didache.json", "completeness": "complete"},
+    {"id": "tier3_a_egerton", "tier": 3, "letter": "A", "title": "Papyrus Egerton 2", "language": "grc", "filename": "tier3_a_egerton.json", "completeness": "placeholder", "completeness_note": "Greek text pending fetch from Bell & Skeat 1935 or Kraus, Nicklas & Kruger 2009."},
+    {"id": "tier3_b_poxy_1224", "tier": 3, "letter": "B", "title": "Papyrus Oxyrhynchus 1224", "language": "grc", "filename": "tier3_b_poxy_1224.json", "completeness": "placeholder", "completeness_note": "Greek text pending fetch from Grenfell & Hunt 1914."},
+    {"id": "tier3_c_poxy_840", "tier": 3, "letter": "C", "title": "Papyrus Oxyrhynchus 840", "language": "grc", "filename": "tier3_c_poxy_840.json", "completeness": "placeholder", "completeness_note": "Greek text pending fetch from Grenfell & Hunt 1908."},
+    {"id": "tier3_d_poxy_5575", "tier": 3, "letter": "D", "title": "Papyrus Oxyrhynchus 5575", "language": "grc", "filename": "tier3_d_poxy_5575.json", "completeness": "external_only", "completeness_note": "Source text is copyrighted (EES 2023). Cannot be reproduced; placeholder includes citation and external URL."},
+    {"id": "tier3_e_gospel_of_peter", "tier": 3, "letter": "E", "title": "The Gospel of Peter — Passion Material", "language": "grc", "filename": "tier3_e_gospel_of_peter.json", "completeness": "placeholder", "completeness_note": "Greek text pending fetch from Bouriant 1892 or Foster 2010."},
+    {"id": "tier3_f_jewish_christian", "tier": 3, "letter": "F", "title": "Selected Citations from the Jewish-Christian Gospels", "language": "grc", "filename": "tier3_f_jewish_christian.json", "completeness": "placeholder", "completeness_note": "Greek/Latin text pending fetch from Origen, Jerome, Epiphanius primary sources or Klijn 1992."}
+  ],
+  "external_resources_recommendations": {
+    "purpose": "The verse_id structure in this corpus (e.g., 'mark.1.3') is designed to join with public-domain biblical resources keyed to the same canonical reference format. The app can ingest any of the resources below as separate JSON files and join on verse_id to provide parallel-translation comparison, lexical lookup, and commentary view.",
+    "parallel_translations_public_domain": [
+      {"id": "kjv", "name": "King James Version (1769 Cambridge edition)", "year": 1611, "license": "public domain", "translation_philosophy": "formal equivalence; Elizabethan English"},
+      {"id": "asv", "name": "American Standard Version", "year": 1901, "license": "public domain", "translation_philosophy": "formal equivalence; modernized KJV"},
+      {"id": "ylt", "name": "Young's Literal Translation", "year": 1898, "license": "public domain", "translation_philosophy": "extremely literal; Hebrew-syntax-preserving"},
+      {"id": "darby", "name": "Darby Translation", "year": 1890, "license": "public domain", "translation_philosophy": "literal; conservative-evangelical"},
+      {"id": "web", "name": "World English Bible", "year": 2000, "license": "public domain", "translation_philosophy": "modern English ASV revision"}
+    ],
+    "lexicons_public_domain": [
+      {"id": "strongs", "name": "Strong's Concordance and Lexicon", "year": 1890, "applies_to": "grc, hbo", "license": "public domain", "lookup_key": "Strong's number (e.g., G2098)"},
+      {"id": "thayer", "name": "Thayer's Greek-English Lexicon of the New Testament", "year": 1889, "applies_to": "grc", "license": "public domain", "lookup_key": "Greek lemma"},
+      {"id": "lsj", "name": "Liddell-Scott-Jones Greek-English Lexicon (Perseus public domain edition)", "year": 1940, "applies_to": "grc", "license": "public domain via Perseus", "lookup_key": "Greek lemma"},
+      {"id": "crum", "name": "Crum's Coptic Dictionary", "year": 1939, "applies_to": "cop", "license": "public domain", "lookup_key": "Coptic lemma"}
+    ],
+    "commentaries_public_domain": [
+      {"id": "jfb", "name": "Jamieson-Fausset-Brown Commentary", "year": 1871, "license": "public domain"},
+      {"id": "matthew_henry", "name": "Matthew Henry's Commentary on the Whole Bible", "year": 1714, "license": "public domain"},
+      {"id": "barnes", "name": "Barnes' Notes on the Bible", "year": 1834, "license": "public domain"},
+      {"id": "clarke", "name": "Adam Clarke's Commentary on the Bible", "year": 1831, "license": "public domain"},
+      {"id": "gill", "name": "John Gill's Exposition of the Whole Bible", "year": 1748, "license": "public domain"}
+    ],
+    "data_sources_for_app_developer": [
+      {"name": "STEP Bible", "url": "https://stepbible.org/", "note": "Open-data biblical resources including parallel translations and lexicons; permissively licensed."},
+      {"name": "Open Scriptures", "url": "https://github.com/openscriptures", "note": "Machine-readable biblical resources including Strong's lexicons, public-domain translations, morphologically-tagged Greek and Hebrew texts."},
+      {"name": "MorphGNT", "url": "https://github.com/morphgnt/sblgnt", "note": "Morphologically-tagged SBLGNT (CC-BY-SA tagging on SBLGNT text). Useful for adding token-level lemma + Strong's data in a future revision of this corpus."},
+      {"name": "Coptic SCRIPTORIUM", "url": "https://copticscriptorium.org/", "note": "Lemmatized and morphologically tagged Coptic corpora including Nag Hammadi (CC-BY licensed)."}
+    ]
+  },
+  "future_revisions": {
+    "description": "This corpus is intentionally minimal — text + transliteration + verse_id plus a parallel token layer. Subsequent revisions can layer additional data without changing the existing structure.",
+    "completed_layers": [
+      {"layer": "wh_reconciliation", "status": "done", "description": "All NT sections now sourced from WH 1881 (byztxt/greektext-westcott-hort). John 7:53–8:11 (Pericope Adulterae, absent from WH) sourced from Robinson-Pierpont 2018. SBLGNT terms no longer apply to this corpus."},
+      {"layer": "token_data", "status": "done", "description": "Per-token Strong's G-number and Robinson morphological tag for all WH/RP2005-sourced verses (386 verse entries). Stored as parallel file lexicons/wh-tokens.json keyed by verse_id. Produced by ingest-wh.js from the byztxt WH parsed source."}
+    ],
+    "planned_layers": [
+      {"layer": "complete_apocrypha", "description": "Fetch and integrate the Greek text of P.Egerton 2, P.Oxy 1224, P.Oxy 840, Gospel of Peter, and Jewish-Christian gospel citations from public-domain primary editions."},
+      {"layer": "complete_thomas", "description": "Fetch the remaining 41 Coptic logia from public-domain Nag Hammadi editions to complete the Thomas section."},
+      {"layer": "coptic_token_data", "description": "Per-token lemma and morphology for Thomas via Coptic SCRIPTORIUM (CC-BY licensed). Schema parallel to wh-tokens.json."}
+    ]
+  }
+}
