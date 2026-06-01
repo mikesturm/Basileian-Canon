@@ -884,3 +884,77 @@ button {
 .translation-loading {
   opacity: 0.7;
 }
+
+/* NT-Material passage rendering */
+.nt-source-block {
+  margin-bottom: 1.5rem;
+}
+
+.nt-source-label {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.48rem;
+  background: var(--bg-soft);
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.nt-verse-content {
+  margin-top: 0.4rem;
+}
+
+.nt-verse-content .paragraphtitle {
+  font-weight: 700;
+  margin: 0.8rem 0 0.2rem;
+}
+
+.nt-verse-content .bodytext {
+  margin-bottom: 0.6rem;
+}
+
+.nt-verse-content .otpoetry {
+  margin-left: 1.4rem;
+  margin-bottom: 0.15rem;
+  font-style: normal;
+}
+
+.nt-verse-content .verse {
+  display: inline-block;
+  min-width: 1.2rem;
+  margin: 0 0.25rem 0 0;
+  color: var(--accent-strong);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.72em;
+  font-weight: 800;
+  vertical-align: super;
+}
+
+.nt-note-btn {
+  display: inline;
+  border: 0;
+  background: transparent;
+  color: var(--accent-strong);
+  padding: 0 0.04em;
+  font-size: 0.72em;
+  font-weight: 800;
+  vertical-align: super;
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+
+.nt-note-btn:hover {
+  color: var(--accent);
+}
+
+/* Paragraph-level markers for non-biblical sections */
+.passage-note {
+  color: var(--text-muted, #888);
+  font-style: italic;
+}
+
+.disputed-notice {
+  font-weight: 700;
+  color: var(--accent-strong);
+}
