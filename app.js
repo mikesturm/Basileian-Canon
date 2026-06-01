@@ -377,7 +377,7 @@
         const section = sectionById.get(button.dataset.sectionId);
         if (!section) return;
         state.book = section.book;
-        state.chapter = section.startChapter || "All";
+        state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
         state.chapterMode = false;
         updateHash();
@@ -808,7 +808,7 @@
         if (section) {
           closeModal();
           state.book = section.book;
-          state.chapter = section.startChapter || "All";
+          state.chapter = section.startChapter ?? section.chapter ?? "All";
           state.currentSectionId = section.id;
           state.chapterMode = false;
           updateHash();
@@ -950,7 +950,7 @@
       btn.addEventListener("click", () => {
         closeModal();
         state.book = section.book;
-        state.chapter = section.startChapter || "All";
+        state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
         state.chapterMode = false;
         updateHash();
@@ -1111,7 +1111,7 @@
   }
 
   function translationVerseId(section, marker) {
-    const chapter = marker.chapter || section.startChapter;
+    const chapter = marker.chapter || section.startChapter || section.chapter;
     const verseMatch = String(marker.verse || "").match(/\d+/);
     const verse = verseMatch ? verseMatch[0] : marker.verse;
     if (window.TranslationsModule && typeof TranslationsModule.toVerseId === "function") {
@@ -1333,7 +1333,7 @@
         const section = sectionById.get(button.dataset.sectionId);
         if (!section) return;
         state.book = section.book;
-        state.chapter = section.startChapter || "All";
+        state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
         state.chapterMode = false;
         updateHash();
@@ -1483,7 +1483,7 @@
   }
 
   function formatParagraph(raw, section) {
-    let currentChapter = section.startChapter || "";
+    let currentChapter = section.startChapter ?? section.chapter ?? "";
     const re = /\[(\d+(?::\d+)?[a-z]?)\]|([A-Za-zÀ-ÖØ-öø-ÿ\u0370-\u03ff\]\)'""'?!;:,.—])(\d{1,3})(?![\d:–-])/g;
     let out = "";
     let last = 0;
@@ -1639,7 +1639,7 @@
     if (!section) return;
     setTab("reader");
     state.book = section.book;
-    state.chapter = section.startChapter || "All";
+    state.chapter = section.startChapter ?? section.chapter ?? "All";
     state.currentSectionId = section.id;
     state.chapterMode = false;
     updateHash();
@@ -1858,7 +1858,7 @@
     }
 
     state.book = target.section.book;
-    state.chapter = target.chapter || target.section.startChapter || "All";
+    state.chapter = target.chapter || target.section.startChapter || target.section.chapter || "All";
     state.currentSectionId = target.section.id;
     state.chapterMode = !target.verse;
     updateHash(target.anchor || target.section.id);
@@ -1922,20 +1922,21 @@
   }
 
   function sectionContainsChapter(section, chapter) {
-    if (!section.startChapter) return chapter === "All";
-    const sc = numeric(section.startChapter);
-    const ec = numeric(section.endChapter || section.startChapter);
+    const startChapter = section.startChapter ?? section.chapter;
+    if (!startChapter) return chapter === "All";
+    const sc = numeric(startChapter);
+    const ec = numeric(section.endChapter ?? startChapter);
     const ch = numeric(chapter);
-    if (sc == null || ec == null || ch == null) return String(section.startChapter) === String(chapter);
+    if (sc == null || ec == null || ch == null) return String(startChapter) === String(chapter);
     return ch >= sc && ch <= ec;
   }
 
   function sectionContainsVerseRange(section, chapter, verse) {
     const ch = numeric(chapter);
     const v = numeric(verse);
-    const sc = numeric(section.startChapter);
+    const sc = numeric(section.startChapter ?? section.chapter);
     const sv = numeric(section.startVerse);
-    const ec = numeric(section.endChapter || section.startChapter);
+    const ec = numeric(section.endChapter ?? section.startChapter ?? section.chapter);
     const ev = numeric(section.endVerse || section.startVerse);
     if ([ch, v, sc, sv, ec, ev].some(x => x == null)) return false;
     if (ch < sc || ch > ec) return false;
@@ -2010,7 +2011,7 @@
       if (idx > 0) {
         const section = sections[idx - 1];
         state.book = section.book;
-        state.chapter = section.startChapter || "All";
+        state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
       }
     }
@@ -2063,7 +2064,7 @@
       if (idx < sections.length - 1) {
         const section = sections[idx + 1];
         state.book = section.book;
-        state.chapter = section.startChapter || "All";
+        state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
       }
     }
@@ -2098,7 +2099,7 @@
       if (!sectionById.has(stored.currentSectionId)) return;
       const section = sectionById.get(stored.currentSectionId);
       state.book = stored.book || section.book;
-      state.chapter = stored.chapter || section.startChapter || "All";
+      state.chapter = stored.chapter || section.startChapter || section.chapter || "All";
       state.currentSectionId = stored.currentSectionId;
       state.chapterMode = stored.chapterMode !== undefined ? stored.chapterMode : true;
       setTimeout(() => scrollToSection(stored.currentSectionId), 100);
@@ -2123,7 +2124,7 @@
     }
     if (section) {
       state.book = section.book;
-      state.chapter = section.startChapter || "All";
+      state.chapter = section.startChapter ?? section.chapter ?? "All";
       state.currentSectionId = section.id;
       state.chapterMode = !anchor;
       setTimeout(() => {
