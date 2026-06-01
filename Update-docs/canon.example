@@ -1,0 +1,621 @@
+{
+  "canon": "Basileian Canon",
+  "schema_version": "1.0",
+  "generated": "example — illustrative pericopes only; see canon.index.json for the complete frozen ID map",
+  "id_policy": "IDs frozen on first assignment; reorder via 'order', insert by appending a new seq.",
+  "source_registry": {
+    "mark": {
+      "name": "Gospel of Mark",
+      "tradition": "canonical",
+      "verse_id_pattern": "mark.<ch>.<v>",
+      "language": "greek"
+    },
+    "matt": {
+      "name": "Gospel of Matthew",
+      "tradition": "canonical",
+      "verse_id_pattern": "matt.<ch>.<v>",
+      "language": "greek"
+    },
+    "luke": {
+      "name": "Gospel of Luke",
+      "tradition": "canonical",
+      "verse_id_pattern": "luke.<ch>.<v>",
+      "language": "greek"
+    },
+    "john": {
+      "name": "Gospel of John",
+      "tradition": "canonical",
+      "verse_id_pattern": "john.<ch>.<v>",
+      "language": "greek"
+    },
+    "acts": {
+      "name": "Acts of the Apostles",
+      "tradition": "canonical",
+      "verse_id_pattern": "acts.<ch>.<v>",
+      "language": "greek"
+    },
+    "1cor": {
+      "name": "1 Corinthians",
+      "tradition": "canonical",
+      "verse_id_pattern": "1cor.<ch>.<v>",
+      "language": "greek"
+    },
+    "1thess": {
+      "name": "1 Thessalonians",
+      "tradition": "canonical",
+      "verse_id_pattern": "1thess.<ch>.<v>",
+      "language": "greek"
+    },
+    "thomas": {
+      "name": "Gospel of Thomas (Lambdin / NHC II,2)",
+      "tradition": "noncanonical",
+      "tier": 1,
+      "verse_id_pattern": "thomas.<logion>.<sub>",
+      "language": "coptic",
+      "note": "Greek P.Oxy 1/654/655 consulted where parallel."
+    },
+    "gpeter": {
+      "name": "Gospel of Peter (Akhmim)",
+      "tradition": "noncanonical",
+      "tier": 3,
+      "verse_id_pattern": "gpeter.<section>",
+      "language": "greek-fragment",
+      "note": "Sections 1-60; passion/burial/guard only — resurrection-witness embellishment excluded."
+    },
+    "ghebrews": {
+      "name": "Gospel of the Hebrews",
+      "tradition": "noncanonical",
+      "tier": 3,
+      "verse_id_pattern": "ghebrews.<source>.<n>",
+      "language": "greek-fragment",
+      "note": "Patristic citations; addressed by citing father."
+    },
+    "egerton": {
+      "name": "Egerton Gospel (Papyrus 2 + Cologne 255)",
+      "tradition": "noncanonical",
+      "tier": 3,
+      "verse_id_pattern": "egerton.<frag><side>.<line>",
+      "language": "greek-fragment"
+    },
+    "poxy1224": {
+      "name": "P.Oxy 1224",
+      "tradition": "noncanonical",
+      "tier": 3,
+      "verse_id_pattern": "poxy1224.<frag><side>.<line>",
+      "language": "greek-fragment"
+    },
+    "poxy5575": {
+      "name": "P.Oxy 5575",
+      "tradition": "noncanonical",
+      "tier": 3,
+      "verse_id_pattern": "poxy5575.<side>.<line>",
+      "language": "greek-fragment"
+    },
+    "poxy840": {
+      "name": "P.Oxy 840",
+      "tradition": "noncanonical",
+      "tier": 3,
+      "verse_id_pattern": "poxy840.<side>.<line>",
+      "language": "greek-fragment"
+    },
+    "didache": {
+      "name": "Didache",
+      "tradition": "noncanonical",
+      "tier": 2,
+      "verse_id_pattern": "didache.<ch>.<v>",
+      "language": "greek"
+    },
+    "codexbezae": {
+      "name": "Codex Bezae (D) Western addition",
+      "tradition": "noncanonical",
+      "tier": 2,
+      "verse_id_pattern": "codexbezae.<book><ch>.<v>",
+      "language": "greek",
+      "note": "Luke 6:4 Sabbath-worker agraphon."
+    },
+    "1clement": {
+      "name": "1 Clement",
+      "tradition": "noncanonical",
+      "tier": 2,
+      "verse_id_pattern": "1clement.<ch>.<v>",
+      "language": "greek"
+    },
+    "polycarp": {
+      "name": "Polycarp, To the Philippians",
+      "tradition": "noncanonical",
+      "tier": 2,
+      "verse_id_pattern": "polycarp.phil.<ch>.<v>",
+      "language": "greek"
+    }
+  },
+  "parts": [
+    {
+      "id": "III",
+      "kind": "section",
+      "label": "III",
+      "title": "Galilean Ministry — First Deeds",
+      "pericopes": [
+        {
+          "id": "III.5",
+          "part": "III",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "the-paralytic-let-down-through-the-roof",
+          "title": "The paralytic let down through the roof",
+          "disputed_placement": false,
+          "witnesses": [
+            {
+              "w_id": "III.5.w1",
+              "source": "mark",
+              "ref": "Mark 2:1-12",
+              "tradition": "canonical",
+              "role": "primary",
+              "extent": "range",
+              "verse_ids": {
+                "from": "mark.2.1",
+                "to": "mark.2.12"
+              }
+            },
+            {
+              "w_id": "III.5.w2",
+              "source": "matt",
+              "ref": "Matt 9:1-8",
+              "tradition": "canonical",
+              "role": "parallel",
+              "extent": "range",
+              "verse_ids": {
+                "from": "matt.9.1",
+                "to": "matt.9.8"
+              }
+            },
+            {
+              "w_id": "III.5.w3",
+              "source": "luke",
+              "ref": "Luke 5:17-26",
+              "tradition": "canonical",
+              "role": "parallel",
+              "extent": "range",
+              "verse_ids": {
+                "from": "luke.5.17",
+                "to": "luke.5.26"
+              }
+            }
+          ],
+          "endnotes": [
+            {
+              "id": "III.5.n1",
+              "type": "lexical",
+              "status": "todo",
+              "anchor": {
+                "verse_id": "mark.2.5",
+                "lemma": "πίστις"
+              },
+              "term": "pistis",
+              "first_occurrence": false,
+              "sources": [
+                "BDAG s.v. pistis 2",
+                "Marcus AYB"
+              ],
+              "body": ""
+            },
+            {
+              "id": "III.5.n2",
+              "type": "lexical",
+              "status": "todo",
+              "anchor": {
+                "verse_id": "mark.2.8",
+                "lemma": "πνεῦμα"
+              },
+              "term": "pneuma",
+              "first_occurrence": false,
+              "sources": [
+                "BDAG",
+                "Levison",
+                "Marcus AYB"
+              ],
+              "body": "Anthropological faculty vs. received divine Spirit; do not disambiguate via capitalization."
+            }
+          ],
+          "cross_refs": []
+        },
+        {
+          "id": "III.6",
+          "part": "III",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "call-of-levi-matthew-eating-with-sinners",
+          "title": "Call of Levi (Matthew); eating with sinners",
+          "disputed_placement": false,
+          "witnesses": [
+            {
+              "w_id": "III.6.w1",
+              "source": "mark",
+              "ref": "Mark 2:13-17",
+              "tradition": "canonical",
+              "role": "primary",
+              "extent": "range",
+              "verse_ids": {
+                "from": "mark.2.13",
+                "to": "mark.2.17"
+              }
+            },
+            {
+              "w_id": "III.6.w2",
+              "source": "matt",
+              "ref": "Matt 9:9-13",
+              "tradition": "canonical",
+              "role": "parallel",
+              "extent": "range",
+              "verse_ids": {
+                "from": "matt.9.9",
+                "to": "matt.9.13"
+              }
+            },
+            {
+              "w_id": "III.6.w3",
+              "source": "luke",
+              "ref": "Luke 5:27-32",
+              "tradition": "canonical",
+              "role": "parallel",
+              "extent": "range",
+              "verse_ids": {
+                "from": "luke.5.27",
+                "to": "luke.5.32"
+              }
+            },
+            {
+              "w_id": "III.6.w4",
+              "source": "poxy1224",
+              "ref": "P.Oxy 1224, frag. 2 verso col. ii",
+              "tradition": "noncanonical",
+              "role": "insert",
+              "extent": "partial",
+              "verse_ids": {
+                "from": "poxy1224.f2v.1",
+                "to": "poxy1224.f2v.7"
+              },
+              "flags": [
+                "fragmentary"
+              ],
+              "note": "The physician scene with the unique 'and priests' addition. Other clause of this fragment is at VIII.8 (strange exorcist); the 'pray for your enemies' clause cross-refs IV.3."
+            }
+          ],
+          "endnotes": [
+            {
+              "id": "III.6.n1",
+              "type": "historical-cultural",
+              "status": "stub",
+              "anchor": {
+                "verse_id": "poxy1224.f2v.2"
+              },
+              "sources": [
+                "NA28 apparatus",
+                "Kloppenborg"
+              ],
+              "body": "The 'and priests' expansion has no synoptic parallel; note its agreement with later cultic-purity framing."
+            }
+          ],
+          "cross_refs": [
+            "VIII.8",
+            "IV.3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IX",
+      "kind": "section",
+      "label": "IX",
+      "title": "The Journey to Jerusalem",
+      "pericopes": [
+        {
+          "id": "IX.14",
+          "part": "IX",
+          "seq": 14,
+          "order": 14.0,
+          "slug": "the-cost-of-discipleship",
+          "title": "The cost of discipleship",
+          "disputed_placement": false,
+          "notes": {
+            "grouping": "Renunciation theme; 'fast from the kosmos' (Thomas 27 / P.Oxy 5575) belongs here."
+          },
+          "witnesses": [
+            {
+              "w_id": "IX.14.w1",
+              "source": "luke",
+              "ref": "Luke 14:25-35",
+              "tradition": "canonical",
+              "role": "primary",
+              "extent": "range",
+              "verse_ids": {
+                "from": "luke.14.25",
+                "to": "luke.14.35"
+              }
+            },
+            {
+              "w_id": "IX.14.w2",
+              "source": "thomas",
+              "ref": "Thomas 55",
+              "tradition": "noncanonical",
+              "role": "insert",
+              "extent": "whole",
+              "verse_ids": {
+                "from": "thomas.55.1",
+                "to": "thomas.55.2"
+              }
+            },
+            {
+              "w_id": "IX.14.w3",
+              "source": "thomas",
+              "ref": "Thomas 101",
+              "tradition": "noncanonical",
+              "role": "insert",
+              "extent": "whole",
+              "verse_ids": {
+                "from": "thomas.101.1",
+                "to": "thomas.101.3"
+              },
+              "note": "Near-duplicate of Thomas 55 (hate, then love, father and mother)."
+            },
+            {
+              "w_id": "IX.14.w4",
+              "source": "thomas",
+              "ref": "Thomas 27",
+              "tradition": "noncanonical",
+              "role": "insert",
+              "extent": "whole",
+              "verse_ids": {
+                "from": "thomas.27.1",
+                "to": "thomas.27.2"
+              }
+            },
+            {
+              "w_id": "IX.14.w5",
+              "source": "poxy5575",
+              "ref": "P.Oxy 5575, 'fast from the world' clause",
+              "tradition": "noncanonical",
+              "role": "cross_ref",
+              "cross_ref_to": "IV.7",
+              "note": "Full fragment inserted at IV.7 (anxiety); pointer only here."
+            }
+          ],
+          "endnotes": [
+            {
+              "id": "IX.14.n1",
+              "type": "lexical",
+              "status": "todo",
+              "anchor": {
+                "verse_id": "thomas.27.1"
+              },
+              "term": "kosmos",
+              "first_occurrence": false,
+              "body": "'Fast from the kosmos' — world/order; relate to basileia present-realized lens."
+            }
+          ],
+          "cross_refs": [
+            "IV.7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "XII",
+      "kind": "section",
+      "label": "XII",
+      "title": "Arrest, Trial, Crucifixion, Burial",
+      "pericopes": [
+        {
+          "id": "XII.9",
+          "part": "XII",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "the-burial",
+          "title": "The burial",
+          "disputed_placement": false,
+          "witnesses": [
+            {
+              "w_id": "XII.9.w1",
+              "source": "mark",
+              "ref": "Mark 15:42-47",
+              "tradition": "canonical",
+              "role": "primary",
+              "extent": "range",
+              "verse_ids": {
+                "from": "mark.15.42",
+                "to": "mark.15.47"
+              }
+            },
+            {
+              "w_id": "XII.9.w2",
+              "source": "matt",
+              "ref": "Matt 27:57-66",
+              "tradition": "canonical",
+              "role": "parallel",
+              "extent": "range",
+              "verse_ids": {
+                "from": "matt.27.57",
+                "to": "matt.27.66"
+              }
+            },
+            {
+              "w_id": "XII.9.w3",
+              "source": "luke",
+              "ref": "Luke 23:50-56",
+              "tradition": "canonical",
+              "role": "parallel",
+              "extent": "range",
+              "verse_ids": {
+                "from": "luke.23.50",
+                "to": "luke.23.56"
+              }
+            },
+            {
+              "w_id": "XII.9.w4",
+              "source": "john",
+              "ref": "John 19:38-42",
+              "tradition": "canonical",
+              "role": "parallel",
+              "extent": "range",
+              "verse_ids": {
+                "from": "john.19.38",
+                "to": "john.19.42"
+              }
+            },
+            {
+              "w_id": "XII.9.w5",
+              "source": "gpeter",
+              "ref": "Gospel of Peter 21-25",
+              "tradition": "noncanonical",
+              "role": "insert",
+              "extent": "range",
+              "verse_ids": {
+                "from": "gpeter.21",
+                "to": "gpeter.25"
+              },
+              "flags": [
+                "fragmentary"
+              ],
+              "note": "Nails drawn out; earthquake; Joseph's Garden; 'Woe to our sins'."
+            },
+            {
+              "w_id": "XII.9.w6",
+              "source": "gpeter",
+              "ref": "Gospel of Peter 28-33",
+              "tradition": "noncanonical",
+              "role": "insert",
+              "extent": "range",
+              "verse_ids": {
+                "from": "gpeter.28",
+                "to": "gpeter.33"
+              },
+              "note": "Guard at the tomb; Petronius; seven seals. Matches Matt 27:62-66."
+            }
+          ],
+          "endnotes": [],
+          "cross_refs": [
+            "XIII.1",
+            "XIII.7"
+          ],
+          "notes": {
+            "placement": "Gospel of Peter §§34-49 (resurrection spectacle: giant figures, talking cross) was considered and excluded — see 'What Has Been Left Out' and the working document."
+          }
+        }
+      ]
+    }
+  ],
+  "left_out": {
+    "title": "What Has Been Left Out",
+    "scope": "New Testament canon material not admitted to the Basileian Canon, with rationale. Omission reflects this canon's reporting criterion (ministry-to-ascension, reported as fact), not a verdict on the wider NT.",
+    "note": "Non-canonical material considered and excluded (e.g. Gospel of Peter §§34-49, the 17 excluded Thomas logia, Didache 1:2-6 and 8:2-3, the Gospel of the Hebrews incarnation fragment) is documented at its place in the working document and in the Thomas triage.",
+    "categories": [
+      {
+        "id": "LO.pre-ministry",
+        "label": "Pre-ministry material",
+        "reason": "Precedes the canon's starting point (John the Baptist's preaching, Part I). The only pre-ministry pericope retained is the boy Jesus in the temple (Luke 2:41-52, Pr.1).",
+        "items": [
+          {
+            "ref": "Matthew 1:1-2:23",
+            "source": "matt",
+            "disposition": "excluded",
+            "note": "Genealogy, nativity, Magi, flight to Egypt, Herod."
+          },
+          {
+            "ref": "Luke 1:1-2:40; 3:23-38",
+            "source": "luke",
+            "disposition": "excluded",
+            "note": "Annunciations, birth of John, nativity, shepherds, presentation, Simeon and Anna, genealogy."
+          },
+          {
+            "ref": "John 1:1-18",
+            "source": "john",
+            "disposition": "excluded",
+            "note": "The Logos hymn; theological prologue, not narrated ministry. Johannine material begins at John 1:19."
+          }
+        ]
+      },
+      {
+        "id": "LO.post-ascension",
+        "label": "Post-ascension material",
+        "reason": "Falls beyond the terminus (the ascension: Mark 16:19; Luke 24:50-53; Acts 1:9-11).",
+        "items": [
+          {
+            "ref": "Acts 2-28 (the church narrative)",
+            "source": "acts",
+            "disposition": "partial",
+            "retained_in": [
+              "A.1",
+              "A.2",
+              "A.3",
+              "B.1",
+              "XIII.10"
+            ],
+            "note": "Reports the apostles' activity, not Jesus's earthly ministry. Retained: Acts 1:1-11 (forty days + ascension boundary, XIII.10); kerygmatic summaries 2:22-24, 10:36-43, 13:23-31 (Appendix A); agraphon 20:35 (B.1)."
+          },
+          {
+            "ref": "Revelation",
+            "disposition": "excluded",
+            "note": "Apocalyptic vision of the exalted Christ; post-ascension and visionary. The words to the seven churches (Rev 2-3) are given in vision after the ascension."
+          }
+        ]
+      },
+      {
+        "id": "LO.interpretation-theology",
+        "label": "Interpretation and theology rather than reporting (the Epistles)",
+        "reason": "The letters expound the significance of Jesus; they do not narrate his deeds or teaching. Excluded as a class, except explicit dominical commands or early reporting-formulas, which are admitted at their place in the harmony.",
+        "items": [
+          {
+            "ref": "Romans, 2 Corinthians, Galatians, Ephesians, Philippians, Colossians, 2 Thessalonians, 1-2 Timothy, Titus, Philemon, Hebrews, James, 1-2 Peter, 1-3 John, Jude",
+            "disposition": "excluded",
+            "note": "Excluded in full. Note: the Christ-hymns Phil 2:6-11 and Col 1:15-20 interpret rather than report, and James echoes but does not narrate dominical speech."
+          },
+          {
+            "ref": "1 Corinthians",
+            "source": "1cor",
+            "disposition": "partial",
+            "retained_in": [
+              "IX.25",
+              "VII.5",
+              "XI.4",
+              "XIII.9"
+            ],
+            "note": "Retained: 7:10-11 (divorce, 'not I, but the Lord'); 9:14 (support of preachers); 11:23-26 (the Supper); 15:3-7 (resurrection-appearance formula)."
+          },
+          {
+            "ref": "1 Thessalonians",
+            "source": "1thess",
+            "disposition": "partial",
+            "retained_in": [
+              "X.16"
+            ],
+            "note": "Retained: 4:15-17 ('a word of the Lord' on the coming)."
+          }
+        ]
+      },
+      {
+        "id": "LO.text-critical",
+        "label": "Text-critical exclusions",
+        "reason": "Absent from the working Greek text (Westcott-Hort 1881).",
+        "items": [
+          {
+            "ref": "John 7:53-8:11 (Pericope Adulterae)",
+            "source": "john",
+            "disposition": "excluded",
+            "note": "Absent from the earliest manuscripts; relegated in WH. The harmony passes from John 7:52 to 8:12."
+          },
+          {
+            "ref": "Mark 16:9-20 (longer ending)",
+            "source": "mark",
+            "disposition": "flagged-retained",
+            "note": "Text-critically contested but retained as parallel material with a text-critical note, not omitted."
+          },
+          {
+            "ref": "Luke 23:34a ('Father, forgive them')",
+            "source": "luke",
+            "disposition": "flagged-retained",
+            "note": "Contested but retained with a text-critical note."
+          }
+        ]
+      }
+    ]
+  }
+}

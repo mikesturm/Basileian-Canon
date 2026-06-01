@@ -1,0 +1,1512 @@
+{
+  "canon": "Basileian Canon",
+  "schema_version": "1.0",
+  "kind": "pericope-id-index",
+  "id_policy": "IDs are frozen on first assignment and never renumbered. To reorder, change \"order\"; to insert a pericope, append a new seq at the end of its part and set \"order\" to position it.",
+  "parts": [
+    {
+      "id": "Pr",
+      "kind": "prologue",
+      "label": "Prologue",
+      "title": "Before the Public Ministry",
+      "pericopes": [
+        {
+          "id": "Pr.1",
+          "part": "Pr",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "the-boy-jesus-in-the-temple",
+          "title": "The boy Jesus in the temple"
+        }
+      ]
+    },
+    {
+      "id": "I",
+      "kind": "section",
+      "label": "I",
+      "title": "Inauguration of the Ministry",
+      "pericopes": [
+        {
+          "id": "I.1",
+          "part": "I",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "john-the-baptist-s-preaching",
+          "title": "John the Baptist's preaching"
+        },
+        {
+          "id": "I.2",
+          "part": "I",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "the-baptism-of-jesus",
+          "title": "The baptism of Jesus"
+        },
+        {
+          "id": "I.3",
+          "part": "I",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "the-temptation-in-the-wilderness",
+          "title": "The temptation in the wilderness"
+        }
+      ]
+    },
+    {
+      "id": "II",
+      "kind": "section",
+      "label": "II",
+      "title": "Early Judean & Galilean Ministry",
+      "pericopes": [
+        {
+          "id": "II.1",
+          "part": "II",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "call-of-the-first-disciples",
+          "title": "Call of the first disciples"
+        },
+        {
+          "id": "II.2",
+          "part": "II",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "the-wedding-at-cana",
+          "title": "The wedding at Cana"
+        },
+        {
+          "id": "II.3",
+          "part": "II",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "cleansing-of-the-temple-johannine-placement",
+          "title": "Cleansing of the temple (Johannine placement)"
+        },
+        {
+          "id": "II.4",
+          "part": "II",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "nicodemus",
+          "title": "Nicodemus"
+        },
+        {
+          "id": "II.5",
+          "part": "II",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "john-the-baptist-s-final-testimony",
+          "title": "John the Baptist's final testimony"
+        },
+        {
+          "id": "II.6",
+          "part": "II",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "the-samaritan-woman-at-the-well",
+          "title": "The Samaritan woman at the well"
+        },
+        {
+          "id": "II.7",
+          "part": "II",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "return-to-galilee-the-official-s-son",
+          "title": "Return to Galilee; the official's son"
+        },
+        {
+          "id": "II.8",
+          "part": "II",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "beginning-of-the-galilean-proclamation",
+          "title": "Beginning of the Galilean proclamation"
+        },
+        {
+          "id": "II.9",
+          "part": "II",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "rejection-at-nazareth",
+          "title": "Rejection at Nazareth"
+        }
+      ]
+    },
+    {
+      "id": "III",
+      "kind": "section",
+      "label": "III",
+      "title": "Galilean Ministry — First Deeds",
+      "pericopes": [
+        {
+          "id": "III.1",
+          "part": "III",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "demoniac-in-the-capernaum-synagogue",
+          "title": "Demoniac in the Capernaum synagogue"
+        },
+        {
+          "id": "III.2",
+          "part": "III",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "peter-s-mother-in-law-evening-healings",
+          "title": "Peter's mother-in-law; evening healings"
+        },
+        {
+          "id": "III.3",
+          "part": "III",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "preaching-tour-of-galilee",
+          "title": "Preaching tour of Galilee"
+        },
+        {
+          "id": "III.4",
+          "part": "III",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "cleansing-of-a-leper",
+          "title": "Cleansing of a leper"
+        },
+        {
+          "id": "III.5",
+          "part": "III",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "the-paralytic-let-down-through-the-roof",
+          "title": "The paralytic let down through the roof"
+        },
+        {
+          "id": "III.6",
+          "part": "III",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "call-of-levi-matthew-eating-with-sinners",
+          "title": "Call of Levi (Matthew); eating with sinners"
+        },
+        {
+          "id": "III.7",
+          "part": "III",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "the-question-about-fasting",
+          "title": "The question about fasting"
+        },
+        {
+          "id": "III.8",
+          "part": "III",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "plucking-grain-on-the-sabbath",
+          "title": "Plucking grain on the Sabbath"
+        },
+        {
+          "id": "III.9",
+          "part": "III",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "the-man-with-the-withered-hand",
+          "title": "The man with the withered hand"
+        },
+        {
+          "id": "III.10",
+          "part": "III",
+          "seq": 10,
+          "order": 10.0,
+          "slug": "crowds-at-the-sea-healings",
+          "title": "Crowds at the sea; healings"
+        },
+        {
+          "id": "III.11",
+          "part": "III",
+          "seq": 11,
+          "order": 11.0,
+          "slug": "choosing-the-twelve",
+          "title": "Choosing the Twelve"
+        }
+      ]
+    },
+    {
+      "id": "IV",
+      "kind": "section",
+      "label": "IV",
+      "title": "The Sermon (on the Mount / on the Plain)",
+      "pericopes": [
+        {
+          "id": "IV.1",
+          "part": "IV",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "beatitudes",
+          "title": "Beatitudes"
+        },
+        {
+          "id": "IV.2",
+          "part": "IV",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "salt-and-light",
+          "title": "Salt and light"
+        },
+        {
+          "id": "IV.3",
+          "part": "IV",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "law-and-the-prophets-the-antitheses",
+          "title": "Law and the prophets; the antitheses"
+        },
+        {
+          "id": "IV.4",
+          "part": "IV",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "on-divorce",
+          "title": "On divorce"
+        },
+        {
+          "id": "IV.5",
+          "part": "IV",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "almsgiving-prayer-and-fasting",
+          "title": "Almsgiving, prayer, and fasting"
+        },
+        {
+          "id": "IV.6",
+          "part": "IV",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "the-lord-s-prayer",
+          "title": "The Lord's Prayer"
+        },
+        {
+          "id": "IV.7",
+          "part": "IV",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "treasure-in-heaven-serving-two-masters-anxiety",
+          "title": "Treasure in heaven; serving two masters; anxiety"
+        },
+        {
+          "id": "IV.8",
+          "part": "IV",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "judging-the-speck-and-the-log",
+          "title": "Judging; the speck and the log"
+        },
+        {
+          "id": "IV.9",
+          "part": "IV",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "ask-seek-knock-the-golden-rule",
+          "title": "Ask, seek, knock; the golden rule"
+        },
+        {
+          "id": "IV.10",
+          "part": "IV",
+          "seq": 10,
+          "order": 10.0,
+          "slug": "the-narrow-gate-tree-and-fruit-two-foundations",
+          "title": "The narrow gate; tree and fruit; two foundations"
+        }
+      ]
+    },
+    {
+      "id": "V",
+      "kind": "section",
+      "label": "V",
+      "title": "Galilean Ministry Continued",
+      "pericopes": [
+        {
+          "id": "V.1",
+          "part": "V",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "the-centurion-s-servant",
+          "title": "The centurion's servant"
+        },
+        {
+          "id": "V.2",
+          "part": "V",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "raising-the-widow-s-son-at-nain",
+          "title": "Raising the widow's son at Nain"
+        },
+        {
+          "id": "V.3",
+          "part": "V",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "john-the-baptist-s-question-jesus-s-reply",
+          "title": "John the Baptist's question; Jesus's reply"
+        },
+        {
+          "id": "V.4",
+          "part": "V",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "woes-on-the-unrepentant-cities",
+          "title": "Woes on the unrepentant cities"
+        },
+        {
+          "id": "V.5",
+          "part": "V",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "thanksgiving-to-the-father-come-to-me",
+          "title": "Thanksgiving to the Father; \"come to me\""
+        },
+        {
+          "id": "V.6",
+          "part": "V",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "anointing-by-a-sinful-woman",
+          "title": "Anointing by a sinful woman"
+        },
+        {
+          "id": "V.7",
+          "part": "V",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "women-who-followed-and-supported-jesus",
+          "title": "Women who followed and supported Jesus"
+        },
+        {
+          "id": "V.8",
+          "part": "V",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "the-beelzebul-controversy",
+          "title": "The Beelzebul controversy"
+        },
+        {
+          "id": "V.9",
+          "part": "V",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "return-of-the-unclean-spirit",
+          "title": "Return of the unclean spirit"
+        },
+        {
+          "id": "V.10",
+          "part": "V",
+          "seq": 10,
+          "order": 10.0,
+          "slug": "the-sign-of-jonah",
+          "title": "The sign of Jonah"
+        },
+        {
+          "id": "V.11",
+          "part": "V",
+          "seq": 11,
+          "order": 11.0,
+          "slug": "jesus-s-true-family",
+          "title": "Jesus's true family"
+        }
+      ]
+    },
+    {
+      "id": "VI",
+      "kind": "section",
+      "label": "VI",
+      "title": "Parables of the Kingdom",
+      "pericopes": [
+        {
+          "id": "VI.1",
+          "part": "VI",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "the-sower",
+          "title": "The sower"
+        },
+        {
+          "id": "VI.2",
+          "part": "VI",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "lamp-under-a-basket-the-measure",
+          "title": "Lamp under a basket; the measure"
+        },
+        {
+          "id": "VI.3",
+          "part": "VI",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "the-seed-growing-secretly",
+          "title": "The seed growing secretly"
+        },
+        {
+          "id": "VI.4",
+          "part": "VI",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "the-mustard-seed",
+          "title": "The mustard seed"
+        },
+        {
+          "id": "VI.5",
+          "part": "VI",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "the-leaven",
+          "title": "The leaven"
+        },
+        {
+          "id": "VI.6",
+          "part": "VI",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "wheat-and-tares",
+          "title": "Wheat and tares"
+        },
+        {
+          "id": "VI.7",
+          "part": "VI",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "treasure-and-pearl",
+          "title": "Treasure and pearl"
+        },
+        {
+          "id": "VI.8",
+          "part": "VI",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "the-dragnet",
+          "title": "The dragnet"
+        }
+      ]
+    },
+    {
+      "id": "VII",
+      "kind": "section",
+      "label": "VII",
+      "title": "Mighty Works and Wider Mission",
+      "pericopes": [
+        {
+          "id": "VII.1",
+          "part": "VII",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "stilling-the-storm",
+          "title": "Stilling the storm"
+        },
+        {
+          "id": "VII.2",
+          "part": "VII",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "the-gerasene-demoniac",
+          "title": "The Gerasene demoniac"
+        },
+        {
+          "id": "VII.3",
+          "part": "VII",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "jairus-s-daughter-and-the-hemorrhaging-woman",
+          "title": "Jairus's daughter and the hemorrhaging woman"
+        },
+        {
+          "id": "VII.4",
+          "part": "VII",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "rejection-at-nazareth-later",
+          "title": "Rejection at Nazareth (later)"
+        },
+        {
+          "id": "VII.5",
+          "part": "VII",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "mission-of-the-twelve",
+          "title": "Mission of the Twelve"
+        },
+        {
+          "id": "VII.6",
+          "part": "VII",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "mission-of-the-seventy-two",
+          "title": "Mission of the Seventy(-two)"
+        },
+        {
+          "id": "VII.7",
+          "part": "VII",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "death-of-john-the-baptist",
+          "title": "Death of John the Baptist"
+        },
+        {
+          "id": "VII.8",
+          "part": "VII",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "feeding-of-the-five-thousand",
+          "title": "Feeding of the five thousand"
+        },
+        {
+          "id": "VII.9",
+          "part": "VII",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "walking-on-the-water",
+          "title": "Walking on the water"
+        },
+        {
+          "id": "VII.10",
+          "part": "VII",
+          "seq": 10,
+          "order": 10.0,
+          "slug": "healings-at-gennesaret",
+          "title": "Healings at Gennesaret"
+        },
+        {
+          "id": "VII.11",
+          "part": "VII",
+          "seq": 11,
+          "order": 11.0,
+          "slug": "the-bread-of-life-discourse",
+          "title": "The bread of life discourse"
+        },
+        {
+          "id": "VII.12",
+          "part": "VII",
+          "seq": 12,
+          "order": 12.0,
+          "slug": "tradition-of-the-elders-clean-and-unclean",
+          "title": "Tradition of the elders; clean and unclean"
+        },
+        {
+          "id": "VII.13",
+          "part": "VII",
+          "seq": 13,
+          "order": 13.0,
+          "slug": "the-syrophoenician-canaanite-woman",
+          "title": "The Syrophoenician / Canaanite woman"
+        },
+        {
+          "id": "VII.14",
+          "part": "VII",
+          "seq": 14,
+          "order": 14.0,
+          "slug": "healing-the-deaf-mute-many-healings",
+          "title": "Healing the deaf-mute; many healings"
+        },
+        {
+          "id": "VII.15",
+          "part": "VII",
+          "seq": 15,
+          "order": 15.0,
+          "slug": "feeding-of-the-four-thousand",
+          "title": "Feeding of the four thousand"
+        },
+        {
+          "id": "VII.16",
+          "part": "VII",
+          "seq": 16,
+          "order": 16.0,
+          "slug": "demand-for-a-sign-leaven-of-the-pharisees",
+          "title": "Demand for a sign; leaven of the Pharisees"
+        },
+        {
+          "id": "VII.17",
+          "part": "VII",
+          "seq": 17,
+          "order": 17.0,
+          "slug": "the-blind-man-at-bethsaida",
+          "title": "The blind man at Bethsaida"
+        }
+      ]
+    },
+    {
+      "id": "VIII",
+      "kind": "section",
+      "label": "VIII",
+      "title": "The Turning Point — Confession to Transfiguration",
+      "pericopes": [
+        {
+          "id": "VIII.1",
+          "part": "VIII",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "peter-s-confession-at-caesarea-philippi",
+          "title": "Peter's confession at Caesarea Philippi"
+        },
+        {
+          "id": "VIII.2",
+          "part": "VIII",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "first-passion-prediction-taking-up-the-cross",
+          "title": "First passion prediction; taking up the cross"
+        },
+        {
+          "id": "VIII.3",
+          "part": "VIII",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "the-transfiguration",
+          "title": "The Transfiguration"
+        },
+        {
+          "id": "VIII.4",
+          "part": "VIII",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "the-boy-with-an-unclean-spirit",
+          "title": "The boy with an unclean spirit"
+        },
+        {
+          "id": "VIII.5",
+          "part": "VIII",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "second-passion-prediction",
+          "title": "Second passion prediction"
+        },
+        {
+          "id": "VIII.6",
+          "part": "VIII",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "the-temple-tax",
+          "title": "The temple tax"
+        },
+        {
+          "id": "VIII.7",
+          "part": "VIII",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "who-is-the-greatest-the-child",
+          "title": "Who is the greatest; the child"
+        },
+        {
+          "id": "VIII.8",
+          "part": "VIII",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "the-strange-exorcist",
+          "title": "The strange exorcist"
+        },
+        {
+          "id": "VIII.9",
+          "part": "VIII",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "causing-to-stumble-salt",
+          "title": "Causing to stumble; salt"
+        },
+        {
+          "id": "VIII.10",
+          "part": "VIII",
+          "seq": 10,
+          "order": 10.0,
+          "slug": "the-lost-sheep-reproof-forgiveness",
+          "title": "The lost sheep; reproof; forgiveness"
+        },
+        {
+          "id": "VIII.11",
+          "part": "VIII",
+          "seq": 11,
+          "order": 11.0,
+          "slug": "the-unforgiving-servant",
+          "title": "The unforgiving servant"
+        }
+      ]
+    },
+    {
+      "id": "IX",
+      "kind": "section",
+      "label": "IX",
+      "title": "The Journey to Jerusalem",
+      "pericopes": [
+        {
+          "id": "IX.1",
+          "part": "IX",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "departure-samaritan-village-would-be-followers",
+          "title": "Departure; Samaritan village; would-be followers"
+        },
+        {
+          "id": "IX.2",
+          "part": "IX",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "the-good-samaritan",
+          "title": "The Good Samaritan"
+        },
+        {
+          "id": "IX.3",
+          "part": "IX",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "mary-and-martha",
+          "title": "Mary and Martha"
+        },
+        {
+          "id": "IX.4",
+          "part": "IX",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "teaching-on-prayer-friend-at-midnight",
+          "title": "Teaching on prayer (friend at midnight)"
+        },
+        {
+          "id": "IX.5",
+          "part": "IX",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "woes-against-the-pharisees-and-lawyers",
+          "title": "Woes against the Pharisees and lawyers"
+        },
+        {
+          "id": "IX.6",
+          "part": "IX",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "fear-god-confess-christ-the-unforgivable-word",
+          "title": "Fear God; confess Christ; the unforgivable word"
+        },
+        {
+          "id": "IX.7",
+          "part": "IX",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "the-rich-fool",
+          "title": "The rich fool"
+        },
+        {
+          "id": "IX.8",
+          "part": "IX",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "watchfulness-the-faithful-steward",
+          "title": "Watchfulness; the faithful steward"
+        },
+        {
+          "id": "IX.9",
+          "part": "IX",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "division-interpreting-the-times",
+          "title": "Division; interpreting the times"
+        },
+        {
+          "id": "IX.10",
+          "part": "IX",
+          "seq": 10,
+          "order": 10.0,
+          "slug": "repent-the-barren-fig-tree",
+          "title": "Repent; the barren fig tree"
+        },
+        {
+          "id": "IX.11",
+          "part": "IX",
+          "seq": 11,
+          "order": 11.0,
+          "slug": "healing-the-bent-woman-on-the-sabbath",
+          "title": "Healing the bent woman on the Sabbath"
+        },
+        {
+          "id": "IX.12",
+          "part": "IX",
+          "seq": 12,
+          "order": 12.0,
+          "slug": "the-narrow-door-lament-over-jerusalem",
+          "title": "The narrow door; lament over Jerusalem"
+        },
+        {
+          "id": "IX.13",
+          "part": "IX",
+          "seq": 13,
+          "order": 13.0,
+          "slug": "at-a-pharisee-s-table-places-of-honor-the-great-banquet",
+          "title": "At a Pharisee's table; places of honor; the great banquet"
+        },
+        {
+          "id": "IX.14",
+          "part": "IX",
+          "seq": 14,
+          "order": 14.0,
+          "slug": "the-cost-of-discipleship",
+          "title": "The cost of discipleship"
+        },
+        {
+          "id": "IX.15",
+          "part": "IX",
+          "seq": 15,
+          "order": 15.0,
+          "slug": "lost-coin-the-prodigal-son",
+          "title": "Lost coin; the prodigal son"
+        },
+        {
+          "id": "IX.16",
+          "part": "IX",
+          "seq": 16,
+          "order": 16.0,
+          "slug": "the-dishonest-manager-the-law-the-rich-man-and-lazarus",
+          "title": "The dishonest manager; the law; the rich man and Lazarus"
+        },
+        {
+          "id": "IX.17",
+          "part": "IX",
+          "seq": 17,
+          "order": 17.0,
+          "slug": "faith-duty-and-the-ten-lepers",
+          "title": "Faith, duty, and the ten lepers"
+        },
+        {
+          "id": "IX.18",
+          "part": "IX",
+          "seq": 18,
+          "order": 18.0,
+          "slug": "the-coming-of-the-kingdom",
+          "title": "The coming of the kingdom"
+        },
+        {
+          "id": "IX.19",
+          "part": "IX",
+          "seq": 19,
+          "order": 19.0,
+          "slug": "the-persistent-widow-the-pharisee-and-tax-collector",
+          "title": "The persistent widow; the Pharisee and tax collector"
+        },
+        {
+          "id": "IX.20",
+          "part": "IX",
+          "seq": 20,
+          "order": 20.0,
+          "slug": "at-the-feast-of-tabernacles",
+          "title": "At the Feast of Tabernacles"
+        },
+        {
+          "id": "IX.21",
+          "part": "IX",
+          "seq": 21,
+          "order": 21.0,
+          "slug": "i-am-the-light-of-the-world-the-controversies",
+          "title": "\"I am the light of the world\"; the controversies"
+        },
+        {
+          "id": "IX.22",
+          "part": "IX",
+          "seq": 22,
+          "order": 22.0,
+          "slug": "the-man-born-blind",
+          "title": "The man born blind"
+        },
+        {
+          "id": "IX.23",
+          "part": "IX",
+          "seq": 23,
+          "order": 23.0,
+          "slug": "the-good-shepherd-the-feast-of-dedication",
+          "title": "The Good Shepherd; the Feast of Dedication"
+        },
+        {
+          "id": "IX.24",
+          "part": "IX",
+          "seq": 24,
+          "order": 24.0,
+          "slug": "the-raising-of-lazarus-the-plot",
+          "title": "The raising of Lazarus; the plot"
+        },
+        {
+          "id": "IX.25",
+          "part": "IX",
+          "seq": 25,
+          "order": 25.0,
+          "slug": "on-marriage-and-divorce",
+          "title": "On marriage and divorce"
+        },
+        {
+          "id": "IX.26",
+          "part": "IX",
+          "seq": 26,
+          "order": 26.0,
+          "slug": "blessing-the-children",
+          "title": "Blessing the children"
+        },
+        {
+          "id": "IX.27",
+          "part": "IX",
+          "seq": 27,
+          "order": 27.0,
+          "slug": "the-rich-young-ruler-reward-of-discipleship",
+          "title": "The rich young ruler; reward of discipleship"
+        },
+        {
+          "id": "IX.28",
+          "part": "IX",
+          "seq": 28,
+          "order": 28.0,
+          "slug": "laborers-in-the-vineyard",
+          "title": "Laborers in the vineyard"
+        },
+        {
+          "id": "IX.29",
+          "part": "IX",
+          "seq": 29,
+          "order": 29.0,
+          "slug": "third-passion-prediction",
+          "title": "Third passion prediction"
+        },
+        {
+          "id": "IX.30",
+          "part": "IX",
+          "seq": 30,
+          "order": 30.0,
+          "slug": "the-request-of-james-and-john-servant-leadership",
+          "title": "The request of James and John; servant leadership"
+        },
+        {
+          "id": "IX.31",
+          "part": "IX",
+          "seq": 31,
+          "order": 31.0,
+          "slug": "blind-bartimaeus",
+          "title": "Blind Bartimaeus"
+        },
+        {
+          "id": "IX.32",
+          "part": "IX",
+          "seq": 32,
+          "order": 32.0,
+          "slug": "zacchaeus",
+          "title": "Zacchaeus"
+        },
+        {
+          "id": "IX.33",
+          "part": "IX",
+          "seq": 33,
+          "order": 33.0,
+          "slug": "the-parable-of-the-pounds-talents",
+          "title": "The parable of the pounds / talents"
+        }
+      ]
+    },
+    {
+      "id": "X",
+      "kind": "section",
+      "label": "X",
+      "title": "The Final Week in Jerusalem",
+      "pericopes": [
+        {
+          "id": "X.1",
+          "part": "X",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "the-triumphal-entry",
+          "title": "The triumphal entry"
+        },
+        {
+          "id": "X.2",
+          "part": "X",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "anointing-at-bethany",
+          "title": "Anointing at Bethany"
+        },
+        {
+          "id": "X.3",
+          "part": "X",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "cursing-the-fig-tree",
+          "title": "Cursing the fig tree"
+        },
+        {
+          "id": "X.4",
+          "part": "X",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "cleansing-of-the-temple-synoptic-placement",
+          "title": "Cleansing of the temple (Synoptic placement)"
+        },
+        {
+          "id": "X.5",
+          "part": "X",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "the-question-of-authority",
+          "title": "The question of authority"
+        },
+        {
+          "id": "X.6",
+          "part": "X",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "parable-of-the-two-sons",
+          "title": "Parable of the two sons"
+        },
+        {
+          "id": "X.7",
+          "part": "X",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "the-wicked-tenants",
+          "title": "The wicked tenants"
+        },
+        {
+          "id": "X.8",
+          "part": "X",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "the-wedding-banquet",
+          "title": "The wedding banquet"
+        },
+        {
+          "id": "X.9",
+          "part": "X",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "tribute-to-caesar",
+          "title": "Tribute to Caesar"
+        },
+        {
+          "id": "X.10",
+          "part": "X",
+          "seq": 10,
+          "order": 10.0,
+          "slug": "the-sadducees-and-the-resurrection",
+          "title": "The Sadducees and the resurrection"
+        },
+        {
+          "id": "X.11",
+          "part": "X",
+          "seq": 11,
+          "order": 11.0,
+          "slug": "the-greatest-commandment",
+          "title": "The greatest commandment"
+        },
+        {
+          "id": "X.12",
+          "part": "X",
+          "seq": 12,
+          "order": 12.0,
+          "slug": "david-s-son-and-david-s-lord",
+          "title": "David's son and David's Lord"
+        },
+        {
+          "id": "X.13",
+          "part": "X",
+          "seq": 13,
+          "order": 13.0,
+          "slug": "woes-on-the-scribes-and-pharisees",
+          "title": "Woes on the scribes and Pharisees"
+        },
+        {
+          "id": "X.14",
+          "part": "X",
+          "seq": 14,
+          "order": 14.0,
+          "slug": "the-widow-s-offering",
+          "title": "The widow's offering"
+        },
+        {
+          "id": "X.15",
+          "part": "X",
+          "seq": 15,
+          "order": 15.0,
+          "slug": "greeks-seek-jesus-the-voice-from-heaven",
+          "title": "Greeks seek Jesus; the voice from heaven"
+        },
+        {
+          "id": "X.16",
+          "part": "X",
+          "seq": 16,
+          "order": 16.0,
+          "slug": "the-olivet-discourse-the-end-of-the-age",
+          "title": "The Olivet discourse (the end of the age)"
+        },
+        {
+          "id": "X.17",
+          "part": "X",
+          "seq": 17,
+          "order": 17.0,
+          "slug": "parable-of-the-ten-virgins",
+          "title": "Parable of the ten virgins"
+        },
+        {
+          "id": "X.18",
+          "part": "X",
+          "seq": 18,
+          "order": 18.0,
+          "slug": "parable-of-the-talents",
+          "title": "Parable of the talents"
+        },
+        {
+          "id": "X.19",
+          "part": "X",
+          "seq": 19,
+          "order": 19.0,
+          "slug": "the-sheep-and-the-goats",
+          "title": "The sheep and the goats"
+        },
+        {
+          "id": "X.20",
+          "part": "X",
+          "seq": 20,
+          "order": 20.0,
+          "slug": "the-plot-judas-s-bargain",
+          "title": "The plot; Judas's bargain"
+        }
+      ]
+    },
+    {
+      "id": "XI",
+      "kind": "section",
+      "label": "XI",
+      "title": "The Last Supper and Farewell",
+      "pericopes": [
+        {
+          "id": "XI.1",
+          "part": "XI",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "preparation-for-the-passover",
+          "title": "Preparation for the Passover"
+        },
+        {
+          "id": "XI.2",
+          "part": "XI",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "the-footwashing",
+          "title": "The footwashing"
+        },
+        {
+          "id": "XI.3",
+          "part": "XI",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "the-betrayer-foretold",
+          "title": "The betrayer foretold"
+        },
+        {
+          "id": "XI.4",
+          "part": "XI",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "institution-of-the-supper",
+          "title": "Institution of the Supper"
+        },
+        {
+          "id": "XI.5",
+          "part": "XI",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "dispute-about-greatness-thrones",
+          "title": "Dispute about greatness; thrones"
+        },
+        {
+          "id": "XI.6",
+          "part": "XI",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "peter-s-denial-foretold",
+          "title": "Peter's denial foretold"
+        },
+        {
+          "id": "XI.7",
+          "part": "XI",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "the-farewell-discourses",
+          "title": "The farewell discourses"
+        },
+        {
+          "id": "XI.8",
+          "part": "XI",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "the-high-priestly-prayer",
+          "title": "The high-priestly prayer"
+        }
+      ]
+    },
+    {
+      "id": "XII",
+      "kind": "section",
+      "label": "XII",
+      "title": "Arrest, Trial, Crucifixion, Burial",
+      "pericopes": [
+        {
+          "id": "XII.1",
+          "part": "XII",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "gethsemane",
+          "title": "Gethsemane"
+        },
+        {
+          "id": "XII.2",
+          "part": "XII",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "the-arrest",
+          "title": "The arrest"
+        },
+        {
+          "id": "XII.3",
+          "part": "XII",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "before-annas-and-caiaphas-the-sanhedrin",
+          "title": "Before Annas and Caiaphas; the Sanhedrin"
+        },
+        {
+          "id": "XII.4",
+          "part": "XII",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "peter-s-denial",
+          "title": "Peter's denial"
+        },
+        {
+          "id": "XII.5",
+          "part": "XII",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "the-end-of-judas",
+          "title": "The end of Judas"
+        },
+        {
+          "id": "XII.6",
+          "part": "XII",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "before-pilate-and-herod",
+          "title": "Before Pilate (and Herod)"
+        },
+        {
+          "id": "XII.7",
+          "part": "XII",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "the-crucifixion",
+          "title": "The crucifixion"
+        },
+        {
+          "id": "XII.8",
+          "part": "XII",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "the-death-of-jesus",
+          "title": "The death of Jesus"
+        },
+        {
+          "id": "XII.9",
+          "part": "XII",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "the-burial",
+          "title": "The burial"
+        }
+      ]
+    },
+    {
+      "id": "XIII",
+      "kind": "section",
+      "label": "XIII",
+      "title": "Resurrection and Appearances",
+      "pericopes": [
+        {
+          "id": "XIII.1",
+          "part": "XIII",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "the-empty-tomb",
+          "title": "The empty tomb"
+        },
+        {
+          "id": "XIII.2",
+          "part": "XIII",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "appearance-to-mary-magdalene",
+          "title": "Appearance to Mary Magdalene"
+        },
+        {
+          "id": "XIII.3",
+          "part": "XIII",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "the-guards-report",
+          "title": "The guards' report"
+        },
+        {
+          "id": "XIII.4",
+          "part": "XIII",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "on-the-road-to-emmaus",
+          "title": "On the road to Emmaus"
+        },
+        {
+          "id": "XIII.5",
+          "part": "XIII",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "appearance-to-the-disciples-jerusalem",
+          "title": "Appearance to the disciples (Jerusalem)"
+        },
+        {
+          "id": "XIII.6",
+          "part": "XIII",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "thomas-and-the-wounds",
+          "title": "Thomas and the wounds"
+        },
+        {
+          "id": "XIII.7",
+          "part": "XIII",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "by-the-sea-of-tiberias-peter-restored",
+          "title": "By the Sea of Tiberias; Peter restored"
+        },
+        {
+          "id": "XIII.8",
+          "part": "XIII",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "the-great-commission-galilee",
+          "title": "The Great Commission (Galilee)"
+        },
+        {
+          "id": "XIII.9",
+          "part": "XIII",
+          "seq": 9,
+          "order": 9.0,
+          "slug": "the-appearances-summarized",
+          "title": "The appearances summarized"
+        },
+        {
+          "id": "XIII.10",
+          "part": "XIII",
+          "seq": 10,
+          "order": 10.0,
+          "slug": "forty-days-of-teaching",
+          "title": "Forty days of teaching"
+        }
+      ]
+    },
+    {
+      "id": "A",
+      "kind": "appendix",
+      "label": "Appendix A",
+      "title": "Summary Reports of the Ministry (Kerygma)",
+      "pericopes": [
+        {
+          "id": "A.1",
+          "part": "A",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "peter-at-pentecost",
+          "title": "Peter at Pentecost"
+        },
+        {
+          "id": "A.2",
+          "part": "A",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "peter-in-the-house-of-cornelius",
+          "title": "Peter in the house of Cornelius"
+        },
+        {
+          "id": "A.3",
+          "part": "A",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "paul-at-pisidian-antioch",
+          "title": "Paul at Pisidian Antioch"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "kind": "appendix",
+      "label": "Appendix B",
+      "title": "Unanchored Sayings and Fragments",
+      "pericopes": [
+        {
+          "id": "B.1",
+          "part": "B",
+          "seq": 1,
+          "order": 1.0,
+          "slug": "more-blessed-to-give-than-to-receive",
+          "title": "\"More blessed to give than to receive\""
+        },
+        {
+          "id": "B.2",
+          "part": "B",
+          "seq": 2,
+          "order": 2.0,
+          "slug": "the-temple-purity-controversy",
+          "title": "The Temple-purity controversy"
+        },
+        {
+          "id": "B.3",
+          "part": "B",
+          "seq": 3,
+          "order": 3.0,
+          "slug": "controversy-and-saying-fragments",
+          "title": "Controversy and saying fragments"
+        },
+        {
+          "id": "B.4",
+          "part": "B",
+          "seq": 4,
+          "order": 4.0,
+          "slug": "sayings-source-fragment",
+          "title": "Sayings-source fragment"
+        },
+        {
+          "id": "B.5",
+          "part": "B",
+          "seq": 5,
+          "order": 5.0,
+          "slug": "egerton-papyrus-2-egerton-gospel",
+          "title": "Egerton Papyrus 2 (Egerton Gospel)."
+        },
+        {
+          "id": "B.6",
+          "part": "B",
+          "seq": 6,
+          "order": 6.0,
+          "slug": "eucharistic-prayers",
+          "title": "Eucharistic prayers"
+        },
+        {
+          "id": "B.7",
+          "part": "B",
+          "seq": 7,
+          "order": 7.0,
+          "slug": "gospel-of-the-hebrews-unanchored-sayings",
+          "title": "Gospel of the Hebrews — unanchored sayings."
+        },
+        {
+          "id": "B.8",
+          "part": "B",
+          "seq": 8,
+          "order": 8.0,
+          "slug": "thomas-sayings-without-a-narrative-anchor",
+          "title": "Thomas sayings without a narrative anchor."
+        }
+      ]
+    }
+  ]
+}

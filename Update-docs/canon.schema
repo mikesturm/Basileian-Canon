@@ -1,0 +1,445 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mikesturm/basileian-reader/canon.schema.json",
+  "title": "Basileian Canon — Reader Structure",
+  "description": "Harmony skeleton for the reader app: parts -> pericopes -> witnesses, plus per-pericope endnotes. Translated/original-language text is NOT stored here; witnesses reference the source corpus by verse_id range.",
+  "type": "object",
+  "required": [
+    "canon",
+    "schema_version",
+    "source_registry",
+    "parts"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "canon": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "generated": {
+      "type": "string"
+    },
+    "id_policy": {
+      "type": "string"
+    },
+    "source_registry": {
+      "type": "object",
+      "description": "Map of source key -> metadata. Every witness.source MUST be a key here.",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "name",
+          "tradition",
+          "verse_id_pattern"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "tradition": {
+            "enum": [
+              "canonical",
+              "noncanonical"
+            ]
+          },
+          "tier": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "verse_id_pattern": {
+            "type": "string",
+            "description": "Human-readable template, e.g. 'mark.<ch>.<v>' or 'thomas.<logion>.<sub>'."
+          },
+          "language": {
+            "enum": [
+              "greek",
+              "coptic",
+              "greek-fragment",
+              "latin",
+              "mixed"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/part"
+      }
+    },
+    "left_out": {
+      "type": "object",
+      "description": "The 'What Has Been Left Out' section: New Testament canon material not admitted, with rationale. Excluded material is documented here rather than as witnesses.",
+      "required": [
+        "title",
+        "scope",
+        "categories"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/left_out_category"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "part": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "label",
+        "title",
+        "pericopes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(Pr|A|B|[IVXLC]+)$"
+        },
+        "kind": {
+          "enum": [
+            "prologue",
+            "section",
+            "appendix"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "pericopes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pericope"
+          }
+        }
+      }
+    },
+    "pericope": {
+      "type": "object",
+      "required": [
+        "id",
+        "part",
+        "seq",
+        "order",
+        "slug",
+        "title",
+        "witnesses"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(Pr|A|B|[IVXLC]+)\\.[0-9]+$"
+        },
+        "part": {
+          "type": "string"
+        },
+        "seq": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "order": {
+          "type": "number"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "disputed_placement": {
+          "type": "boolean",
+          "default": false
+        },
+        "notes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "grouping": {
+              "type": "string"
+            },
+            "placement": {
+              "type": "string"
+            }
+          }
+        },
+        "witnesses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/witness"
+          }
+        },
+        "endnotes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endnote"
+          }
+        },
+        "cross_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(Pr|A|B|[IVXLC]+)\\.[0-9]+$"
+          }
+        }
+      }
+    },
+    "witness": {
+      "type": "object",
+      "required": [
+        "w_id",
+        "source",
+        "ref",
+        "tradition",
+        "role"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "w_id": {
+          "type": "string",
+          "pattern": "^(Pr|A|B|[IVXLC]+)\\.[0-9]+\\.w[0-9]+$"
+        },
+        "source": {
+          "type": "string",
+          "description": "MUST be a key in source_registry."
+        },
+        "ref": {
+          "type": "string",
+          "description": "Human-readable citation, e.g. 'Mark 2:1-12', 'Thomas 47', 'Gospel of Peter 28-33'."
+        },
+        "tradition": {
+          "enum": [
+            "canonical",
+            "noncanonical"
+          ]
+        },
+        "role": {
+          "enum": [
+            "primary",
+            "parallel",
+            "insert",
+            "cross_ref"
+          ]
+        },
+        "extent": {
+          "enum": [
+            "whole",
+            "range",
+            "partial"
+          ],
+          "default": "range"
+        },
+        "verse_ids": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "cross_ref_to": {
+          "type": "string",
+          "pattern": "^(Pr|A|B|[IVXLC]+)\\.[0-9]+(\\.w[0-9]+)?$",
+          "description": "Required when role=cross_ref: the pericope (or witness) holding the primary insertion."
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "text-critical",
+              "wh-na28-divergence",
+              "esoteric-tail",
+              "polemic",
+              "whole-logion-carry",
+              "fragmentary",
+              "liturgical",
+              "borderline"
+            ]
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "const": "cross_ref"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cross_ref_to"
+            ]
+          }
+        }
+      ],
+      "description": "Every witness in the official canon is INCLUDED. Excluded material is not carried here; it is documented in the top-level 'left_out' section and in the working document."
+    },
+    "endnote": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(Pr|A|B|[IVXLC]+)\\.[0-9]+\\.n[0-9]+$"
+        },
+        "type": {
+          "enum": [
+            "lexical",
+            "grammatical",
+            "text-critical",
+            "historical-cultural",
+            "theological-tradition"
+          ]
+        },
+        "anchor": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "verse_id": {
+              "type": "string"
+            },
+            "lemma": {
+              "type": "string"
+            }
+          }
+        },
+        "term": {
+          "type": "string",
+          "description": "Transliterated headword if this note covers an untranslated-terms-list item, e.g. 'pistis'."
+        },
+        "first_occurrence": {
+          "type": "boolean",
+          "description": "True if this is the document-first occurrence requiring the full lexical-range footnote."
+        },
+        "status": {
+          "enum": [
+            "todo",
+            "stub",
+            "drafted",
+            "final"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Scholarly resources engaged, e.g. ['BDAG s.v. pistis 2', 'Marcus AYB']."
+        },
+        "body": {
+          "type": "string",
+          "description": "Note text (markdown). May be empty when status=todo/stub."
+        }
+      }
+    },
+    "left_out_category": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "reason",
+        "items"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^LO\\.[a-z-]+$"
+        },
+        "label": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "ref",
+              "disposition"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "description": "Optional source_registry key."
+              },
+              "disposition": {
+                "enum": [
+                  "excluded",
+                  "partial",
+                  "flagged-retained"
+                ]
+              },
+              "retained_in": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "For disposition=partial: pericope IDs holding the admitted fragments."
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
