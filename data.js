@@ -5122,7 +5122,7 @@ window.BASILEIAN_DATA = {
     "[[SOURCE:Matthew 6:19–34]] “Do not accumulate for yourselves treasures on earth, where moth and devouring insect destroy and where thieves break in and steal. But accumulate for yourselves treasures in heaven, where moth and devouring insect do not destroy, and thieves do not break in and steal. For where your treasure is, there your heart will be also. “The eye is the lamp of the body. If then your eye is healthy, your whole body will be full of light. But if your eye is diseased, your whole body will be full of darkness. If then the light in you is darkness, how great is the darkness! “No one can serve two masters, for either he will hate the one and love the other, or he will be devoted to the one and despise the other. You cannot serve God and money. “Therefore I tell you, do not worry about your life, what you will eat or drink, or about your body, what you will wear. Isn’t there more to life than food and more to the body than clothing? Look at the birds in the sky: They do not sow, or reap, or gather into barns, yet your heavenly Father feeds them. Aren’t you more valuable than they are? And which of you by worrying can add even one hour to his life? Why do you worry about clothing? Think about how the flowers of the field grow; they do not work or spin. Yet I tell you that not even Solomon in all his glory was clothed like one of these! And if this is how God clothes the wild grass, which is here today and tomorrow is tossed into the fire to heat the oven, won’t he clothe you even more, you people of little faith? So then, don’t worry saying, ‘What will we eat?’ or ‘What will we drink?’ or ‘What will we wear?’ For the unconverted pursue these things, and your heavenly Father knows that you need them. But above all pursue his kingdom and righteousness, and all these things will be given to you as well. So then, do not worry about tomorrow, for tomorrow will worry about itself. Today has enough trouble of its own.",
     "[[SOURCE:Luke 12:22–34, 16:13]] Then Jesus said to his disciples, “Therefore I tell you, do not worry about your life, what you will eat, or about your body, what you will wear. For there is more to life than food, and more to the body than clothing. Consider the ravens: They do not sow or reap, they have no storeroom or barn, yet God feeds them. How much more valuable are you than the birds! And which of you by worrying can add an hour to his life? So if you cannot do such a very little thing as this, why do you worry about the rest? Consider how the flowers grow; they do not work or spin. Yet I tell you, not even Solomon in all his glory was clothed like one of these! And if this is how God clothes the wild grass, which is here today and tomorrow is tossed into the fire to heat the oven, how much more will he clothe you, you people of little faith! So do not be overly concerned about what you will eat and what you will drink, and do not worry about such things. For all the nations of the world pursue these things, and your Father knows that you need them. Instead, pursue his kingdom, and these things will be given to you as well. “Do not be afraid, little flock, for your Father is well pleased to give you the kingdom. Sell your possessions and give to the poor. Provide yourselves purses that do not wear out—a treasure in heaven that never decreases, where no thief approaches and no moth destroys. For where your treasure is, there your heart will be also. No servant can serve two masters, for either he will hate the one and love the other, or he will be devoted to the one and despise the other. You cannot serve God and money.”",
     "[[NONBIBLICAL:Thomas 47 (two masters)]] Jesus said, \"It is impossible for a man to mount two horses or to stretch two bows. And it is impossible for a servant to serve two masters; otherwise, he will honor the one and treat the other contemptuously. No man drinks old wine and immediately desires to drink new wine. And new wine is not put into old wineskins, lest they burst; nor is old wine put into a new wineskin, lest it spoil it. An old patch is not sewn onto a new garment, because a tear would result.\"",
-    "[[NONBIBLICAL:P.Oxy 5575 (\"add a cubit\")]] See source URL for text (copyright restricted)."
+    "[[NONBIBLICAL:P.Oxy 5575 (\"add a cubit\")]] [Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
    ],
    "verseMarkers": [
     {
@@ -5315,7 +5315,7 @@ window.BASILEIAN_DATA = {
     {
      "source": "P.Oxy 5575",
      "label": "P.Oxy 5575 (\"add a cubit\")",
-     "text": "See source URL for text (copyright restricted)."
+     "text": "[Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
     }
    ],
    "notes": "\"Two masters\" parallels Thomas 47; the \"add a cubit to his stature\" worry-saying is also attested at P.Oxy 5575.",
@@ -13837,7 +13837,7 @@ window.BASILEIAN_DATA = {
     "[[NOTE]] Parallels Thomas 63; the parable's ending is also attested in Greek at P.Oxy 5575.",
     "[[SOURCE:Luke 12:13–21]] Then someone from the crowd said to him, “Teacher, tell my brother to divide the inheritance with me.” But Jesus said to him, “Man, who made me a judge or arbitrator between you two?” Then he said to them, “Watch out and guard yourself from all types of greed, because one’s life does not consist in the abundance of his possessions.” He then told them a parable: “The land of a certain rich man produced an abundant crop, so he thought to himself, ‘What should I do, for I have nowhere to store my crops?’ Then he said, ‘I will do this: I will tear down my barns and build bigger ones, and there I will store all my grain and my goods. And I will say to myself, “You have plenty of goods stored up for many years; relax, eat, drink, celebrate!”’ But God said to him, ‘You fool! This very night your life will be demanded back from you, but who will get what you have prepared for yourself?’ So it is with the one who stores up riches for himself, but is not rich toward God.”",
     "[[NONBIBLICAL:Thomas 63]] Jesus said, \"There was a rich man who had much money. He said, 'I shall put my money to use so that I may sow, reap, plant, and fill my storehouse with produce, with the result that I shall lack nothing.' Such were his intentions, but that same night he died. Let him who has ears hear.\"",
-    "[[NONBIBLICAL:P.Oxy 5575 (rich-fool ending)]] See source URL."
+    "[[NONBIBLICAL:P.Oxy 5575 (rich-fool ending)]] [Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
    ],
    "verseMarkers": [
     {
@@ -13904,7 +13904,7 @@ window.BASILEIAN_DATA = {
     {
      "source": "P.Oxy 5575",
      "label": "P.Oxy 5575 (rich-fool ending)",
-     "text": "See source URL."
+     "text": "[Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
     }
    ],
    "notes": "Parallels Thomas 63; the parable's ending is also attested in Greek at P.Oxy 5575.",
@@ -14762,7 +14762,7 @@ window.BASILEIAN_DATA = {
     "[[NOTE]] \"Hating father and mother\" parallels Thomas 55; \"fast from the kosmos\" (P.Oxy 5575 / Thomas 27) belongs to the same renunciation theme.",
     "[[SOURCE:Luke 14:25–35]] Now large crowds were accompanying Jesus, and turning to them he said, “If anyone comes to me and does not hate his own father and mother, and wife and children, and brothers and sisters, and even his own life, he cannot be my disciple. Whoever does not carry his own cross and follow me cannot be my disciple. For which of you, wanting to build a tower, doesn’t sit down first and compute the cost to see if he has enough money to complete it? Otherwise, when he has laid a foundation and is not able to finish the tower, all who see it will begin to make fun of him. They will say, ‘This man began to build and was not able to finish!’ Or what king, going out to confront another king in battle, will not sit down first and determine whether he is able with 10,000 to oppose the one coming against him with 20,000? If he cannot succeed, he will send a representative while the other is still a long way off and ask for terms of peace. In the same way therefore not one of you can be my disciple if he does not renounce all his own possessions. “Salt is good, but if salt loses its flavor, how can its flavor be restored? It is of no value for the soil or for the manure pile; it is to be thrown out. The one who has ears to hear had better listen!”",
     "[[NONBIBLICAL:Thomas 55 (\"hating father and mother\")]] Jesus said, \"Whoever does not hate his father and his mother cannot become a disciple to me. And whoever does not hate his brothers and sisters and take up his cross in my way will not be worthy of me.\"",
-    "[[NONBIBLICAL:P.Oxy 5575 (\"fast from the kosmos\")]] See source URL."
+    "[[NONBIBLICAL:P.Oxy 5575 (\"fast from the kosmos\")]] [Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
    ],
    "verseMarkers": [
     {
@@ -14841,7 +14841,7 @@ window.BASILEIAN_DATA = {
     {
      "source": "P.Oxy 5575 / Thomas 27",
      "label": "P.Oxy 5575 (\"fast from the kosmos\")",
-     "text": "See source URL."
+     "text": "[Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
     }
    ],
    "notes": "\"Hating father and mother\" parallels Thomas 55; \"fast from the kosmos\" (P.Oxy 5575 / Thomas 27) belongs to the same renunciation theme.",
@@ -26925,7 +26925,8 @@ window.BASILEIAN_DATA = {
     "[[SOURCE:Mark 15:42–47]] Now when evening had already come, since it was the day of preparation (that is, the day before the Sabbath), Joseph of Arimathea, a highly regarded member of the council, who was himself looking forward to the kingdom of God, went boldly to Pilate and asked for the body of Jesus. Pilate was surprised that he was already dead. He called the centurion and asked him if he had been dead for some time. When Pilate was informed by the centurion, he gave the body to Joseph. After Joseph bought a linen cloth and took down the body, he wrapped it in the linen and placed it in a tomb cut out of the rock. Then he rolled a stone across the entrance of the tomb. Mary Magdalene and Mary the mother of Joses saw where the body was placed.",
     "[[SOURCE:Matthew 27:57–66]] Now when it was evening, there came a rich man from Arimathea, named Joseph, who was also a disciple of Jesus. He went to Pilate and asked for the body of Jesus. Then Pilate ordered that it be given to him. Joseph took the body, wrapped it in a clean linen cloth, and placed it in his own new tomb that he had cut in the rock. Then he rolled a great stone across the entrance of the tomb and went away. (Now Mary Magdalene and the other Mary were sitting there, opposite the tomb.) The next day (which is after the day of preparation) the chief priests and the Pharisees assembled before Pilate and said, “Sir, we remember that while that deceiver was still alive he said, ‘After three days I will rise again.’ So give orders to secure the tomb until the third day. Otherwise his disciples may come and steal his body and say to the people, ‘He has been raised from the dead,’ and the last deception will be worse than the first.” Pilate said to them, “Take a guard of soldiers. Go and make it as secure as you can.” So they went with the soldiers of the guard and made the tomb secure by sealing the stone.",
     "[[SOURCE:Luke 23:50–56]] Now there was a man named Joseph who was a member of the council, a good and righteous man. (He had not consented to their plan and action.) He was from the Judean town of Arimathea, and was looking forward to the kingdom of God. He went to Pilate and asked for the body of Jesus. Then he took it down, wrapped it in a linen cloth, and placed it in a tomb cut out of the rock, where no one had yet been buried. It was the day of preparation and the Sabbath was beginning. The women who had accompanied Jesus from Galilee followed, and they saw the tomb and how his body was laid in it. Then they returned and prepared aromatic spices and perfumes. On the Sabbath they rested according to the commandment.",
-    "[[SOURCE:John 19:38–42]] After this, Joseph of Arimathea, a disciple of Jesus (but secretly, because he feared the Jewish leaders), asked Pilate if he could remove the body of Jesus. Pilate gave him permission, so he went and took the body away. Nicodemus, the man who had previously come to Jesus at night, accompanied Joseph, carrying a mixture of myrrh and aloes weighing about seventy-five pounds. Then they took Jesus’ body and wrapped it, with the aromatic spices, in strips of linen cloth according to Jewish burial customs. Now at the place where Jesus was crucified there was a garden, and in the garden was a new tomb where no one had yet been buried. And so, because it was the Jewish day of preparation and the tomb was nearby, they placed Jesus’ body there."
+    "[[SOURCE:John 19:38–42]] After this, Joseph of Arimathea, a disciple of Jesus (but secretly, because he feared the Jewish leaders), asked Pilate if he could remove the body of Jesus. Pilate gave him permission, so he went and took the body away. Nicodemus, the man who had previously come to Jesus at night, accompanied Joseph, carrying a mixture of myrrh and aloes weighing about seventy-five pounds. Then they took Jesus’ body and wrapped it, with the aromatic spices, in strips of linen cloth according to Jewish burial customs. Now at the place where Jesus was crucified there was a garden, and in the garden was a new tomb where no one had yet been buried. And so, because it was the Jewish day of preparation and the tomb was nearby, they placed Jesus’ body there.",
+    "[[NONBIBLICAL:Gospel of Peter (passion material)]] Pilate and Herod\n(1) But of the Jews no one washed the hands, neither Herod nor one of his judges, and when they didn't want to wash Pilate stood up. (2) And then Herod the king, commanding the Lord to be brought, said to them, \"Do whatever I commanded you to do to him.\"\n\nJoseph Requests Jesus' Body\n(3) And Joseph stood there, the friend of Pilate and the Lord. And seeing that they were about to crucify him, he went to Pilate and asked for the body of the Lord for burial. (4) And Pilate, having sent to Herod, asked him for the body.\n(5) And Herod said, \"Brother Pilate, even if someone hadn't asked for him, we would've buried him, since also Sabbath is beginning, because it's written in the Law, 'The sun shouldn't set on one who's been killed.'\"\n\nThe Lord is Tortured and Mocked\nAnd he hande"
    ],
    "verseMarkers": [
     {
@@ -27097,7 +27098,14 @@ window.BASILEIAN_DATA = {
      "verse": 42
     }
    ],
-   "nonbiblical": [],
+   "nonbiblical": [
+    {
+     "source": "Gospel of Peter",
+     "label": "Gospel of Peter (passion material)",
+     "text": "Pilate and Herod\n(1) But of the Jews no one washed the hands, neither Herod nor one of his judges, and when they didn't want to wash Pilate stood up. (2) And then Herod the king, commanding the Lord to be brought, said to them, \"Do whatever I commanded you to do to him.\"\n\nJoseph Requests Jesus' Body\n(3) And Joseph stood there, the friend of Pilate and the Lord. And seeing that they were about to crucify him, he went to Pilate and asked for the body of the Lord for burial. (4) And Pilate, having sent to Herod, asked him for the body.\n(5) And Herod said, \"Brother Pilate, even if someone hadn't asked for him, we would've buried him, since also Sabbath is beginning, because it's written in the Law, 'The sun shouldn't set on one who's been killed.'\"\n\nThe Lord is Tortured and Mocked\nAnd he hande",
+     "note": "Passion material only; the talking cross, giant Jesus, and resurrection-witnessing soldiers are noted as later embellishment by the Canon."
+    }
+   ],
    "notes": "The Gospel of Peter (Akhmim fragment) is included for its passion material only; its talking cross, giant Jesus, and resurrection-witnessing soldiers are excluded.",
    "disputed": null,
    "rawText": null,
@@ -28199,7 +28207,8 @@ window.BASILEIAN_DATA = {
    },
    "paragraphs": [
     "[[NOTE]] The appearance to James is also preserved in the Gospel of the Hebrews (cited by Jerome).",
-    "[[SOURCE:1 Corinthians 15:3–7]] For I passed on to you as of first importance what I also received—that Christ died for our sins according to the scriptures, and that he was buried, and that he was raised on the third day according to the scriptures, and that he appeared to Cephas, then to the twelve. Then he appeared to more than 500 of the brothers and sisters at one time, most of whom are still alive, though some have fallen asleep. Then he appeared to James, then to all the apostles."
+    "[[SOURCE:1 Corinthians 15:3–7]] For I passed on to you as of first importance what I also received—that Christ died for our sins according to the scriptures, and that he was buried, and that he was raised on the third day according to the scriptures, and that he appeared to Cephas, then to the twelve. Then he appeared to more than 500 of the brothers and sisters at one time, most of whom are still alive, though some have fallen asleep. Then he appeared to James, then to all the apostles.",
+    "[[NONBIBLICAL:Gospel of the Hebrews (appearance to James, cited by Jerome)]] The following selections are excerpted from Ron Cameron in The Other Gospels: Non-Canonical Gospel Texts (Philadelphia: The Westminster Press, 1982), pp. 85–86. Philipp Vielhauer and George Ogg made the original translation in New Testament Apocrypha.\n\n[On the incarnation]\nWhen Christ wished to come upon the earth to men, the good Father summoned a mighty power in heaven, which was called Michael, and entrusted Christ to the care thereof. And the power came into the world and it was called Mary, and Christ was in her womb seven months.\n(Cyril of Jerusalem, Discourse on Mary Theotokos 12a)\n\n[On"
    ],
    "verseMarkers": [
     {
@@ -28233,7 +28242,13 @@ window.BASILEIAN_DATA = {
      "verse": 7
     }
    ],
-   "nonbiblical": [],
+   "nonbiblical": [
+    {
+     "source": "Gospel of the Hebrews",
+     "label": "Gospel of the Hebrews (appearance to James, cited by Jerome)",
+     "text": "The following selections are excerpted from Ron Cameron in The Other Gospels: Non-Canonical Gospel Texts (Philadelphia: The Westminster Press, 1982), pp. 85–86. Philipp Vielhauer and George Ogg made the original translation in New Testament Apocrypha.\n\n[On the incarnation]\nWhen Christ wished to come upon the earth to men, the good Father summoned a mighty power in heaven, which was called Michael, and entrusted Christ to the care thereof. And the power came into the world and it was called Mary, and Christ was in her womb seven months.\n(Cyril of Jerusalem, Discourse on Mary Theotokos 12a)\n\n[On"
+    }
+   ],
    "notes": "The appearance to James is also preserved in the Gospel of the Hebrews (cited by Jerome).",
    "disputed": null,
    "rawText": null,
@@ -28649,9 +28664,17 @@ window.BASILEIAN_DATA = {
    "chapter": 2,
    "title": "The Temple-purity controversy — P.Oxy 840",
    "parallel_refs": {},
-   "paragraphs": [],
+   "paragraphs": [
+    "[[NONBIBLICAL:Papyrus Oxyrhynchus 840]] Preface: In December 1905 — the sixth season at Oxyrhynchus — Grenfell and Hunt registered the discovery of a very small parchment book measuring approximately 3.3 by 2.75 inches (8.5 x 7 cm). Such a relic was likely valued as much as an amulet as for its content, which was written in the tiniest of scripts. The contents turned out to be quite interesting: parts of two episodes from a heretofore-unknown gospel, the identity of which remains a mystery to this day. The manuscript is housed in the Bodleian Library at Oxford. In the first episode, Jesus warns the disciples against imitating certai"
+   ],
    "verseMarkers": [],
-   "nonbiblical": [],
+   "nonbiblical": [
+    {
+     "source": "P.Oxy 840",
+     "label": "Papyrus Oxyrhynchus 840",
+     "text": "Preface: In December 1905 — the sixth season at Oxyrhynchus — Grenfell and Hunt registered the discovery of a very small parchment book measuring approximately 3.3 by 2.75 inches (8.5 x 7 cm). Such a relic was likely valued as much as an amulet as for its content, which was written in the tiniest of scripts. The contents turned out to be quite interesting: parts of two episodes from a heretofore-unknown gospel, the identity of which remains a mystery to this day. The manuscript is housed in the Bodleian Library at Oxford. In the first episode, Jesus warns the disciples against imitating certai"
+    }
+   ],
    "notes": null,
    "disputed": null,
    "rawText": "A small vellum leaf; Jesus cleanses himself and is challenged by a Pharisaic chief priest about ritual purity in the temple courts.",
@@ -28690,10 +28713,17 @@ window.BASILEIAN_DATA = {
    "title": "Sayings-source fragments — P.Oxy 5575",
    "parallel_refs": {},
    "paragraphs": [
-    "[[NOTE]] Contains: rich-fool ending (cf. Luke 12:13–21); \"fast from the kosmos/keep the Sabbath\"; \"add a cubit\" (cf. Matt 6:27). Copyright restricted — see source URL."
+    "[[NOTE]] Contains: rich-fool ending (cf. Luke 12:13–21); \"fast from the kosmos/keep the Sabbath\"; \"add a cubit\" (cf. Matt 6:27). Copyright restricted — see source URL.",
+    "[[NONBIBLICAL:Papyrus Oxyrhynchus 5575 (EES 2023)]] [Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
    ],
    "verseMarkers": [],
-   "nonbiblical": [],
+   "nonbiblical": [
+    {
+     "source": "P.Oxy 5575",
+     "label": "Papyrus Oxyrhynchus 5575 (EES 2023)",
+     "text": "[Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
+    }
+   ],
    "notes": "Contains: rich-fool ending (cf. Luke 12:13–21); \"fast from the kosmos/keep the Sabbath\"; \"add a cubit\" (cf. Matt 6:27). Copyright restricted — see source URL.",
    "disputed": null,
    "rawText": null,
@@ -28707,12 +28737,20 @@ window.BASILEIAN_DATA = {
    "chapter": 5,
    "title": "Egerton Papyrus 2",
    "parallel_refs": {},
-   "paragraphs": [],
+   "paragraphs": [
+    "[[NONBIBLICAL:Egerton Papyrus 2 + Cologne Papyrus 255]] The Unknown Gospel — Egerton Papyrus 2 + Cologne Papyrus 255\n\nFragment 1: Verso (?)\n[…] And Jesus said unto the lawyers, [Punish] every wrongdoer and transgressor, and not me . . . And turning to the rulers of the people he spake this saying, Search the scriptures, in which ye think that ye have life; these are they which bear witness of me. Think not that I came to accuse you to my Father; there is one that accuseth you, even Moses, on whom ye have set your hope. And when they said, We know well that God spake unto Moses, but as for thee, we know not whence thou art, Jesus answered and said unto them, Now is your unbelief accused . . .\n\nFragment 1: Recto (?)\n. . . [they gave counsel to] the multitude to [carry the] stones together and stone him. And the rulers sought to lay their hands on him that they might take him and [hand him over] to the multitude; and they could not take him, because the hour of his betrayal was not yet come. But he himself, even the Lord, going out through the midst of them, departed from them. And behold, there cometh unto him a leper and saith, Master Jesus, journeying with lepers and eating with them in the inn I myself also became a leper. If therefore thou wilt, I am made clean. The Lord then said unto him, I will; be thou made clean. And straightway the leprosy departed from him. [And the Lord said unto him], Go [and shew thyself] unto the [priests . . .\n\nFragment 2: Recto (?)\n. . . coming unto him began to tempt him with a question, saying, Master Jesus, we know that thou art come from God, for the things which thou doest testify above all the prophets. Tell us therefore: Is it lawful [to render] unto kings that which pertaineth unto their rule? [Shall we render unto them], or not? But Jesus, knowing their thought, being moved with indignation, said unto them, Why call ye me with your mouth Master, when ye hear not what I say? Well did Isaiah prophesy of you, saying, This people honour me with their lips, but their heart is far from me. In vain do they worship me, [teaching as their doctrines the] precepts [of men] . . .\n\nFragment 2: Verso (?)\n. . . shut up . . . in . . . place . . . its weight unweighed? And when they were perplexed at his strange question, Jesus, as he walked, stood still on the edge of the river Jordan, and stretching forth his right hand he . . . and sprinkled it upon the . . . And then . . . water that had been sprinkled . . . before them and sent forth fruit . . ."
+   ],
    "verseMarkers": [],
-   "nonbiblical": [],
+   "nonbiblical": [
+    {
+     "source": "Egerton Papyrus 2",
+     "label": "Egerton Papyrus 2 + Cologne Papyrus 255",
+     "text": "The Unknown Gospel — Egerton Papyrus 2 + Cologne Papyrus 255\n\nFragment 1: Verso (?)\n[…] And Jesus said unto the lawyers, [Punish] every wrongdoer and transgressor, and not me . . . And turning to the rulers of the people he spake this saying, Search the scriptures, in which ye think that ye have life; these are they which bear witness of me. Think not that I came to accuse you to my Father; there is one that accuseth you, even Moses, on whom ye have set your hope. And when they said, We know well that God spake unto Moses, but as for thee, we know not whence thou art, Jesus answered and said unto them, Now is your unbelief accused . . .\n\nFragment 1: Recto (?)\n. . . [they gave counsel to] the multitude to [carry the] stones together and stone him. And the rulers sought to lay their hands on him that they might take him and [hand him over] to the multitude; and they could not take him, because the hour of his betrayal was not yet come. But he himself, even the Lord, going out through the midst of them, departed from them. And behold, there cometh unto him a leper and saith, Master Jesus, journeying with lepers and eating with them in the inn I myself also became a leper. If therefore thou wilt, I am made clean. The Lord then said unto him, I will; be thou made clean. And straightway the leprosy departed from him. [And the Lord said unto him], Go [and shew thyself] unto the [priests . . .\n\nFragment 2: Recto (?)\n. . . coming unto him began to tempt him with a question, saying, Master Jesus, we know that thou art come from God, for the things which thou doest testify above all the prophets. Tell us therefore: Is it lawful [to render] unto kings that which pertaineth unto their rule? [Shall we render unto them], or not? But Jesus, knowing their thought, being moved with indignation, said unto them, Why call ye me with your mouth Master, when ye hear not what I say? Well did Isaiah prophesy of you, saying, This people honour me with their lips, but their heart is far from me. In vain do they worship me, [teaching as their doctrines the] precepts [of men] . . .\n\nFragment 2: Verso (?)\n. . . shut up . . . in . . . place . . . its weight unweighed? And when they were perplexed at his strange question, Jesus, as he walked, stood still on the edge of the river Jordan, and stretching forth his right hand he . . . and sprinkled it upon the . . . And then . . . water that had been sprinkled . . . before them and sent forth fruit . . ."
+    }
+   ],
    "notes": null,
    "disputed": null,
-   "rawText": "Controversy with the authorities; cleansing of a leper; the tribute question; a fragmentary nature miracle. Greek text from Bell & Skeat 1935 (public domain).",
+   "rawText": "Controversy with the authorities; cleansing of a leper; the tribute question; a fragmentary nature miracle.",
    "tier": null,
    "source": "NET Bible 2.1",
    "language": "en"
@@ -28813,14 +28851,14 @@ window.BASILEIAN_DATA = {
    "parallel_refs": {},
    "paragraphs": [
     "[[NOTE]] The most widely attested agraphon in the Fathers; its very popularity raises the worry that it is a free-floating proverb.",
-    "[[NONBIBLICAL:Agraphon: be skilled/approved money-changers]] Greek: γίνεσθε δόκιμοι τραπεζῖται\n\nTranslation: \n\nAttestation: "
+    "[[NONBIBLICAL:Agraphon: be skilled/approved money-changers]] Greek: γίνεσθε δόκιμοι τραπεζῖται\n\nTranslation: Be skilled/approved money-changers.\n\nAttestation: Attested in Clement of Alexandria (Strom. 1.28), Origen (In Joh. 19.7), Cyril of Jerusalem, and numerous other Fathers. The most widely attested agraphon in patristic literature."
    ],
    "verseMarkers": [],
    "nonbiblical": [
     {
      "source": "Patristic sources",
      "label": "Agraphon: be skilled/approved money-changers",
-     "text": "Greek: γίνεσθε δόκιμοι τραπεζῖται\n\nTranslation: \n\nAttestation: "
+     "text": "Greek: γίνεσθε δόκιμοι τραπεζῖται\n\nTranslation: Be skilled/approved money-changers.\n\nAttestation: Attested in Clement of Alexandria (Strom. 1.28), Origen (In Joh. 19.7), Cyril of Jerusalem, and numerous other Fathers. The most widely attested agraphon in patristic literature."
     }
    ],
    "notes": "The most widely attested agraphon in the Fathers; its very popularity raises the worry that it is a free-floating proverb.",
@@ -28838,14 +28876,14 @@ window.BASILEIAN_DATA = {
    "parallel_refs": {},
    "paragraphs": [
     "[[NOTE]] c. 96 CE; the same evidentiary category as Didache 8:2 — an apostolic father quoting remembered sayings of Jesus. Mostly synoptic-adjacent (cf. Matt 5:7; 7:1–2; Luke 6:31–38).",
-    "[[NONBIBLICAL:1 Clement 13:2 (c. 96 CE)]] Remember the words of the Lord Jesus, which he spake, teaching gentleness and long-suffering. For thus he said: \"Have mercy, that ye may receive mercy; forgive, that it may be forgiven to you; as ye do, so shall it be done unto you; as ye give, so shall it be given unto you; as ye judge, so shall ye be judged; as ye are kind, so shall kindness be shown to you; with what measure ye mete, with the same it shall be measured to you.\""
+    "[[NONBIBLICAL:1 Clement 13:2 (c. 96 CE)]] Let us therefore, brethren, be of humble mind, laying aside all haughtiness, and pride, and foolishness, and angry feelings; and let us act according to that which is written (for the Holy Spirit saith, \"Let not the wise man glory in his wisdom, neither let the mighty man glory in his might, neither let the rich man glory in his riches; but let him that glorieth glory in the Lord, in diligently seeking Him, and doing judgment and righteousness\"), being especially mindful of the words of the Lord Jesus which He spake, teaching us meekness and long-suffering. For thus He spoke: \"Be ye merciful, that ye may obtain mercy; forgive, that it may be forgiven to you; as ye do, so shall it be done unto you; as ye judge, so shall ye be judged; as ye are kind, so shall kindness be shown to you; with what measure ye mete, with the same it shall be measured to you.\" "
    ],
    "verseMarkers": [],
    "nonbiblical": [
     {
      "source": "1 Clement 13:2",
      "label": "1 Clement 13:2 (c. 96 CE)",
-     "text": "Remember the words of the Lord Jesus, which he spake, teaching gentleness and long-suffering. For thus he said: \"Have mercy, that ye may receive mercy; forgive, that it may be forgiven to you; as ye do, so shall it be done unto you; as ye give, so shall it be given unto you; as ye judge, so shall ye be judged; as ye are kind, so shall kindness be shown to you; with what measure ye mete, with the same it shall be measured to you.\""
+     "text": "Let us therefore, brethren, be of humble mind, laying aside all haughtiness, and pride, and foolishness, and angry feelings; and let us act according to that which is written (for the Holy Spirit saith, \"Let not the wise man glory in his wisdom, neither let the mighty man glory in his might, neither let the rich man glory in his riches; but let him that glorieth glory in the Lord, in diligently seeking Him, and doing judgment and righteousness\"), being especially mindful of the words of the Lord Jesus which He spake, teaching us meekness and long-suffering. For thus He spoke: \"Be ye merciful, that ye may obtain mercy; forgive, that it may be forgiven to you; as ye do, so shall it be done unto you; as ye judge, so shall ye be judged; as ye are kind, so shall kindness be shown to you; with what measure ye mete, with the same it shall be measured to you.\" "
     }
    ],
    "notes": "c. 96 CE; the same evidentiary category as Didache 8:2 — an apostolic father quoting remembered sayings of Jesus. Mostly synoptic-adjacent (cf. Matt 5:7; 7:1–2; Luke 6:31–38).",
@@ -28863,14 +28901,14 @@ window.BASILEIAN_DATA = {
    "parallel_refs": {},
    "paragraphs": [
     "[[NOTE]] c. 110 CE; parallel to Matt 5:7; 6:14; 7:1–2 and Luke 6:31–38.",
-    "[[NONBIBLICAL:Polycarp, Philippians 2:3 (c. 110 CE)]] \"Remembering what the Lord said when he taught: Do not judge, that you may not be judged; forgive, and it will be forgiven you; be merciful, that you may receive mercy; with the measure you use, it will be measured back to you.\" (Polycarp, Epistle to the Philippians 2:3, c. 110 CE)"
+    "[[NONBIBLICAL:Polycarp, Philippians 2:3 (c. 110 CE)]] \"…but remembering what the Lord said as he taught: 'Do not judge, that you may not be judged; forgive, and it will be forgiven to you; show mercy, that you may be shown mercy; with what measure you measure, it will be measured back to you.'\" (Polycarp, Epistle to the Philippians 2:3, c. 110 CE)"
    ],
    "verseMarkers": [],
    "nonbiblical": [
     {
      "source": "Polycarp, Philippians 2:3",
      "label": "Polycarp, Philippians 2:3 (c. 110 CE)",
-     "text": "\"Remembering what the Lord said when he taught: Do not judge, that you may not be judged; forgive, and it will be forgiven you; be merciful, that you may receive mercy; with the measure you use, it will be measured back to you.\" (Polycarp, Epistle to the Philippians 2:3, c. 110 CE)"
+     "text": "\"…but remembering what the Lord said as he taught: 'Do not judge, that you may not be judged; forgive, and it will be forgiven to you; show mercy, that you may be shown mercy; with what measure you measure, it will be measured back to you.'\" (Polycarp, Epistle to the Philippians 2:3, c. 110 CE)"
     }
    ],
    "notes": "c. 110 CE; parallel to Matt 5:7; 6:14; 7:1–2 and Luke 6:31–38.",
