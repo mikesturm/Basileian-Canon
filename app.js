@@ -188,12 +188,10 @@
       if (!btn) return;
       e.preventDefault();
       const noteId = btn.dataset.noteId;
-      const content = state._ntNotes[noteId];
-      if (content) {
-        openModal("Note", `<div class="note-text">${content}</div>`, [
-          { label: "Close", className: "button", onClick: closeModal }
-        ]);
-      }
+      const content = state._ntNotes[noteId] || "Note not available.";
+      openModal("Note", `<div class="note-text">${content}</div>`, [
+        { label: "Close", className: "button", onClick: closeModal }
+      ]);
     });
 
     els.menuHighlightBtn.addEventListener("click", () => commitHighlight(false));

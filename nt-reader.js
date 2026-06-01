@@ -218,7 +218,16 @@
       // Remove the back-link anchor (first <a> element in each note paragraph).
       const anchor = clone.querySelector('a');
       if (anchor) anchor.remove();
-      result[p.id] = clone.innerHTML.trim();
+      let content = clone.innerHTML.trim();
+      // The notes files use nested <p> elements, which the HTML parser splits into
+      // siblings: the id'd <p> gets only the anchor, and the body lands in the next <p>.
+      if (!content) {
+        const next = p.nextElementSibling;
+        if (next && next.tagName === 'P' && !next.id) {
+          content = next.innerHTML.trim();
+        }
+      }
+      result[p.id] = content;
     });
     return result;
   }
