@@ -1,9 +1,13 @@
 {
   "name": "basileian-reader",
-  "version": "1.0.0",
-  "description": "Basileian Canon source-text reader with public-domain translation comparison",
+  "version": "2.0.0",
+  "description": "Basileian Canon chronological harmony reader with NET Bible text and non-canonical sources",
   "private": true,
+  "type": "module",
   "scripts": {
+    "fetch-nonbiblical": "node scripts/fetch-nonbiblical.js",
+    "build-canon": "node scripts/build-data.js",
+    "build": "node scripts/fetch-nonbiblical.js && node scripts/build-data.js",
     "fetch-translations": "node scripts/fetch-translations.js",
     "fetch-commentary": "node scripts/fetch-commentary.js",
     "ingest-wh": "node ingest-wh.js",
@@ -12,7 +16,7 @@
     "setup-data": "npm run fetch-translations && npm run ingest-wh && npm run build-lexicons && npm run fetch-commentary"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "dependencies": {
     "strongs": "^1.0.2"

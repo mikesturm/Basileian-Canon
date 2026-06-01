@@ -1,0 +1,13 @@
+{
+  "source": "Grenfell & Hunt, Oxyrhynchus Papyri vol. X, 1914",
+  "description": "Two fragments; contains \"sick need a physician\" parallel and \"pray for your enemies / one who is not against you is for you\"",
+  "license": "public domain",
+  "fragments": {
+    "frag1_recto": "[ . . . ] in everything [ . . . ]. Truly, [I say to you . . . ]",
+    "frag1_verso": "he will [ . . . ]. You [ . . . ]",
+    "frag2_recto_col_ii": "It weighed me down. And approaching in a vision, Jesus said, \"Why are you discouraged? For not [ . . . ] you, but the [ . . . ]\"",
+    "frag2_verso_col_i": "\"you said, although you are not answering. What then did you renounce? What is the new doctrine that they say you teach, or what is the new baptism that you proclaim? Answer and . . .\"",
+    "frag2_verso_col_ii": "When the scribes and Pharisees and priests saw him, they were angry that with sinners (right in the middle of them) he was reclining. But when Jesus heard, he said, \"Those who are healthy have no need of a physician . . .\"",
+    "frag2_recto_col_ii_b": "\". . . and pray for your enemies. For the one who is not against you is for you. The one who is far away today, tomorrow will be near you and in [ . . . ] the adversary [ . . . ]\""
+  }
+}
