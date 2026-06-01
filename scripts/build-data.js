@@ -51,6 +51,7 @@ const NONBIBLICAL = {
   polycarp: loadNonbiblical('polycarp'),
   money_changers_saying: loadNonbiblical('money_changers_saying'),
   codex_bezae_luke6: loadNonbiblical('codex_bezae_luke6'),
+  egerton: loadNonbiblical('egerton'),
 };
 
 // ---------------------------------------------------------------------------
@@ -1776,8 +1777,12 @@ const CANON_SECTIONS = [
         id: 'app_b_5_egerton',
         title: 'Egerton Papyrus 2',
         parallelRefs: {},
-        rawText: 'Controversy with the authorities; cleansing of a leper; the tribute question; a fragmentary nature miracle. Greek text from Bell & Skeat 1935 (public domain).',
-        nonbiblicalSources: [],
+        rawText: NONBIBLICAL.egerton?.description || 'Controversy with the authorities; cleansing of a leper; the tribute question; a fragmentary nature miracle.',
+        nonbiblicalSources: NONBIBLICAL.egerton?.rawText ? [{
+          source: 'Egerton Papyrus 2',
+          label: 'Egerton Papyrus 2 + Cologne Papyrus 255',
+          text: NONBIBLICAL.egerton.rawText
+        }] : [],
       },
       {
         id: 'app_b_6_didache',
