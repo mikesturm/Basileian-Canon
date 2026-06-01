@@ -45,9 +45,10 @@
     chapterMode: true,
     activeSearchTerm: "",
     highlights: loadHighlights(),
-    activeTranslation: "basileia", // "basileia" | "kjv" | "asv" | etc.
-    translationsLoading: {}, // Track which translations are loading
+    activeTranslation: "basileia",
+    translationsLoading: {},
     translationRenderRequest: 0,
+    _ntNotes: Object.create(null), // note-id → HTML content, populated by hydrateNTPassages
     verseWords: null,     // lazy-loaded from lexicons/verse-words.json; null = not yet attempted
     ntConcordance: null,  // lazy-loaded from lexicons/strongs-nt-concordance.json
     otConcordance: null,  // lazy-loaded from lexicons/strongs-ot-concordance.json
@@ -107,26 +108,12 @@
     applyStoredTheme();
     bindEvents();
     renderBookSelect();
-    restoreTranslationPreference();
     restoreCrossRefPreference();
-    renderTranslationSelector();
     restoreLastPosition();
     restoreFromHash();
     setCurrentSectionIfMissing();
     renderAll();
     loadVerseWords(); // async: re-renders when lexicons/verse-words.json is ready
-
-    // Translation metadata loads asynchronously from translations-index.json.
-    // Render once immediately, then refresh the selector when metadata finishes loading.
-    if (window.TranslationsModule && typeof TranslationsModule.init === "function") {
-      Promise.resolve(TranslationsModule.init()).then(() => {
-        renderTranslationSelector();
-        els.translationSelect.value = state.activeTranslation;
-        if (state.activeTranslation !== "basileia") renderReader();
-      }).catch(error => {
-        console.warn("Translations module did not finish initializing:", error);
-      });
-    }
 
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
       navigator.serviceWorker.register("sw.js?v=20260508-fix4").catch(() => {});
@@ -195,12 +182,18 @@
       });
     }
 
-    // Translation selector
-    els.translationSelect.addEventListener("change", () => {
-      state.activeTranslation = els.translationSelect.value;
-      localStorage.setItem(STORAGE_TRANSLATION, state.activeTranslation);
-      updateTranslationStatus("");
-      renderReader(); // Re-render with new translation
+    // NT note buttons — event delegation so it works after async hydration
+    els.readerContent.addEventListener("click", e => {
+      const btn = e.target.closest(".nt-note-btn");
+      if (!btn) return;
+      e.preventDefault();
+      const noteId = btn.dataset.noteId;
+      const content = state._ntNotes[noteId];
+      if (content) {
+        openModal("Note", `<div class="note-text">${content}</div>`, [
+          { label: "Close", className: "button", onClick: closeModal }
+        ]);
+      }
     });
 
     els.menuHighlightBtn.addEventListener("click", () => commitHighlight(false));
@@ -444,11 +437,7 @@
     applyVisibleHighlights();
     if (state.activeSearchTerm.length >= 2) applySearchHighlight(els.readerContent, state.activeSearchTerm);
 
-    if (state.activeTranslation !== "basileia") {
-      hydrateTranslatedPassages();
-    } else {
-      updateTranslationStatus("");
-    }
+    hydrateNTPassages();
 
     if (state.crossRefEnabled) {
       hydrateCrossRefPanels();
@@ -456,31 +445,61 @@
   }
 
   function renderPassage(section) {
-    let html;
-    if (state.activeTranslation !== "basileia" && canTranslateSection(section)) {
-      html = renderTranslatedPassage(section);
-    } else {
-      html = renderOriginalPassage(section, state.activeTranslation !== "basileia");
-    }
+    let html = renderNTPassage(section);
     if (state.crossRefEnabled && canTranslateSection(section)) {
       html += renderCrossRefPanel(section);
     }
     return html;
   }
 
-  function renderOriginalPassage(section, withNotice = false) {
+  // Render a passage using NT-Material XHTML files (for sections with parallel_refs)
+  // or formatted paragraph text (for non-biblical / unanchored sections).
+  // Sections with parallel_refs get loading placeholders filled by hydrateNTPassages().
+  function renderNTPassage(section) {
     const source = section.source ? `<span class="source-pill">${escapeHTML(section.source)}</span>` : "";
     const tier = section.tier ? `<span class="source-pill">${escapeHTML(section.tier.replace(/^Tier /, "Tier "))}</span>` : "";
+    const hasParallelRefs = section.parallel_refs && Object.keys(section.parallel_refs).length > 0;
+
+    if (hasParallelRefs) {
+      const ntReader = window.NTReader;
+      const BOOK_DISPLAY = ntReader ? ntReader.BOOK_DISPLAY : {};
+
+      const refBlocks = Object.entries(section.parallel_refs).flatMap(([bookKey, ranges]) =>
+        ranges.map(range => {
+          const displayName = BOOK_DISPLAY[bookKey] || bookKey;
+          const label = `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
+          return `<div class="nt-source-block" data-book="${escapeAttr(bookKey)}" data-chapter="${range.ch}" data-from="${range.from}" data-to="${range.to}">
+            <span class="nt-source-label">${escapeHTML(label)}</span>
+            <div class="nt-verse-content muted">Loading…</div>
+          </div>`;
+        })
+      ).join("");
+
+      // Nonbiblical paragraphs that accompany the NT text
+      const extraParagraphs = section.paragraphs
+        .filter(p => p.startsWith("[[NONBIBLICAL:") || p.startsWith("[[NOTE]]") || p.startsWith("[[DISPUTED]]"))
+        .map(p => `<p>${formatParagraph(p, section)}</p>`)
+        .join("");
+
+      return `<section class="passage nt-passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
+        <h3>${escapeHTML(displayRef(section))}${section.title ? ` — ${escapeHTML(section.title)}` : ""}</h3>
+        <div class="passage-meta">${source}${tier}<span class="source-pill">NET Bible 2.1</span></div>
+        <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${refBlocks}${extraParagraphs}</div>
+      </section>`;
+    }
+
+    // No parallel refs — non-biblical or unanchored: show formatted paragraphs
     const paragraphs = section.paragraphs.map(p => `<p>${formatParagraph(p, section)}</p>`).join("");
-    const notice = withNotice
-      ? `<p class="translation-notice">This passage does not map cleanly to a standard Bible translation, so the Basileian text is shown.</p>`
-      : "";
     return `<section class="passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
       <h3>${escapeHTML(displayRef(section))}${section.title ? ` — ${escapeHTML(section.title)}` : ""}</h3>
       <div class="passage-meta">${source}${tier}</div>
-      ${notice}
       <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${paragraphs}</div>
     </section>`;
+  }
+
+  // Keep renderOriginalPassage for any remaining internal callers
+  function renderOriginalPassage(section, withNotice = false) {
+    return renderNTPassage(section);
   }
 
   // ---------------------------------------------------------------------------
@@ -1168,6 +1187,48 @@
     }
   }
 
+  // Fetch NT-Material XHTML content for all .nt-source-block placeholders in the reader.
+  async function hydrateNTPassages() {
+    if (!window.NTReader) {
+      updateTranslationStatus("");
+      return;
+    }
+
+    const blocks = [...els.readerContent.querySelectorAll(".nt-source-block")];
+    if (!blocks.length) {
+      updateTranslationStatus("");
+      return;
+    }
+
+    updateTranslationStatus("loading");
+
+    await Promise.all(blocks.map(async block => {
+      const bookKey = block.dataset.book;
+      const chapter = parseInt(block.dataset.chapter, 10);
+      const fromV = parseInt(block.dataset.from, 10);
+      const toV = parseInt(block.dataset.to, 10);
+      const contentEl = block.querySelector(".nt-verse-content");
+
+      try {
+        const result = await NTReader.getRangeContent(bookKey, chapter, fromV, toV);
+        if (!result || !result.html) {
+          contentEl.classList.remove("muted");
+          contentEl.textContent = "No text found in NT folder for this reference.";
+          return;
+        }
+        Object.assign(state._ntNotes, result.notes);
+        contentEl.innerHTML = result.html;
+        contentEl.classList.remove("muted");
+      } catch (err) {
+        console.error("NT reader: failed to load", bookKey, chapter, err);
+        contentEl.classList.remove("muted");
+        contentEl.textContent = "Could not load passage text.";
+      }
+    }));
+
+    updateTranslationStatus("loaded", "NET Bible 2.1 loaded.");
+  }
+
   function attachDynamicReaderEvents() {
     // Existing note link handlers
     els.readerContent.querySelectorAll(".note-link").forEach(button => {
@@ -1483,6 +1544,33 @@
   }
 
   function formatParagraph(raw, section) {
+    // Handle [[MARKER]] block prefixes at the start of paragraph strings.
+    if (raw.startsWith("[[SOURCE:")) {
+      const end = raw.indexOf("]]");
+      if (end !== -1) {
+        const ref = raw.slice(9, end);
+        const rest = raw.slice(end + 2).trimStart();
+        return `<span class="nt-source-label">${escapeHTML(ref)}</span> ${formatParagraphBody(rest, section)}`;
+      }
+    }
+    if (raw.startsWith("[[NOTE]]")) {
+      return `<em class="passage-note">${escapeHTML(raw.slice(8).trimStart())}</em>`;
+    }
+    if (raw.startsWith("[[DISPUTED]]")) {
+      return `<span class="disputed-notice">Disputed: </span>${escapeHTML(raw.slice(12).trimStart())}`;
+    }
+    if (raw.startsWith("[[NONBIBLICAL:")) {
+      const end = raw.indexOf("]]");
+      if (end !== -1) {
+        const label = raw.slice(14, end);
+        const rest = raw.slice(end + 2).trimStart();
+        return `<span class="nt-source-label">${escapeHTML(label)}</span> ${formatParagraphBody(rest, section)}`;
+      }
+    }
+    return formatParagraphBody(raw, section);
+  }
+
+  function formatParagraphBody(raw, section) {
     let currentChapter = section.startChapter ?? section.chapter ?? "";
     const re = /\[(\d+(?::\d+)?[a-z]?)\]|([A-Za-zÀ-ÖØ-öø-ÿ\u0370-\u03ff\]\)'""'?!;:,.—])(\d{1,3})(?![\d:–-])/g;
     let out = "";
@@ -1509,7 +1597,7 @@
         const before = match[2];
         const num = match[3];
         out += escapeHTML(before);
-        if (DATA.notes[num]) {
+        if (DATA.notes && DATA.notes[num]) {
           out += `<button class="note-link" data-note="${escapeAttr(num)}" title="Open endnote ${escapeAttr(num)}">${escapeHTML(num)}</button>`;
         } else {
           out += escapeHTML(num);
@@ -1523,7 +1611,7 @@
   }
 
   function openEndnote(number) {
-    const text = DATA.notes[number] || "No note found.";
+    const text = (DATA.notes && DATA.notes[number]) || "No note found.";
     openModal(`Endnote ${number}`, `<div class="note-text">${paragraphsToHTML(text)}</div>`, [
       { label: "Close", className: "button", onClick: closeModal }
     ]);
