@@ -1,0 +1,1282 @@
+Basileian Canon
+A Chronological Harmony
+The passages are arranged in the approximate order in which they happened in Jesus's life and ministry. Where the Gospels (and the non-canonical sources) report the same event or saying, the parallels are grouped on one line. "//" separates parallel accounts. Bracketed items are the non-NT or epistolary sources folded in where they fit.
+Two notes. First, the order is a scholarly harmonization, not something the Gospels agree on — the Synoptics and John diverge sharply on sequence (most visibly the temple cleansing and the number of Passovers). Disputed placements are flagged. Second, grouping parallels does not assert they are the same event; distinct-but-similar episodes (the two feedings, the two anointings) are grouped under a shared heading with a note.
+
+Editor's Note on Non-Canonical Insertions (READ FIRST)
+Every place a non-canonical text belongs is now marked with an explicit directive so the app build can insert deterministically. Three markers are used:
+▶ INSERT — material to fold in at this pericope. Each directive names the source, the exact unit (logion number / chapter:verse / fragment + lines / section range), whether the whole unit or a specified extent is taken, and the source location of the text.
+✕ EXCLUDE — material from a source that is not admitted at this point, with the reason.
+⚑ DECISION — a genuine editorial choice left open for you; not silently resolved.
+Where the source text lives (used verbatim in every directive):
+Thomas PDF — Gospel_of_Thomas_Lambdin.pdf (logia numbered 1–114).
+Didache PDF — Didache_-_Roberts.pdf (chapters 1–16).
+In-doc — full text is in this document, either under "Non-Biblical text sources" (P.Oxy 1224; Codex Bezae addition) or under "Non-Canonical Texts" (P.Oxy 5575; Gospel of Peter; Gospel of the Hebrews; P.Oxy 840; 1 Clement 13; Polycarp, Phil. 2:3; Egerton Gospel).
+A consolidated checklist of every directive appears in Appendix C — Non-Canonical Placement Table.
+
+Prologue — Before the Public Ministry
+The boy Jesus in the temple — Luke 2:41–52
+Included as "unofficial ministry." Chronologically it stands twelve years before everything that follows; all surrounding infancy material (birth, shepherds, Magi, Simeon, Anna, the genealogies) is excluded as pre-ministry.
+✕ EXCLUDE: Gospel of the Hebrews, incarnation fragment (Cyril of Jerusalem, Discourse on Mary Theotokos 12a: Christ entrusted to the power Michael; "called Mary"; "in her womb seven months"). Pre-ministry infancy material and overtly theological; out by the same criterion as the canonical infancy narratives. Text: in-doc (Gospel of the Hebrews). [DECISION RESOLVED: exclusion confirmed.]
+I. Inauguration of the Ministry
+John the Baptist's preaching — Mark 1:1–8 // Matt 3:1–12 // Luke 3:1–20 // John 1:19–28
+The baptism of Jesus — Mark 1:9–11 // Matt 3:13–17 // Luke 3:21–22 // John 1:29–34 — [Gospel of the Hebrews: the descent at the baptism]
+▶ INSERT: Gospel of the Hebrews, baptism fragment (Jerome, Commentary on Isaiah 4, on Isa 11:2: "when the Lord was come up out of the water, the whole fount of the Holy Spirit descended upon him and rested on him and said… thou art my first-begotten Son that reignest for ever"). Whole fragment. Text: in-doc (Gospel of the Hebrews). [NEW — this source was previously cross-referenced only at the James appearance in Part XIII; its baptism fragment had no placement.]
+The temptation in the wilderness — Mark 1:12–13 // Matt 4:1–11 // Luke 4:1–13
+II. Early Judean & Galilean Ministry
+Call of the first disciples — John 1:35–51; (in Galilee) Mark 1:16–20 // Matt 4:18–22 // Luke 5:1–11
+John's Judean call and the Synoptic lakeside call are probably distinct moments, grouped here as the gathering of the first followers.
+The wedding at Cana — John 2:1–12
+Cleansing of the temple (Johannine placement) — John 2:13–25
+DISPUTED PLACEMENT. John puts the temple cleansing at the start of the ministry; the Synoptics place it in the final week (see Part X). If one event, the date is contested; if two, both stand. Grouped with the Synoptic cleansing under one heading there.
+Nicodemus — John 3:1–21
+John the Baptist's final testimony — John 3:22–36
+The Samaritan woman at the well — John 4:1–42
+Return to Galilee; the official's son — John 4:43–54
+John 4:46–54 (the royal official's son at Capernaum) is often regarded as a Johannine parallel to the centurion's servant (Matt 8 // Luke 7); grouped with that episode in Part V by cross-reference.
+Beginning of the Galilean proclamation — Mark 1:14–15 // Matt 4:12–17 // Luke 4:14–15
+Rejection at Nazareth — Luke 4:16–30
+DISPUTED PLACEMENT / possible duplicate. Luke places the Nazareth rejection at the opening of the ministry; Mark 6:1–6 // Matt 13:53–58 place a similar rejection later (Part VII). Grouped as one heading across both locations.
+III. Galilean Ministry — First Deeds
+Demoniac in the Capernaum synagogue — Mark 1:21–28 // Luke 4:31–37
+Peter's mother-in-law; evening healings — Mark 1:29–34 // Matt 8:14–17 // Luke 4:38–41
+Preaching tour of Galilee — Mark 1:35–39 // Luke 4:42–44
+Cleansing of a leper — Mark 1:40–45 // Matt 8:1–4 // Luke 5:12–16 — [Egerton Gospel: the leper]
+▶ INSERT: Egerton Gospel, Fragment 1 recto (the leper "journeying with lepers and eating with them in the inn I myself also became a leper. If therefore thou wilt, I am made clean… I will; be thou made clean"). Whole episode. Text: in-doc (Egerton Gospel). [NEW placement; Egerton was previously listed only as a whole in Appendix B.]
+The paralytic let down through the roof — Mark 2:1–12 // Matt 9:1–8 // Luke 5:17–26
+Call of Levi (Matthew); eating with sinners — Mark 2:13–17 // Matt 9:9–13 // Luke 5:27–32 — [P.Oxy 1224: the "physician" saying]
+▶ INSERT: P.Oxy 1224, Fragment 2 verso col. ii (the "physician" scene with its unique addition of "and priests": "When the scribes and Pharisees and priests saw him, they were angry that he was reclining in the midst of sinners… 'Those who are healthy have no need of a physician'"). Text: in-doc (Non-Biblical text sources). ⚑ NOTE: P.Oxy 1224 is one fragment with two usable clauses that land in two different pericopes. Its other clause — "pray for your enemies… the one who is not against you is for you" (Fragment 2 recto col. ii) — cross-references the Sermon's love-of-enemies material (Part IV) and the strange exorcist (Part VIII). See those pericopes. Insert the physician clause here; do not duplicate the enemies clause here.
+The question about fasting — Mark 2:18–22 // Matt 9:14–17 // Luke 5:33–39 — [Thomas 47: new wine / old wineskins] — [Thomas 104]
+▶ INSERT: Gospel of Thomas 104 ("What is the sin that I have committed…? But when the bridegroom leaves the bridal chamber, then let them fast and pray") — parallels Mark 2:19–20. Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 47 (the "two masters," "old/new wine," and "old patch on a new garment" sayings). Whole logion. Text: Thomas PDF. [DECISION RESOLVED: primary home is here (fasting). The whole logion is inserted once at this pericope; Part IV (two masters) is a cross-reference only.]
+Plucking grain on the Sabbath — Mark 2:23–28 // Matt 12:1–8 // Luke 6:1–5 — [Codex Bezae addition at Luke 6:4]
+▶ INSERT: Codex Bezae addition at Luke 6:4 (the man working on the Sabbath: "Man, if you know what you are doing, you are blessed; but if you do not know, you are cursed and a lawbreaker"). Whole agraphon. Text: in-doc (Non-Biblical text sources). [From "New texts to include"; this is its placement — it coheres directly with the Sabbath-lordship saying here.]
+The man with the withered hand — Mark 3:1–6 // Matt 12:9–14 // Luke 6:6–11
+Crowds at the sea; healings — Mark 3:7–12 // Matt 12:15–21
+Choosing the Twelve — Mark 3:13–19 // Luke 6:12–16
+IV. The Sermon (on the Mount / on the Plain)
+Matthew gathers this teaching into one sermon (chs. 5–7); Luke gives a shorter Plain version (6:20–49) and scatters the rest through the travel narrative. The whole block is grouped here, with cross-references to where Luke and Thomas place the pieces.
+Beatitudes — Matt 5:1–12 // Luke 6:20–23 — [Thomas 54: blessed are the poor] — [Thomas 49, 68, 69]
+▶ INSERT: Gospel of Thomas 49 ("Blessed are the solitary and elect, for you will find the kingdom. For you are from it, and to it you will return"). Whole logion. Text: Thomas PDF. [Kept by editor decision; anchored here as a kingdom-beatitude. Flag the "from it / return to it" origin-tail for the translation pass.] ▶ INSERT: Gospel of Thomas 68 ("Blessed are you when you are hated and persecuted…") — parallels Matt 5:11. Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 69 ("Blessed are they who have been persecuted within themselves… Blessed are the hungry, for the belly of him who desires will be filled") — parallels Matt 5:6, 10 // Luke 6:21. Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 54 ("Blessed are the poor, for yours is the kingdom of heaven"). Whole logion. Text: Thomas PDF.
+Salt and light — Matt 5:13–16 // Luke 14:34–35 (salt) — [Thomas 32, 33]
+▶ INSERT: Gospel of Thomas 32 ("A city being built on a high mountain and fortified cannot fall, nor can it be hidden") — parallels Matt 5:14. Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 33 ("Preach from your housetops…" + the lamp not under a bushel) — parallels Matt 10:27 // Matt 5:15; cross-ref VI (lamp under a basket). Whole logion. Text: Thomas PDF.
+Law and the prophets; the antitheses — Matt 5:17–48 // Luke 16:17 (law); 12:57–59 (reconciliation) — [Thomas 95]
+▶ INSERT: Gospel of Thomas 95 ("If you have money, do not lend it at interest, but give it to one from whom you will not get it back") — parallels Luke 6:34–35. Whole logion. Text: Thomas PDF.
+✕ EXCLUDE: Didache 1:2–6 (the Two Ways opening). [DECISION RESOLVED: excluded — catechesis rather than narrated dominical speech.] Text: Didache PDF, ch. 1.
+On divorce — Matt 5:31–32; and Mark 10:1–12 // Matt 19:1–12 // Luke 16:18 — [1 Corinthians 7:10–11: Paul citing the Lord's command]
+1 Cor 7:10–11 is grouped here as an explicit dominical saying ("not I, but the Lord") reporting Jesus's teaching on divorce.
+Almsgiving, prayer, and fasting — Matt 6:1–18 — [Thomas 6, 62]
+▶ INSERT: Gospel of Thomas 6 (the disciples’ question on fasting, prayer, almsgiving, diet; "Do not tell lies, and do not do what you hate… nothing covered will remain without being uncovered") — parallels Matt 6:1–18 + Matt 10:26 / Luke 12:2. Whole logion; flag that Jesus’s answer diverges from the synoptic instruction. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 62 ("Do not let your left hand know what your right hand is doing") — parallels Matt 6:3. Whole logion; flag the "I tell my mysteries to those worthy" frame. Text: Thomas PDF.
+The Lord's Prayer — Matt 6:9–13 // Luke 11:1–4
+✕ EXCLUDE: Didache 8:2–8:3 (the liturgical form of the Prayer and "Pray this three times each day"). [DECISION RESOLVED: excluded — liturgical adaptation, not narrated dominical speech.] Text: Didache PDF, ch. 8.
+Treasure in heaven; serving two masters; anxiety — Matt 6:19–34 // Luke 12:22–34; 16:13 — [Thomas 47 (two masters); P.Oxy 5575 (anxiety)] — [Thomas 36]
+▶ INSERT: Gospel of Thomas 36 ("Do not be concerned from morning until evening and from evening until morning about what you will wear") — parallels Matt 6:25–34 // Luke 12:22; cross-ref P.Oxy 5575. Whole logion. Text: Thomas PDF.
+▶ CROSS-REF: Gospel of Thomas 47, "two masters" clause — inserted as a whole logion at Part III (fasting). Cross-reference only here; do not re-insert. ▶ INSERT: P.Oxy 5575 (the anxiety material: "don't be anxious about your life, what you'll eat, nor the body, what you'll wear… the birds… [lilies] how they grow… Solomon… seek the kingdom"). Whole fragment; the full transcription lives in Appendix B / Non-Canonical Texts, so insert by reference to that text. Text: in-doc (Non-Canonical Texts, P.Oxy 5575). ⚑ NOTE: P.Oxy 5575 is one continuous fragment spanning three themes — (a) the rich-fool ending (cross-ref Part IX, the rich fool); (b) this anxiety block; (c) "unless you fast from the world you'll never find the kingdom" (cross-ref Part IX, cost of discipleship / Thomas 27). Insert the fragment once; cross-reference the other two homes.
+Judging; the speck and the log — Matt 7:1–5 // Luke 6:37–42 — [Thomas 26; 1 Clement 13:2; Polycarp Phil. 2:3] — [Thomas 34]
+▶ INSERT: Gospel of Thomas 34 ("If a blind man leads a blind man, they will both fall into a pit") — parallels Luke 6:39. Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 26 (the mote and the beam). Whole logion. Text: Thomas PDF. ▶ INSERT: 1 Clement 13 (the dominical cluster: "Be ye merciful, that ye may obtain mercy; forgive, that it may be forgiven to you… with what measure ye mete, with the same it shall be measured to you"). The remembered-saying cluster only. Text: in-doc (1 Clement, Ch. 13). [From "New texts to include"; this is its placement — it attaches to the judge/forgive/measure sayings of Luke 6:36–38.] ▶ INSERT: Polycarp, Philippians 2:3 ("Do not judge, that you may not be judged; forgive, and it will be forgiven to you; show mercy… with what measure you measure, it will be measured back to you"). Text: in-doc (Polycarp). [From "New texts to include"; same placement and evidentiary category as 1 Clement 13.]
+Ask, seek, knock; the golden rule — Matt 7:7–12 // Luke 11:9–13; 6:31 — [Thomas 92, 93, 94]
+▶ INSERT: Gospel of Thomas 92 ("Seek and you will find…") — parallels Matt 7:7. Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 93 ("Do not give what is holy to dogs… Do not throw the pearls to swine") — parallels Matt 7:6; cf. Didache 9:5. Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 94 ("He who seeks will find, and he who knocks will be let in") — parallels Matt 7:8 // Luke 11:10. Whole logion. Text: Thomas PDF.
+▶ CROSS-REF: Thomas 92, 93, 94 (seek/find; holy-to-dogs; seek-and-knock) are anchored to this ask/seek/knock + golden-rule block by the triage (Appendix D); see those triage rows for the parallels (Matt 7:6–8). Thomas 2 (seek → find → marvel → rule) and the Gospel of the Hebrews seek-find-marvel-reign-rest saying (Clement, Strom. 5.14.96.3) remain unanchored in Appendix B and are linked here thematically only.
+The narrow gate; tree and fruit; two foundations — Matt 7:13–27 // Luke 6:43–49; 13:23–24 — [Thomas 43, 45]
+▶ INSERT: Gospel of Thomas 43 ("…they love the tree and hate its fruit, or love the fruit and hate the tree") — parallels Matt 7:16–20 // 12:33. Whole logion; flag the "become like the Jews" polemic. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 45 ("Grapes are not harvested from thorns… A good man brings forth good from his storehouse… out of the abundance of the heart") — parallels Luke 6:43–45 // Matt 7:16, 12:34–35. Whole logion. Text: Thomas PDF.
+V. Galilean Ministry Continued
+The centurion's servant — Matt 8:5–13 // Luke 7:1–10
+Often grouped with John 4:46–54 (the official's son) as the same tradition.
+Raising the widow's son at Nain — Luke 7:11–17
+John the Baptist's question; Jesus's reply — Matt 11:2–19 // Luke 7:18–35 — [Thomas 46, 78]
+▶ INSERT: Gospel of Thomas 46 ("Among those born of women, from Adam until John the Baptist… yet whichever one of you comes to be a child will be acquainted with the kingdom and will become superior to John") — parallels Matt 11:11 // Luke 7:28. Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 78 ("Why have you come out into the desert? To see a reed shaken by the wind?…") — parallels Matt 11:7–8 // Luke 7:24–25. Whole logion. Text: Thomas PDF.
+Woes on the unrepentant cities — Matt 11:20–24 // Luke 10:13–15
+Thanksgiving to the Father; "come to me" — Matt 11:25–30 // Luke 10:21–22 — [Thomas 90]
+▶ INSERT: Gospel of Thomas 90 ("Come unto me, for my yoke is easy and my lordship is mild, and you will find repose for yourselves"). Whole logion. Text: Thomas PDF. [Anchored here by editor decision; removed from Appendix B.]
+Anointing by a sinful woman — Luke 7:36–50
+Grouped under "anointings" with the Bethany anointing (Part X). The two are likely distinct events; Luke's is in Galilee, early, with a forgiveness theme.
+Women who followed and supported Jesus — Luke 8:1–3
+The Beelzebul controversy — Mark 3:20–30 // Matt 12:22–37 // Luke 11:14–23 — [Thomas 35, 44]
+▶ INSERT: Gospel of Thomas 35 ("It is not possible for anyone to enter the house of a strong man and take it by force unless he binds his hands") — parallels Mark 3:27. Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 44 (blasphemy against the father / the son forgiven, but against the holy spirit not forgiven) — parallels Mark 3:28–29 // Matt 12:31–32 // Luke 12:10. Whole logion. Text: Thomas PDF.
+Return of the unclean spirit — Matt 12:43–45 // Luke 11:24–26
+The sign of Jonah — Matt 12:38–42 // Luke 11:29–32
+Jesus's true family — Mark 3:31–35 // Matt 12:46–50 // Luke 8:19–21 — [Thomas 99] — [Thomas 79]
+▶ INSERT: Gospel of Thomas 79 (the woman from the crowd; "Blessed are those who have heard the word of the father and have truly kept it…") — parallels Luke 11:27–28; cross-ref Luke 23:29. Whole logion. Text: Thomas PDF. [Refines the triage’s tentative Part-IX tag: Luke 11:27–28 has no dedicated pericope, so anchored here beside Thomas 99 on the shared "hear/do the word of the father" theme.]
+▶ INSERT: Gospel of Thomas 99 ("Those here who do the will of my father are my brothers and my mother. It is they who will enter the kingdom of my father"). Whole logion. Text: Thomas PDF. [Anchored here by editor decision.]
+VI. Parables of the Kingdom
+The sower — Mark 4:1–20 // Matt 13:1–23 // Luke 8:4–15 — [Thomas 9]
+▶ INSERT: Gospel of Thomas 9 (the sower). Whole logion. Text: Thomas PDF.
+Lamp under a basket; the measure — Mark 4:21–25 // Luke 8:16–18 — [Thomas 41] — [Thomas 5]
+▶ INSERT: Gospel of Thomas 5 ("Recognize what is in your sight, and that which is hidden from you will become plain to you. For there is nothing hidden which will not become manifest") — parallels Mark 4:22 // Luke 8:17. Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 41 ("Whoever has something in his hand will receive more, and whoever has nothing will be deprived of even the little he has") — parallels Mark 4:25 // Matt 13:12. Whole logion. Text: Thomas PDF. [DECISION RESOLVED: moved here from Appendix B.]
+The seed growing secretly — Mark 4:26–29
+The mustard seed — Mark 4:30–32 // Matt 13:31–32 // Luke 13:18–19 — [Thomas 20]
+▶ INSERT: Gospel of Thomas 20 (the mustard seed). Whole logion. Text: Thomas PDF.
+The leaven — Matt 13:33 // Luke 13:20–21 — [Thomas 96]
+▶ INSERT: Gospel of Thomas 96 (the leaven). Whole logion. Text: Thomas PDF.
+Wheat and tares — Matt 13:24–30, 36–43 — [Thomas 57]
+▶ INSERT: Gospel of Thomas 57 (the good seed and the weeds). Whole logion. Text: Thomas PDF.
+Treasure and pearl — Matt 13:44–46 — [Thomas 76 (pearl); Thomas 109 (hidden treasure)]
+▶ INSERT: Gospel of Thomas 76 (the merchant and the pearl). Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 109 (the hidden treasure in the field). Whole logion. Text: Thomas PDF. [NEW — the list noted only the pearl; logion 109 is the treasure half of Matt 13:44.]
+The dragnet — Matt 13:47–50
+▶ INSERT: Gospel of Thomas 8 (the wise fisherman who keeps the one fine large fish and throws the small ones back). Whole logion. Text: Thomas PDF. [Anchored here by editor decision.]
+VII. Mighty Works and Wider Mission
+Stilling the storm — Mark 4:35–41 // Matt 8:23–27 // Luke 8:22–25
+The Gerasene demoniac — Mark 5:1–20 // Matt 8:28–34 // Luke 8:26–39
+Jairus's daughter and the hemorrhaging woman — Mark 5:21–43 // Matt 9:18–26 // Luke 8:40–56
+Rejection at Nazareth (later) — Mark 6:1–6 // Matt 13:53–58 — [Thomas 31]
+See note at Luke 4:16–30 (Part II) on the duplicate-placement question.
+▶ INSERT: Gospel of Thomas 31 ("No prophet is accepted in his own village; no physician heals those who know him"). Whole logion. Text: Thomas PDF.
+Mission of the Twelve — Mark 6:7–13 // Matt 9:35–10:42 // Luke 9:1–6 — [1 Corinthians 9:14: the Lord's command that preachers be supported] — [Thomas 73]
+▶ INSERT: Gospel of Thomas 73 ("The harvest is great but the laborers are few. Beseech the Lord, therefore, to send out laborers to the harvest") — parallels Matt 9:37–38; cross-ref IX (the seventy, Luke 10:2). Whole logion. Text: Thomas PDF.
+1 Cor 9:14 is grouped here, echoing the "laborer deserves his wages" saying (Matt 10:10 // Luke 10:7).
+Mission of the Seventy(-two) — Luke 10:1–20
+Death of John the Baptist — Mark 6:14–29 // Matt 14:1–12 // Luke 9:7–9
+Feeding of the five thousand — Mark 6:30–44 // Matt 14:13–21 // Luke 9:10–17 // John 6:1–15
+The only miracle in all four Gospels.
+Walking on the water — Mark 6:45–52 // Matt 14:22–33 // John 6:16–21
+Healings at Gennesaret — Mark 6:53–56 // Matt 14:34–36
+The bread of life discourse — John 6:22–71
+Peter's confession in Johannine form (6:66–71) parallels Caesarea Philippi (Part VIII).
+Tradition of the elders; clean and unclean — Mark 7:1–23 // Matt 15:1–20 — [Thomas 14, 40]
+▶ INSERT: Gospel of Thomas 14 ("…eat what they will set before you, and heal the sick… For what goes into your mouth will not defile you, but that which issues from your mouth") — parallels Mark 7:15 + Luke 10:8. Whole logion; flag the fasting/prayer/almsgiving opening. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 40 ("A grapevine has been planted outside of the father, but being unsound, it will be pulled up by its roots and destroyed") — parallels Matt 15:13. Whole logion. Text: Thomas PDF.
+▶ CROSS-REF: the Isaiah "lips… heart far from me" citation belongs to Egerton Gospel, Fragment 2 recto, which is inserted whole at Part X (Tribute to Caesar) per editor decision. The fragment is not split; it is not re-inserted here. [DECISION RESOLVED: Egerton frag 2 recto presented whole at Part X.]
+The Syrophoenician / Canaanite woman — Mark 7:24–30 // Matt 15:21–28
+Healing the deaf-mute; many healings — Mark 7:31–37 // Matt 15:29–31
+Feeding of the four thousand — Mark 8:1–10 // Matt 15:32–39
+Grouped under "feedings" with the five thousand; most read these as two distinct episodes the Gospels themselves treat separately (cf. Mark 8:19–20).
+Demand for a sign; leaven of the Pharisees — Mark 8:11–21 // Matt 16:1–12
+The blind man at Bethsaida — Mark 8:22–26
+VIII. The Turning Point — Confession to Transfiguration
+Peter's confession at Caesarea Philippi — Mark 8:27–30 // Matt 16:13–20 // Luke 9:18–21 — [Thomas 13]
+▶ INSERT: Gospel of Thomas 13 ("Compare me to someone and tell me whom I am like"; Peter, Matthew, Thomas reply) — parallels Mark 8:27–30. Whole logion; flag the secret "three things" and "bubbling spring" frame. Text: Thomas PDF.
+Johannine counterpart: John 6:66–71.
+First passion prediction; taking up the cross — Mark 8:31–9:1 // Matt 16:21–28 // Luke 9:22–27
+The Transfiguration — Mark 9:2–13 // Matt 17:1–13 // Luke 9:28–36
+The boy with an unclean spirit — Mark 9:14–29 // Matt 17:14–21 // Luke 9:37–43 — [Thomas 106]
+▶ INSERT: Gospel of Thomas 106 ("When you make the two one… and when you say, ‘Mountain, move away,’ it will move away") — anchored via the mountain-moving saying (Matt 17:20). Whole logion; flag the "make the two one / sons of man" unification frame. Text: Thomas PDF.
+Second passion prediction — Mark 9:30–32 // Matt 17:22–23 // Luke 9:43–45
+The temple tax — Matt 17:24–27
+Who is the greatest; the child — Mark 9:33–37 // Matt 18:1–5 // Luke 9:46–48
+The strange exorcist — Mark 9:38–41 // Luke 9:49–50 — [P.Oxy 1224: "not against you is for you"]
+▶ INSERT: P.Oxy 1224, Fragment 2 recto col. ii ("the one who is not against you is for you"). Text: in-doc (Non-Biblical text sources). ⚑ NOTE: this is the second clause of the same P.Oxy 1224 fragment whose physician clause is inserted at Part III. The clause's companion line — "pray for your enemies" — also echoes the Sermon (Part IV, love of enemies). Insert the "not against you" clause here; cross-reference the rest. Do not duplicate the physician clause.
+Causing to stumble; salt — Mark 9:42–50 // Matt 18:6–9
+The lost sheep; reproof; forgiveness — Matt 18:10–22 // Luke 15:3–7 (lost sheep); 17:1–4 — [Thomas 107] — [Thomas 30, 48]
+▶ INSERT: Gospel of Thomas 30 ("Where there are two or one, I am with him") — parallels Matt 18:20. Whole logion; flag the corrupt "three gods" opening reading. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 48 ("If two make peace with each other in this one house, they will say to the mountain, ‘Move Away,’ and it will move away") — parallels Matt 18:19 + 17:20. Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 107 (the shepherd who leaves the ninety-nine to seek the one largest sheep: "I care for you more than the ninety-nine"). Whole logion. Text: Thomas PDF. [Anchored here by editor decision.]
+The unforgiving servant — Matt 18:23–35
+IX. The Journey to Jerusalem
+Luke's long travel narrative (9:51–19:27) holds most of this teaching; John's festival cycle (chs. 7–11) runs alongside it. The sequence here interleaves the two but is especially uncertain.
+Departure; Samaritan village; would-be followers — Luke 9:51–62 // Matt 8:18–22 — [Thomas 86]
+▶ INSERT: Gospel of Thomas 86 ("The foxes have their holes and the birds have their nests, but the son of man has no place to lay his head") — parallels Luke 9:58 // Matt 8:20. Whole logion. Text: Thomas PDF. [DECISION RESOLVED: moved here from Appendix B.]
+The Good Samaritan — Luke 10:25–37
+The lawyer's question overlaps the greatest-commandment scene (Part X).
+Mary and Martha — Luke 10:38–42
+Teaching on prayer (friend at midnight) — Luke 11:5–8
+Woes against the Pharisees and lawyers — Luke 11:37–54 // Matt 23 (grouped at Part X) — [Thomas 39]
+▶ INSERT: Gospel of Thomas 39 ("The pharisees and the scribes have taken the keys of knowledge and hidden them…" + "be as wise as serpents and as innocent as doves") — parallels Luke 11:52 + Matt 10:16. Whole logion. Text: Thomas PDF.
+Fear God; confess Christ; the unforgivable word — Luke 12:1–12 // Matt 10:26–33
+The rich fool — Luke 12:13–21 — [Thomas 63; P.Oxy 5575 (rich-fool ending)] — [Thomas 72]
+▶ INSERT: Gospel of Thomas 72 (the man asking Jesus to divide the inheritance; "O man, who has made me a divider?") — parallels Luke 12:13–14. Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 63 (the rich man who plans his storehouses and dies that night). Whole logion. Text: Thomas PDF. ▶ CROSS-REF: P.Oxy 5575, opening clause ("[the rich man] died"). The full fragment is inserted at Part IV (anxiety); cross-reference only here. Text: in-doc (Non-Canonical Texts, P.Oxy 5575).
+Watchfulness; the faithful steward — Luke 12:35–48 // Matt 24:43–51 — [Thomas 21, 103]
+▶ INSERT: Gospel of Thomas 21 (the householder who keeps vigil against the thief; "when the grain ripened, he came quickly with his sickle") — parallels Luke 12:39 + Mark 4:29. Whole logion; flag the "children in a field / be on guard against the world" frame. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 103 ("Fortunate is the man who knows where the brigands will enter, so that he may… arm himself before they invade") — parallels Luke 12:39 (cf. logion 21). Whole logion. Text: Thomas PDF.
+Division; interpreting the times — Luke 12:49–59 — [Thomas 16] — [Thomas 10, 91]
+▶ INSERT: Gospel of Thomas 10 ("I have cast fire upon the world, and see, I am guarding it until it blazes") — parallels Luke 12:49. Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 91 ("You read the face of the sky and of the earth, but you have not recognized the one who is before you, and you do not know how to read this moment") — parallels Luke 12:54–56 // Matt 16:3. Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 16 ("Men think it is peace which I have come to cast upon the world… it is dissension… fire, sword, and war… father against the son, and the son against the father") — parallels Luke 12:51–53 // Matt 10:34–36. Whole logion. Text: Thomas PDF. [Anchored here by editor decision.]
+Repent; the barren fig tree — Luke 13:1–9
+Healing the bent woman on the Sabbath — Luke 13:10–17
+The narrow door; lament over Jerusalem — Luke 13:22–35 // Matt 23:37–39
+At a Pharisee's table; places of honor; the great banquet — Luke 14:1–24 // Matt 22:1–14 (banquet) — [Thomas 64]
+▶ INSERT: Gospel of Thomas 64 (the dinner with the guests who make excuses; "Businessmen and merchants will not enter the places of my father"). Whole logion. Text: Thomas PDF. [DECISION RESOLVED: primary home is here (the great banquet). Inserted once; Part X (wedding banquet) is a cross-reference only.]
+The cost of discipleship — Luke 14:25–35 — [Thomas 55; Thomas 101; Thomas 27; P.Oxy 5575 ("fast from the world")] — [Thomas 98]
+▶ INSERT: Gospel of Thomas 98 (the man who drives his sword into the wall to test his hand before killing the powerful man) — parallels Luke 14:31 (the king going to war). Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 55 ("Whoever does not hate his father and his mother cannot become a disciple to me… take up his cross"). Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 27 ("If you do not fast as regards the world, you will not find the kingdom. If you do not observe the Sabbath as a Sabbath, you will not see the father"). Whole logion. Text: Thomas PDF. ▶ CROSS-REF: P.Oxy 5575, "fast from the world" clause — full fragment inserted at Part IV; cross-reference only here. ▶ INSERT: Gospel of Thomas 101 ("Whoever does not hate his father and his mother as I do cannot become a disciple to me. And whoever does not love his father and his mother as I do cannot become a disciple to me…"). Whole logion. Text: Thomas PDF. [DECISION RESOLVED: inserted alongside Thomas 55.]
+Lost coin; the prodigal son — Luke 15:8–32
+The dishonest manager; the law; the rich man and Lazarus — Luke 16:1–31
+Faith, duty, and the ten lepers — Luke 17:5–19
+The coming of the kingdom — Luke 17:20–37 // Matt 24:26–41 — [Thomas 113; Thomas 3] — [Thomas 61]
+▶ INSERT: Gospel of Thomas 61 ("Two will rest on a bed: the one will die, and the other will live") — parallels Luke 17:34. Whole logion; flag the Salome dialogue and "I am he who exists from the undivided" tail. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 113 ("the kingdom of the father is spread out upon the earth, and men do not see it") — parallels Luke 17:20–21. Whole logion. Text: Thomas PDF. [DECISION RESOLVED: anchored here; removed from the Appendix B unanchored list.] ▶ INSERT: Gospel of Thomas 3 ("the kingdom is inside of you, and it is outside of you. When you come to know yourselves… you are the sons of the living father") — the present-realized kingdom, central to the Basileian lens; parallels Luke 17:20–21. Whole logion. Text: Thomas PDF. [Anchored here by editor decision.]
+The persistent widow; the Pharisee and tax collector — Luke 18:1–14
+John's festival cycle (interleaved):
+At the Feast of Tabernacles — John 7:1–52
+"I am the light of the world"; the controversies — John 8:12–59 — [Egerton Gospel: the controversy with the authorities] — [Thomas 77]
+▶ INSERT: Gospel of Thomas 77 ("It is I who am the light which is above them all… Split a piece of wood, and I am there. Lift up the stone, and you will find me there") — anchored to the "I am the light of the world" discourse (John 8:12). Whole logion. Text: Thomas PDF. [Kept by editor decision; flag the "I am the All" immanence for the translation pass.]
+▶ INSERT: Egerton Gospel, Fragment 1 verso (the controversy with the lawyers and rulers: "Search the scriptures, in which ye think that ye have life; these are they which bear witness of me… there is one that accuseth you, even Moses…"). Includes the stoning attempt (cf. John 8:59 / 10:31) and "the hour of his betrayal was not yet come" (John 7:30; 8:20). Text: in-doc (Egerton Gospel). [DECISION RESOLVED: option (a) — attached here at John 8.]
+The man born blind — John 9:1–41
+The Good Shepherd; the Feast of Dedication — John 10:1–42
+The raising of Lazarus; the plot — John 11:1–57
+Approach to Jerusalem (Synoptic):
+On marriage and divorce — Mark 10:1–12 // Matt 19:1–12
+See also 1 Cor 7:10–11 (Part IV).
+Blessing the children — Mark 10:13–16 // Matt 19:13–15 // Luke 18:15–17 — [Thomas 22]
+▶ INSERT: Gospel of Thomas 22 (the infants being suckled "are like those who enter the kingdom"). Whole logion. Text: Thomas PDF. [Anchored here by editor decision. NB: the logion continues into the "make the two one… the male not be male" unification material; under the whole-logion principle it enters as a unit, but flag the esoteric tail for the translation pass.]
+The rich young ruler; reward of discipleship — Mark 10:17–31 // Matt 19:16–30 // Luke 18:18–30 — [Thomas 4]
+▶ INSERT: Gospel of Thomas 4 ("…many who are first will become last, and they will become one and the same") — anchored via "the first will be last" (Mark 10:31). Whole logion; flag the "old man / child of seven days" and "become one" frame. Text: Thomas PDF.
+Laborers in the vineyard — Matt 20:1–16
+Third passion prediction — Mark 10:32–34 // Matt 20:17–19 // Luke 18:31–34
+The request of James and John; servant leadership — Mark 10:35–45 // Matt 20:20–28
+Blind Bartimaeus — Mark 10:46–52 // Matt 20:29–34 // Luke 18:35–43
+Zacchaeus — Luke 19:1–10
+The parable of the pounds / talents — Luke 19:11–27 // Matt 25:14–30
+X. The Final Week in Jerusalem
+The triumphal entry — Mark 11:1–11 // Matt 21:1–11 // Luke 19:28–44 // John 12:12–19
+Anointing at Bethany — Mark 14:3–9 // Matt 26:6–13 // John 12:1–8
+Grouped under "anointings" with Luke 7:36–50 (Part V); the Bethany anointing is the burial-anticipating one, days before the Passover.
+Cursing the fig tree — Mark 11:12–14, 20–25 // Matt 21:18–22
+Cleansing of the temple (Synoptic placement) — Mark 11:15–19 // Matt 21:12–17 // Luke 19:45–48
+DISPUTED PLACEMENT. Grouped with the Johannine cleansing (Part II); the Synoptics put it in the final week, John at the start.
+The question of authority — Mark 11:27–33 // Matt 21:23–27 // Luke 20:1–8
+Parable of the two sons — Matt 21:28–32
+The wicked tenants — Mark 12:1–12 // Matt 21:33–46 // Luke 20:9–19 — [Thomas 65; Thomas 66]
+▶ INSERT: Gospel of Thomas 65 (the tenant farmers who beat the servants and kill the son). Whole logion. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 66 (the stone the builders rejected / the cornerstone). Whole logion. Text: Thomas PDF. [CONFIRMED. Logion 66 follows 65 in Thomas exactly as the rejected-stone citation follows the parable in Mark 12:10–11 // Matt 21:42.]
+The wedding banquet — Matt 22:1–14
+▶ CROSS-REF: Gospel of Thomas 64 — inserted as a whole logion at Part IX (the great banquet). Cross-reference only here; do not re-insert.
+Tribute to Caesar — Mark 12:13–17 // Matt 22:15–22 // Luke 20:20–26 — [Thomas 100; Egerton Gospel: the tribute question]
+▶ INSERT: Gospel of Thomas 100 ("Give Caesar what belongs to Caesar, give God what belongs to God, and give me what is mine"). Whole logion. Text: Thomas PDF. ▶ INSERT: Egerton Gospel, Fragment 2 recto — inserted whole here. It carries both the tribute question ("Is it lawful to render unto kings that which pertaineth unto their rule? Shall we render unto them, or not?") and the Isaiah citation ("This people honour me with their lips, but their heart is far from me… teaching as their doctrines the precepts of men"). Text: in-doc (Egerton Gospel). [DECISION RESOLVED: fragment presented whole here; the Isaiah clause (parallel to Part VII, Mark 7:6–7) travels with it rather than being split out.]
+The Sadducees and the resurrection — Mark 12:18–27 // Matt 22:23–33 // Luke 20:27–40
+The greatest commandment — Mark 12:28–34 // Matt 22:34–40 // Luke 10:25–28
+David's son and David's Lord — Mark 12:35–37 // Matt 22:41–46 // Luke 20:41–44
+Woes on the scribes and Pharisees — Mark 12:38–40 // Matt 23:1–36 // Luke 20:45–47 — [Thomas 89; P.Oxy 840] — [Thomas 102]
+▶ INSERT: Gospel of Thomas 102 ("Woe to the pharisees, for they are like a dog sleeping in the manger of oxen, for neither does he eat nor does he let the oxen eat") — parallels Matt 23:13 // Luke 11:52. Whole logion. Text: Thomas PDF.
+▶ INSERT: Gospel of Thomas 89 ("Why do you wash the outside of the cup? Do you not realize that he who made the inside is the same one who made the outside?") — parallels Matt 23:25–26 // Luke 11:39–41. Whole logion. Text: Thomas PDF. [CONFIRMED.] ⚑ NOTE: P.Oxy 840 (the Temple-purity controversy) shares the inside/outside-purity theme. Its primary home is Appendix B (no close narrative parallel), but cross-reference it here. Text: in-doc (Non-Canonical Texts, P.Oxy 840).
+The widow's offering — Mark 12:41–44 // Luke 21:1–4
+Greeks seek Jesus; the voice from heaven — John 12:20–50
+The Olivet discourse (the end of the age) — Mark 13:1–37 // Matt 24:1–51 // Luke 21:5–38 — [1 Thessalonians 4:15–17: a "word of the Lord" on the coming] — [Thomas 11, 111]
+▶ INSERT: Gospel of Thomas 11 ("This heaven will pass away, and the one above it will pass away…") — anchored via "heaven… will pass away" (Mark 13:31). Whole logion; flag the "the dead are not alive… you became two" esoteric body. Text: Thomas PDF. ▶ INSERT: Gospel of Thomas 111 ("The heavens and the earth will be rolled up in your presence. And the one who lives from the living one will not see death") — anchored via the rolling-up of heaven and earth (cf. Mark 13:31). Whole logion. Text: Thomas PDF. [Kept by editor decision (read as item 11 of your list = logion 111); flag the "Whoever finds himself is superior to the world" tail.]
+1 Thess 4:15–17 is grouped here; whether it reports a dominical saying or a later prophetic word is debated.
+Parable of the ten virgins — Matt 25:1–13 — [Thomas 75]
+▶ INSERT: Gospel of Thomas 75 ("Many are standing at the door, but it is the solitary who will enter the bridal chamber") — anchored to the ten virgins on the shared door / bridal-chamber imagery (Matt 25:1–13). Whole logion. Text: Thomas PDF. [Kept by editor decision; flag the "solitary" (monachos) motif.]
+Parable of the talents — Matt 25:14–30
+Grouped with Luke's pounds (Part IX).
+The sheep and the goats — Matt 25:31–46
+The plot; Judas's bargain — Mark 14:1–2, 10–11 // Matt 26:1–5, 14–16 // Luke 22:1–6
+XI. The Last Supper and Farewell
+Preparation for the Passover — Mark 14:12–16 // Matt 26:17–19 // Luke 22:7–13
+The footwashing — John 13:1–20
+The betrayer foretold — Mark 14:17–21 // Matt 26:20–25 // Luke 22:14–23 // John 13:21–30
+Institution of the Supper — Mark 14:22–25 // Matt 26:26–29 // Luke 22:15–20 — [1 Corinthians 11:23–26: the earliest written account]
+⚑ NOTE (cross-ref): Didache 9–10 (the Eucharistic prayers) are liturgical and of borderline status; their primary home is Appendix B. Cross-reference them here if you want the institution pericope to point to the early liturgical form. Text: Didache PDF, chs. 9–10.
+Dispute about greatness; thrones — Luke 22:24–30 // Matt 19:28 (thrones)
+Peter's denial foretold — Mark 14:27–31 // Matt 26:31–35 // Luke 22:31–34 // John 13:36–38
+The farewell discourses — John 14:1–16:33
+The high-priestly prayer — John 17:1–26
+XII. Arrest, Trial, Crucifixion, Burial
+Gethsemane — Mark 14:32–42 // Matt 26:36–46 // Luke 22:39–46 // John 18:1
+The arrest — Mark 14:43–52 // Matt 26:47–56 // Luke 22:47–53 // John 18:2–12
+Before Annas and Caiaphas; the Sanhedrin — Mark 14:53–65 // Matt 26:57–68 // Luke 22:54, 63–71 // John 18:13–24 — [Thomas 71]
+▶ INSERT: Gospel of Thomas 71 ("I shall destroy this house, and no one will be able to build it") — parallels the temple-destruction charge, Mark 14:58 // 15:29. Whole (fragmentary) logion. Text: Thomas PDF.
+Peter's denial — Mark 14:66–72 // Matt 26:69–75 // Luke 22:55–62 // John 18:15–18, 25–27
+The end of Judas — Matt 27:3–10
+Before Pilate (and Herod) — Mark 15:1–15 // Matt 27:1–2, 11–26 // Luke 23:1–25 // John 18:28–19:16 — [Gospel of Peter 1–5: Pilate and Herod; Joseph requests the body]
+Herod scene: Luke 23:6–12.
+▶ INSERT: Gospel of Peter §§1–5 (Pilate and Herod; Herod's order; Joseph, "the friend of Pilate and the Lord," requests the body; the Sabbath/Law citation "The sun shouldn't set on one who's been killed"). Text: in-doc (Gospel of Peter).
+The crucifixion — Mark 15:16–32 // Matt 27:27–44 // Luke 23:26–43 // John 19:16–27 — [Gospel of Peter 6–14]
+"Father, forgive them" — Luke 23:34a (text-critically contested). The penitent thief — Luke 23:39–43.
+▶ INSERT: Gospel of Peter §§6–14 (the mockery and enthronement; "Let's drag the Son of God"; thorn crown; crucifixion between two wrongdoers; the penitent wrongdoer who calls him "Savior of humanity"; the order that his legs not be broken so he would die in torment). Text: in-doc (Gospel of Peter).
+The death of Jesus — Mark 15:33–41 // Matt 27:45–56 // Luke 23:44–49 // John 19:28–37 — [Gospel of Peter 15–20]
+▶ INSERT: Gospel of Peter §§15–20 (the darkness over Judea; the gall and sour wine; the cry "My Power, the Power, you've left me!"; "it was taken up"; the veil of the temple torn in two). Text: in-doc (Gospel of Peter).
+The burial — Mark 15:42–47 // Matt 27:57–66 // Luke 23:50–56 // John 19:38–42 — [Gospel of Peter 21–25, 28–33: burial and the securing of the tomb]
+▶ INSERT: Gospel of Peter §§21–25 (the nails drawn out; the earthquake; Joseph washes the body, wraps it in linen, lays it in "Joseph's Garden"; the people mourn "Woe to our sins"). ▶ INSERT: Gospel of Peter §§28–33 (the elders' fear; the request to Pilate for a guard; Petronius the centurion; the great stone; the seven seals; the tent and watch — the "guard at the tomb"). This matches the canonical guard pericope, Matt 27:62–66. Text: in-doc (Gospel of Peter). ✕ EXCLUDE: Gospel of Peter §§34–49 (the great voice and opening heavens; the two men of "much radiance" who descend; the three men emerging with heads reaching/passing beyond heaven; the talking cross; the report to Pilate; the second descending figure; "Truly he was the Son of God!"). The resurrection-witnessing soldiers, the giant figures, and the talking cross — out as later embellishment per criterion. ▶ INSERT (at Part XIII): Gospel of Peter §§50–57 (the women at the opened tomb; the young man's announcement) → Part XIII, empty tomb; and §§58–60 (Peter, Andrew, and Levi return to the sea with their nets) → Part XIII, Sea of Tiberias. [DECISION RESOLVED: admitted at Part XIII; see those pericopes.] Text: in-doc (Gospel of Peter).
+XIII. Resurrection and Appearances
+All of the following are pre-departure and therefore included; the ascension itself is the terminus (see the closing note).
+The empty tomb — Mark 16:1–8 // Matt 28:1–10 // Luke 24:1–12 // John 20:1–10
+▶ INSERT: Gospel of Peter §§50–57 (Mary Magdalene and her friends come at dawn; they find the tomb opened; the beautiful young man in a shining robe: "He arose and went away… he's not there, because he arose and went to where he came from"; the women flee in fear). Text: in-doc (Gospel of Peter). [DECISION RESOLVED: admitted here.]
+Appearance to Mary Magdalene — John 20:11–18 // Mark 16:9–11
+The guards' report — Matt 28:11–15
+On the road to Emmaus — Luke 24:13–35 // Mark 16:12–13
+Appearance to the disciples (Jerusalem) — Luke 24:36–43 // John 20:19–23 // Mark 16:14
+Thomas and the wounds — John 20:24–29
+By the Sea of Tiberias; Peter restored — John 21:1–23
+▶ INSERT: Gospel of Peter §§58–60 (the festival over, the people return home; "we, the twelve disciples of the Lord, were weeping and grieving"; Simon Peter and Andrew take their nets and go to the sea, with Levi son of Alphaeus — the fragment breaks off). A fragmentary parallel to John 21. Text: in-doc (Gospel of Peter). [DECISION RESOLVED: admitted here.]
+The Great Commission (Galilee) — Matt 28:16–20 // Mark 16:15–18
+The appearances summarized — 1 Corinthians 15:3–7 — [Cephas, the Twelve, the five hundred, James, all the apostles; Gospel of the Hebrews: the appearance to James]
+▶ INSERT: Gospel of the Hebrews, James fragment (Jerome, De viris inlustribus 2: "he went to James and appeared to him. For James had sworn that he would not eat bread… until he should see him risen… Bring a table and bread!… My brother, eat thy bread, for the Son of man is risen from among them that sleep"). Whole fragment. Text: in-doc (Gospel of the Hebrews). [The list already noted this in prose; now an explicit directive.]
+Forty days of teaching — Acts 1:1–8
+CLOSING BOUNDARY. The ascension — Mark 16:19; Luke 24:50–53; Acts 1:9–11 — marks Jesus leaving earthly presence and is the terminus of the canon under criterion 3.
+Appendix A — Summary Reports of the Ministry (Kerygma)
+Speeches in Acts that summarize Jesus's ministry, death, and resurrection rather than narrating a single scene. Included as attempts to report what Jesus did, though in compressed kerygmatic form.
+Peter at Pentecost — Acts 2:22–24
+Peter in the house of Cornelius — Acts 10:36–43
+Paul at Pisidian Antioch — Acts 13:23–31
+Appendix B — Unanchored Sayings and Fragments
+Material that reports words or deeds of Jesus but cannot be placed at a specific point in the narrative. Source location is given for each so the app can pull the text.
+"More blessed to give than to receive" — Acts 20:35 (the agraphon). Text: NT (Acts).
+The Temple-purity controversy — P.Oxy 840 (Jesus and the disciples in the Temple precinct; the Pharisaic high priest's purity challenge; "Woe to the blind who cannot see!"). Whole fragment. Text: in-doc (Non-Canonical Texts, P.Oxy 840). Cross-ref: Part X, Woes / Thomas 89.
+Controversy and saying fragments — P.Oxy 1224. Text: in-doc (Non-Biblical text sources). NOTE: the two legible clauses are now placed — the physician saying at Part III (Levi), the "not against you is for you" saying at Part VIII (strange exorcist), with the "pray for your enemies" clause cross-referenced to the Sermon (Part IV). What remains genuinely unanchored is only Fragment 2 recto col. ii's opening ("It weighed me down. And approaching in a vision, Jesus said, 'Why are you discouraged?'"), which has no synoptic home.
+Sayings-source fragment — P.Oxy 5575. Whole fragment. Text: in-doc (Non-Canonical Texts, P.Oxy 5575). NOTE: now inserted once at Part IV (anxiety), with cross-references at Part IX (the rich-fool ending; the "fast from the world" clause / Thomas 27). Retained here as the home of the full transcription.
+Egerton Papyrus 2 (Egerton Gospel). Text: in-doc (Egerton Gospel). NOTE: three of its four units now have homes — the leper at Part III; Fragment 2 recto inserted whole at Part X (carrying both the tribute question and the Isaiah "lips/heart" clause); and the lawyers/"search the scriptures" controversy (Fragment 1 verso) at Part IX, John 8. What remains unanchored is Fragment 2 verso (the fragmentary nature miracle at the Jordan — Jesus sprinkles water and "sent forth fruit"); no synoptic parallel.
+Eucharistic prayers — Didache 9–10 (liturgical; borderline status). Whole. Text: Didache PDF, chs. 9–10. Cross-ref: Part XI, Institution of the Supper.
+Gospel of the Hebrews — unanchored sayings. Text: in-doc (Gospel of the Hebrews). The placed fragments are the baptism (Part I) and the appearance to James (Part XIII); the incarnation fragment is excluded (see Prologue). The following have no narrative anchor:
+Origen, Comm. John 2.12.87: "my mother, the Holy Spirit, take me by one of my hairs and carry me away on to the great mountain Tabor."
+Clement, Strom. 2.9.45.5 / 5.14.96.3: "He that seeks will not rest until he finds; and he that has found shall marvel; and he that has marvelled shall reign; and he that has reigned shall rest." (Parallels Thomas 2.)
+Jerome, Comm. Ephesians 3: "never be ye joyful, save when ye behold your brother with love."
+Jerome, Comm. Ezekiel 6: counted among the gravest offences, "He that has grieved the spirit of his brother."
+Thomas sayings without a narrative anchor. Text: Thomas PDF. The full triage of all 114 logia is complete — see Appendix D. The unanchored-but-included logia routed to this appendix are: 1, 2, 7, 12, 17, 23, 24, 25, 38, 42, 51, 52, 53, 58, 59, 60, 67, 70, 74, 81, 82, 88, 97, 110 (24 logia). All 73 anchored logia now carry inline ▶ directives at their pericopes; the 17 excluded logia (+ incipit) and their rationale are listed in Appendix D.
+What Has Been Left Out
+The Basileian Canon begins from the New Testament and admits only what reports the ministry, death, resurrection, and teaching of Jesus as fact, from the start of the public ministry down to the ascension (the terminus). Whole books and large blocks of the New Testament therefore fall outside it. Their omission here is a statement about this canon's reporting criterion, not a verdict on their standing in the wider New Testament: the material below is left out because it is pre-ministry, post-ascension, or interpretation rather than narrated report — not because it is judged spurious. Where an otherwise-excluded book transmits a saying or formula that does report Jesus as fact, that fragment is admitted at its place in the harmony and noted below.
+1. Pre-ministry material
+Excluded as preceding the canon's starting point (John the Baptist's preaching, Part I).
+Matthew's infancy narrative and genealogy — Matt 1:1–2:23 (genealogy, nativity, Magi, flight to Egypt, Herod).
+Luke's infancy narrative and genealogy — Luke 1:1–2:40 and 3:23–38 (the annunciations, the birth of John, the nativity, the shepherds, the circumcision and presentation, Simeon and Anna).
+The Johannine prologue (the Logos hymn) — John 1:1–18. A theological hymn on the pre-incarnate Word, not narrated ministry; the canon's Johannine material begins at John 1:19 (the Baptist's testimony).
+The single pre-ministry pericope retained is the boy Jesus in the temple (Luke 2:41–52, Prologue), kept as "unofficial ministry."
+2. Post-ascension material
+Excluded as falling beyond the terminus (the ascension: Mark 16:19; Luke 24:50–53; Acts 1:9–11).
+The Acts of the Apostles, except the ministry summaries. The narrative of the early church (effectively Acts 2–28) reports the activity of the apostles, not the earthly ministry of Jesus. Retained from Acts: 1:1–11 (the forty days of teaching and the ascension boundary); the kerygmatic summaries of the ministry at 2:22–24, 10:36–43, and 13:23–31 (Appendix A); and the agraphon at 20:35 ("more blessed to give than to receive," Appendix B).
+Revelation. An apocalyptic vision of the exalted Christ and the end. It is post-ascension and visionary rather than a report of the earthly Jesus; the words of the risen Christ to the seven churches (Rev 2–3) are given in vision after the ascension and so fall outside the window.
+3. Interpretation and theology rather than reporting (the Epistles)
+The letters expound the significance of Jesus; they do not narrate his deeds or teaching. They are excluded as a class, with the standing exception that any explicit dominical command or early reporting-formula they preserve is admitted at its place in the harmony.
+Excluded in full: Romans; 2 Corinthians; Galatians; Ephesians; Philippians; Colossians; 2 Thessalonians; 1 and 2 Timothy; Titus; Philemon; Hebrews; James; 1 and 2 Peter; 1, 2, and 3 John; Jude.
+Excluded except for the reporting fragments retained in the harmony:
+1 Corinthians — retained: 7:10–11 (divorce, "not I, but the Lord"); 9:14 (the Lord's command that preachers be supported); 11:23–26 (the institution of the Supper); 15:3–7 (the resurrection-appearance formula).
+1 Thessalonians — retained: 4:15–17 ("a word of the Lord" on the coming).
+Two notes. The early confessional hymns — Philippians 2:6–11 and Colossians 1:15–20 — interpret Jesus rather than report him, and are not admitted even though they are pre-Pauline in origin. And James, which echoes Jesus's teaching more closely than any other letter, reports none of it as narrated dominical speech; it is excluded by the same rule as the rest.
+4. Text-critical exclusions
+Material absent from the working Greek text (Westcott-Hort 1881).
+The Pericope Adulterae (the woman caught in adultery), John 7:53–8:11. Absent from the earliest and best manuscripts and relegated in Westcott-Hort; the harmony passes directly from John 7:52 to 8:12.
+For completeness: the longer ending of Mark (16:9–20) and Luke 23:34a ("Father, forgive them") are likewise text-critically contested, but they are retained in the harmony with text-critical notes rather than omitted, and Luke 22:43–44 (the Gethsemane agony) falls within an included range. These are flagged, not left out.
+On non-canonical material
+This section concerns the New Testament. The early non-canonical texts that were considered and excluded — among them the resurrection-spectacle of Gospel of Peter §§34–49 (the giant figures and the talking cross), the Gospel of the Hebrews incarnation fragment, the catechetical and liturgical portions of the Didache (1:2–6; 8:2–3), and the seventeen excluded Gospel of Thomas logia — are documented at their points in the harmony (the ✕ directives) and, for Thomas, in the full triage at Appendix D.
+
+The two appendices that follow (C, the placement table; and D, the Thomas triage) are editorial build apparatus, not part of the reader canon.
+Appendix C — Non-Canonical Placement Table (master checklist)
+One row per non-canonical unit. "Status": ▶ = insert; ✕ = exclude; ⚑ = decision pending. The app should be able to satisfy every ▶ row. For the complete Gospel-of-Thomas mapping (all 114 logia: 73 anchored / 24 → Appendix B / 17 + incipit excluded), see Appendix D — the Thomas rows below cover only logia decided in earlier rounds and are not exhaustive.
+Source unit
+Placement (Part — pericope)
+Extent
+Text location
+Status
+Gospel of the Hebrews — baptism fragment (Jerome on Isa 11:2)
+I — Baptism of Jesus
+whole
+in-doc (GHeb)
+▶
+Gospel of the Hebrews — James fragment (Jerome, De viris 2)
+XIII — Appearances summarized
+whole
+in-doc (GHeb)
+▶
+Gospel of the Hebrews — incarnation fragment (Cyril)
+Prologue
+—
+in-doc (GHeb)
+✕
+Gospel of the Hebrews — Tabor/hair; seek-find; brother-with-love; grieved-spirit
+Appendix B (unanchored)
+sayings
+in-doc (GHeb)
+▶ (to App. B)
+Egerton Gospel — Frag 1 recto (the leper)
+III — Cleansing of a leper
+episode
+in-doc (Egerton)
+▶
+Egerton Gospel — Frag 2 recto (Isaiah "lips/heart")
+X — Tribute to Caesar (travels whole with the fragment)
+within frag
+in-doc (Egerton)
+▶
+Egerton Gospel — Frag 2 recto (tribute question)
+X — Tribute to Caesar
+whole frag (incl. Isaiah clause)
+in-doc (Egerton)
+▶
+Egerton Gospel — Frag 1 verso ("search the scriptures" controversy)
+IX — John 8 (option a)
+episode
+in-doc (Egerton)
+▶
+Egerton Gospel — Frag 2 verso (Jordan nature miracle)
+Appendix B (unanchored)
+fragment
+in-doc (Egerton)
+▶ (to App. B)
+P.Oxy 1224 — Frag 2 verso col. ii ("physician," + "and priests")
+III — Call of Levi
+clause
+in-doc (Non-Biblical sources)
+▶
+P.Oxy 1224 — Frag 2 recto col. ii ("not against you is for you")
+VIII — The strange exorcist
+clause
+in-doc (Non-Biblical sources)
+▶
+P.Oxy 1224 — "pray for your enemies" clause
+IV — Antitheses (love of enemies)
+clause (cross-ref)
+in-doc (Non-Biblical sources)
+▶ (cross-ref)
+P.Oxy 1224 — "It weighed me down… vision" opening
+Appendix B (unanchored)
+clause
+in-doc (Non-Biblical sources)
+▶ (to App. B)
+P.Oxy 5575 — full fragment
+IV — Treasure/two masters/anxiety
+whole (primary)
+in-doc (Non-Canonical Texts)
+▶
+P.Oxy 5575 — rich-fool ending
+IX — The rich fool
+clause (cross-ref)
+in-doc (Non-Canonical Texts)
+▶ (cross-ref)
+P.Oxy 5575 — "fast from the world"
+IX — Cost of discipleship
+clause (cross-ref)
+in-doc (Non-Canonical Texts)
+▶ (cross-ref)
+P.Oxy 840 — Temple-purity controversy
+Appendix B (primary); X — Woes (cross-ref)
+whole
+in-doc (Non-Canonical Texts)
+▶
+Codex Bezae — Luke 6:4 (Sabbath worker)
+III — Plucking grain on the Sabbath
+whole
+in-doc (Non-Biblical sources)
+▶
+1 Clement 13 — "be merciful… forgive… measure" cluster
+IV — Judging; speck and log
+cluster
+in-doc (1 Clement)
+▶
+Polycarp, Phil. 2:3 — "do not judge… forgive… measure"
+IV — Judging; speck and log
+cluster
+in-doc (Polycarp)
+▶
+Didache 8:2(–3) — the Lord's Prayer
+— (excluded)
+ch. 8
+Didache PDF
+✕
+Didache 9–10 — Eucharistic prayers
+Appendix B; XI — Institution (cross-ref)
+chs. 9–10
+Didache PDF
+▶
+Didache 1:2–6 — Two Ways / Sermon echoes
+— (excluded)
+ch. 1
+Didache PDF
+✕
+Gospel of Peter §§1–5
+XII — Before Pilate (and Herod)
+§§1–5
+in-doc (Gospel of Peter)
+▶
+Gospel of Peter §§6–14
+XII — The crucifixion
+§§6–14
+in-doc (Gospel of Peter)
+▶
+Gospel of Peter §§15–20
+XII — The death of Jesus
+§§15–20
+in-doc (Gospel of Peter)
+▶
+Gospel of Peter §§21–25
+XII — The burial
+§§21–25
+in-doc (Gospel of Peter)
+▶
+Gospel of Peter §§28–33 (guard at the tomb)
+XII — The burial
+§§28–33
+in-doc (Gospel of Peter)
+▶
+Gospel of Peter §§34–49 (giants, talking cross, soldier-witnesses)
+XII–XIII
+—
+in-doc (Gospel of Peter)
+✕
+Gospel of Peter §§50–57 (women at the open tomb)
+XIII — Empty tomb
+§§50–57
+in-doc (Gospel of Peter)
+▶
+Gospel of Peter §§58–60 (return to the sea)
+XIII — Sea of Tiberias
+§§58–60
+in-doc (Gospel of Peter)
+▶
+Thomas 9 (sower)
+VI — The sower
+logion
+Thomas PDF
+▶
+Thomas 20 (mustard)
+VI — The mustard seed
+logion
+Thomas PDF
+▶
+Thomas 26 (mote/beam)
+IV — Judging
+logion
+Thomas PDF
+▶
+Thomas 27 (fast from world / Sabbath)
+IX — Cost of discipleship
+logion
+Thomas PDF
+▶
+Thomas 31 (prophet/physician)
+VII — Rejection at Nazareth
+logion
+Thomas PDF
+▶
+Thomas 47 (wineskins/patch + two masters)
+III — Fasting (primary); IV — two masters (cross-ref)
+logion
+Thomas PDF
+▶
+Thomas 54 (blessed poor)
+IV — Beatitudes
+logion
+Thomas PDF
+▶
+Thomas 55 (hate father/mother)
+IX — Cost of discipleship
+logion
+Thomas PDF
+▶
+Thomas 57 (wheat/tares)
+VI — Wheat and tares
+logion
+Thomas PDF
+▶
+Thomas 63 (rich fool)
+IX — The rich fool
+logion
+Thomas PDF
+▶
+Thomas 64 (banquet)
+IX — Great banquet (primary); X — wedding banquet (cross-ref)
+logion
+Thomas PDF
+▶
+Thomas 65 (wicked tenants)
+X — The wicked tenants
+logion
+Thomas PDF
+▶
+Thomas 66 (cornerstone)
+X — The wicked tenants
+logion
+Thomas PDF
+▶
+Thomas 76 (pearl)
+VI — Treasure and pearl
+logion
+Thomas PDF
+▶
+Thomas 89 (outside of the cup)
+X — Woes
+logion
+Thomas PDF
+▶
+Thomas 96 (leaven)
+VI — The leaven
+logion
+Thomas PDF
+▶
+Thomas 100 (Caesar)
+X — Tribute to Caesar
+logion
+Thomas PDF
+▶
+Thomas 109 (hidden treasure)
+VI — Treasure and pearl
+logion
+Thomas PDF
+▶
+Thomas 113 (kingdom on earth)
+IX — Coming of the kingdom
+logion
+Thomas PDF
+▶
+Thomas 41 (have/given more)
+VI — Lamp/measure
+logion
+Thomas PDF
+▶
+Thomas 86 (foxes/holes)
+IX — Would-be followers
+logion
+Thomas PDF
+▶
+Thomas 8 (wise fisherman)
+VI — The dragnet
+logion
+Thomas PDF
+▶
+Thomas 90 ("come to me… yoke is easy")
+V — Thanksgiving; "come to me"
+logion
+Thomas PDF
+▶
+Thomas 99 (will of my father → family)
+V — Jesus's true family
+logion
+Thomas PDF
+▶
+Thomas 101 (hate, then love, father/mother)
+IX — Cost of discipleship
+logion
+Thomas PDF
+▶
+Thomas 107 (shepherd; one largest sheep)
+VIII — The lost sheep
+logion
+Thomas PDF
+▶
+Thomas 3 (kingdom inside/outside)
+IX — Coming of the kingdom
+logion
+Thomas PDF
+▶
+Thomas 16 (not peace but division)
+IX — Division; interpreting the times
+logion
+Thomas PDF
+▶
+Thomas 22 (children enter the kingdom)
+IX — Blessing the children
+logion
+Thomas PDF
+▶
+
+Editorial decisions — RESOLVED (this revision)
+The following were resolved by the editor and applied throughout the directives, Appendix B, and the Appendix C table:
+Thomas 47 — primary home III (fasting); Part IV (two masters) is a cross-reference. ✓
+Thomas 64 — primary home IX (great banquet); Part X (wedding banquet) is a cross-reference. ✓
+Thomas 113 — anchored at IX; removed from the Appendix B unanchored list. ✓
+Thomas 41 → VI (the measure) and Thomas 86 → IX (would-be followers); both removed from Appendix B. ✓
+Thomas 90 → V, Thomas 99 → V, Thomas 8 → VI, Thomas 107 → VIII, Thomas 101 → IX (alongside Thomas 55) — all anchored out of the candidate pool. ✓
+Gospel of Peter §§50–57 → XIII (empty tomb) and §§58–60 → XIII (Sea of Tiberias) — admitted. (§§34–49 remain excluded.) ✓
+Egerton Frag 1 verso → IX, John 8 (option a). ✓
+Egerton Frag 2 recto presented whole at X (carrying both the tribute question and the Isaiah "lips/heart" clause); not split, and not inserted at VII. ✓
+Gospel of the Hebrews incarnation fragment — exclusion confirmed (pre-ministry). ✓
+Didache 1:2–6 (Two Ways) — excluded. Didache 8:2–8:3 (Lord's Prayer form) — excluded. (Didache 9–10 retained as borderline/Appendix B with an XI cross-reference, unchanged.) ✓
+Still open
+Gospel-of-Thomas triage — COMPLETE and applied. All 114 logia classified in Appendix D (73 anchored with inline directives, 24 unanchored → Appendix B, 17 + incipit excluded). Both former sign-off items are closed: the 40 triage anchors are promoted to inline directives, and the borderline exclusions are decided. One item to confirm: editor-note item 11 ("113") was applied as logion 111.
+Thomas 3, 16, 22 — RESOLVED: all three inserted at Part IX (coming of the kingdom; division; blessing the children, respectively).
+
+Appendix D — Gospel of Thomas Triage (all 114 logia)
+One-time triage applying the project's two governing rules: (1) the whole-logion principle — if any clause is corroborated by the canonical/synoptic tradition, the entire logion enters as a unit, even where it carries an esoteric tail; (2) the similarity criterion — exclude material with little similarity to the Gospel Jesus or that is explicitly gnostic-cosmological (cosmogony, pre-existent images, ascent-passwords, the pleroma/"the All," make-male, flesh/spirit speculation).
+Verdicts: A = anchored to a pericope (synoptic parallel); U = included but unanchored (coheres / reports a saying, no narrative home → Appendix B); X = excluded. "Firm" vs. "borderline" marks how secure the call is; borderline rows are the ones to review first. Rows marked [in body] already have an inline insertion directive; rows marked [in body] are new placements established by this triage that can be promoted to inline directives on your go-ahead.
+#
+Verdict
+Home / rationale
+Firmness
+Incipit ("These are the secret sayings…")
+X
+Esoteric framing device ("secret sayings"), not a dominical saying.
+firm
+1
+U
+Frame saying "finds the interpretation… not experience death"; echoes John 8:51. [Kept by editor decision → Appendix B.]
+—
+2
+U
+Seek → find → troubled → marvel → rule. Corroborated by Gospel of the Hebrews (Clement, Strom.) and P.Oxy 654. Thematic link to Part IV (seek/find).
+firm
+3
+A
+IX — coming of the kingdom (Luke 17:20–21). [in body]
+firm
+4
+A
+IX — reward of discipleship ("first will become last," Mark 10:31). Whole-logion; flag "become one" tail. [in body]
+borderline
+5
+A
+VI — lamp/measure ("nothing hidden," Mark 4:22 // Luke 8:17). [in body]
+firm
+6
+A
+IV — almsgiving/prayer/fasting question (Matt 6:1–18) + "nothing hidden." Flag the divergent answer. [in body]
+borderline
+7
+U
+"Blessed is the lion which becomes man…" — opaque, but kept by editor decision → Appendix B.
+—
+8
+A
+VI — the dragnet (wise fisherman). [in body]
+firm
+9
+A
+VI — the sower. [in body]
+firm
+10
+A
+IX — "I have cast fire upon the world" (Luke 12:49). [in body]
+firm
+11
+A
+X — Olivet, via "this heaven will pass away" (Mark 13:31). Whole-logion include; flag the two/one esoteric body. [in body]
+borderline
+12
+U
+James-the-righteous leadership saying; coheres with the GHeb James tradition. Thematic link Part VIII (who is greatest).
+borderline
+13
+A
+VIII — Caesarea Philippi confession ("compare me to someone," Mark 8:27–30). Whole-logion; flag the secret "three things."
+borderline
+14
+A
+VII — defilement ("what goes in… what issues out," Mark 7:15) + mission ("eat what they set," Luke 10:8). [in body]
+firm
+15
+X
+"One who was not born of woman… that is your father" — esoteric, no parallel.
+firm
+16
+A
+IX — division ("not peace but a sword," Luke 12:51–53). [in body]
+firm
+17
+U
+"What no eye has seen…" — cf. 1 Cor 2:9 (a known citation-saying).
+borderline
+18
+X
+Beginning/end protology ("blessed is he who takes his place in the beginning").
+borderline
+19
+X
+"Came into being before he came into being… five trees in Paradise" — pre-existence cosmology.
+firm
+20
+A
+VI — the mustard seed. [in body]
+firm
+21
+A
+IX — watchfulness (the householder/thief, Luke 12:39) + sickle/harvest (Mark 4:29). Flag "guard against the world." [in body]
+borderline
+22
+A
+IX — children enter the kingdom (Mark 10:15). Whole-logion; flag the "make the two one / male not male" unification tail. [in body]
+borderline
+23
+U
+"One out of a thousand… stand as a single one." [Kept by editor decision → Appendix B.]
+—
+24
+U
+"Light within a man of light." [Kept by editor decision → Appendix B.]
+—
+25
+U
+"Love your brother like your soul, guard him like the pupil of your eye" — coheres with the love command; thematic link to the greatest commandment (X).
+firm
+26
+A
+IV — the mote and the beam. [in body]
+firm
+27
+A
+IX — fast from the world / keep the Sabbath. [in body]
+firm
+28
+X
+"I appeared to them in flesh… found them intoxicated" — revealer monologue; theological, little synoptic similarity (though "they will repent" coheres).
+borderline
+29
+X
+Flesh-from-spirit / spirit-from-body — cosmogonic speculation.
+firm
+30
+A
+VIII — "where two or three… I am with him" (Matt 18:20). Whole-logion; flag the corrupt "three gods" reading. [in body]
+borderline
+31
+A
+VII — prophet without honor / physician. [in body]
+firm
+32
+A
+IV — the city on a high mountain (Matt 5:14, salt and light). [in body]
+firm
+33
+A
+IV — preach from housetops (Matt 10:27) + lamp not under a bushel (Matt 5:15); cross-ref VI. [in body]
+firm
+34
+A
+IV — blind leading blind (Luke 6:39, Sermon on the Plain). [in body]
+firm
+35
+A
+V — binding the strong man (Mark 3:27, Beelzebul). [in body]
+firm
+36
+A
+IV — anxiety ("do not be concerned… what you will wear," Matt 6:25–34); cross-ref P.Oxy 5575. [in body]
+firm
+37
+X
+"Disrobe without being ashamed… tread on them like children" — encratite/esoteric.
+borderline
+38
+U
+"You will look for me and will not find me" — cf. John 7:34; Luke 17:22.
+firm
+39
+A
+IX — keys of knowledge (Luke 11:52, woes on lawyers) + "wise as serpents, innocent as doves" (Matt 10:16). [in body]
+firm
+40
+A
+VII — "a plant the father did not plant… pulled up by the roots" (Matt 15:13, tradition of the elders). [in body]
+firm
+41
+A
+VI — "whoever has… will receive more" (Mark 4:25). [in body]
+firm
+42
+U
+"Become passers-by" — cryptic but ethically harmless; coheres with the detachment/renunciation theme.
+borderline
+43
+A
+IV — tree and fruit ("love the tree and hate its fruit," Matt 7:16–20 // 12:33). Flag the "like the Jews" polemic. [in body]
+firm
+44
+A
+V — blasphemy against the spirit not forgiven (Mark 3:28–29, Beelzebul). [in body]
+firm
+45
+A
+IV — grapes not from thorns; good/evil out of the heart's treasure (Luke 6:43–45). [in body]
+firm
+46
+A
+V — none born of women greater than John (Matt 11:11 // Luke 7:28). [in body]
+firm
+47
+A
+III — wineskins/patch (primary); IV — two masters (cross-ref). [in body]
+firm
+48
+A
+VIII — "if two make peace… say to the mountain, move" (Matt 18:19 + 17:20). [in body]
+firm
+49
+A
+IV — Beatitudes (kingdom-beatitude: "Blessed are the solitary… you will find the kingdom"). [in body]
+—
+50
+X
+"We came from the light… movement and repose" — ascent passwords.
+firm
+51
+U
+"What you look forward to has already come, but you do not recognize it" — realized eschatology; coheres strongly with the Basileian lens; cross-ref IX.
+firm
+52
+U
+"Twenty-four prophets… you have omitted the one living in your presence" — coheres (the living one).
+borderline
+53
+U
+Circumcision: "the true circumcision in spirit" — coheres with Jesus relativizing externals; cross-ref VII (clean/unclean).
+borderline
+54
+A
+IV — blessed are the poor (Beatitudes). [in body]
+firm
+55
+A
+IX — hate father and mother / take up the cross (cost of discipleship). [in body]
+firm
+56
+X
+"Whoever has understood the world has found a corpse" — world-denigration (cf. 80, 110, 111).
+borderline
+57
+A
+VI — wheat and tares (good seed and weeds). [in body]
+firm
+58
+U
+"Blessed is the man who has suffered and found life" — beatitude-style; coheres with the persecution beatitudes.
+firm
+59
+U
+"Take heed of the living one while you are alive" — coheres (cf. 38; John 7:34).
+borderline
+60
+U
+Samaritan with the lamb; "look for a place within repose." [Kept by editor decision → Appendix B.]
+—
+61
+A
+IX — "two will rest on a bed: one dies, one lives" (Luke 17:34). Whole-logion; flag the Salome / "from the undivided" tail.
+borderline
+62
+A
+IV — "do not let your left hand know what your right is doing" (Matt 6:3, almsgiving). Whole-logion; flag the "mysteries" frame. [in body]
+firm
+63
+A
+IX — the rich fool. [in body]
+firm
+64
+A
+IX — the great banquet (primary); X cross-ref. [in body]
+firm
+65
+A
+X — the wicked tenants. [in body]
+firm
+66
+A
+X — the rejected stone / cornerstone. [in body]
+firm
+67
+U
+"If one who knows the all still feels a personal deficiency…" [Kept by editor decision → Appendix B.]
+—
+68
+A
+IV — blessed when hated and persecuted (Matt 5:11). [in body]
+firm
+69
+A
+IV — blessed the hungry / persecuted-within (Luke 6:21; Matt 5:6, 10). [in body]
+firm
+70
+U
+"That which you have will save you if you bring it forth." [Kept by editor decision → Appendix B.]
+—
+71
+A
+XII — "I shall destroy this house" (the temple charge, Mark 14:58, before the Sanhedrin). Fragmentary. [in body]
+borderline
+72
+A
+IX — "who made me a divider?" (Luke 12:13–14, immediately preceding the rich fool). [in body]
+firm
+73
+A
+VII — "the harvest is great but the laborers are few" (Matt 9:37, mission); cross-ref IX (seventy, Luke 10:2). [in body]
+firm
+74
+U
+"Many around the trough, nothing in the cistern" — cryptic; pairs with 73.
+borderline
+75
+A
+X — Parable of the ten virgins (door / bridal chamber, Matt 25:1–13). [in body]
+—
+76
+A
+VI — the merchant and the pearl. [in body]
+firm
+77
+A
+IX — "I am the light of the world" discourse (John 8:12); "split the wood… I am there." [in body]
+—
+78
+A
+V — "a reed shaken by the wind?… fine garments" (Matt 11:7–8, about John). [in body]
+firm
+79
+A
+IX — "blessed the womb… rather, blessed those who hear the word and keep it" (Luke 11:27–28); cross-ref Luke 23:29 (the barren). [in body]
+firm
+80
+X
+"Found the body… superior to the world" — world-denigration (duplicate of 56).
+borderline
+81
+U
+"Let him who has grown rich be king, and him who has power renounce it" — renunciation (cf. 110).
+borderline
+82
+U
+"He who is near me is near the fire" — well-attested agraphon (Origen, Didymus); coheres.
+firm
+83
+X
+"The images are manifest… the light in them is concealed" — image/light cosmology.
+firm
+84
+X
+"Your images which came into being before you" — pre-existent images.
+firm
+85
+X
+"Adam came into being from a great power and a great wealth" — Adam protology.
+firm
+86
+A
+IX — foxes have holes / the son of man has nowhere to lay his head (Luke 9:58). [in body]
+firm
+87
+X
+"Wretched the body dependent on a body, the soul on these two" — body/soul dualism (cf. 112).
+borderline
+88
+U
+"The angels and prophets will come to you and give you what you have" — obscure but not cosmological.
+borderline
+89
+A
+X — washing the outside of the cup (Matt 23:25–26, woes). [in body]
+firm
+90
+A
+V — "come to me, my yoke is easy" (Matt 11:28–30). [in body]
+firm
+91
+A
+IX — "you read the face of the sky… but cannot read this moment" (Luke 12:54–56, interpreting the times). [in body]
+firm
+92
+A
+IV — "seek and you will find" (Matt 7:7). [in body]
+firm
+93
+A
+IV — "do not give what is holy to dogs… pearls to swine" (Matt 7:6); cf. Didache 9:5. [in body]
+firm
+94
+A
+IV — "he who seeks will find, he who knocks will be let in" (Matt 7:8 // Luke 11:10). [in body]
+firm
+95
+A
+IV — "do not lend at interest, but give to one from whom you won't get it back" (Luke 6:34–35). [in body]
+firm
+96
+A
+VI — the leaven. [in body]
+firm
+97
+U
+The kingdom like a woman whose jar of meal empties unnoticed — special-Thomas kingdom parable; no synoptic parallel but coheres; thematic link VI.
+firm
+98
+A
+IX — the assassin parable ≈ the king going to war (Luke 14:31, cost of discipleship). [in body]
+borderline
+99
+A
+V — "those who do the will of my father are my brothers and mother." [in body]
+firm
+100
+A
+X — give Caesar what is Caesar's. [in body]
+firm
+101
+A
+IX — hate/love father and mother (alongside Thomas 55). [in body]
+firm
+102
+A
+X — "dog in the manger" woe on the Pharisees (Matt 23:13 // Luke 11:52). [in body]
+firm
+103
+A
+IX — "knows where the brigands will enter… arm himself" (the watchful householder, Luke 12:39; cf. 21). [in body]
+firm
+104
+A
+III — fasting / "when the bridegroom leaves the bridal chamber" (Mark 2:19–20). [in body]
+firm
+105
+X
+"He who knows the father and the mother will be called the son of a harlot" — cryptic-polemical.
+borderline
+106
+A
+VIII — "make the two one… say to the mountain, move" (Matt 17:20). Whole-logion via the mountain saying; flag unification.
+borderline
+107
+A
+VIII — the shepherd and the one (largest) sheep (lost sheep, Matt 18:12–13). [in body]
+firm
+108
+X
+"He who drinks from my mouth will become like me; I shall become he" — mystical identification.
+firm
+109
+A
+VI — the hidden treasure in the field (Matt 13:44). [in body]
+firm
+110
+U
+"Whoever finds the world and becomes rich, let him renounce the world" — renunciation (cf. 81).
+borderline
+111
+A
+X — Olivet discourse ("the heavens and the earth will be rolled up," cf. Mark 13:31). [in body]
+—
+112
+X
+"Woe to the flesh that depends on the soul; woe to the soul that depends on the flesh" — body/soul dualism (cf. 87).
+borderline
+113
+A
+IX — "the kingdom is spread out upon the earth, and men do not see it." [in body]
+firm
+114
+X
+"I shall lead her in order to make her male…" — encratite/gnostic; theologically alien to the Gospel Jesus. Standard exclude.
+firm
+Triage totals (after editor decisions): Anchored (A) = 73 logia; Unanchored-included (U) = 24 logia; Excluded (X) = 17 logia + the incipit frame. All 114 logia accounted for.
+What this means for the build:
+All 73 anchored logia now carry inline ▶ directives (marked [in body]): 3, 4, 5, 6, 8, 9, 10, 11, 13, 14, 16, 20, 21, 22, 26, 27, 30, 31, 32, 33, 34, 35, 36, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 54, 55, 57, 61, 62, 63, 64, 65, 66, 68, 69, 71, 72, 73, 75, 76, 77, 78, 79, 86, 89, 90, 91, 92, 93, 94, 95, 96, 98, 99, 100, 101, 102, 103, 104, 106, 107, 109, 111, 113.
+24 logia → Appendix B (unanchored but included): 1, 2, 7, 12, 17, 23, 24, 25, 38, 42, 51, 52, 53, 58, 59, 60, 67, 70, 74, 81, 82, 88, 97, 110.
+17 logia + the incipit are excluded. Firm: 15, 19, 29, 50, 83, 84, 85, 108, 114. Borderline, confirmed excluded by editor: 18, 28, 37, 56, 80, 87, 105, 112. Plus the incipit frame.
+Editor review of the borderline/firm set: kept → Appendix B: 1, 7, 23, 24, 60, 67, 70; kept and anchored: 49 (IV Beatitudes), 75 (X ten virgins), 77 (IX John 8 light), 111 (X Olivet). Item 11 of the editor's note, written "113," is read as logion 111 (113 was already anchored); flagged for confirmation. All other borderline logia excluded.
+[RESOLVED] Both former sign-off items are now closed: the 40 triage anchors have been promoted to inline directives, and the borderline exclusions are decided.
+
+The blocks below (Non-Biblical text sources and the full Non-Canonical Texts) are unchanged from the working list and are retained here so the app has the verbatim source text referenced by every directive above.
+Non-Biblical text sources
+P.Oxy 1224 (full text below)
+It weighed me down. Then Jesus approached in a vision and said, "Why
+are you discouraged? For not . . . you, but the . . . "
+. . . "you said, although you are not answering. What then did you
+renounce? What is the new doctrine that they say you teach, or what is the new baptism that you proclaim? Answer and . . . "
+When the scribes and Pharisees and priests saw him, they were angry
+that he was reclining in the midst of sinners. But when Jesus heard, he said, "Those who are healthy have no need of a physician . . . "
+" . . . and pray for your enemies. For the one who is not against
+you is for you. The one who is far away today, tomorrow will be near you and in . . . the adversary . . .
+Fragment 1: recto
+139
+01 [ . . . ] in everything02 [ . . . ]. Truly,03 [I say to you . . . ]
+Fragment 1: verso
+01 he will [ . . . ]. You [ . . . ]02 [ . . . ]03 [ . . . ]
+Fragment 2: recto, col. ii
+1[73]
+01 It weighed me down. And [approach-]02 ing [i]n a vis[ion], Jesus [said,]03 "Why are you dis[cour]aged? For not [ . . . ]04 [y]ou, but the [ . . . ]05 [ . . . ]
+Fragment 2: verso, col. i
+174
+01 [ . . . ] "you [sai]d, although you are not answer-02 [ing. What then did] you [re]nounce? W[h]at03 [is] the ne[w] doct[rine] [that they say]04 [you] te[ach, or what is the] new [b]a[ptism]05 [that you proclaim? Ans]wer and . . .
+Fragment 2: verso, col. ii
+[175]
+01 When the scribes an[d Pharisees]02 and priests sa[w hi]m,03 they were angry [that with sin]ners04 (right in the middle of them) [he was reclining.]05 But when Jesus heard, he said,06 "Those who are [healthy ha]ve [no need]07 [of a physician . . . ]
+Fragment 2: recto, col. ii
+[1]76
+01 [ . . . a]nd p[r]ay for02 your [ene]mies. For the one who is not03 [against yo]u is for you.04 [The one who i]s far away [today], tomorrow05 will be [near you] and in06 [ . . . ] the advers[ary]07 [ . . . ]
+Gospel of Thomas: pdf attached
+Didache: pdf attached
+P.oxy 5575: see below
+Gospel of Peter: see below
+Gospel of the Hebrews: see below
+P.Oxy 840: see below
+Codex Bazae addition at Luke 6:4:
+"On the same day, observing someone working on the Sabbath,
+[Jesus] said to him: 'Man, if you know what you are doing, you are blessed; but if you do not know, you are cursed and a lawbreaker.'"
+Epistle of Clement: see below
+Polycarp: see below
+Egerton Gospel: see below
+New Structural Additions:
+List of theologically loaded words/phrases in the text which will be
+presented in the original Greek or translated differently where the cultural & linguistic context of Jesus’s time & place are clear about the term’s usage and meaning.
+Non-Canonical Texts
+P. Oxy 5575
+recto (→)
+[…] (the rich man) died. [I tell you, don’t] be anxious about [your life], what you’ll eat, [nor the] body, what [you’ll wear], because I tell you, [unless] you fast from [the world], you’ll never find [the kingdom], and unless you […] the world, [you’ll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]
+verso (↓)
+[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he’ll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]
+Notes
+recto (→)
+(the rich man) died. Cp. Thomas 63: “a rich man … died.” See also Luke 12:16-21.
+[don’t] be anxious. Cp. Matthew 6:25; Luke 12:22; Thomas 36.
+[unless] you fast from [the world]. Cp. Thomas 27.
+[the] birds. Cp. Matthew 6:26; Luke 12:24.
+verso (↓)
+how [they grow]. Cp. Matthew 6:28-30; Luke 12:27,28; Thomas 36.
+so you. Cp. Matthew 6:32,33; Luke 12:30,31.
+Gospel of Peter
+Pilate and Herod
+(1) But of the Jews no one washed the hands, neither Herod nor one of his judges, and when they didn't want to wash Pilate stood up. (2) And then Herod the king, commanding the Lord to be brought, said to them, "Do whatever I commanded you to do to him."
+Joseph Requests Jesus' Body
+(3) And Joseph stood there, the friend of Pilate and the Lord. And seeing that they were about to crucify him, he went to Pilate and asked for the body of the Lord for burial. (4) And Pilate, having sent to Herod, asked him for the body.
+(5) And Herod said, "Brother Pilate, even if someone hadn't asked for him, we would've buried him, since also Sabbath is beginning, because it's written in the Law, 'The sun shouldn't set on one who's been killed.'"
+The Lord is Tortured and Mocked
+And he handed him over to the people before the first day of their festival of the Unleavened Bread. (6) And those having taken the Lord were running, pushing him, and saying, "Let's drag the Son of God, having authority over him!"
+(7) And they were clothing him with purple, and sat him on the seat of judgment, saying, "Judge justly, king of Israel!" (8) And one of them brought a thorn crown and placed it on the Lord's head.
+(9) And other bystanders were spitting in his face, and others slapped his cheeks. Others were piercing him with a reed, and some were scourging him, saying, "With this honor, let's honor the Son of God!"
+The Lord is Crucified
+(10) And they brought two wrongdoers and crucified the Lord in the middle of them, but he was silent as if having no pain. (11) And when they set up the cross, they wrote that "This is the king of Israel." (12) And having laid the clothes in front of him, they divided them and cast lots for them.
+(13) But one of those wrongdoers rebuked them, saying, "We, because of the wrong that we did, are suffering this way, but this one, having become Savior of humanity, what wrong has he done to you?"
+(14) And they were angry at him. They commanded that the legs not be broken, so that he might die tortured.
+The Lord Dies
+(15) And it was mid-day, and darkness held fast over all Judea. And they were troubled and distressed lest the sun set, since he was still living. It's written to them, "The sun shouldn't set on one who's been killed." (16) And one of them said, "Give him bile with sour wine to drink." And having mixed it, they gave it to him to drink. (17) And they fulfilled all things and accumulated the sins on their head. (18) And many were going around with lanterns, thinking it was night, and some fell down.
+(19) And the Lord cried out, saying, "My Power, the Power, you've left me!" And when he said this, it was taken up. (20) And that very hour, the veil of the temple in Jerusalem was torn in two.
+The Lord is Buried
+(21) And then they drew the nails from the Lord's hands and placed him on the earth. And the whole earth was shaken, and great fear came.
+(22) Then the sun shone and it was found to be the ninth hour. (23) And the Jews rejoiced, and gave Joseph his body to bury, since he had seen all the good he had done. (24) And having taken the Lord, he washed him and wrapped him in linen, and brought him into his own tomb, which was known as "Joseph's Garden."
+People React
+(25) Then the Jews, the elders, and the priests, knowing how much wrong they had done to themselves, began to mourn and say, "Woe to our sins. The judgment and the end of Jerusalem is near!"
+(26) But I with my companions was grieved, and being wounded in mind, we were hiding, because we were being sought by them as wrongdoers and as wanting to burn the temple. (27) On top of all this, we were fasting, sitting, mourning, and weeping night and day until the Sabbath.
+The Tomb is Secured
+(28) And the scribes, the Pharisees, and the elders gathered together with one another, having heard that all the people were grumbling, beating their chests, and saying, "If at his death these greatest signs have happened, see how just he was!"
+(29) The elders were afraid, and went to Pilate, begging him and saying, (30) "Give us soldiers, that we may guard his grave for three days, lest his disciples come and steal him, and the people think that he rose from the dead, and do us wrong."
+(31) And Pilate gave them Petronius the centurion, with soldiers to guard the tomb. And elders and scribes went with them to the grave. (32) And having rolled a great stone to the centurion and the soldiers, all who were there placed it at the door of the grave. (33) And they put seven seals on it, and having pitched a tent there, they kept watch.
+Men Descend from Heaven
+(34) Now when the morning of the Sabbath dawned, a crowd from Jerusalem and the surrounding countryside went that they might see the grave that had been sealed. (35) But during the night before the Lord's day dawned, while the soldiers were watching two by two as guards, there was a great voice in heaven. (36) And they saw the heavens being opened, and two men descended from there, having much radiance, and they approached the tomb. (37) But that stone which had been placed at the door rolled away by itself, and made way in part, and the tomb was opened, and both the young men went in.
+Emerging from the Tomb
+(38) Then those soldiers seeing it woke up the centurion and the elders, because they were there too, keeping guard. (39) And while they were explaining to them what they saw, again they saw three men coming out of the tomb, with the two supporting the one, and a cross following them. (40) And the heads of the two reached as far as heaven, but that of the one being led by them reached beyond the heavens.
+(41) And they heard a voice from the heavens, saying, "Have you proclaimed to those who sleep?"
+(42) And a response was heard from the cross: "Yes!"
+Reporting to Pilate
+(43) Then those men decided to go with each other and report these things to Pilate. (44) And while they were still considering, again the heavens were seen being opened, and a certain man descended and went into the grave. (45) Having seen these things, those with the centurion hurried by night to Pilate, having left the tomb they were watching, and described all that they saw, being greatly distressed, and saying, "Truly he was the Son of God!"
+(46) In response Pilate said, "I'm clean of the blood of the Son of God, and this is clear to us."
+(47) Then all who came were begging him, and encouraging him to command the centurion and the soldiers to say nothing about what they saw. (48) "It's better for us," they said, "to be guilty of a great sin in front of God than to fall into the hands of the Jewish people and be stoned." (49) So Pilate commanded the centurion and the soldiers to say nothing.
+Mary Magdalene Goes to the Tomb
+(50) Now at dawn on the Lord's day, Mary Magdalene, a disciple of the Lord, afraid because of the Jews (since they were inflamed by anger), had not done at the Lord's grave what women are accustomed to do for their loved ones who've died.
+(51) Taking her friends with her, she went to the grave where he was laid. (52) And they were afraid lest the Jews might see them, and were saying, "If on the day he was crucified we weren't able to weep and mourn, even now we might do this on his grave. (53) But who will roll away for us the stone that has been placed at the door of the grave so that we might go in, sit by him, and do our duties? (54) Because the stone is great, and we're afraid lest someone sees us. And if we aren't able, at least let's place at the door what we're bringing in memory of him, and we'll weep and mourn until we return to our house."
+Encounter at the Tomb
+(55) And having gone, they found the tomb had been opened. And having approached, they bent down and saw there a certain young man sitting in the middle of the tomb. He was beautiful, having clothed himself with a long, shining robe. He said to them, (56) "Why did you come? Whom do you seek? Not that one who was crucified? He arose and went away. But if you don't believe, bend down and see where he was lying, that he's not there, because he arose and went to where he came from."
+(57) Then the women were afraid, and fled.
+The Disciples Depart
+(58) Now it was the last day of the Unleavened Bread, and many people were leaving, returning to their houses, the festival being over. (59) But we, the twelve disciples of the Lord, were weeping and grieving, and each of us grieving because of what had happened, returned home. (60) But I, Simon Peter, and my brother Andrew, having taken our nets, went off to the sea. And with us was Levi, the son of Alphaeus, whom the Lord . . .
+The Gospel of the Hebrews
+The following election is excerpted from Ron Cameron in The Other Gospels: Non-Canonical Gospel Texts(Philadelphia: The Westminster Press, 1982), pp. 85-86. Philipp Vielhauer and George Ogg made the original translation in New Testament Apocrypha.
+It is written in the Gospel of the Hebrews:
+When Christ wished to come upon the earth to men, the good Father summoned a mighty power in heaven, which was called Michael, and entrusted Christ to the care thereof. And the power came into the world and it was called Mary, and Christ was in her womb seven months.(Cyril of Jerusalem, Discourse on Mary Theotokos 12a)
+According to the Gospel written in the Hebrew speech, which the
+Nazaraeans read, the whole fount of the Holy Spirit shall descend upon him. . . Further in the Gospel which we have just mentioned we find the following written:And it came to pass when the Lord was come up out of the water, the whole fount of the Holy Spirit descended upon him and rested on him and said to him: My son, in all the prophets was I waiting for thee that thou shouldest come and I might rest in thee. For thou art my rest; thou art my first-begotten Son that reignest for ever.(Jerome, Commentary on Isaiah 4 [on Isaiah 11:2])
+And if any accept the Gospel of the Hebrews - here the Savior
+says:Even so did my mother, the Holy Spirit, take me by one of my hairs and carry me away on to the great mountain Tabor.(Origen, Commentary on John 2.12.87 [on John 1:3])
+As also it stands written in the Gospel of the Hebrews:
+He that marvels shall reign, and he that has reigned shall rest.(Clement, Stromateis 2.9.45.5)To those words (from Plato, Timaeus 90) this is equivalent:He that seeks will not rest until he finds; and he that has found shall marvel; and he that has marvelled shall reign; and he that has reigned shall rest.(Ibid., 5.14.96.3)
+As we have read in the Hebrew Gospel, the Lord says to his
+disciples:And never be ye joyful, save when ye behold your brother with love.(Jerome, Commentary on Ephesians 3 [on Ephesians 5:4])
+In the Gospel according to the Hebrews, which the Nazaraeans are
+wont to read, there is counted among the most grievous offences:He that has grieved the spirit of his brother.(Jerome, Commentary on Ezekiel 6 [on Ezekiel 18:7])
+The Gospel called according to the Hebrews which was recently
+translated by me into Greek and Latin, which Origen frequently uses, records after the resurrection of the Savior:And when the Lord had given the linen cloth to the servant of the priest, he went to James and appeared to him. For James had sworn that he would not eat bread from that hour in which he had drunk the cup of the Lord until he should see him risen from among them that sleep. And shortly thereafter the Lord said: Bring a table and bread! And immediately it added: he took the bread, blessed it and brake it and gave it to James the Just and said to him: My brother, eat thy bread, for the Son of man is risen from among them that sleep.(Jerome, De viris inlustribus 2)
+P.Oxy 840
+Preface
+In December 1905—the sixth season at Oxyrhynchus—Grenfell and Hunt registered the discovery of a very small parchment book measuring approximately 3.3 by 2.75 inches (8.5 x 7 cm). Such a relic was likely valued as much as an amulet as for its content, which was written in the tiniest of scripts. The contents, however, turned out to be quite interesting: parts of two episodes from a heretofore-unknown gospel, the identity of which remains a mystery to this day. The manuscript is housed in the Bodleian Library at Oxford. In the first episode, we hear Jesus warning the disciples against imitating certain “evildoers,” who are to be punished in this life and in the next. In the second episode, Jesus and his disciples wander into the Temple precinct and are confronted by a Pharisaic priest.
+
+Fragment text
+SIDE 1
+And he took them [the disciples] and went into the place of purification itself and walked around in the Temple. And a certain Pharisee, a high priest named […] approached them and fell in with them and said to the savior, “Who allowed you to set foot in this place of purification and look upon these holy vessels when you have not bathed and your disciples have not even washed their feet? In spite of being unclean, you have set foot in this temple which is clean, in which no one may walk unless he has bathed and changed his clothes, nor dare to look at these holy vessels”. And standing with his disciples, the savior answered him,
+SIDE 2
+“Then are you, being in the Temple, clean?” He [the Pharisee] said to him, “I am clean, for I have bathed in the pool of David. I went down into it by one flight of stairs and came up out of it by another. Then I put on clean, white clothes. Only then did I come and view these holy vessels.” The savior answered him, “Woe to the blind who cannot see! You have bathed in these gushing waters, in which dogs and pigs lie night and day! And you have washed and scraped the outer layer of skin, just where prostitutes and flute girls anoint, bathe, cleanse and adorn in order to arouse the desires of men—but they are filled with scorpions and all kinds of evil on the inside. But I and my disciples, whom you say have not washed, have been dipped in waters […]
+1 Clement, Ch. 13
+Let us therefore, brethren, be of humble mind, laying aside all haughtiness, and pride, and foolishness, and angry feelings; and let us act according to that which is written (for the Holy Spirit saith, "Let not the wise man glory in his wisdom, neither let the mighty man glory in his might, neither let the rich man glory in his riches; but let him that glorieth glory in the Lord, in diligently seeking Him, and doing judgment and righteousness"), being especially mindful of the words of the Lord Jesus which He spake, teaching us meekness and long-suffering. For thus He spoke: "Be ye merciful, that ye may obtain mercy; forgive, that it may be forgiven to you; as ye do, so shall it be done unto you; as ye judge, so shall ye be judged; as ye are kind, so shall kindness be shown to you; with what measure ye mete, with the same it shall be measured to you."
+Polycarp’s Letter to the Philippians, 2:3
+“…but remembering what the Lord said as
+he taught: “Do not judge, that you may
+not be judged; forgive, and it will be
+forgiven to you; show mercy, that you
+may be shown mercy; with what mea-
+sure you measure, it will be measured
+back to you”
+Egerton Gospel
+**The Unknown Gospel Egerton Papyrus 2 + Cologne Papyrus 255 Fragment 1: Verso (?)**. . . ? And Jesus said] unto the lawyers, [? Punish] every wrongdoer and transgressor, and not me; . . . . . And turning to the rulers of the people he spake this saying, Search the scriptures, in which ye think that ye have life; these are they which bear witness of me. Think not that I came to accuse you to my Father; there is one that accuseth you, even Moses, on whom ye have set your hope. And when they said, We know well that God spake unto Moses, but as for thee, we know not whence thou art, Jesus answered and said unto them, Now is your unbelief accused . . .
+**Fragment 1: Recto (?)**. . . . ? they gave counsel to] the multitude to [? carry the] stones together and stone him. And the rulers sought to lay their hands on him that they might take him and [? hand him over] to the multitude; and they could not take him, because the hour of his betrayal was not yet come. But he himself, even the Lord, going out through the midst of them, departed from them. And behold, there cometh unto him a leper and saith, Master Jesus, journeying with lepers and eating with them in the inn I myself also became a leper. If therefore thou wilt, I am made clean. The Lord then said unto him, I will; be thou made clean. And straightway the leprosy departed from him. [And the Lord said unto him], Go [and shew thyself] unto the [priests . . .
+**Fragment 2: Recto (?)**. . . coming unto him began to tempt him with a question, saying, Master Jesus, we know that thou art come from God, for the things which thou doest testify above all the prophets. Tell us therefore: Is it lawful [? to render] unto kings that which pertaineth unto their rule? [Shall we render unto them], or not? But Jesus, knowing their thought, being moved with indignation, said unto them, Why call ye me with your mouth Master, when ye hear not what I say? Well did Isaiah prophesy of you, saying, This people honour me with their lips, but their heart is far from me. In vain do they worship me, [teaching as their doctrines the] precepts [of men] . . .
+**Fragment 2: Verso (?)**. . . shut up . . . in . . . place . . . its weight unweighed? And when they were perplexed at his strange question, Jesus, as he walked, stood still on the edge of the river Jordan, and stretching forth his right hand he . . . and sprinkled it upon the . . . And then . . . water that had been sprinkled . . . before them and sent forth fruit . . .
