@@ -13,6 +13,7 @@
   const STORAGE_CROSSREF = "basileian.reader.v2.crossRef";
   const STORAGE_COMMENTARY = "basileian.reader.v2.commentary";
   const STORAGE_FOOTNOTES = "basileian.reader.v2.footnotesVisible";
+  const STORAGE_VIEW_MODE = "basileian.reader.v2.viewMode";
 
   const sections = DATA.sections;
   const books = DATA.books;
@@ -38,12 +39,14 @@
     nahum:3,habakkuk:3,zephaniah:3,haggai:2,zechariah:14,malachi:4
   };
 
+  const _storedViewMode = localStorage.getItem(STORAGE_VIEW_MODE);
   const state = {
     tab: "reader",
     book: books[0]?.name || "",
     chapter: books[0]?.chapters?.[0] || "All",
     currentSectionId: books[0]?.sectionIds?.[0] || null,
-    chapterMode: true,
+    viewMode: ["chapter", "passage", "witness"].includes(_storedViewMode) ? _storedViewMode : "chapter",
+    currentWitnessIndex: 0,
     activeSearchTerm: "",
     highlights: loadHighlights(),
     activeTranslation: "basileia",
@@ -146,7 +149,7 @@
       state.otBook = null;
       state.book = val;
       state.chapter = getBook(state.book)?.chapters?.[0] || "All";
-      state.chapterMode = true;
+      state.currentWitnessIndex = 0;
       state.currentSectionId = getSectionsInChapter(state.book, state.chapter)[0]?.id || getBook(state.book)?.sectionIds?.[0] || null;
       updateHash();
       renderAll();
@@ -174,7 +177,11 @@
     els.prevBtn.addEventListener("click", goPrevious);
     els.nextBtn.addEventListener("click", goNext);
     els.chapterModeBtn.addEventListener("click", () => {
-      state.chapterMode = !state.chapterMode;
+      if (state.viewMode === "chapter") state.viewMode = "passage";
+      else if (state.viewMode === "passage") state.viewMode = "witness";
+      else state.viewMode = "chapter";
+      state.currentWitnessIndex = 0;
+      localStorage.setItem(STORAGE_VIEW_MODE, state.viewMode);
       renderAll();
     });
 
@@ -359,7 +366,7 @@
     els.chapterList.querySelectorAll("[data-chapter]").forEach(button => {
       button.addEventListener("click", () => {
         state.chapter = button.dataset.chapter;
-        state.chapterMode = true;
+        state.currentWitnessIndex = 0;
         state.currentSectionId = getSectionsInChapter(state.book, state.chapter)[0]?.id || state.currentSectionId;
         updateHash();
         renderAll();
@@ -383,7 +390,8 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        state.chapterMode = false;
+        if (state.viewMode === "chapter") state.viewMode = "passage";
+        state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
         scrollToSection(section.id);
@@ -403,7 +411,8 @@
     els.verseList.querySelectorAll("[data-anchor]").forEach(button => {
       button.addEventListener("click", () => {
         state.currentSectionId = button.dataset.sectionId;
-        state.chapterMode = false;
+        state.viewMode = "passage";
+        state.currentWitnessIndex = 0;
         updateHash(button.dataset.anchor);
         renderAll();
         setTimeout(() => scrollToAnchor(button.dataset.anchor), 50);
@@ -419,30 +428,71 @@
       return;
     }
 
-    const currentSection = sectionById.get(state.currentSectionId) || visibleSections[0];
+    let currentSection = sectionById.get(state.currentSectionId) || visibleSections[0];
     if (!state.currentSectionId || !visibleSections.some(s => s.id === state.currentSectionId)) {
       state.currentSectionId = currentSection.id;
     }
 
-    const book = getBook(state.book);
-    const title = state.chapterMode
-      ? `${state.book}${state.chapter !== "All" ? " " + chapterLabel(state.book, state.chapter) : ""}`
-      : displayRef(currentSection);
+    let heading, sectionsHtml;
 
-    const subtitle = state.chapterMode
-      ? `${visibleSections.length} passage${visibleSections.length === 1 ? "" : "s"}`
-      : (currentSection.title || currentSection.heading);
+    if (state.viewMode === "chapter") {
+      const title = `${state.book}${state.chapter !== "All" ? " " + chapterLabel(state.book, state.chapter) : ""}`;
+      const subtitle = `${visibleSections.length} passage${visibleSections.length === 1 ? "" : "s"}`;
+      heading = `<header class="chapter-heading">
+        <span class="eyebrow">Chapter view</span>
+        <h2>${escapeHTML(title)}</h2>
+        <p class="muted">${escapeHTML(subtitle)}</p>
+      </header>`;
+      sectionsHtml = visibleSections.map(section => renderPassage(section)).join("");
+      els.chapterModeBtn.textContent = "Passage view";
 
-    const heading = `<header class="${state.chapterMode ? "chapter-heading" : "section-heading"}">
-      <span class="eyebrow">${escapeHTML(state.chapterMode ? "Chapter view" : "Passage view")}</span>
-      <h2>${escapeHTML(title)}</h2>
-      <p class="muted">${escapeHTML(subtitle)}</p>
-    </header>`;
+    } else if (state.viewMode === "passage") {
+      const chNum = currentSection.startChapter ?? currentSection.chapter;
+      const chLabel = chNum != null ? chapterLabel(state.book, chNum) : "";
+      heading = `<header class="section-heading">
+        <span class="eyebrow">Passage view</span>
+        <h2>${escapeHTML(state.book)}</h2>
+        <p class="muted">${escapeHTML(chLabel ? `Chapter ${chLabel}` : "")}</p>
+      </header>`;
+      sectionsHtml = renderPassage(currentSection);
+      els.chapterModeBtn.textContent = "Witness view";
 
-    const sectionsToRender = state.chapterMode ? visibleSections : [currentSection];
+    } else {
+      // Witness view
+      const witnessEntries = getWitnessEntries(currentSection);
+      const safeIdx = witnessEntries.length > 0
+        ? Math.min(state.currentWitnessIndex, witnessEntries.length - 1) : 0;
+      state.currentWitnessIndex = safeIdx;
 
-    els.readerContent.innerHTML = heading + sectionsToRender.map(section => renderPassage(section)).join("");
-    els.chapterModeBtn.textContent = state.chapterMode ? "Passage view" : "Chapter view";
+      const chNum = currentSection.startChapter ?? currentSection.chapter;
+      const chLabel = chNum != null ? chapterLabel(state.book, chNum) : "";
+      const passageRef = displayRef(currentSection);
+      const passageTitle = currentSection.title || currentSection.heading || "";
+      const crumbPassage = [passageRef, passageTitle].filter(Boolean).join(" — ");
+
+      let witnessLabel = "";
+      if (witnessEntries.length > 0) {
+        const { bookKey, range } = witnessEntries[safeIdx];
+        const BOOK_DISPLAY = window.NTReader ? window.NTReader.BOOK_DISPLAY : {};
+        const displayName = BOOK_DISPLAY[bookKey] || bookKey;
+        witnessLabel = `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
+      }
+
+      const crumbChapter = chLabel ? `Chapter ${chLabel}` : "";
+      heading = `<header class="section-heading witness-heading">
+        <span class="eyebrow">Witness view</span>
+        <div class="witness-breadcrumb">
+          <span class="crumb-book">${escapeHTML(state.book)}</span>${crumbChapter ? `<span class="crumb-sep">›</span><span class="crumb-chapter">${escapeHTML(crumbChapter)}</span>` : ""}${crumbPassage ? `<span class="crumb-sep">›</span><span class="crumb-passage">${escapeHTML(crumbPassage)}</span>` : ""}
+        </div>
+        <p class="witness-label">${witnessEntries.length > 0
+          ? `<span class="witness-number">${safeIdx + 1}</span> ${escapeHTML(witnessLabel)} <span class="witness-count muted">of ${witnessEntries.length}</span>`
+          : "No witnesses"}</p>
+      </header>`;
+      sectionsHtml = renderSingleWitness(currentSection, safeIdx, witnessEntries);
+      els.chapterModeBtn.textContent = "Chapter view";
+    }
+
+    els.readerContent.innerHTML = heading + sectionsHtml;
 
     attachDynamicReaderEvents();
     applyVisibleHighlights();
@@ -456,6 +506,46 @@
     if (state.crossRefEnabled) {
       hydrateCrossRefPanels();
     }
+  }
+
+  function getWitnessEntries(section) {
+    if (!section.parallel_refs || Object.keys(section.parallel_refs).length === 0) return [];
+    return Object.entries(section.parallel_refs).flatMap(([bookKey, ranges]) =>
+      ranges.map(range => ({ bookKey, range }))
+    );
+  }
+
+  function renderSingleWitness(section, witnessIndex, witnessEntries) {
+    const source = section.source ? `<span class="source-pill">${escapeHTML(section.source)}</span>` : "";
+    const tier = section.tier ? `<span class="source-pill">${escapeHTML(section.tier.replace(/^Tier /, "Tier "))}</span>` : "";
+
+    if (!witnessEntries || witnessEntries.length === 0) {
+      const paragraphs = section.paragraphs.map(p => `<p>${formatParagraph(p, section)}</p>`).join("");
+      return `<section class="passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
+        <div class="passage-meta">${source}${tier}</div>
+        <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${paragraphs}</div>
+      </section>`;
+    }
+
+    const { bookKey, range } = witnessEntries[witnessIndex];
+    const BOOK_DISPLAY = window.NTReader ? window.NTReader.BOOK_DISPLAY : {};
+    const displayName = BOOK_DISPLAY[bookKey] || bookKey;
+    const label = `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
+
+    const block = `<div class="nt-source-block" data-book="${escapeAttr(bookKey)}" data-chapter="${range.ch}" data-from="${range.from}" data-to="${range.to}">
+      <span class="nt-source-label"><span class="witness-number">${witnessIndex + 1}</span> ${escapeHTML(label)}</span>
+      <div class="nt-verse-content muted">Loading…</div>
+    </div>`;
+
+    const extraParagraphs = section.paragraphs
+      .filter(p => p.startsWith("[[NONBIBLICAL:") || p.startsWith("[[NOTE]]") || p.startsWith("[[DISPUTED]]"))
+      .map(p => `<p>${formatParagraph(p, section)}</p>`)
+      .join("");
+
+    return `<section class="passage nt-passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
+      <div class="passage-meta">${source}${tier}</div>
+      <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${block}${extraParagraphs}</div>
+    </section>`;
   }
 
   function renderPassage(section) {
@@ -844,7 +934,7 @@
           state.book = section.book;
           state.chapter = section.startChapter ?? section.chapter ?? "All";
           state.currentSectionId = section.id;
-          state.chapterMode = false;
+          state.viewMode = "passage"; state.currentWitnessIndex = 0;
           updateHash();
           renderAll();
           setTimeout(() => scrollToSection(section.id), 50);
@@ -986,7 +1076,7 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        state.chapterMode = false;
+        state.viewMode = "passage"; state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
         setTimeout(() => scrollToSection(section.id), 50);
@@ -1013,7 +1103,7 @@
       <p class="muted">Loading…</p>
     </header>`;
     els.readerContent.innerHTML = heading;
-    els.chapterModeBtn.textContent = "Chapter view";
+    els.chapterModeBtn.textContent = {chapter: "Passage view", passage: "Witness view", witness: "Chapter view"}[state.viewMode] || "Passage view";
 
     if (!window.TranslationsModule) return;
 
@@ -1526,7 +1616,7 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        state.chapterMode = false;
+        state.viewMode = "passage"; state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
         setTimeout(() => {
@@ -1859,7 +1949,7 @@
     state.book = section.book;
     state.chapter = section.startChapter ?? section.chapter ?? "All";
     state.currentSectionId = section.id;
-    state.chapterMode = false;
+    state.viewMode = "passage"; state.currentWitnessIndex = 0;
     updateHash();
     renderAll();
     setTimeout(() => {
@@ -2078,7 +2168,7 @@
     state.book = target.section.book;
     state.chapter = target.chapter || target.section.startChapter || target.section.chapter || "All";
     state.currentSectionId = target.section.id;
-    state.chapterMode = !target.verse;
+    if (target.verse) { state.viewMode = "passage"; state.currentWitnessIndex = 0; }
     updateHash(target.anchor || target.section.id);
     renderAll();
     els.gotoMessage.textContent = "";
@@ -2200,7 +2290,30 @@
       scrollToTopReader();
       return;
     }
-    if (state.chapterMode) {
+    if (state.viewMode === "witness") {
+      const curSection = sectionById.get(state.currentSectionId);
+      const entries = curSection ? getWitnessEntries(curSection) : [];
+      if (state.currentWitnessIndex > 0) {
+        state.currentWitnessIndex--;
+        updateHash();
+        renderAll();
+        scrollToTopReader();
+        return;
+      }
+      const idx = sections.findIndex(s => s.id === state.currentSectionId);
+      if (idx > 0) {
+        const prev = sections[idx - 1];
+        state.book = prev.book;
+        state.chapter = prev.startChapter ?? prev.chapter ?? "All";
+        state.currentSectionId = prev.id;
+        state.currentWitnessIndex = Math.max(0, getWitnessEntries(prev).length - 1);
+      }
+      updateHash();
+      renderAll();
+      scrollToTopReader();
+      return;
+    }
+    if (state.viewMode === "chapter") {
       const sectionsInChapter = getSectionsInChapter(state.book, state.chapter);
       const idxInChapter = sectionsInChapter.findIndex(s => s.id === state.currentSectionId);
       if (idxInChapter > 0) {
@@ -2254,7 +2367,30 @@
       scrollToTopReader();
       return;
     }
-    if (state.chapterMode) {
+    if (state.viewMode === "witness") {
+      const curSection = sectionById.get(state.currentSectionId);
+      const entries = curSection ? getWitnessEntries(curSection) : [];
+      if (state.currentWitnessIndex < entries.length - 1) {
+        state.currentWitnessIndex++;
+        updateHash();
+        renderAll();
+        scrollToTopReader();
+        return;
+      }
+      const idx = sections.findIndex(s => s.id === state.currentSectionId);
+      if (idx < sections.length - 1) {
+        const next = sections[idx + 1];
+        state.book = next.book;
+        state.chapter = next.startChapter ?? next.chapter ?? "All";
+        state.currentSectionId = next.id;
+        state.currentWitnessIndex = 0;
+      }
+      updateHash();
+      renderAll();
+      scrollToTopReader();
+      return;
+    }
+    if (state.viewMode === "chapter") {
       const sectionsInChapter = getSectionsInChapter(state.book, state.chapter);
       const idxInChapter = sectionsInChapter.findIndex(s => s.id === state.currentSectionId);
       if (idxInChapter >= 0 && idxInChapter < sectionsInChapter.length - 1) {
@@ -2305,7 +2441,8 @@
       book: state.book,
       chapter: state.chapter,
       currentSectionId: state.currentSectionId,
-      chapterMode: state.chapterMode
+      viewMode: state.viewMode,
+      currentWitnessIndex: state.currentWitnessIndex
     }));
   }
 
@@ -2319,7 +2456,12 @@
       state.book = stored.book || section.book;
       state.chapter = stored.chapter || section.startChapter || section.chapter || "All";
       state.currentSectionId = stored.currentSectionId;
-      state.chapterMode = stored.chapterMode !== undefined ? stored.chapterMode : true;
+      if (stored.viewMode && ["chapter", "passage", "witness"].includes(stored.viewMode)) {
+        state.viewMode = stored.viewMode;
+      } else if (stored.chapterMode !== undefined) {
+        state.viewMode = stored.chapterMode ? "chapter" : "passage";
+      }
+      state.currentWitnessIndex = stored.currentWitnessIndex || 0;
       setTimeout(() => scrollToSection(stored.currentSectionId), 100);
     } catch {
       // ignore corrupt storage
@@ -2344,7 +2486,7 @@
       state.book = section.book;
       state.chapter = section.startChapter ?? section.chapter ?? "All";
       state.currentSectionId = section.id;
-      state.chapterMode = !anchor;
+      if (anchor) { state.viewMode = "passage"; state.currentWitnessIndex = 0; }
       setTimeout(() => {
         if (anchor) scrollToAnchor(anchor);
         else scrollToSection(section.id);
@@ -2364,9 +2506,11 @@
 
   function displayRef(section) {
     if (!section) return "";
-    if (section.book === "Thomas") return `${section.ref}`;
-    if (section.ref) return `${section.book} ${section.ref}`;
-    return section.heading;
+    if (section.book === "Thomas") return `${section.ref || ""}`;
+    if (section.ref) return section.ref;
+    if (section.heading) return section.heading;
+    const ch = section.startChapter ?? section.chapter;
+    return ch != null ? String(chapterLabel(section.book, ch)) : "";
   }
 
   function chapterLabel(bookName, chapter) {
