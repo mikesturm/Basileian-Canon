@@ -462,16 +462,17 @@
       const ntReader = window.NTReader;
       const BOOK_DISPLAY = ntReader ? ntReader.BOOK_DISPLAY : {};
 
-      const refBlocks = Object.entries(section.parallel_refs).flatMap(([bookKey, ranges]) =>
-        ranges.map(range => {
-          const displayName = BOOK_DISPLAY[bookKey] || bookKey;
-          const label = `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
-          return `<div class="nt-source-block" data-book="${escapeAttr(bookKey)}" data-chapter="${range.ch}" data-from="${range.from}" data-to="${range.to}">
-            <span class="nt-source-label">${escapeHTML(label)}</span>
+      const refEntries = Object.entries(section.parallel_refs).flatMap(([bookKey, ranges]) =>
+        ranges.map(range => ({ bookKey, range }))
+      );
+      const refBlocks = refEntries.map(({ bookKey, range }, i) => {
+        const displayName = BOOK_DISPLAY[bookKey] || bookKey;
+        const label = `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
+        return `<div class="nt-source-block" data-book="${escapeAttr(bookKey)}" data-chapter="${range.ch}" data-from="${range.from}" data-to="${range.to}">
+            <span class="nt-source-label"><span class="witness-number">${i + 1}</span> ${escapeHTML(label)}</span>
             <div class="nt-verse-content muted">Loading…</div>
           </div>`;
-        })
-      ).join("");
+      }).join("");
 
       // Nonbiblical paragraphs that accompany the NT text
       const extraParagraphs = section.paragraphs
@@ -481,7 +482,7 @@
 
       return `<section class="passage nt-passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
         <h3>${escapeHTML(displayRef(section))}${section.title ? ` — ${escapeHTML(section.title)}` : ""}</h3>
-        <div class="passage-meta">${source}${tier}<span class="source-pill">NET Bible 2.1</span></div>
+        <div class="passage-meta">${source}${tier}</div>
         <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${refBlocks}${extraParagraphs}</div>
       </section>`;
     }
@@ -1269,10 +1270,8 @@
   // ---------------------------------------------------------------------------
 
   function restoreCrossRefPreference() {
-    state.crossRefEnabled = !!localStorage.getItem(STORAGE_CROSSREF);
     const stored = localStorage.getItem(STORAGE_COMMENTARY);
     if (stored) state.activeCommentary = stored;
-    updateCrossRefButton();
   }
 
   function updateCrossRefButton() {

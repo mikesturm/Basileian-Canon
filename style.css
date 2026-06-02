@@ -901,6 +901,20 @@ button {
   margin-bottom: 0.5rem;
 }
 
+.witness-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  background: var(--accent, #6b7280);
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: 700;
+  margin-right: 0.2em;
+}
+
 .nt-verse-content {
   margin-top: 0.4rem;
 }
