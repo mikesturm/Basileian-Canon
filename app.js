@@ -12,6 +12,7 @@
   const STORAGE_BOOKMARK = "basileian.reader.v2.lastPosition";
   const STORAGE_CROSSREF = "basileian.reader.v2.crossRef";
   const STORAGE_COMMENTARY = "basileian.reader.v2.commentary";
+  const STORAGE_FOOTNOTES = "basileian.reader.v2.footnotesVisible";
 
   const sections = DATA.sections;
   const books = DATA.books;
@@ -57,7 +58,9 @@
     otChapter: 1,
     lastGreekVerses: null,
     crossRefEnabled: false,
-    activeCommentary: 'jfb'
+    activeCommentary: 'jfb',
+    footnotesVisible: true,
+    footnotesExpanded: true
   };
 
   const els = {
@@ -100,12 +103,14 @@
     themeToggle: document.getElementById("themeToggle"),
     translationSelect: document.getElementById("translationSelect"),
     translationStatus: document.getElementById("translationStatus"),
-    crossRefBtn: document.getElementById("crossRefBtn")
+    crossRefBtn: document.getElementById("crossRefBtn"),
+    footnotesToggleBtn: document.getElementById("footnotesToggleBtn")
   };
 
   function init() {
     els.docSubtitle.textContent = DATA.subtitle || DATA.title;
     applyStoredTheme();
+    restoreFootnotesPreference();
     bindEvents();
     renderBookSelect();
     restoreCrossRefPreference();
@@ -179,6 +184,14 @@
         localStorage.setItem(STORAGE_CROSSREF, state.crossRefEnabled ? "1" : "");
         updateCrossRefButton();
         renderReader();
+      });
+    }
+
+    if (els.footnotesToggleBtn) {
+      els.footnotesToggleBtn.addEventListener("click", () => {
+        state.footnotesVisible = !state.footnotesVisible;
+        localStorage.setItem(STORAGE_FOOTNOTES, state.footnotesVisible ? "1" : "0");
+        applyFootnotesVisibility();
       });
     }
 
@@ -434,6 +447,9 @@
     attachDynamicReaderEvents();
     applyVisibleHighlights();
     if (state.activeSearchTerm.length >= 2) applySearchHighlight(els.readerContent, state.activeSearchTerm);
+
+    renderFootnotesPanel();
+    applyFootnotesVisibility();
 
     hydrateNTPassages();
 
@@ -1226,6 +1242,8 @@
     }));
 
     updateTranslationStatus("loaded", "NET Bible 2.1 loaded.");
+    renderFootnotesPanel();
+    applyFootnotesVisibility();
   }
 
   function attachDynamicReaderEvents() {
@@ -1263,6 +1281,121 @@
       });
     });
 
+  }
+
+  // ---------------------------------------------------------------------------
+  // Footnotes toggle + collapsible panel
+  // ---------------------------------------------------------------------------
+
+  function restoreFootnotesPreference() {
+    const stored = localStorage.getItem(STORAGE_FOOTNOTES);
+    if (stored === "0") state.footnotesVisible = false;
+  }
+
+  function applyFootnotesVisibility() {
+    els.readerContent.classList.toggle("footnotes-hidden", !state.footnotesVisible);
+    if (els.footnotesToggleBtn) {
+      els.footnotesToggleBtn.classList.toggle("active", state.footnotesVisible);
+      els.footnotesToggleBtn.setAttribute("aria-pressed", String(state.footnotesVisible));
+    }
+  }
+
+  function renderFootnotesPanel() {
+    const existing = els.readerContent.querySelector(".footnotes-panel");
+    if (existing) existing.remove();
+
+    const entries = [];
+    const seen = new Set();
+
+    // Endnotes from Basileian Canon paragraphs
+    els.readerContent.querySelectorAll(".note-link[data-note]").forEach(btn => {
+      const num = btn.dataset.note;
+      const key = `n-${num}`;
+      if (!seen.has(key) && DATA.notes && DATA.notes[num]) {
+        seen.add(key);
+        entries.push({ key, label: num, html: paragraphsToHTML(DATA.notes[num]), type: "endnote" });
+      }
+    });
+
+    // NT footnotes from NET Bible XHTML (available after hydrateNTPassages)
+    els.readerContent.querySelectorAll(".nt-note-btn[data-note-id]").forEach(btn => {
+      const noteId = btn.dataset.noteId;
+      const key = `nt-${noteId}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        const content = state._ntNotes[noteId];
+        entries.push({
+          key,
+          label: btn.textContent.trim(),
+          html: content || `<span class="muted">Loading…</span>`,
+          type: "nt",
+          noteId
+        });
+      }
+    });
+
+    // NET Bible inline footnotes (async fetch per note)
+    els.readerContent.querySelectorAll(".net-note-link[data-net-note]").forEach(btn => {
+      const noteId = btn.dataset.netNote;
+      const bookKey = btn.dataset.bookKey;
+      const key = `net-${noteId}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        entries.push({
+          key,
+          label: btn.textContent.trim(),
+          html: `<span class="muted">Loading…</span>`,
+          type: "net",
+          noteId,
+          bookKey
+        });
+      }
+    });
+
+    if (!entries.length) return;
+
+    const expanded = state.footnotesExpanded;
+    const panel = document.createElement("section");
+    panel.className = "footnotes-panel";
+    panel.setAttribute("aria-label", "Footnotes");
+    panel.innerHTML = `
+      <div class="footnotes-panel-header">
+        <button class="footnotes-panel-toggle" aria-expanded="${expanded}">
+          <span class="footnotes-panel-label">Footnotes <span class="footnotes-count">(${entries.length})</span></span>
+          <span class="footnotes-chevron" aria-hidden="true">▼</span>
+        </button>
+      </div>
+      <div class="footnotes-panel-body${expanded ? "" : " collapsed"}">
+        ${entries.map((e, i) => `<div class="footnote-item" data-fn-idx="${i}">
+          <span class="footnote-num">${escapeHTML(e.label)}</span>
+          <div class="footnote-text">${e.html}</div>
+        </div>`).join("")}
+      </div>
+    `;
+
+    els.readerContent.appendChild(panel);
+
+    panel.querySelector(".footnotes-panel-toggle").addEventListener("click", () => {
+      state.footnotesExpanded = !state.footnotesExpanded;
+      const body = panel.querySelector(".footnotes-panel-body");
+      const toggleBtn = panel.querySelector(".footnotes-panel-toggle");
+      body.classList.toggle("collapsed", !state.footnotesExpanded);
+      toggleBtn.setAttribute("aria-expanded", String(state.footnotesExpanded));
+    });
+
+    // Async load NET notes into the panel
+    entries.forEach((e, i) => {
+      if (e.type !== "net") return;
+      TranslationsModule.getNetNote(e.noteId, e.bookKey)
+        .then(html => {
+          const item = panel.querySelector(`[data-fn-idx="${i}"] .footnote-text`);
+          if (item) item.innerHTML = html || "<p>Note not found.</p>";
+        })
+        .catch(() => {
+          const item = panel.querySelector(`[data-fn-idx="${i}"] .footnote-text`);
+          if (item) item.textContent = "Could not load note.";
+        });
+    });
   }
 
   // ---------------------------------------------------------------------------
