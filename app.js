@@ -92,7 +92,6 @@
     selectionHeader: document.getElementById("selectionHeader"),
     selectionRangeLabel: document.getElementById("selectionRangeLabel"),
     menuInterlinearBtn: document.getElementById("menuInterlinearBtn"),
-    menuBibleVersesBtn: document.getElementById("menuBibleVersesBtn"),
     menuCommentaryBtn: document.getElementById("menuCommentaryBtn"),
     menuHighlightBtn: document.getElementById("menuHighlightBtn"),
     menuNoteBtn: document.getElementById("menuNoteBtn"),
@@ -217,7 +216,6 @@
     els.menuHighlightBtn.addEventListener("click", () => commitHighlight(false));
     els.menuNoteBtn.addEventListener("click", () => commitHighlight(true));
     els.menuInterlinearBtn.addEventListener("click", () => { const verses = _menuSelectionVerses.slice(); hideSelectionMenu(); if (verses.length) openInterlinearModal(verses); });
-    els.menuBibleVersesBtn.addEventListener("click", () => { const verses = _menuSelectionVerses.slice(); hideSelectionMenu(); if (verses.length) showBibleVersesForVerses(verses); });
     els.menuCommentaryBtn.addEventListener("click", () => { const verses = _menuSelectionVerses.slice(); hideSelectionMenu(); if (verses.length) showCommentaryForVerses(verses); });
 
     // Close button restores selection and enables native Safari callout menu.
@@ -1324,12 +1322,33 @@
         Object.assign(state._ntNotes, result.notes);
         contentEl.innerHTML = result.html;
         contentEl.classList.remove("muted");
+
+        // Convert native <span class="verse"> elements from the XHTML source into
+        // the verse-number format that findVersesInSelection expects, so that
+        // the selection menu can identify which verses are selected in NT passages.
+        contentEl.querySelectorAll('span.verse').forEach(span => {
+          const text = span.textContent.trim();
+          const colonIdx = text.indexOf(':');
+          if (colonIdx >= 0) {
+            span.dataset.chapter = text.slice(0, colonIdx);
+            span.dataset.verse = text.slice(colonIdx + 1).replace(/[a-z]$/, '');
+          } else {
+            span.dataset.chapter = String(chapter);
+            span.dataset.verse = text.replace(/[a-z]$/, '');
+          }
+          span.classList.add('verse-number');
+        });
       } catch (err) {
         console.error("NT reader: failed to load", bookKey, chapter, err);
         contentEl.classList.remove("muted");
         contentEl.textContent = "Could not load passage text.";
       }
     }));
+
+    // Apply highlights now that all NT content is in the DOM. This runs after
+    // the initial applyVisibleHighlights() call (which fired on placeholder text),
+    // so highlights become visible once the real verse text is loaded.
+    applyVisibleHighlights();
 
     updateTranslationStatus("loaded", "NET Bible 2.1 loaded.");
     renderFootnotesPanel();
@@ -1872,10 +1891,20 @@
   }
 
   function createHighlightFromSelection(withNote) {
-    // Use saved state directly: clicking the button clears the live selection
-    // before the click handler fires, so window.getSelection() would be empty.
-    const range = _savedSelectionRange;
-    const body = _selectionBody;
+    let range = _savedSelectionRange;
+    let body = _selectionBody;
+
+    // Fallback for iOS Safari: tapping a button can clear the live selection
+    // before the click fires, but if the saved range is missing or collapsed,
+    // try the current selection (which the selectionchange handler may have
+    // already restored via addRange).
+    if (!range || range.collapsed) {
+      const liveSel = window.getSelection();
+      if (liveSel && liveSel.rangeCount > 0 && !liveSel.isCollapsed) {
+        range = liveSel.getRangeAt(0);
+        body = closestPassageBody(range.commonAncestorContainer);
+      }
+    }
 
     if (!range || !body || range.collapsed) return;
     if (!body.contains(range.startContainer) || !body.contains(range.endContainer)) {
@@ -2080,9 +2109,6 @@
           : `${first.reference} – ${last.reference.split(" ").pop()}`;
     }
 
-    if (els.menuBibleVersesBtn) {
-      els.menuBibleVersesBtn.hidden = !(_menuSelectionSection && canTranslateSection(_menuSelectionSection));
-    }
     if (els.menuCommentaryBtn) {
       els.menuCommentaryBtn.hidden = !(_menuSelectionVerses && _menuSelectionVerses.length > 0);
     }
