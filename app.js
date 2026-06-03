@@ -662,11 +662,17 @@
     return state.otVerseStrongs;
   }
 
-  // Convert a runtime section.book name to the dot-delimited prefix used in
-  // verse_id values (e.g. "Mark" → "mark", "1 Corinthians" → "1corinthians").
   function bookToVerseIdPrefix(bookName) {
     return (bookName || "").toLowerCase().replace(/\s+/g, "");
   }
+
+  // Display names for canonical book codes used in verseMarker.book
+  const BOOK_DISPLAY = {
+    mark: "Mark", matthew: "Matthew", matt: "Matthew",
+    luke: "Luke", john: "John", acts: "Acts",
+    "1cor": "1 Corinthians", "1thess": "1 Thessalonians",
+    galatians: "Galatians",
+  };
 
   // Walk every .verse-number marker inside the section body and return the
   // verses (in order) that fall inside the given selection range.
@@ -675,6 +681,15 @@
     if (!body) return [];
     const section = sectionById.get(body.dataset.sectionId);
     if (!section) return [];
+
+    // Build a lookup from "chapter:verse" → verseMarker, so we can use the
+    // canonical verse_id (marker.id) rather than deriving it from section.book
+    // (which is often a part title, not a canonical book name).
+    const markerById = new Map();
+    for (const vm of (section.verseMarkers || [])) {
+      const key = `${vm.chapter}:${vm.verse}`;
+      if (!markerById.has(key)) markerById.set(key, vm);
+    }
 
     const markers = [...body.querySelectorAll(".verse-number[data-chapter][data-verse]")];
     if (!markers.length) return [];
@@ -698,12 +713,14 @@
       const m = markers[i];
       const ch = m.dataset.chapter;
       const v = m.dataset.verse;
-      const verseId = `${bookToVerseIdPrefix(section.book)}.${ch}.${v}`;
+      const vm = markerById.get(`${ch}:${v}`);
+      const verseId = vm?.id || `${bookToVerseIdPrefix(section.book)}.${ch}.${v}`;
       if (seen.has(verseId)) continue;
       seen.add(verseId);
+      const bookDisplay = vm ? (BOOK_DISPLAY[vm.book] || vm.book) : section.book;
       verses.push({
         verseId,
-        reference: `${section.book} ${ch}:${v}`
+        reference: `${bookDisplay} ${ch}:${v}`
       });
     }
     return verses;
