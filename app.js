@@ -2007,6 +2007,7 @@
   function deleteHighlight(id) {
     if (!confirm("Delete this highlight and note?")) return;
     state.highlights = state.highlights.filter(h => h.id !== id);
+    if (window.BasileianSync) window.BasileianSync.recordDeletion(id);
     saveHighlights();
     renderAll();
   }
@@ -2672,6 +2673,7 @@
 
   function saveHighlights() {
     localStorage.setItem(STORAGE_HIGHLIGHTS, JSON.stringify(state.highlights));
+    if (window.BasileianSync) window.BasileianSync.requestSync();
   }
 
   function normalize(str) {

@@ -33,6 +33,16 @@ self.addEventListener("activate", event => {
   self.clients.claim();
 });
 
+self.addEventListener("sync", event => {
+  if (event.tag !== "basileian-sync") return;
+  event.waitUntil((async () => {
+    const clientsList = await self.clients.matchAll({ includeUncontrolled: true, type: "window" });
+    for (const client of clientsList) {
+      client.postMessage({ type: "basileian-sync-trigger" });
+    }
+  })());
+});
+
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   event.respondWith(
