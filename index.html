@@ -8,7 +8,7 @@
   <link rel="manifest" href="site.webmanifest?v=20260521-ot-reader1">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css?v=20260521-ot-reader1">
-  <link rel="stylesheet" href="style-additions.css?v=20260521-ot-reader1">
+  <link rel="stylesheet" href="style-additions.css?v=20260604-sync2">
 </head>
 <body>
   <div id="app" class="app-shell">
@@ -96,6 +96,10 @@
           <div class="reader-card">
             <h2>Your highlights & notes</h2>
             <p class="muted">Highlights and notes are stored only in this browser on this device.</p>
+            <div class="sync-bar">
+              <button id="syncSettingsBtn" class="button secondary">Sync settings</button>
+              <span id="syncStatus" class="hint sync-status"></span>
+            </div>
             <div id="notesList" class="notes-list"></div>
           </div>
         </section>
@@ -149,8 +153,8 @@
   <script src="data.js?v=20260521-ot-reader1"></script>
   <script src="translations-module.js?v=20260521-ot-reader1"></script>
   <script src="commentary-module.js?v=20260521-ot-reader1"></script>
-  <script src="nt-reader.js?v=20260601-nt-reader1"></script>
+  <script src="nt-reader.js?v=20260604-sync2"></script>
   <script src="sync-module.js?v=20260604-sync1"></script>
-  <script src="app.js?v=20260601-nt-reader1"></script>
+  <script src="app.js?v=20260604-sync2"></script>
 </body>
 </html>

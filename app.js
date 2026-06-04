@@ -106,7 +106,9 @@
     translationSelect: document.getElementById("translationSelect"),
     translationStatus: document.getElementById("translationStatus"),
     crossRefBtn: document.getElementById("crossRefBtn"),
-    footnotesToggleBtn: document.getElementById("footnotesToggleBtn")
+    footnotesToggleBtn: document.getElementById("footnotesToggleBtn"),
+    syncSettingsBtn: document.getElementById("syncSettingsBtn"),
+    syncStatus: document.getElementById("syncStatus")
   };
 
   function init() {
@@ -200,6 +202,11 @@
         applyFootnotesVisibility();
       });
     }
+
+    if (els.syncSettingsBtn) {
+      els.syncSettingsBtn.addEventListener("click", openSyncSettings);
+    }
+    initSyncStatus();
 
     // NT note buttons — event delegation so it works after async hydration
     els.readerContent.addEventListener("click", e => {
@@ -2719,6 +2726,74 @@
     else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.documentElement.dataset.theme = "dark";
     }
+  }
+
+  function initSyncStatus() {
+    if (!window.BasileianSync || !els.syncStatus) return;
+    updateSyncStatus(window.BasileianSync.isConfigured() ? "Sync ready." : "Sync off.");
+    window.BasileianSync.onEvent((event, detail) => {
+      if (event === "start") updateSyncStatus("Syncing…");
+      else if (event === "success") {
+        state.highlights = loadHighlights();
+        updateSyncStatus(`Synced (${detail.count} item${detail.count === 1 ? "" : "s"}) · ${new Date().toLocaleTimeString()}`);
+        renderAll();
+      } else if (event === "error") {
+        updateSyncStatus(`Sync error: ${detail.message}`);
+      }
+    });
+  }
+
+  function updateSyncStatus(text) {
+    if (els.syncStatus) els.syncStatus.textContent = text;
+  }
+
+  function openSyncSettings() {
+    if (!window.BasileianSync) {
+      openModal("Sync settings", "<p>Sync module is not loaded.</p>", [
+        { label: "Close", className: "button", onClick: closeModal }
+      ]);
+      return;
+    }
+    const token = localStorage.getItem("basileian.sync.v1.token") || "";
+    const gistId = localStorage.getItem("basileian.sync.v1.gistId") || "";
+
+    const body = `
+      <p class="hint">Sync your highlights and notes between devices through a private GitHub Gist.
+      You'll need a GitHub account, a secret gist, and a personal access token with the <code>gist</code> scope.</p>
+      <label class="field-label" for="syncTokenInput">GitHub token (starts with <code>ghp_</code>)</label>
+      <input id="syncTokenInput" class="control" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${escapeAttr(token)}">
+      <label class="field-label" for="syncGistInput">Gist ID</label>
+      <input id="syncGistInput" class="control" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${escapeAttr(gistId)}">
+      <p class="hint">The token is stored only in this browser and sent only to api.github.com.</p>
+      <p id="syncSettingsMsg" class="hint"></p>
+    `;
+
+    openModal("Sync settings", body, [
+      { label: "Disconnect", className: "button secondary", onClick: () => {
+        localStorage.removeItem("basileian.sync.v1.token");
+        localStorage.removeItem("basileian.sync.v1.gistId");
+        updateSyncStatus("Sync off.");
+        closeModal();
+      }},
+      { label: "Sync now", className: "button secondary", onClick: async () => {
+        const tokenVal = document.getElementById("syncTokenInput").value.trim();
+        const gistVal = document.getElementById("syncGistInput").value.trim();
+        const msg = document.getElementById("syncSettingsMsg");
+        if (!tokenVal || !gistVal) { msg.textContent = "Enter both a token and a gist ID first."; return; }
+        window.BasileianSync.configure({ token: tokenVal, gistId: gistVal });
+        msg.textContent = "Syncing…";
+        const result = await window.BasileianSync.syncNow();
+        msg.textContent = result.ok ? `Synced ${result.count} item${result.count === 1 ? "" : "s"}.` : `Failed: ${result.reason}`;
+        if (result.ok) renderNotes();
+      }},
+      { label: "Save", className: "button", onClick: () => {
+        const tokenVal = document.getElementById("syncTokenInput").value.trim();
+        const gistVal = document.getElementById("syncGistInput").value.trim();
+        window.BasileianSync.configure({ token: tokenVal, gistId: gistVal });
+        updateSyncStatus(window.BasileianSync.isConfigured() ? "Sync ready." : "Sync off.");
+        closeModal();
+      }}
+    ]);
   }
 
   init();
