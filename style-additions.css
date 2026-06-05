@@ -886,16 +886,59 @@
   margin-bottom: 0;
 }
 
-/* Inline footnote marker toggle */
+/* Inline footnote marker toggle — master "Markers" button hides all in-text markers,
+   but the collapsible panel at the bottom always remains visible. */
 .reader-content.footnotes-hidden .note-link,
 .reader-content.footnotes-hidden .net-note-link,
 .reader-content.footnotes-hidden .nt-note-btn {
   display: none !important;
 }
 
-.reader-content.footnotes-hidden .footnotes-panel {
-  display: none;
+/* Per-type filters — hide inline markers and panel entries of the disabled type. */
+.reader-content.fn-hide-tn .note-link[data-note-type="tn"],
+.reader-content.fn-hide-tn .net-note-link[data-note-type="tn"],
+.reader-content.fn-hide-tn .nt-note-btn[data-note-type="tn"],
+.reader-content.fn-hide-tn .footnote-item[data-note-type="tn"] {
+  display: none !important;
 }
+.reader-content.fn-hide-sn .note-link[data-note-type="sn"],
+.reader-content.fn-hide-sn .net-note-link[data-note-type="sn"],
+.reader-content.fn-hide-sn .nt-note-btn[data-note-type="sn"],
+.reader-content.fn-hide-sn .footnote-item[data-note-type="sn"] {
+  display: none !important;
+}
+.reader-content.fn-hide-tc .note-link[data-note-type="tc"],
+.reader-content.fn-hide-tc .net-note-link[data-note-type="tc"],
+.reader-content.fn-hide-tc .nt-note-btn[data-note-type="tc"],
+.reader-content.fn-hide-tc .footnote-item[data-note-type="tc"] {
+  display: none !important;
+}
+
+.footnotes-toolbar-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  align-self: center;
+}
+
+.fn-type-btn {
+  min-width: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footnotes-count-summary {
+  font-weight: 500;
+  opacity: 0.85;
+  margin-left: 0.5rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+}
+
+.footnotes-count-summary .fc-tn { color: var(--accent-strong, currentColor); }
+.footnotes-count-summary .fc-sep { opacity: 0.5; margin: 0 0.3rem; }
 
 /* Witness view breadcrumb header */
 .witness-heading .witness-breadcrumb {

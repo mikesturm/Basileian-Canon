@@ -86,7 +86,11 @@
               <button id="nextBtn" class="button secondary">Next →</button>
             </div>
             <div class="reader-opts-bar">
-              <button id="footnotesToggleBtn" class="button secondary active" aria-pressed="true">Footnotes</button>
+              <span class="footnotes-toolbar-label">Footnotes:</span>
+              <button id="footnotesToggleBtn" class="button secondary active" aria-pressed="true" title="Show or hide footnote markers in the text">Markers</button>
+              <button id="footnoteTypeTnBtn" class="button secondary fn-type-btn active" data-fn-type="tn" aria-pressed="true" title="Translator's notes">tn</button>
+              <button id="footnoteTypeSnBtn" class="button secondary fn-type-btn active" data-fn-type="sn" aria-pressed="true" title="Study notes">sn</button>
+              <button id="footnoteTypeTcBtn" class="button secondary fn-type-btn active" data-fn-type="tc" aria-pressed="true" title="Text-critical notes">tc</button>
             </div>
             <div id="readerContent" class="reader-content" tabindex="-1"></div>
           </article>
