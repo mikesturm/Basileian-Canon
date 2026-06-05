@@ -944,3 +944,16 @@
   font-weight: 400;
   font-size: 0.82rem;
 }
+
+/* Sync settings bar in Notes tab */
+.sync-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 1rem;
+}
+.sync-status {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
