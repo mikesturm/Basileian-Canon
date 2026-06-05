@@ -13,6 +13,7 @@
   const STORAGE_CROSSREF = "basileian.reader.v2.crossRef";
   const STORAGE_COMMENTARY = "basileian.reader.v2.commentary";
   const STORAGE_FOOTNOTES = "basileian.reader.v2.footnotesVisible";
+  const STORAGE_FOOTNOTE_TYPES = "basileian.reader.v2.footnoteTypes";
   const STORAGE_VIEW_MODE = "basileian.reader.v2.viewMode";
 
   const sections = DATA.sections;
@@ -63,7 +64,9 @@
     crossRefEnabled: false,
     activeCommentary: 'jfb',
     footnotesVisible: true,
-    footnotesExpanded: true
+    footnotesExpanded: false,
+    // Per-type footnote visibility. tn = translator's, sn = study, tc = text-critical.
+    noteTypeFilters: { tn: true, sn: true, tc: true }
   };
 
   const els = {
@@ -107,6 +110,7 @@
     translationStatus: document.getElementById("translationStatus"),
     crossRefBtn: document.getElementById("crossRefBtn"),
     footnotesToggleBtn: document.getElementById("footnotesToggleBtn"),
+    footnoteTypeBtns: document.querySelectorAll(".fn-type-btn"),
     syncSettingsBtn: document.getElementById("syncSettingsBtn"),
     syncStatus: document.getElementById("syncStatus")
   };
@@ -115,6 +119,7 @@
     els.docSubtitle.textContent = DATA.subtitle || DATA.title;
     applyStoredTheme();
     restoreFootnotesPreference();
+    restoreFootnoteTypePreferences();
     bindEvents();
     renderBookSelect();
     restoreCrossRefPreference();
@@ -202,6 +207,17 @@
         applyFootnotesVisibility();
       });
     }
+
+    els.footnoteTypeBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const t = btn.dataset.fnType;
+        if (!t) return;
+        state.noteTypeFilters[t] = !state.noteTypeFilters[t];
+        persistFootnoteTypePreferences();
+        applyFootnotesVisibility();
+        updateFootnotesPanelCounts();
+      });
+    });
 
     if (els.syncSettingsBtn) {
       els.syncSettingsBtn.addEventListener("click", openSyncSettings);
@@ -427,6 +443,9 @@
   }
 
   function renderReader() {
+    // Each time the user navigates to a new "page" of content, collapse the
+    // footnotes panel by default. The panel re-renders below using this state.
+    state.footnotesExpanded = false;
     const visibleSections = getVisibleSections();
     if (!visibleSections.length) {
       els.readerContent.innerHTML = `<div class="chapter-heading"><span class="eyebrow">No passages</span><h2>${escapeHTML(state.book || "Reader")}</h2></div>`;
@@ -1425,12 +1444,70 @@
     if (stored === "0") state.footnotesVisible = false;
   }
 
+  function restoreFootnoteTypePreferences() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(STORAGE_FOOTNOTE_TYPES) || "null");
+      if (stored && typeof stored === "object") {
+        ["tn", "sn", "tc"].forEach(t => {
+          if (typeof stored[t] === "boolean") state.noteTypeFilters[t] = stored[t];
+        });
+      }
+    } catch {}
+  }
+
+  function persistFootnoteTypePreferences() {
+    localStorage.setItem(STORAGE_FOOTNOTE_TYPES, JSON.stringify(state.noteTypeFilters));
+  }
+
+  // Detect note type (tn/sn/tc) from the note HTML content. NET Bible notes
+  // begin with a leading "<b>tn</b>", "<b>sn</b>", or "<b>tc</b>" label.
+  function detectNoteType(html) {
+    if (!html) return null;
+    const m = String(html).match(/<b[^>]*>\s*(tn|sn|tc)\s*<\/b>/i);
+    return m ? m[1].toLowerCase() : null;
+  }
+
   function applyFootnotesVisibility() {
     els.readerContent.classList.toggle("footnotes-hidden", !state.footnotesVisible);
     if (els.footnotesToggleBtn) {
       els.footnotesToggleBtn.classList.toggle("active", state.footnotesVisible);
       els.footnotesToggleBtn.setAttribute("aria-pressed", String(state.footnotesVisible));
     }
+    ["tn", "sn", "tc"].forEach(t => {
+      els.readerContent.classList.toggle(`fn-hide-${t}`, !state.noteTypeFilters[t]);
+    });
+    els.footnoteTypeBtns.forEach(btn => {
+      const t = btn.dataset.fnType;
+      const on = !!state.noteTypeFilters[t];
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+  }
+
+  // Tag an inline marker button with its note type, so CSS filters apply and
+  // panel counts stay in sync. Idempotent — safe to call repeatedly.
+  function tagInlineMarkerType(button, type) {
+    if (!button || !type) return;
+    if (button.dataset.noteType === type) return;
+    button.dataset.noteType = type;
+  }
+
+  function updateFootnotesPanelCounts() {
+    const panel = els.readerContent.querySelector(".footnotes-panel");
+    if (!panel) return;
+    const counts = { tn: 0, sn: 0, tc: 0 };
+    panel.querySelectorAll(".footnote-item[data-note-type]").forEach(item => {
+      const t = item.dataset.noteType;
+      if (counts[t] != null) counts[t]++;
+    });
+    const summary = panel.querySelector(".footnotes-count-summary");
+    if (summary) summary.innerHTML = renderFootnoteCountSummary(counts);
+  }
+
+  function renderFootnoteCountSummary(counts) {
+    return `<span class="fc-tn">tn: ${counts.tn}</span><span class="fc-sep">·</span>`
+         + `<span class="fc-sn">sn: ${counts.sn}</span><span class="fc-sep">·</span>`
+         + `<span class="fc-tc">tc: ${counts.tc}</span>`;
   }
 
   function renderFootnotesPanel() {
@@ -1440,13 +1517,16 @@
     const entries = [];
     const seen = new Set();
 
-    // Endnotes from Basileian Canon paragraphs
+    // Endnotes from Basileian Canon paragraphs (translator's notes by convention)
     els.readerContent.querySelectorAll(".note-link[data-note]").forEach(btn => {
       const num = btn.dataset.note;
       const key = `n-${num}`;
       if (!seen.has(key) && DATA.notes && DATA.notes[num]) {
         seen.add(key);
-        entries.push({ key, label: num, html: paragraphsToHTML(DATA.notes[num]), type: "endnote" });
+        const html = paragraphsToHTML(DATA.notes[num]);
+        const type = detectNoteType(html) || "tn";
+        tagInlineMarkerType(btn, type);
+        entries.push({ key, label: num, html, type, source: "endnote", button: btn });
       }
     });
 
@@ -1457,17 +1537,21 @@
       if (!seen.has(key)) {
         seen.add(key);
         const content = state._ntNotes[noteId];
+        const type = detectNoteType(content) || "tn";
+        tagInlineMarkerType(btn, type);
         entries.push({
           key,
           label: btn.textContent.trim(),
           html: content || `<span class="muted">Loading…</span>`,
-          type: "nt",
-          noteId
+          type,
+          source: "nt",
+          noteId,
+          button: btn
         });
       }
     });
 
-    // NET Bible inline footnotes (async fetch per note)
+    // NET Bible inline footnotes (async fetch per note) — type unknown until loaded.
     els.readerContent.querySelectorAll(".net-note-link[data-net-note]").forEach(btn => {
       const noteId = btn.dataset.netNote;
       const bookKey = btn.dataset.bookKey;
@@ -1478,9 +1562,11 @@
           key,
           label: btn.textContent.trim(),
           html: `<span class="muted">Loading…</span>`,
-          type: "net",
+          type: null,
+          source: "net",
           noteId,
-          bookKey
+          bookKey,
+          button: btn
         });
       }
     });
@@ -1488,18 +1574,21 @@
     if (!entries.length) return;
 
     const expanded = state.footnotesExpanded;
+    const counts = { tn: 0, sn: 0, tc: 0 };
+    entries.forEach(e => { if (e.type && counts[e.type] != null) counts[e.type]++; });
+
     const panel = document.createElement("section");
     panel.className = "footnotes-panel";
     panel.setAttribute("aria-label", "Footnotes");
     panel.innerHTML = `
       <div class="footnotes-panel-header">
         <button class="footnotes-panel-toggle" aria-expanded="${expanded}">
-          <span class="footnotes-panel-label">Footnotes <span class="footnotes-count">(${entries.length})</span></span>
+          <span class="footnotes-panel-label">Footnotes <span class="footnotes-count-summary">${renderFootnoteCountSummary(counts)}</span></span>
           <span class="footnotes-chevron" aria-hidden="true">▼</span>
         </button>
       </div>
       <div class="footnotes-panel-body${expanded ? "" : " collapsed"}">
-        ${entries.map((e, i) => `<div class="footnote-item" data-fn-idx="${i}">
+        ${entries.map((e, i) => `<div class="footnote-item" data-fn-idx="${i}"${e.type ? ` data-note-type="${e.type}"` : ""}>
           <span class="footnote-num">${escapeHTML(e.label)}</span>
           <div class="footnote-text">${e.html}</div>
         </div>`).join("")}
@@ -1516,13 +1605,20 @@
       toggleBtn.setAttribute("aria-expanded", String(state.footnotesExpanded));
     });
 
-    // Async load NET notes into the panel
+    // Async load NET notes into the panel — once each note resolves, set its
+    // type so filters and the summary stay accurate.
     entries.forEach((e, i) => {
-      if (e.type !== "net") return;
+      if (e.source !== "net") return;
       TranslationsModule.getNetNote(e.noteId, e.bookKey)
         .then(html => {
-          const item = panel.querySelector(`[data-fn-idx="${i}"] .footnote-text`);
-          if (item) item.innerHTML = html || "<p>Note not found.</p>";
+          const item = panel.querySelector(`[data-fn-idx="${i}"]`);
+          if (!item) return;
+          const text = item.querySelector(".footnote-text");
+          if (text) text.innerHTML = html || "<p>Note not found.</p>";
+          const t = detectNoteType(html) || "tn";
+          item.dataset.noteType = t;
+          tagInlineMarkerType(e.button, t);
+          updateFootnotesPanelCounts();
         })
         .catch(() => {
           const item = panel.querySelector(`[data-fn-idx="${i}"] .footnote-text`);
