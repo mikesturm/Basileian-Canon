@@ -929,6 +929,26 @@
   font-weight: 700;
 }
 
+/* Active / selected state for the footnote toolbar buttons. The buttons are
+   independent toggles, and the visible highlight (background + border + text)
+   communicates which footnote types are currently included. */
+#footnotesToggleBtn.active,
+.fn-type-btn.active {
+  background: color-mix(in srgb, var(--accent) 20%, var(--surface) 80%);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+[data-theme="dark"] #footnotesToggleBtn.active,
+[data-theme="dark"] .fn-type-btn.active {
+  background: color-mix(in srgb, var(--accent) 25%, #1a1a1a 75%);
+}
+
+#footnotesToggleBtn:not(.active),
+.fn-type-btn:not(.active) {
+  opacity: 0.7;
+}
+
 .footnotes-count-summary {
   font-weight: 500;
   opacity: 0.85;
