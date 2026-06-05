@@ -183,11 +183,11 @@
     els.prevBtn.addEventListener("click", goPrevious);
     els.nextBtn.addEventListener("click", goNext);
     els.chapterModeBtn.addEventListener("click", () => {
-      if (state.viewMode === "chapter") state.viewMode = "passage";
-      else if (state.viewMode === "passage") state.viewMode = "witness";
-      else state.viewMode = "chapter";
+      const next = state.viewMode === "chapter" ? "passage"
+        : state.viewMode === "passage" ? "witness"
+        : "chapter";
       state.currentWitnessIndex = 0;
-      localStorage.setItem(STORAGE_VIEW_MODE, state.viewMode);
+      setViewMode(next);
       renderAll();
     });
 
@@ -204,6 +204,7 @@
       els.footnotesToggleBtn.addEventListener("click", () => {
         state.footnotesVisible = !state.footnotesVisible;
         localStorage.setItem(STORAGE_FOOTNOTES, state.footnotesVisible ? "1" : "0");
+        notifyPreferencesChanged();
         applyFootnotesVisibility();
       });
     }
@@ -411,7 +412,7 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        if (state.viewMode === "chapter") state.viewMode = "passage";
+        if (state.viewMode === "chapter") setViewMode("passage");
         state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
@@ -432,7 +433,7 @@
     els.verseList.querySelectorAll("[data-anchor]").forEach(button => {
       button.addEventListener("click", () => {
         state.currentSectionId = button.dataset.sectionId;
-        state.viewMode = "passage";
+        setViewMode("passage");
         state.currentWitnessIndex = 0;
         updateHash(button.dataset.anchor);
         renderAll();
@@ -975,7 +976,7 @@
           state.book = section.book;
           state.chapter = section.startChapter ?? section.chapter ?? "All";
           state.currentSectionId = section.id;
-          state.viewMode = "passage"; state.currentWitnessIndex = 0;
+          setViewMode("passage"); state.currentWitnessIndex = 0;
           updateHash();
           renderAll();
           setTimeout(() => scrollToSection(section.id), 50);
@@ -1117,7 +1118,7 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        state.viewMode = "passage"; state.currentWitnessIndex = 0;
+        setViewMode("passage"); state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
         setTimeout(() => scrollToSection(section.id), 50);
@@ -1457,6 +1458,37 @@
 
   function persistFootnoteTypePreferences() {
     localStorage.setItem(STORAGE_FOOTNOTE_TYPES, JSON.stringify(state.noteTypeFilters));
+    notifyPreferencesChanged();
+  }
+
+  // Single-source-of-truth setter for state.viewMode: persists locally so the
+  // view restores on refresh, and notifies the sync module so the choice flows
+  // to other devices.
+  function setViewMode(mode) {
+    if (!["chapter", "passage", "witness"].includes(mode)) return;
+    if (state.viewMode === mode) return;
+    state.viewMode = mode;
+    localStorage.setItem(STORAGE_VIEW_MODE, mode);
+    notifyPreferencesChanged();
+  }
+
+  function notifyPreferencesChanged() {
+    if (window.BasileianSync && typeof window.BasileianSync.markPreferencesChanged === "function") {
+      window.BasileianSync.markPreferencesChanged();
+    }
+  }
+
+  // Re-read sync-managed preferences from localStorage into state, then re-render.
+  // Called after the sync module pulls a newer preferences blob from the gist.
+  function applySyncedPreferences() {
+    const storedView = localStorage.getItem(STORAGE_VIEW_MODE);
+    if (["chapter", "passage", "witness"].includes(storedView)) {
+      state.viewMode = storedView;
+    }
+    state.footnotesVisible = localStorage.getItem(STORAGE_FOOTNOTES) !== "0";
+    state.noteTypeFilters = { tn: true, sn: true, tc: true };
+    restoreFootnoteTypePreferences();
+    renderAll();
   }
 
   // Detect note type (tn/sn/tc) from the note HTML content. NET Bible notes
@@ -1492,9 +1524,55 @@
     button.dataset.noteType = type;
   }
 
+  // Footnote panel sort: group by type (sn → tc → tn), then by numeric label
+  // ascending within each group. NET notes whose type hasn't resolved yet are
+  // bucketed with their default "tn" treatment so they don't clump at the top.
+  const FOOTNOTE_TYPE_ORDER = { sn: 0, tc: 1, tn: 2 };
+
+  function footnoteTypeRank(type) {
+    const r = FOOTNOTE_TYPE_ORDER[type];
+    return r == null ? FOOTNOTE_TYPE_ORDER.tn : r;
+  }
+
+  function footnoteLabelNum(label) {
+    const m = String(label || "").match(/(\d+)/);
+    return m ? parseInt(m[1], 10) : Number.MAX_SAFE_INTEGER;
+  }
+
+  function sortFootnoteEntries(entries) {
+    entries.sort((a, b) => {
+      const at = footnoteTypeRank(a.type);
+      const bt = footnoteTypeRank(b.type);
+      if (at !== bt) return at - bt;
+      const an = footnoteLabelNum(a.label);
+      const bn = footnoteLabelNum(b.label);
+      if (an !== bn) return an - bn;
+      return String(a.label).localeCompare(String(b.label));
+    });
+  }
+
+  function resortFootnotesPanelDom(panel) {
+    const body = panel.querySelector(".footnotes-panel-body");
+    if (!body) return;
+    const items = Array.from(body.querySelectorAll(".footnote-item"));
+    items.sort((a, b) => {
+      const at = footnoteTypeRank(a.dataset.noteType);
+      const bt = footnoteTypeRank(b.dataset.noteType);
+      if (at !== bt) return at - bt;
+      const al = a.querySelector(".footnote-num");
+      const bl = b.querySelector(".footnote-num");
+      const an = footnoteLabelNum(al && al.textContent);
+      const bn = footnoteLabelNum(bl && bl.textContent);
+      if (an !== bn) return an - bn;
+      return String(al ? al.textContent : "").localeCompare(String(bl ? bl.textContent : ""));
+    });
+    items.forEach(item => body.appendChild(item));
+  }
+
   function updateFootnotesPanelCounts() {
     const panel = els.readerContent.querySelector(".footnotes-panel");
     if (!panel) return;
+    resortFootnotesPanelDom(panel);
     const counts = { tn: 0, sn: 0, tc: 0 };
     panel.querySelectorAll(".footnote-item[data-note-type]").forEach(item => {
       const t = item.dataset.noteType;
@@ -1572,6 +1650,8 @@
     });
 
     if (!entries.length) return;
+
+    sortFootnoteEntries(entries);
 
     const expanded = state.footnotesExpanded;
     const counts = { tn: 0, sn: 0, tc: 0 };
@@ -1755,7 +1835,7 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        state.viewMode = "passage"; state.currentWitnessIndex = 0;
+        setViewMode("passage"); state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
         setTimeout(() => {
@@ -2098,7 +2178,7 @@
     state.book = section.book;
     state.chapter = section.startChapter ?? section.chapter ?? "All";
     state.currentSectionId = section.id;
-    state.viewMode = "passage"; state.currentWitnessIndex = 0;
+    setViewMode("passage"); state.currentWitnessIndex = 0;
     updateHash();
     renderAll();
     setTimeout(() => {
@@ -2315,7 +2395,7 @@
     state.book = target.section.book;
     state.chapter = target.chapter || target.section.startChapter || target.section.chapter || "All";
     state.currentSectionId = target.section.id;
-    if (target.verse) { state.viewMode = "passage"; state.currentWitnessIndex = 0; }
+    if (target.verse) { setViewMode("passage"); state.currentWitnessIndex = 0; }
     updateHash(target.anchor || target.section.id);
     renderAll();
     els.gotoMessage.textContent = "";
@@ -2633,7 +2713,7 @@
       state.book = section.book;
       state.chapter = section.startChapter ?? section.chapter ?? "All";
       state.currentSectionId = section.id;
-      if (anchor) { state.viewMode = "passage"; state.currentWitnessIndex = 0; }
+      if (anchor) { setViewMode("passage"); state.currentWitnessIndex = 0; }
       setTimeout(() => {
         if (anchor) scrollToAnchor(anchor);
         else scrollToSection(section.id);
@@ -2833,6 +2913,8 @@
         state.highlights = loadHighlights();
         updateSyncStatus(`Synced (${detail.count} item${detail.count === 1 ? "" : "s"}) · ${new Date().toLocaleTimeString()}`);
         renderAll();
+      } else if (event === "preferences-applied") {
+        applySyncedPreferences();
       } else if (event === "error") {
         updateSyncStatus(`Sync error: ${detail.message}`);
       }

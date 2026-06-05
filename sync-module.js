@@ -20,9 +20,18 @@
   const LAST_SYNC_KEY = "basileian.sync.v1.lastSyncAt";
   const TOMBSTONES_KEY = "basileian.sync.v1.tombstones";
   const HIGHLIGHTS_KEY = "basileian.reader.v2.highlights";
+  const PREFS_UPDATED_AT_KEY = "basileian.sync.v1.prefsUpdatedAt";
   const GIST_FILENAME = "basileian-canon.json";
   const SYNC_TAG = "basileian-sync";
   const DEBOUNCE_MS = 4000;
+
+  // localStorage keys whose values sync across devices as "preferences".
+  // Last-writer-wins per the whole blob, compared by prefsUpdatedAt.
+  const PREF_KEYS = [
+    "basileian.reader.v2.viewMode",
+    "basileian.reader.v2.footnotesVisible",
+    "basileian.reader.v2.footnoteTypes"
+  ];
 
   const listeners = new Set();
   let inFlight = null;
@@ -52,6 +61,41 @@
 
   function saveTombstones(map) {
     localStorage.setItem(TOMBSTONES_KEY, JSON.stringify(map));
+  }
+
+  function loadLocalPrefs() {
+    const out = {};
+    for (const k of PREF_KEYS) {
+      const v = localStorage.getItem(k);
+      if (v != null) out[k] = v;
+    }
+    return out;
+  }
+
+  function applyRemotePrefs(prefs) {
+    if (!prefs || typeof prefs !== "object") return false;
+    let changed = false;
+    for (const k of PREF_KEYS) {
+      const remote = Object.prototype.hasOwnProperty.call(prefs, k) ? prefs[k] : null;
+      const local = localStorage.getItem(k);
+      if (remote == null) {
+        if (local != null) { localStorage.removeItem(k); changed = true; }
+      } else if (remote !== local) {
+        localStorage.setItem(k, String(remote));
+        changed = true;
+      }
+    }
+    return changed;
+  }
+
+  function getPrefsUpdatedAt() {
+    const n = parseInt(localStorage.getItem(PREFS_UPDATED_AT_KEY) || "0", 10);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  function markPreferencesChanged() {
+    localStorage.setItem(PREFS_UPDATED_AT_KEY, String(Date.now()));
+    requestSync();
   }
 
   function recordDeletion(id, ts) {
@@ -88,10 +132,12 @@
       const parsed = JSON.parse(content || "{}");
       return {
         highlights: (parsed.highlights && typeof parsed.highlights === "object") ? parsed.highlights : {},
-        tombstones: (parsed.tombstones && typeof parsed.tombstones === "object") ? parsed.tombstones : {}
+        tombstones: (parsed.tombstones && typeof parsed.tombstones === "object") ? parsed.tombstones : {},
+        preferences: (parsed.preferences && typeof parsed.preferences === "object") ? parsed.preferences : null,
+        preferencesUpdatedAt: Number.isFinite(parsed.preferencesUpdatedAt) ? parsed.preferencesUpdatedAt : 0
       };
     } catch {
-      return { highlights: {}, tombstones: {} };
+      return { highlights: {}, tombstones: {}, preferences: null, preferencesUpdatedAt: 0 };
     }
   }
 
@@ -167,7 +213,29 @@
         saveTombstones(merged.tombstones);
         localStorage.setItem(LAST_SYNC_KEY, String(Date.now()));
 
-        await pushRemote({ highlights: merged.highlights, tombstones: merged.tombstones });
+        // Preferences: last-writer-wins by timestamp on the whole blob.
+        const localPrefsAt = getPrefsUpdatedAt();
+        const remotePrefsAt = remote.preferencesUpdatedAt || 0;
+        let prefsChanged = false;
+        let outPrefs;
+        let outPrefsAt;
+        if (remotePrefsAt > localPrefsAt && remote.preferences) {
+          prefsChanged = applyRemotePrefs(remote.preferences);
+          localStorage.setItem(PREFS_UPDATED_AT_KEY, String(remotePrefsAt));
+          outPrefs = remote.preferences;
+          outPrefsAt = remotePrefsAt;
+        } else {
+          outPrefs = loadLocalPrefs();
+          outPrefsAt = localPrefsAt;
+        }
+
+        await pushRemote({
+          highlights: merged.highlights,
+          tombstones: merged.tombstones,
+          preferences: outPrefs,
+          preferencesUpdatedAt: outPrefsAt
+        });
+        if (prefsChanged) emit("preferences-applied");
         emit("success", { count: merged.list.length });
         return { ok: true, count: merged.list.length };
       } catch (err) {
@@ -237,6 +305,7 @@
     requestSync,
     syncNow,
     recordDeletion,
+    markPreferencesChanged,
     onEvent,
     isConfigured,
     SYNC_TAG
