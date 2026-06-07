@@ -569,7 +569,7 @@
 
     return `<section class="passage nt-passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
       <div class="passage-meta">${source}${tier}</div>
-      <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${block}${extraParagraphs}</div>
+      <div class="passage-body" data-section-id="${escapeAttr(section.id)}" data-witness-book="${escapeAttr(bookKey)}">${block}${extraParagraphs}</div>
     </section>`;
   }
 
@@ -2114,6 +2114,7 @@
     }
 
     const sectionId = body.dataset.sectionId;
+    const witnessBook = body.dataset.witnessBook || null;
     const offsets = getRangeOffsets(body, range);
     if (!offsets || offsets.end <= offsets.start) return;
 
@@ -2123,6 +2124,7 @@
     const highlight = {
       id: `h_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
       sectionId,
+      witnessBook,
       start: offsets.start,
       end: offsets.end,
       quote,
@@ -2202,8 +2204,14 @@
   }
 
   function applyHighlightsToBody(sectionId, body) {
+    const witnessBook = body.dataset.witnessBook || null;
     const highlights = state.highlights
-      .filter(h => h.sectionId === sectionId)
+      .filter(h => {
+        if (h.sectionId !== sectionId) return false;
+        // In witness mode, skip highlights that belong to a different witness.
+        if (witnessBook && h.witnessBook && h.witnessBook !== witnessBook) return false;
+        return true;
+      })
       .sort((a, b) => b.start - a.start);
 
     for (const highlight of highlights) {
