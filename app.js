@@ -46,7 +46,7 @@
     book: books[0]?.name || "",
     chapter: books[0]?.chapters?.[0] || "All",
     currentSectionId: books[0]?.sectionIds?.[0] || null,
-    viewMode: ["chapter", "passage", "witness"].includes(_storedViewMode) ? _storedViewMode : "chapter",
+    viewMode: ["chapter", "witness"].includes(_storedViewMode) ? _storedViewMode : _storedViewMode === "passage" ? "witness" : "chapter",
     currentWitnessIndex: 0,
     activeSearchTerm: "",
     highlights: loadHighlights(),
@@ -183,9 +183,7 @@
     els.prevBtn.addEventListener("click", goPrevious);
     els.nextBtn.addEventListener("click", goNext);
     els.chapterModeBtn.addEventListener("click", () => {
-      const next = state.viewMode === "chapter" ? "passage"
-        : state.viewMode === "passage" ? "witness"
-        : "chapter";
+      const next = state.viewMode === "chapter" ? "witness" : "chapter";
       state.currentWitnessIndex = 0;
       setViewMode(next);
       renderAll();
@@ -412,7 +410,7 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        if (state.viewMode === "chapter") setViewMode("passage");
+        if (state.viewMode === "chapter") setViewMode("witness");
         state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
@@ -433,7 +431,7 @@
     els.verseList.querySelectorAll("[data-anchor]").forEach(button => {
       button.addEventListener("click", () => {
         state.currentSectionId = button.dataset.sectionId;
-        setViewMode("passage");
+        setViewMode("witness");
         state.currentWitnessIndex = 0;
         updateHash(button.dataset.anchor);
         renderAll();
@@ -469,17 +467,6 @@
         <p class="muted">${escapeHTML(subtitle)}</p>
       </header>`;
       sectionsHtml = visibleSections.map(section => renderPassage(section)).join("");
-      els.chapterModeBtn.textContent = "Passage view";
-
-    } else if (state.viewMode === "passage") {
-      const chNum = currentSection.startChapter ?? currentSection.chapter;
-      const chLabel = chNum != null ? chapterLabel(state.book, chNum) : "";
-      heading = `<header class="section-heading">
-        <span class="eyebrow">Passage view</span>
-        <h2>${escapeHTML(state.book)}</h2>
-        <p class="muted">${escapeHTML(chLabel ? `Chapter ${chLabel}` : "")}</p>
-      </header>`;
-      sectionsHtml = renderPassage(currentSection);
       els.chapterModeBtn.textContent = "Witness view";
 
     } else {
@@ -976,7 +963,7 @@
           state.book = section.book;
           state.chapter = section.startChapter ?? section.chapter ?? "All";
           state.currentSectionId = section.id;
-          setViewMode("passage"); state.currentWitnessIndex = 0;
+          setViewMode("witness"); state.currentWitnessIndex = 0;
           updateHash();
           renderAll();
           setTimeout(() => scrollToSection(section.id), 50);
@@ -1118,7 +1105,7 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        setViewMode("passage"); state.currentWitnessIndex = 0;
+        setViewMode("witness"); state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
         setTimeout(() => scrollToSection(section.id), 50);
@@ -1145,7 +1132,7 @@
       <p class="muted">Loading…</p>
     </header>`;
     els.readerContent.innerHTML = heading;
-    els.chapterModeBtn.textContent = {chapter: "Passage view", passage: "Witness view", witness: "Chapter view"}[state.viewMode] || "Passage view";
+    els.chapterModeBtn.textContent = state.viewMode === "witness" ? "Chapter view" : "Witness view";
 
     if (!window.TranslationsModule) return;
 
@@ -1465,7 +1452,7 @@
   // view restores on refresh, and notifies the sync module so the choice flows
   // to other devices.
   function setViewMode(mode) {
-    if (!["chapter", "passage", "witness"].includes(mode)) return;
+    if (!["chapter", "witness"].includes(mode)) return;
     if (state.viewMode === mode) return;
     state.viewMode = mode;
     localStorage.setItem(STORAGE_VIEW_MODE, mode);
@@ -1482,8 +1469,10 @@
   // Called after the sync module pulls a newer preferences blob from the gist.
   function applySyncedPreferences() {
     const storedView = localStorage.getItem(STORAGE_VIEW_MODE);
-    if (["chapter", "passage", "witness"].includes(storedView)) {
+    if (["chapter", "witness"].includes(storedView)) {
       state.viewMode = storedView;
+    } else if (storedView === "passage") {
+      state.viewMode = "witness";
     }
     state.footnotesVisible = localStorage.getItem(STORAGE_FOOTNOTES) !== "0";
     state.noteTypeFilters = { tn: true, sn: true, tc: true };
@@ -1835,7 +1824,7 @@
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
-        setViewMode("passage"); state.currentWitnessIndex = 0;
+        setViewMode("witness"); state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
         setTimeout(() => {
@@ -2115,18 +2104,21 @@
 
     const sectionId = body.dataset.sectionId;
     const witnessBook = body.dataset.witnessBook || null;
-    const offsets = getRangeOffsets(body, range);
-    if (!offsets || offsets.end <= offsets.start) return;
 
     const quote = range.toString().trim();
     if (!quote) return;
+
+    // Try verse-based anchoring first; fall back to body char offsets for non-NT text.
+    const anchor = getRangeVerseAnchors(body, range);
+    const fallbackOffsets = anchor ? null : getRangeOffsets(body, range);
+    if (!anchor && (!fallbackOffsets || fallbackOffsets.end <= fallbackOffsets.start)) return;
 
     const highlight = {
       id: `h_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
       sectionId,
       witnessBook,
-      start: offsets.start,
-      end: offsets.end,
+      anchor,
+      ...(fallbackOffsets ? { start: fallbackOffsets.start, end: fallbackOffsets.end } : {}),
       quote,
       note: "",
       createdAt: Date.now(),
@@ -2180,7 +2172,14 @@
     state.book = section.book;
     state.chapter = section.startChapter ?? section.chapter ?? "All";
     state.currentSectionId = section.id;
-    setViewMode("passage"); state.currentWitnessIndex = 0;
+    setViewMode("witness");
+    if (highlight.witnessBook) {
+      const entries = getWitnessEntries(section);
+      const idx = entries.findIndex(e => e.bookKey === highlight.witnessBook);
+      state.currentWitnessIndex = idx >= 0 ? idx : 0;
+    } else {
+      state.currentWitnessIndex = 0;
+    }
     updateHash();
     renderAll();
     setTimeout(() => {
@@ -2204,30 +2203,42 @@
   }
 
   function applyHighlightsToBody(sectionId, body) {
-    const witnessBook = body.dataset.witnessBook || null;
-    const highlights = state.highlights
-      .filter(h => {
-        if (h.sectionId !== sectionId) return false;
-        // In witness mode, skip highlights that belong to a different witness.
-        if (witnessBook && h.witnessBook && h.witnessBook !== witnessBook) return false;
-        return true;
-      })
-      .sort((a, b) => b.start - a.start);
+    const inWitnessMode = !!body.dataset.witnessBook;
 
-    for (const highlight of highlights) {
+    // For witness-mode bodies, only apply verse-anchored highlights (h.anchor).
+    // For non-witness bodies, also apply legacy body-offset highlights.
+    const candidates = state.highlights
+      .filter(h => h.sectionId === sectionId && (h.anchor || !inWitnessMode))
+      .sort((a, b) => {
+        if (a.anchor && b.anchor) {
+          const ae = a.anchor.end, be = b.anchor.end;
+          if (be.chapter !== ae.chapter) return be.chapter - ae.chapter;
+          if (be.verse !== ae.verse) return be.verse - ae.verse;
+          return be.offset - ae.offset;
+        }
+        if (!a.anchor && !b.anchor) return (b.end ?? 0) - (a.end ?? 0);
+        return a.anchor ? -1 : 1;
+      });
+
+    for (const highlight of candidates) {
       try {
-        wrapTextRange(body, highlight.start, highlight.end, highlight);
+        let startPos, endPos;
+        if (highlight.anchor) {
+          startPos = findVerseAnchorPosition(body, highlight.anchor.start);
+          endPos = findVerseAnchorPosition(body, highlight.anchor.end);
+        } else {
+          startPos = findTextPosition(body, highlight.start);
+          endPos = findTextPosition(body, highlight.end);
+        }
+        wrapTextRange(startPos, endPos, highlight);
       } catch (err) {
         // Ignore invalid ranges after content revisions.
       }
     }
   }
 
-  function wrapTextRange(root, start, end, highlight) {
-    const startPos = findTextPosition(root, start);
-    const endPos = findTextPosition(root, end);
+  function wrapTextRange(startPos, endPos, highlight) {
     if (!startPos || !endPos) return;
-
     const range = document.createRange();
     range.setStart(startPos.node, startPos.offset);
     range.setEnd(endPos.node, endPos.offset);
@@ -2240,6 +2251,64 @@
     const contents = range.extractContents();
     mark.appendChild(contents);
     range.insertNode(mark);
+  }
+
+  // Returns the {node, offset} for a verse-anchored highlight position.
+  // Walks text nodes after the target verse-number span, skipping span text itself.
+  function findVerseAnchorPosition(body, anchor) {
+    const span = body.querySelector(
+      `.verse-number[data-chapter="${anchor.chapter}"][data-verse="${anchor.verse}"]`
+    );
+    if (!span) return null;
+
+    const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
+    let count = 0;
+    let started = false;
+    let node;
+
+    while ((node = walker.nextNode())) {
+      if (node.parentElement && node.parentElement.closest('.verse-number')) continue;
+      if (!started) {
+        if (span.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING) {
+          started = true;
+        } else {
+          continue;
+        }
+      }
+      const length = node.nodeValue.length;
+      if (count + length >= anchor.offset) {
+        return { node, offset: anchor.offset - count };
+      }
+      count += length;
+    }
+    return null;
+  }
+
+  // Computes a {chapter, verse, offset} anchor from a range endpoint.
+  function getVerseAnchorForPoint(body, container, pointOffset) {
+    const spans = [...body.querySelectorAll('.verse-number')];
+    let verseSpan = null;
+    for (const span of spans) {
+      if (span.contains(container)) break;
+      if (span.compareDocumentPosition(container) & Node.DOCUMENT_POSITION_FOLLOWING) {
+        verseSpan = span;
+      } else {
+        break;
+      }
+    }
+    if (!verseSpan) return null;
+    const chapter = parseInt(verseSpan.dataset.chapter, 10);
+    const verse = parseInt(verseSpan.dataset.verse, 10);
+    const r = document.createRange();
+    r.setStartAfter(verseSpan);
+    r.setEnd(container, pointOffset);
+    return { chapter, verse, offset: r.toString().length };
+  }
+
+  function getRangeVerseAnchors(body, range) {
+    const start = getVerseAnchorForPoint(body, range.startContainer, range.startOffset);
+    const end = getVerseAnchorForPoint(body, range.endContainer, range.endOffset);
+    return start && end ? { start, end } : null;
   }
 
   function findTextPosition(root, offset) {
@@ -2403,7 +2472,7 @@
     state.book = target.section.book;
     state.chapter = target.chapter || target.section.startChapter || target.section.chapter || "All";
     state.currentSectionId = target.section.id;
-    if (target.verse) { setViewMode("passage"); state.currentWitnessIndex = 0; }
+    if (target.verse) { setViewMode("witness"); state.currentWitnessIndex = 0; }
     updateHash(target.anchor || target.section.id);
     renderAll();
     els.gotoMessage.textContent = "";
@@ -2691,10 +2760,12 @@
       state.book = stored.book || section.book;
       state.chapter = stored.chapter || section.startChapter || section.chapter || "All";
       state.currentSectionId = stored.currentSectionId;
-      if (stored.viewMode && ["chapter", "passage", "witness"].includes(stored.viewMode)) {
+      if (stored.viewMode && ["chapter", "witness"].includes(stored.viewMode)) {
         state.viewMode = stored.viewMode;
+      } else if (stored.viewMode === "passage") {
+        state.viewMode = "witness";
       } else if (stored.chapterMode !== undefined) {
-        state.viewMode = stored.chapterMode ? "chapter" : "passage";
+        state.viewMode = stored.chapterMode ? "chapter" : "witness";
       }
       state.currentWitnessIndex = stored.currentWitnessIndex || 0;
       setTimeout(() => scrollToSection(stored.currentSectionId), 100);
@@ -2721,7 +2792,7 @@
       state.book = section.book;
       state.chapter = section.startChapter ?? section.chapter ?? "All";
       state.currentSectionId = section.id;
-      if (anchor) { setViewMode("passage"); state.currentWitnessIndex = 0; }
+      if (anchor) { setViewMode("witness"); state.currentWitnessIndex = 0; }
       setTimeout(() => {
         if (anchor) scrollToAnchor(anchor);
         else scrollToSection(section.id);
