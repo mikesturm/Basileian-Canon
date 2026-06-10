@@ -972,8 +972,7 @@
     for (const [, section] of sectionById) {
       if (!Array.isArray(section.verseMarkers)) continue;
       for (const marker of section.verseMarkers) {
-        const vid = translationVerseId(section, marker);
-        if (vid === verseId) return section;
+        if (marker.id === verseId) return section;
       }
     }
     return null;
