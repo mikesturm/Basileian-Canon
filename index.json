@@ -1,10 +1,12 @@
 {
   "schema_version": "2.0",
-  "canon_name": "Basileian Canon (Jesus Tradition)",
+  "canon_name": "The Basileian Bible",
   "canon_version": "v3",
   "reader_guide": {
     "title": "Note to the Reader",
-    "narrative": "The canon is arranged in three tiers, distinguishing not degrees of authority but kinds of source. Different reading purposes call for different subsets, and the reader is encouraged to choose the subset appropriate to the task.",
+    "narrative": "This book is an attempt to capture the ethos of Sola Yeshua. That is:  Jesus alone is our way and truth. We should strive to see him more clearly, love him more dearly, and follow him more nearly. His ways, his words, and his warmth guide us. Authority rests in him alone.  All interpretation is fallible and discretionary.
+Therefore this book is a group of writings selected because of their nature as that of reporting on Jesus's words, deeds, and teachings. It leaves out nearly all the epistolary material, the Book of Revlation, and the book of Acts. Those are either reports about those other than Jesus and/or analyses of the theology behind Jesus--rather than material that directly reveals Jesus to us.
+The canon is arranged in three tiers, distinguishing not degrees of authority but kinds of source. Different reading purposes call for different subsets, and the reader is encouraged to choose the subset appropriate to the task.",
     "reading_paths": [
       {
         "name": "Strongest core",
