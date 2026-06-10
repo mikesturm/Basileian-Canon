@@ -1020,3 +1020,188 @@
   font-size: 0.85em;
   opacity: 0.8;
 }
+
+/* =========================================================================
+   Expanded lexicon view (two-pane: definition + concordance)
+   ========================================================================= */
+
+/* Wider modal so the two panes have room; collapses on narrow screens. */
+.modal.modal--wide {
+  width: min(96vw, 1040px);
+  max-height: min(88dvh, 880px);
+}
+
+/* Headword block */
+.lex-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.7rem;
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.lex-id {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent, #0288d1);
+}
+
+[data-theme="dark"] .lex-id { color: #4fc3f7; }
+
+.lex-lemma {
+  font-family: "SBL Greek", "Gentium Plus", "Gentium", serif;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.lex-translit {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.lex-pos {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+}
+
+.lex-gloss {
+  font-size: 0.95rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Two-pane layout */
+.lexicon-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.lex-pane-conc {
+  border-left: 1px solid var(--line);
+  padding-left: 1.4rem;
+}
+
+.lex-section { margin-bottom: 1.3rem; }
+.lex-section:last-child { margin-bottom: 0; }
+
+.lex-section-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.lex-strongs-def {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0;
+}
+
+.lex-fulldef {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.lex-fulldef strong {
+  font-weight: 700;
+}
+
+.lex-fulldef .lex-ref {
+  color: var(--accent, #0288d1);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .lex-fulldef .lex-ref { color: #4fc3f7; }
+
+.lex-attribution {
+  margin: 0.9rem 0 0;
+  font-size: 0.74rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.lex-attribution a { color: inherit; }
+
+.lex-no-entry {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* Concordance pane */
+.lex-conc-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.lex-conc-body {
+  max-height: 62vh;
+  overflow: auto;
+}
+
+.lex-occurrence.in-corpus .cc-ref {
+  color: var(--accent, #0288d1);
+}
+
+[data-theme="dark"] .lex-occurrence.in-corpus .cc-ref { color: #4fc3f7; }
+
+.lex-incanon-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent, #0288d1);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0 0.4rem;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+[data-theme="dark"] .lex-incanon-badge { color: #4fc3f7; }
+
+/* Interlinear morphology line (ABP-style parsing under each word) */
+.iw-morph {
+  font-size: 0.58rem;
+  font-family: "Courier New", monospace;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  cursor: help;
+}
+
+/* Stack the two panes on narrow screens */
+@media (max-width: 760px) {
+  .lexicon-layout {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+  .lex-pane-conc {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 1.1rem;
+  }
+  .lex-conc-body { max-height: none; }
+  .lex-lemma { font-size: 1.45rem; }
+}
