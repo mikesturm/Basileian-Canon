@@ -12,8 +12,9 @@
     "fetch-commentary": "node scripts/fetch-commentary.js",
     "ingest-wh": "node ingest-wh.js",
     "build-lexicons": "node scripts/build-lexicons.js",
+    "build:greek-lexicon": "node scripts/build-greek-lexicon.js",
     "build:ot-concordance": "node scripts/fetch-ot-concordance.js",
-    "setup-data": "npm run fetch-translations && npm run ingest-wh && npm run build-lexicons && npm run fetch-commentary"
+    "setup-data": "npm run fetch-translations && npm run ingest-wh && npm run build-lexicons && npm run build:greek-lexicon && npm run fetch-commentary"
   },
   "engines": {
     "node": ">=18"

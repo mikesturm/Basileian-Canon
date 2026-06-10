@@ -771,15 +771,85 @@
       .replace(/[α-ωϲ]/gu, c => map[c] || c);
   }
 
+  // Expand a Robinson-style morphology code (e.g. "N-NSF", "V-RPI-3S") into a
+  // human-readable parse for the interlinear tooltip. Falls back to "" so the
+  // raw code is always what's shown; this only enriches the hover title.
+  const MORPH_POS = {
+    N: "noun", A: "adjective", T: "article", V: "verb",
+    P: "personal pronoun", R: "relative pronoun", C: "reciprocal pronoun",
+    D: "demonstrative pronoun", K: "correlative pronoun", I: "interrogative pronoun",
+    X: "indefinite pronoun", Q: "correlative/interrogative pronoun",
+    F: "reflexive pronoun", S: "possessive pronoun",
+    ADV: "adverb", CONJ: "conjunction", COND: "conditional", PRT: "particle",
+    PREP: "preposition", INJ: "interjection", ARAM: "Aramaic", HEB: "Hebrew",
+    PRI: "proper noun (indeclinable)", NUI: "numeral (indeclinable)",
+    LI: "letter (indeclinable)", OI: "other (indeclinable)",
+  };
+  const MORPH_CASE = { N: "nominative", G: "genitive", D: "dative", A: "accusative", V: "vocative" };
+  const MORPH_NUM = { S: "singular", P: "plural" };
+  const MORPH_GENDER = { M: "masculine", F: "feminine", N: "neuter" };
+  const MORPH_TENSE = { P: "present", I: "imperfect", F: "future", A: "aorist", R: "perfect", L: "pluperfect", X: "no tense" };
+  const MORPH_VOICE = { A: "active", M: "middle", P: "passive", E: "middle/passive", D: "deponent", O: "middle deponent", N: "passive deponent", Q: "middle/passive deponent", X: "no voice" };
+  const MORPH_MOOD = { I: "indicative", S: "subjunctive", O: "optative", M: "imperative", N: "infinitive", P: "participle" };
+  const MORPH_PERSON = { "1": "1st person", "2": "2nd person", "3": "3rd person" };
+
+  function cng(s) {
+    return [MORPH_CASE[s[0]], MORPH_NUM[s[1]], MORPH_GENDER[s[2]]].filter(Boolean).join(" ");
+  }
+
+  function describeMorph(code) {
+    if (!code) return "";
+    const segs = String(code).split("-");
+    const pos = segs[0];
+
+    if (pos === "V") {
+      let tvm = segs[1] || "";
+      let ordinal = "";
+      if (/^[0-9]/.test(tvm)) {            // 2/3 = second/third aorist etc.
+        ordinal = tvm[0] === "2" ? "second " : tvm[0] === "3" ? "third " : "";
+        tvm = tvm.slice(1);
+      }
+      const tense = MORPH_TENSE[tvm[0]];
+      const mood = tvm[2];
+      const desc = [tense ? ordinal + tense : "", MORPH_VOICE[tvm[1]], MORPH_MOOD[mood]].filter(Boolean).join(" ");
+      let out = "verb" + (desc ? ", " + desc : "");
+      const tail = segs.slice(2).join("");
+      if (mood === "P" || mood === "N") {  // participle / infinitive → case-num-gender
+        const c = cng(tail);
+        if (c) out += " — " + c;
+      } else {
+        const pn = [MORPH_PERSON[tail[0]], MORPH_NUM[tail[1]]].filter(Boolean).join(" ");
+        if (pn) out += ", " + pn;
+      }
+      return out;
+    }
+
+    const base = MORPH_POS[pos];
+    if (!base) return MORPH_POS[code] || "";
+    let suffix = segs[1] || "";
+    if (MORPH_POS[suffix]) return MORPH_POS[suffix];   // e.g. N-PRI, A-NUI
+    let person = "";
+    if (/^[123]/.test(suffix)) {           // person-marked pronouns, e.g. P-1NS
+      person = MORPH_PERSON[suffix[0]] || "";
+      suffix = suffix.slice(1);
+    }
+    const c = cng(suffix);
+    return [base, person, c].filter(Boolean).join(", ");
+  }
+
   function buildInterlinearWordHTML(w) {
     if (!w || !w.text) return "";
     const greek = `<span class="iw-greek">${escapeHTML(w.text)}</span>`;
     const gloss = `<span class="iw-gloss">${escapeHTML(w.gloss || "")}</span>`;
     const translit = `<span class="iw-translit">${escapeHTML(transliterateGreek(w.text))}</span>`;
+    const morphTitle = w.morph ? describeMorph(w.morph) : "";
+    const morph = w.morph
+      ? `<span class="iw-morph"${morphTitle ? ` title="${escapeAttr(morphTitle)}"` : ""}>${escapeHTML(w.morph)}</span>`
+      : "";
     const badge = w.strongs
       ? `<button class="iw-strongs" data-strongs="${escapeAttr(w.strongs)}">${escapeHTML(w.strongs)}</button>`
       : "";
-    return `<span class="interlinear-word">${greek}${gloss}${translit}${badge}</span>`;
+    return `<span class="interlinear-word">${greek}${gloss}${translit}${morph}${badge}</span>`;
   }
 
   function openInterlinearModal(verses) {
@@ -909,79 +979,6 @@
     return null;
   }
 
-  async function openCorpusConcordance(strongsNum, backVerses) {
-    if (!state.verseWords) {
-      openModal("Corpus Concordance", "<p>Lexical data not loaded.</p>", [
-        { label: "Close", className: "button", onClick: closeModal }
-      ]);
-      return;
-    }
-
-    const matches = [];
-    for (const [verseId, words] of Object.entries(state.verseWords)) {
-      if (!Array.isArray(words)) continue;
-      if (words.some(w => w.strongs === strongsNum)) {
-        matches.push({ verseId, words });
-      }
-    }
-
-    if (matches.length === 0) {
-      const body = `<p class="cc-no-results">No occurrences of ${escapeHTML(strongsNum)} found in this corpus.</p>`;
-      const actions = [];
-      if (backVerses) actions.push({ label: "← Back", className: "button secondary", onClick: () => openInterlinearModal(backVerses) });
-      actions.push({ label: "Close", className: "button", onClick: closeModal });
-      openModal(`Corpus: ${strongsNum}`, body, actions);
-      return;
-    }
-
-    const rows = matches.map(({ verseId, words }) => {
-      const section = findSectionByVerseId(verseId);
-      const ref = section ? displayRef(section) : verseId;
-      const wordsHTML = words.map(w =>
-        `<span class="cc-word${w.strongs === strongsNum ? " target" : ""}">${escapeHTML(w.text || "")}</span>`
-      ).join(" ");
-      return `<button class="cc-result" data-verse-id="${escapeAttr(verseId)}">
-        <span class="cc-ref">${escapeHTML(ref)}</span>
-        <span class="cc-words">${wordsHTML}</span>
-        <span class="cc-kjv loading" data-verse-id="${escapeAttr(verseId)}">Loading KJV…</span>
-      </button>`;
-    }).join("");
-
-    const body = `<div class="concordance-results">${rows}</div>`;
-    const actions = [];
-    if (backVerses) actions.push({ label: "← Back", className: "button secondary", onClick: () => openInterlinearModal(backVerses) });
-    actions.push({ label: "Close", className: "button", onClick: closeModal });
-
-    openModal(`Corpus: ${strongsNum} (${matches.length})`, body, actions);
-
-    els.modalBody.querySelectorAll(".cc-result[data-verse-id]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const vid = btn.dataset.verseId;
-        const section = findSectionByVerseId(vid);
-        if (section) {
-          closeModal();
-          state.book = section.book;
-          state.chapter = section.startChapter ?? section.chapter ?? "All";
-          state.currentSectionId = section.id;
-          setViewMode("witness"); state.currentWitnessIndex = 0;
-          updateHash();
-          renderAll();
-          setTimeout(() => scrollToSection(section.id), 50);
-        }
-      });
-    });
-
-    for (const { verseId } of matches) {
-      const el = els.modalBody.querySelector(`.cc-kjv[data-verse-id="${CSS.escape(verseId)}"]`);
-      if (!el) continue;
-      try {
-        const text = await TranslationsModule.getVerseText(verseId, "kjv");
-        if (text) { el.textContent = text; el.classList.remove("loading"); }
-        else el.remove();
-      } catch { el.remove(); }
-    }
-  }
-
   const BOOK_DISPLAY_NAMES = {
     genesis:'Genesis',exodus:'Exodus',leviticus:'Leviticus',numbers:'Numbers',
     deuteronomy:'Deuteronomy',joshua:'Joshua',judges:'Judges',ruth:'Ruth',
@@ -1006,122 +1003,6 @@
   function verseIdToRef(verseId) {
     const [book, ch, v] = verseId.split('.');
     return `${BOOK_DISPLAY_NAMES[book] || book} ${ch}:${v}`;
-  }
-
-  async function openBibleConcordance(strongsNum, backVerses) {
-    const backAction = backVerses
-      ? [{ label: "← Back", className: "button secondary", onClick: () => openInterlinearModal(backVerses) }]
-      : [];
-    const closeAction = [{ label: "Close", className: "button", onClick: closeModal }];
-
-    openModal(`Bible: ${strongsNum}`, `<p class="cc-no-results">Loading…</p>`, [...backAction, ...closeAction]);
-
-    // H-prefix → OT Hebrew concordance
-    if (strongsNum.startsWith("H")) {
-      const concordance = await loadOtConcordance();
-      const verseIds = concordance[strongsNum] || [];
-
-      if (verseIds.length === 0) {
-        openModal(
-          `Bible: ${strongsNum}`,
-          `<p class="cc-no-results">No OT occurrences of ${escapeHTML(strongsNum)} in index.</p>`,
-          [...backAction, ...closeAction]
-        );
-        return;
-      }
-
-      const MAX = 250;
-      const shown = verseIds.slice(0, MAX);
-      const footer = verseIds.length > MAX
-        ? `<p class="cc-no-results">Showing ${MAX} of ${verseIds.length} occurrences.</p>` : "";
-
-      const rows = shown.map(verseId => {
-        const ref = verseIdToRef(verseId);
-        return `<button class="cc-result" data-verse-id="${escapeAttr(verseId)}" style="cursor:default">
-          <span class="cc-ref">${escapeHTML(ref)}</span>
-          <span class="cc-kjv loading" data-verse-id="${escapeAttr(verseId)}">Loading…</span>
-        </button>`;
-      }).join("");
-
-      openModal(
-        `Bible: ${strongsNum} (${verseIds.length})`,
-        `<div class="concordance-results">${rows}${footer}</div>`,
-        [...backAction, ...closeAction]
-      );
-
-      for (const verseId of shown) {
-        const el = els.modalBody.querySelector(`.cc-kjv[data-verse-id="${CSS.escape(verseId)}"]`);
-        if (!el) continue;
-        try {
-          const text = await TranslationsModule.getVerseText(verseId, "net");
-          if (text) { el.textContent = text; el.classList.remove("loading"); }
-          else el.remove();
-        } catch { el.remove(); }
-      }
-      return;
-    }
-
-    // G-prefix → NT concordance
-    const concordance = await loadNtConcordance();
-    const verseIds = concordance[strongsNum] || [];
-
-    if (verseIds.length === 0) {
-      openModal(
-        `Bible: ${strongsNum}`,
-        `<p class="cc-no-results">No NT occurrences of ${escapeHTML(strongsNum)} in index.</p>`,
-        [...backAction, ...closeAction]
-      );
-      return;
-    }
-
-    const MAX = 250;
-    const shown = verseIds.slice(0, MAX);
-
-    const rows = shown.map(verseId => {
-      const ref = verseIdToRef(verseId);
-      const inCorpus = findSectionByVerseId(verseId) !== null;
-      return `<button class="cc-result" data-verse-id="${escapeAttr(verseId)}"${!inCorpus ? ' style="cursor:default"' : ''}>
-        <span class="cc-ref">${escapeHTML(ref)}</span>
-        <span class="cc-kjv loading" data-verse-id="${escapeAttr(verseId)}">Loading…</span>
-      </button>`;
-    }).join("");
-
-    const footer = verseIds.length > MAX
-      ? `<p class="cc-no-results">Showing ${MAX} of ${verseIds.length} occurrences.</p>` : "";
-
-    openModal(
-      `Bible: ${strongsNum} (${verseIds.length})`,
-      `<div class="concordance-results">${rows}${footer}</div>`,
-      [...backAction, ...closeAction]
-    );
-
-    // Click to navigate for corpus verses
-    els.modalBody.querySelectorAll(".cc-result[data-verse-id]").forEach(btn => {
-      const vid = btn.dataset.verseId;
-      const section = findSectionByVerseId(vid);
-      if (!section) return;
-      btn.addEventListener("click", () => {
-        closeModal();
-        state.book = section.book;
-        state.chapter = section.startChapter ?? section.chapter ?? "All";
-        state.currentSectionId = section.id;
-        setViewMode("witness"); state.currentWitnessIndex = 0;
-        updateHash();
-        renderAll();
-        setTimeout(() => scrollToSection(section.id), 50);
-      });
-    });
-
-    // Async hydrate KJV text
-    for (const verseId of shown) {
-      const el = els.modalBody.querySelector(`.cc-kjv[data-verse-id="${CSS.escape(verseId)}"]`);
-      if (!el) continue;
-      try {
-        const text = await TranslationsModule.getVerseText(verseId, "kjv");
-        if (text) { el.textContent = text; el.classList.remove("loading"); }
-        else el.remove();
-      } catch { el.remove(); }
-    }
   }
 
   async function renderOTChapter(book, chapter) {
@@ -1915,59 +1796,147 @@
   }
 
   /**
-   * NEW: Open Strong's modal
+   * Open the expanded lexicon view for a Strong's number.
+   *
+   * A two-pane layout in the style of BibleHub's lexicon pages: the headword +
+   * full scholarly definition (Abbott-Smith, via STEPBible) on one side, and a
+   * concordance of occurrences on the other. Greek (G####) numbers get the full
+   * lexicon entry; any number still gets the short Strong's gloss + concordance.
    */
   async function openStrongsModal(strongsNum, backVerses) {
     try {
       if (!window.TranslationsModule || typeof TranslationsModule.getStrongsDefinition !== "function") {
         throw new Error("TranslationsModule is unavailable");
       }
-      const entry = await TranslationsModule.getStrongsDefinition(strongsNum);
 
-      const bodyHTML = `
-        <div class="strongs-entry">
-          <div class="strongs-entry-number">${escapeHTML(entry.number)}</div>
-          ${entry.lemma ? `<div class="strongs-entry-lemma">${escapeHTML(entry.lemma)}</div>` : ""}
-          <div class="strongs-entry-definition">${escapeHTML(entry.definition)}</div>
-        </div>
-      `;
+      const isGreek = strongsNum.startsWith("G");
+      const [entry, lex] = await Promise.all([
+        TranslationsModule.getStrongsDefinition(strongsNum),
+        isGreek && typeof TranslationsModule.getGreekLexicon === "function"
+          ? TranslationsModule.getGreekLexicon(strongsNum).catch(() => null)
+          : Promise.resolve(null),
+      ]);
+
+      const lemma = (lex && lex.lemma) || entry.lemma || "";
+      const translit = (lex && lex.translit) || "";
+      const pos = (lex && lex.pos) || "";
+      const gloss = (lex && lex.gloss) || "";
+
+      const header = `
+        <div class="lex-header">
+          <span class="lex-id">${escapeHTML(strongsNum)}</span>
+          ${lemma ? `<span class="lex-lemma">${escapeHTML(lemma)}</span>` : ""}
+          ${translit ? `<span class="lex-translit">${escapeHTML(translit)}</span>` : ""}
+          ${pos ? `<span class="lex-pos">${escapeHTML(pos)}</span>` : ""}
+          ${gloss ? `<span class="lex-gloss">${escapeHTML(gloss)}</span>` : ""}
+        </div>`;
+
+      const strongsDefSection = entry.definition ? `
+        <section class="lex-section">
+          <h3 class="lex-section-title">Strong's Concordance</h3>
+          <p class="lex-strongs-def">${escapeHTML(entry.definition)}</p>
+        </section>` : "";
+
+      let fullDefSection = "";
+      if (lex && lex.def) {
+        fullDefSection = `
+          <section class="lex-section">
+            <h3 class="lex-section-title">Greek Lexicon</h3>
+            <div class="lex-fulldef">${lex.def}</div>
+            <p class="lex-attribution">Abbott-Smith, <em>A Manual Greek Lexicon of the New Testament</em>, via <a href="https://github.com/STEPBible/STEPBible-Data" target="_blank" rel="noopener">STEPBible</a> (CC BY 4.0).</p>
+          </section>`;
+      } else if (isGreek && lex === null) {
+        fullDefSection = `<p class="lex-no-entry">No expanded lexicon entry indexed for ${escapeHTML(strongsNum)}.</p>`;
+      }
+
+      const defPane = `<div class="lex-pane lex-pane-def">${strongsDefSection}${fullDefSection}</div>`;
+      const concPane = `
+        <div class="lex-pane lex-pane-conc">
+          <h3 class="lex-section-title">Concordance</h3>
+          <div id="lexConcBody" class="lex-conc-body"><p class="cc-no-results">Loading…</p></div>
+        </div>`;
+
+      const body = header + `<div class="lexicon-layout">${defPane}${concPane}</div>`;
 
       const actions = [];
       if (backVerses) {
-        actions.push({
-          label: "← Back",
-          className: "button secondary",
-          onClick: () => openInterlinearModal(backVerses)
-        });
+        actions.push({ label: "← Back", className: "button secondary", onClick: () => openInterlinearModal(backVerses) });
       }
-      if (strongsNum.startsWith("G") && state.verseWords && Object.keys(state.verseWords).length > 0) {
-        actions.push({
-          label: "Corpus",
-          className: "button secondary",
-          onClick: () => openCorpusConcordance(strongsNum, backVerses)
-        });
-      }
-      actions.push({
-        label: "Bible",
-        className: "button secondary",
-        onClick: () => openBibleConcordance(strongsNum, backVerses)
-      });
       actions.push({
         label: "BLB",
         className: "button secondary",
-        onClick: () => {
-          const url = entry.url || `https://www.blueletterbible.org/lexicon/${strongsNum}/`;
-          window.open(url, "_blank");
-        }
+        onClick: () => window.open(entry.url || `https://www.blueletterbible.org/lexicon/${strongsNum}/`, "_blank"),
       });
       actions.push({ label: "Close", className: "button", onClick: closeModal });
 
-      openModal(`${strongsNum} — Strong's Concordance`, bodyHTML, actions);
+      openModal(`${strongsNum} — Lexicon`, body, actions, { wide: true });
+
+      renderLexiconConcordance(strongsNum);
     } catch (error) {
       console.error("Failed to open Strong's modal:", error);
-      openModal("Error", "<p>Could not load Strong's entry.</p>", [
+      openModal("Error", "<p>Could not load lexicon entry.</p>", [
         { label: "Close", className: "button", onClick: closeModal }
       ]);
+    }
+  }
+
+  // Fill the concordance pane of the lexicon view with every indexed occurrence
+  // of `strongsNum`, marking (and linking) the verses that live in this canon.
+  async function renderLexiconConcordance(strongsNum) {
+    const isOT = strongsNum.startsWith("H");
+    const concordance = isOT ? await loadOtConcordance() : await loadNtConcordance();
+    const verseIds = concordance[strongsNum] || [];
+
+    const el = document.getElementById("lexConcBody");
+    if (!el) return; // modal closed before data arrived
+
+    if (!verseIds.length) {
+      el.innerHTML = `<p class="cc-no-results">No occurrences indexed${isOT ? " (OT)" : " (NT)"}.</p>`;
+      return;
+    }
+
+    const MAX = 80;
+    const shown = verseIds.slice(0, MAX);
+    const rows = shown.map(verseId => {
+      const ref = verseIdToRef(verseId);
+      const inCorpus = !isOT && findSectionByVerseId(verseId) !== null;
+      const badge = inCorpus ? ` <span class="lex-incanon-badge">in canon</span>` : "";
+      return `<button class="cc-result lex-occurrence${inCorpus ? " in-corpus" : ""}" data-verse-id="${escapeAttr(verseId)}"${inCorpus ? "" : ' style="cursor:default"'}>
+        <span class="cc-ref">${escapeHTML(ref)}${badge}</span>
+        <span class="cc-kjv loading" data-verse-id="${escapeAttr(verseId)}">Loading…</span>
+      </button>`;
+    }).join("");
+    const footer = verseIds.length > MAX
+      ? `<p class="cc-no-results">Showing ${MAX} of ${verseIds.length}.</p>` : "";
+
+    el.innerHTML = `
+      <p class="lex-conc-count">${verseIds.length} occurrence${verseIds.length === 1 ? "" : "s"}${isOT ? " — Old Testament" : " — New Testament"}</p>
+      <div class="concordance-results">${rows}</div>${footer}`;
+
+    el.querySelectorAll(".cc-result.in-corpus[data-verse-id]").forEach(btn => {
+      const section = findSectionByVerseId(btn.dataset.verseId);
+      if (!section) return;
+      btn.addEventListener("click", () => {
+        closeModal();
+        state.book = section.book;
+        state.chapter = section.startChapter ?? section.chapter ?? "All";
+        state.currentSectionId = section.id;
+        setViewMode("witness"); state.currentWitnessIndex = 0;
+        updateHash();
+        renderAll();
+        setTimeout(() => scrollToSection(section.id), 50);
+      });
+    });
+
+    const translation = isOT ? "net" : "kjv";
+    for (const verseId of shown) {
+      const cell = el.querySelector(`.cc-kjv[data-verse-id="${CSS.escape(verseId)}"]`);
+      if (!cell) continue;
+      try {
+        const text = await TranslationsModule.getVerseText(verseId, translation);
+        if (text) { cell.textContent = text; cell.classList.remove("loading"); }
+        else cell.remove();
+      } catch { cell.remove(); }
     }
   }
 
@@ -2845,7 +2814,7 @@
     }
   }
 
-  function openModal(title, bodyHTML, actions = []) {
+  function openModal(title, bodyHTML, actions = [], opts = {}) {
     els.modalTitle.textContent = title;
     els.modalBody.innerHTML = bodyHTML;
     els.modalActions.innerHTML = "";
@@ -2856,6 +2825,7 @@
       button.addEventListener("click", action.onClick);
       els.modalActions.appendChild(button);
     });
+    els.modal.classList.toggle("modal--wide", !!opts.wide);
     els.modalBackdrop.classList.remove("hidden");
     els.modal.classList.remove("hidden");
     const focusable = els.modal.querySelector("textarea, button");
@@ -2865,6 +2835,7 @@
   function closeModal() {
     els.modalBackdrop.classList.add("hidden");
     els.modal.classList.add("hidden");
+    els.modal.classList.remove("modal--wide");
     els.modalTitle.textContent = "";
     els.modalBody.innerHTML = "";
     els.modalActions.innerHTML = "";

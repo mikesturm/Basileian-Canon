@@ -1,4 +1,4 @@
-const CACHE_NAME = "basileian-reader-v7-20260605-pref-sync";
+const CACHE_NAME = "basileian-reader-v8-20260610-lexicon";
 const ASSETS = [
   "./",
   "./index.html",
