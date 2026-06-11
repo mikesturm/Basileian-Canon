@@ -79,6 +79,7 @@
     chapterList: document.getElementById("chapterList"),
     passageList: document.getElementById("passageList"),
     verseList: document.getElementById("verseList"),
+    verseSection: document.getElementById("verseSection"),
     gotoInput: document.getElementById("gotoInput"),
     gotoBtn: document.getElementById("gotoBtn"),
     gotoMessage: document.getElementById("gotoMessage"),
@@ -385,6 +386,7 @@
 
     els.passageList.innerHTML = "";
     els.verseList.innerHTML = "";
+    els.verseSection.hidden = true;
   }
 
   function renderNav() {
@@ -458,6 +460,8 @@
         closeSidebarOnMobile();
       });
     });
+
+    els.verseSection.hidden = verseMarkers.length === 0;
   }
 
   function renderReader() {

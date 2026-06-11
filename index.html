@@ -38,6 +38,15 @@
           <button id="closeSidebar" class="icon-button close-sidebar" aria-label="Close navigation">×</button>
         </div>
 
+        <div class="sidebar-goto-section">
+          <label class="field-label" for="gotoInput">Go to reference</label>
+          <div class="inline-control">
+            <input id="gotoInput" class="control" type="search" placeholder="Mark 4:21, John 20:24, Logion 54">
+            <button id="gotoBtn" class="button">Go</button>
+          </div>
+          <p id="gotoMessage" class="hint"></p>
+        </div>
+
         <label class="field-label" for="bookSelect">Book / source</label>
         <select id="bookSelect" class="control"></select>
 
@@ -45,23 +54,14 @@
         <select id="translationSelect" class="control" hidden></select>
         <span id="translationStatus" class="hint translation-status"></span>
 
-        <label class="field-label">Chapter / logion</label>
+        <label class="field-label">Chapter</label>
         <div id="chapterList" class="chip-row" aria-label="Chapters"></div>
 
-        <label class="field-label" for="gotoInput">Go to reference</label>
-        <div class="inline-control">
-          <input id="gotoInput" class="control" type="search" placeholder="Mark 4:21, John 20:24, Logion 54">
-          <button id="gotoBtn" class="button">Go</button>
-        </div>
-        <p id="gotoMessage" class="hint"></p>
+        <div class="field-label">Passages</div>
+        <div id="passageList" class="passage-list"></div>
 
-        <div class="sidebar-section">
-          <div class="field-label">Passages in view</div>
-          <div id="passageList" class="passage-list"></div>
-        </div>
-
-        <div class="sidebar-section">
-          <div class="field-label">Verses in view</div>
+        <div id="verseSection" class="sidebar-section" hidden>
+          <div class="field-label">Verses</div>
           <div id="verseList" class="chip-row small" aria-label="Verses"></div>
         </div>
       </aside>

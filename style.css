@@ -333,6 +333,16 @@ button {
   padding: 0.28rem 0.45rem;
 }
 
+.sidebar-goto-section {
+  padding-bottom: 1rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.sidebar-goto-section .field-label {
+  margin-top: 0;
+}
+
 .sidebar-section {
   margin-top: 1rem;
   padding-top: 0.75rem;
