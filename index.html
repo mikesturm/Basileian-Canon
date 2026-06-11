@@ -29,7 +29,6 @@
     <nav class="tabbar" aria-label="Main sections">
       <button class="tab active" data-tab="reader">Reader</button>
       <button class="tab" data-tab="notes">Notes</button>
-      <button class="tab" data-tab="source">Source</button>
     </nav>
 
     <div class="main-layout">
@@ -73,6 +72,7 @@
             <label class="field-label" for="searchInput">Search the canon</label>
             <div class="search-row">
               <input id="searchInput" class="control search-control" type="search" placeholder="Search words, phrases, references, or endnotes">
+              <button id="searchBtn" class="button">Search</button>
               <button id="clearSearch" class="button secondary">Clear</button>
             </div>
             <div id="searchSummary" class="hint"></div>
@@ -82,6 +82,7 @@
           <article class="reader-card">
             <div class="reader-toolbar">
               <button id="prevBtn" class="button secondary">← Previous</button>
+              <button id="backBtn" class="button secondary" disabled>↩ Back</button>
               <button id="chapterModeBtn" class="button secondary">Chapter view</button>
               <button id="nextBtn" class="button secondary">Next →</button>
             </div>
@@ -108,13 +109,6 @@
           </div>
         </section>
 
-        <section id="sourceTab" class="tab-panel" aria-label="Source text">
-          <div class="reader-card">
-            <h2>Full source text</h2>
-            <p class="muted">This view preserves the full source text and translator’s endnotes in one continuous scroll.</p>
-            <pre id="sourceText" class="source-pre"></pre>
-          </div>
-        </section>
       </main>
     </div>
   </div>
