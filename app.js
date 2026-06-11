@@ -63,6 +63,7 @@
     lastGreekVerses: null,
     crossRefEnabled: false,
     activeCommentary: 'jfb',
+    navHistory: [],
     footnotesVisible: true,
     footnotesExpanded: false,
     // Per-type footnote visibility. tn = translator's, sn = study, tc = text-critical.
@@ -83,12 +84,13 @@
     gotoMessage: document.getElementById("gotoMessage"),
     readerContent: document.getElementById("readerContent"),
     notesList: document.getElementById("notesList"),
-    sourceText: document.getElementById("sourceText"),
     searchInput: document.getElementById("searchInput"),
+    searchBtn: document.getElementById("searchBtn"),
     clearSearch: document.getElementById("clearSearch"),
     searchSummary: document.getElementById("searchSummary"),
     searchResults: document.getElementById("searchResults"),
     prevBtn: document.getElementById("prevBtn"),
+    backBtn: document.getElementById("backBtn"),
     nextBtn: document.getElementById("nextBtn"),
     chapterModeBtn: document.getElementById("chapterModeBtn"),
     selectionMenu: document.getElementById("selectionMenu"),
@@ -173,12 +175,30 @@
       if (state.activeSearchTerm.length === 0) renderReader();
     }, 150));
 
+    els.searchInput.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        state.activeSearchTerm = els.searchInput.value.trim();
+        renderSearch();
+      }
+    });
+
+    if (els.searchBtn) {
+      els.searchBtn.addEventListener("click", () => {
+        state.activeSearchTerm = els.searchInput.value.trim();
+        renderSearch();
+      });
+    }
+
     els.clearSearch.addEventListener("click", () => {
       els.searchInput.value = "";
       state.activeSearchTerm = "";
       renderSearch();
       renderReader();
     });
+
+    if (els.backBtn) {
+      els.backBtn.addEventListener("click", goBack);
+    }
 
     els.prevBtn.addEventListener("click", goPrevious);
     els.nextBtn.addEventListener("click", goNext);
@@ -319,7 +339,6 @@
     document.querySelectorAll(".tab").forEach(button => button.classList.toggle("active", button.dataset.tab === tab));
     document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `${tab}Tab`));
     if (tab === "notes") renderNotes();
-    if (tab === "source") renderSource();
   }
 
   function renderAll() {
@@ -1701,6 +1720,7 @@
       button.addEventListener("click", () => {
         const section = sectionById.get(button.dataset.sectionId);
         if (!section) return;
+        pushNavHistory();
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
@@ -1750,11 +1770,6 @@
     });
   }
 
-  function renderSource() {
-    if (!els.sourceText.textContent) {
-      els.sourceText.textContent = DATA.sourceText;
-    }
-  }
 
   /**
    * NEW: Get verse text in current translation
@@ -1917,6 +1932,7 @@
       if (!section) return;
       btn.addEventListener("click", () => {
         closeModal();
+        pushNavHistory();
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
@@ -2136,6 +2152,7 @@
   function goToHighlight(highlight) {
     const section = sectionById.get(highlight.sectionId);
     if (!section) return;
+    pushNavHistory();
     setTab("reader");
     state.book = section.book;
     state.chapter = section.startChapter ?? section.chapter ?? "All";
@@ -2437,6 +2454,7 @@
       return;
     }
 
+    pushNavHistory();
     state.book = target.section.book;
     state.chapter = target.chapter || target.section.startChapter || target.section.chapter || "All";
     state.currentSectionId = target.section.id;
@@ -2697,6 +2715,39 @@
     updateHash();
     renderAll();
     scrollToTopReader();
+  }
+
+  function pushNavHistory() {
+    if (!state.currentSectionId) return;
+    state.navHistory.push({
+      book: state.book,
+      chapter: state.chapter,
+      currentSectionId: state.currentSectionId,
+      viewMode: state.viewMode,
+      currentWitnessIndex: state.currentWitnessIndex
+    });
+    if (state.navHistory.length > 50) state.navHistory.shift();
+    updateBackButton();
+  }
+
+  function goBack() {
+    const pos = state.navHistory.pop();
+    if (!pos) return;
+    state.book = pos.book;
+    state.chapter = pos.chapter;
+    state.currentSectionId = pos.currentSectionId;
+    state.viewMode = pos.viewMode;
+    state.currentWitnessIndex = pos.currentWitnessIndex;
+    updateHash();
+    renderAll();
+    setTimeout(() => scrollToSection(pos.currentSectionId), 50);
+    updateBackButton();
+  }
+
+  function updateBackButton() {
+    if (els.backBtn) {
+      els.backBtn.disabled = state.navHistory.length === 0;
+    }
   }
 
   function updateHash(anchor) {
