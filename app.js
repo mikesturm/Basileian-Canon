@@ -67,7 +67,8 @@
     footnotesVisible: true,
     footnotesExpanded: false,
     // Per-type footnote visibility. tn = translator's, sn = study, tc = text-critical.
-    noteTypeFilters: { tn: true, sn: true, tc: true }
+    noteTypeFilters: { tn: true, sn: true, tc: true },
+    intertextApparatus: null  // lazy-loaded from intertext-apparatus.json
   };
 
   const els = {
@@ -131,6 +132,7 @@
     setCurrentSectionIfMissing();
     renderAll();
     loadVerseWords(); // async: re-renders when lexicons/verse-words.json is ready
+    loadIntertextApparatus(); // async: pre-fetches apparatus JSON so panels hydrate quickly
 
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
       navigator.serviceWorker.register("sw.js?v=20260508-fix4").catch(() => {});
@@ -523,7 +525,8 @@
           ? `<span class="witness-number">${safeIdx + 1}</span> ${escapeHTML(witnessLabel)} <span class="witness-count muted">of ${witnessEntries.length}</span>`
           : "No witnesses"}</p>
       </header>`;
-      sectionsHtml = renderSingleWitness(currentSection, safeIdx, witnessEntries);
+      sectionsHtml = renderSingleWitness(currentSection, safeIdx, witnessEntries)
+        + renderApparatusPlaceholder(currentSection.id);
       els.chapterModeBtn.textContent = "Chapter view";
     }
 
@@ -541,6 +544,8 @@
     if (state.crossRefEnabled) {
       hydrateCrossRefPanels();
     }
+
+    hydrateApparatusPanels();
   }
 
   function getWitnessEntries(section) {
@@ -588,6 +593,7 @@
     if (state.crossRefEnabled && canTranslateSection(section)) {
       html += renderCrossRefPanel(section);
     }
+    html += renderApparatusPlaceholder(section.id);
     return html;
   }
 
@@ -1678,6 +1684,106 @@
         }
       }
     }));
+  }
+
+  // ---------------------------------------------------------------------------
+  // Intertextual apparatus panel
+  // Loaded from intertext-apparatus.json; keyed by pericope ID (e.g. "I.1").
+  // Pericope "Pr.1" (canon.json) maps to "P" in the apparatus.
+  // ---------------------------------------------------------------------------
+
+  async function loadIntertextApparatus() {
+    if (state.intertextApparatus !== null) return state.intertextApparatus;
+    try {
+      const resp = await fetch("intertext-apparatus.json");
+      if (!resp.ok) throw new Error("not found");
+      state.intertextApparatus = await resp.json();
+    } catch {
+      state.intertextApparatus = { pericopes: {} };
+    }
+    return state.intertextApparatus;
+  }
+
+  function getApparatusEntries(sectionId) {
+    if (!state.intertextApparatus) return [];
+    const key = sectionId === "Pr.1" ? "P" : sectionId;
+    return state.intertextApparatus.pericopes?.[key]?.references || [];
+  }
+
+  function renderApparatusPlaceholder(sectionId) {
+    return `<section class="apparatus-panel" data-section-id="${escapeAttr(sectionId)}"></section>`;
+  }
+
+  function buildApparatusPanelHTML(entries) {
+    const count = entries.length;
+    const CONFIDENCE_CLASS = {
+      "established": "confidence-established",
+      "probable": "confidence-probable",
+      "possible": "confidence-possible",
+      "noted-and-discounted": "confidence-noted"
+    };
+    const TYPE_LABEL = {
+      "quotation": "Quotation",
+      "allusion": "Allusion",
+      "echo": "Echo",
+      "type-scene": "Type-scene",
+      "motif": "Motif",
+      "genre-convention": "Genre convention"
+    };
+
+    const entriesHtml = entries.map(entry => {
+      const confClass = CONFIDENCE_CLASS[entry.confidence] || "";
+      const typeLabel = TYPE_LABEL[entry.type] || entry.type || "";
+      const scholarshipHtml = entry.scholarship?.length
+        ? `<p class="apparatus-scholarship">${entry.scholarship.map(s => escapeHTML(s)).join(" · ")}</p>`
+        : "";
+      const noteHtml = entry.note
+        ? `<p class="apparatus-note">${escapeHTML(entry.note)}</p>`
+        : "";
+
+      return `<div class="apparatus-entry">
+        <div class="apparatus-entry-header">
+          <span class="apparatus-locus">${escapeHTML(entry.locus || "")}</span>
+          <span class="apparatus-badge">${escapeHTML(typeLabel)}</span>
+          <span class="apparatus-badge ${confClass}">${escapeHTML(entry.confidence || "")}</span>
+        </div>
+        <p class="apparatus-source">${escapeHTML(entry.source || "")}</p>
+        ${noteHtml}${scholarshipHtml}
+      </div>`;
+    }).join("");
+
+    return `<div class="apparatus-panel-header">
+        <button class="apparatus-toggle" aria-expanded="true">
+          <span class="apparatus-toggle-label">Intertextual Apparatus <span class="apparatus-count">${count} ${count === 1 ? "entry" : "entries"}</span></span>
+          <span class="apparatus-chevron">▾</span>
+        </button>
+      </div>
+      <div class="apparatus-panel-body">${entriesHtml}</div>`;
+  }
+
+  async function hydrateApparatusPanels() {
+    await loadIntertextApparatus();
+    const panels = [...els.readerContent.querySelectorAll(".apparatus-panel[data-section-id]")];
+    if (!panels.length) return;
+
+    panels.forEach(panel => {
+      const sectionId = panel.dataset.sectionId;
+      const entries = getApparatusEntries(sectionId);
+      if (!entries.length) {
+        panel.remove();
+        return;
+      }
+      panel.innerHTML = buildApparatusPanelHTML(entries);
+      const toggle = panel.querySelector(".apparatus-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const expanded = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!expanded));
+          panel.querySelector(".apparatus-panel-body")?.classList.toggle("collapsed", expanded);
+          toggle.querySelector(".apparatus-chevron").style.transform = expanded ? "rotate(-90deg)" : "";
+        });
+      }
+    });
   }
 
   function renderSearch() {

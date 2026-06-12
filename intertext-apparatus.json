@@ -1,0 +1,833 @@
+{
+  "_meta": {
+    "apparatus": "intertextual-tradition",
+    "schema_version": "1.0",
+    "description": "Single source of truth for the Basileian Canon intertextual + history-of-religions apparatus. Generates both the printed 'Index of Citations, Allusions & Traditions' and the reader-app marginal cross-references.",
+    "id_scheme": "Frozen pericope IDs: Part.subsection (Roman part, e.g. I.1). Prologue = P. Reference IDs append a letter: I.1-a.",
+    "controlled_vocab": {
+      "axis": [
+        "text",
+        "tradition"
+      ],
+      "type_text": [
+        "quotation",
+        "allusion",
+        "echo"
+      ],
+      "type_tradition": [
+        "type-scene",
+        "motif",
+        "genre-convention"
+      ],
+      "text_form": [
+        "LXX",
+        "MT",
+        "LXX=MT",
+        "mixed",
+        "free",
+        "targumic",
+        "n/a"
+      ],
+      "speaker": [
+        "narrator",
+        "Jesus",
+        "John",
+        "Satan",
+        "crowd",
+        "other"
+      ],
+      "direction": [
+        "cites",
+        "shared-tradition",
+        "later-dependent",
+        "available-convention"
+      ],
+      "confidence": [
+        "established",
+        "probable",
+        "possible",
+        "noted-and-discounted"
+      ]
+    }
+  },
+  "pericopes": {
+    "P": {
+      "canon_title": "The boy Jesus in the temple",
+      "primary_ref": "Luke 2:41-52",
+      "parallels": [],
+      "references": [
+        {
+          "id": "P-a",
+          "locus": "Luke 2:46-47",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "type-scene",
+          "source": "Greco-Roman 'boyhood-deeds-of-the-great-man' topos (paidika); Jewish wonder-child (young Samuel 1 Sam 2-3; Josephus on young Moses, Ant. 2.230; Philo, Mos. 1.21)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "established",
+          "note": "Ancient lives of significant figures routinely carried a single boyhood episode foreshadowing future greatness; the wonder-child was standard packaging. DIVERGENCE: Luke invokes the convention but deflates it. The boy performs no prodigy; he is found listening and asking questions of the teachers. Contrast the Infancy Gospel of Thomas, which takes the same convention and inflates it into a miracle-working (and lethal) child. Luke signals status through Torah-engagement, not magic. The restraint is the point.",
+          "scholarship": [
+            "Fitzmyer, AYB Luke I-IX, on 2:41-52",
+            "Brown, Birth of the Messiah, 471-496",
+            "on the topos: Bultmann, History of the Synoptic Tradition, 300-301"
+          ]
+        },
+        {
+          "id": "P-b",
+          "locus": "Luke 2:49",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "Temple-as-house-of-God (Ps 26:8; 1 Kgs 8; cf. Mal 3:1 LORD coming to his temple)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "possible",
+          "note": "Jesus's first recorded words: 'in the [things/house] of my Father' (en tois tou patros mou) -- the phrase is elliptical and can mean 'house' or 'affairs/business.' First occurrence of the filial Father-language. The Temple-as-Father's-house resonance is real but the echo is faint and not marked as citation; rendered possible, not asserted.",
+          "scholarship": [
+            "Fitzmyer, AYB Luke, on 2:49 (the ellipsis)",
+            "BDAG s.v. ho (the articular-genitive idiom)"
+          ]
+        },
+        {
+          "id": "P-c",
+          "locus": "Luke 2:46",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "lost-and-found / 'after three days' motif",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "noted-and-discounted",
+          "note": "Frequently read as a resurrection-foreshadowing ('after three days they found him'). NOTED-AND-DISCOUNTED: the three-day interval here is most naturally the travel arithmetic (a day out, a day back, plus the searching), and Luke draws no resurrection inference. Included so the reader who has heard the typological reading sees it weighed and set aside rather than silently omitted."
+        }
+      ]
+    },
+    "I.1": {
+      "canon_title": "John the Baptist's preaching",
+      "primary_ref": "Mark 1:1-8",
+      "parallels": [
+        "Matt 3:1-12",
+        "Luke 3:1-20",
+        "John 1:19-28"
+      ],
+      "references": [
+        {
+          "id": "I.1-a",
+          "locus": "Mark 1:2",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Malachi 3:1 conflated with Exodus 23:20",
+          "text_form": "mixed",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Mark opens with a composite citation he attributes to 'Isaiah the prophet,' but the first half is not Isaiah: 'Behold, I send my messenger before your face, who will prepare your way' fuses Exodus 23:20 LXX (idou egO apostellO ton angelon mou) with Malachi 3:1. The mis-attribution is a known crux: some manuscripts 'correct' it to 'in the prophets.' Matthew and Luke remove the Malachi half from John's introduction and relocate it onto JESUS'S lips later (Matt 11:10 // Luke 7:27) -- a redactional tidy-up that exposes Mark as the earlier, rougher text. TEXT-FORM: blended, matching neither LXX cleanly.",
+          "scholarship": [
+            "Marcus, AYB Mark 1-8, on 1:2-3",
+            "Metzger, Textual Commentary, on Mark 1:2 (the 'Isaiah'/'prophets' variant)",
+            "Collins, Hermeneia Mark, 135-137"
+          ]
+        },
+        {
+          "id": "I.1-b",
+          "locus": "Mark 1:3",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Isaiah 40:3",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "'A voice crying in the wilderness: prepare the way of YHWH' = Isaiah 40:3 LXX. The citation turns on a punctuation difference between Hebrew and Greek: MT reads 'a voice cries: in the wilderness prepare the way' (wilderness = location of the road); LXX/NT reads 'a voice crying in the wilderness: prepare' (wilderness = location of the crier). The Gospel needs the LXX division to make John, in the desert, the voice. ZEITGEIST: the same verse was the self-defining charter text of the Qumran community, which cited Isa 40:3 (1QS 8:13-14) to justify its literal withdrawal into the desert 'to prepare the way.' So a wilderness-renewal movement reading itself into Isa 40:3 was already a live first-century move -- John is doing independently what the yahad did. (Anarthrous Kyrios in LXX citation -> YHWH per the divine-names policy.)",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:3 and 'The Way' in Mark",
+            "1QS 8:13-14 (Community Rule)",
+            "Brooke, The Dead Sea Scrolls and the New Testament, ch. on Isaiah 40"
+          ]
+        },
+        {
+          "id": "I.1-c",
+          "locus": "Mark 1:6",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "Elijah typology: 2 Kings 1:8 (clothing); Malachi 4:5-6 [MT 3:23-24] (returning Elijah)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "established",
+          "note": "John's camel-hair garment and leather belt deliberately costume him as Elijah: 2 Kings 1:8 describes Elijah as 'a hairy man with a leather belt around his waist.' Combined with the messenger of Mal 3:1 (I.1-a), this casts John as the returning Elijah of Mal 4:5-6 who precedes the Day of YHWH. Mark makes the identification by wardrobe rather than statement; Matthew makes it explicit (Matt 11:14, 17:13).",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:6",
+            "Ohler, 'The Expectation of Elijah and the Presence of the Kingdom of God,' JBL 118 (1999)"
+          ]
+        },
+        {
+          "id": "I.1-d",
+          "locus": "Mark 1:4-5",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "genre-convention",
+          "source": "Second Temple repentance-immersion / wilderness-prophet milieu; Josephus, Ant. 18.116-119",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "probable",
+          "note": "John's repentance-baptism belongs to a recognizable Second Temple landscape of immersion and purification movements. Josephus independently attests John as a popular figure executed by Antipas (Ant. 18.116-119) -- a control external to the Gospels, anchoring the historical John apart from his Christian framing as forerunner. The relation to Qumran's daily lustrations is a milieu-resemblance, not a borrowing: their immersions were repeated ritual purity, John's a once-for-all eschatological act. Direction flagged as shared milieu, not dependence.",
+          "scholarship": [
+            "Josephus, Ant. 18.116-119",
+            "Meier, A Marginal Jew, vol. 2, on John",
+            "Taylor, The Immerser"
+          ]
+        }
+      ]
+    },
+    "I.2": {
+      "canon_title": "The baptism of Jesus",
+      "primary_ref": "Mark 1:9-11",
+      "parallels": [
+        "Matt 3:13-17",
+        "Luke 3:21-22",
+        "John 1:29-34"
+      ],
+      "references": [
+        {
+          "id": "I.2-a",
+          "locus": "Mark 1:10-11",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "type-scene",
+          "source": "prophetic-commissioning theophany (Ezek 1:1 'heavens opened'; Isa 6); the bat qol (heavenly voice) convention",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "established",
+          "note": "Opened heavens + Spirit + heavenly voice is the furniture of the prophetic call/commissioning scene (Ezekiel's 'the heavens were opened and I saw visions of God,' Ezek 1:1). The heavenly voice is the bat qol ('daughter of a voice'), the Second Temple and rabbinic substitute for prophecy after the prophets ceased. DIVERGENCE: a bat qol normally confirms or identifies; here it declares sonship and election, exceeding the convention. Mark also writes the heavens 'torn' (schizO), not merely opened -- a violent verb he reuses only at 15:38 (the veil), bracketing the Gospel.",
+          "scholarship": [
+            "Collins, Hermeneia Mark, on 1:10-11",
+            "Marcus, AYB Mark, on the 'tearing' inclusio",
+            "on bat qol: Str-B I.125-134 (with dating caution)"
+          ]
+        },
+        {
+          "id": "I.2-b",
+          "locus": "Mark 1:11",
+          "speaker": "other",
+          "axis": "text",
+          "type": "allusion",
+          "source": "Psalm 2:7 + Isaiah 42:1; agapEtos possibly evoking Genesis 22:2",
+          "text_form": "mixed",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "The voice from heaven fuses three streams. 'You are my son' = Psalm 2:7 (royal-enthronement decree, LXX). 'in whom I am well pleased' = Isaiah 42:1 (the chosen Servant 'in whom my soul delights') -- but in a non-LXX form (LXX Isa 42:1 reads differently), suggesting a Hebraizing or testimony-source rendering. 'the beloved' (agapEtos) may additionally evoke Genesis 22:2, Isaac the 'beloved/only son' of the Aqedah. Royal Son + suffering Servant + bound Son, compressed into one sentence. The Servant strand is what loads the sonship with a trajectory toward the cross. CONFIDENCE: established for Ps 2 and Isa 42; the Gen 22 echo is probable and debated.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:11 and 'Son of God' / Servant fusion",
+            "Marcus, The Way of the Lord, 48-79",
+            "Davies-Allison, ICC Matthew I, on 3:17"
+          ]
+        },
+        {
+          "id": "I.2-c",
+          "locus": "Mark 1:10",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "echo",
+          "source": "the dove (contested): Gen 1:2 LXX (Spirit hovering over the waters); Gen 8:8-12 (Noah's dove); Israel-as-dove (Hos 7:11)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "possible",
+          "note": "The Spirit 'as a dove' is the famous undecidable. The strongest candidates are all available in the zeitgeist: (i) Genesis 1:2, the Spirit brooding over the primal waters -- new-creation at the water (b. Hagigah 15a likens the brooding Spirit to a dove); (ii) Genesis 8, Noah's dove returning over the receded flood -- new world after water; (iii) Israel figured as a dove (Hos 7:11; later rabbinic). No single decoding is secure, and the Gospels offer none. Left as possible, with the candidate set given rather than one source chosen -- this is a place not to resolve.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:10 (survey of dove interpretations)",
+            "Keener, The Gospel of Matthew, on 3:16",
+            "Davies-Allison, ICC Matthew I, 331-334"
+          ]
+        },
+        {
+          "id": "I.2-d",
+          "locus": "Mark 1:9-11",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "alleged pagan baptism/divine-sonship parallels (Mandaean; mystery-cult)",
+          "text_form": "n/a",
+          "direction": "later-dependent",
+          "confidence": "noted-and-discounted",
+          "note": "NOTED-AND-DISCOUNTED. The history-of-religions school once derived the baptism from Mandaean and mystery-cult initiation. This fails the availability gate: the Mandaean sources are centuries later and the direction of any contact is contested; the scene is saturated instead with Jewish scriptural material (Ps 2, Isa 42, Ezek 1, the bat qol). Recorded here so the comparison is seen to have been weighed and rejected on dating and provenance, not ignored.",
+          "scholarship": [
+            "J. Z. Smith, Drudgery Divine (on the parallelomania hazard)",
+            "Sandmel, 'Parallelomania,' JBL 81 (1962)"
+          ]
+        }
+      ]
+    },
+    "I.3": {
+      "canon_title": "The temptation in the wilderness",
+      "primary_ref": "Mark 1:12-13",
+      "parallels": [
+        "Matt 4:1-11",
+        "Luke 4:1-13"
+      ],
+      "references": [
+        {
+          "id": "I.3-a",
+          "locus": "Mark 1:12-13 // Matt 4:1-2 // Luke 4:1-2",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "wilderness-testing + forty: Deut 8:2-3 (Israel 40 years); Exod 34:28 (Moses 40 days); 1 Kgs 19:8 (Elijah 40 days)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "established",
+          "note": "Forty days in the wilderness, tested, recapitulates Israel's forty years of testing (Deut 8:2-3), with secondary resonance of Moses's forty days on Sinai and Elijah's forty-day journey to Horeb. Jesus is cast as Israel re-run -- and, unlike Israel, passing the test. The Q version (I.3-b) makes the Israel-typology explicit by drawing all three replies from Deuteronomy's wilderness section.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew I, on 4:1-11",
+            "Fitzmyer, AYB Luke I-IX, on 4:1-13",
+            "Gerhardsson, The Testing of God's Son"
+          ]
+        },
+        {
+          "id": "I.3-b",
+          "locus": "Matt 4:4,7,10 // Luke 4:4,8,12",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Deuteronomy 8:3; Deuteronomy 6:16; Deuteronomy 6:13",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Jesus answers each temptation with Deuteronomy, all from the wilderness-testing material: Deut 8:3 ('not by bread alone, but by every word from God's mouth'), Deut 6:16 ('you shall not test YHWH your God'), Deut 6:13 ('YHWH your God you shall worship, and him only serve'). Quoted in LXX form. The concentration in Deut 6-8 is not incidental: these are the chapters on Israel's wilderness fidelity, so Jesus literally answers with the script Israel failed to keep. (Matthew and Luke order the second and third temptations differently; the Deut sources are identical.)",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew I, on 4:1-11",
+            "France, NIGTC Matthew, on the Deut citations",
+            "Kloppenborg, Excavating Q (on the Q temptation as a scribal composition)"
+          ]
+        },
+        {
+          "id": "I.3-c",
+          "locus": "Matt 4:6 // Luke 4:10-11",
+          "speaker": "Satan",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Psalm 91:11-12",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "The tempter cites Scripture: Psalm 91:11-12 ('he will command his angels concerning you... lest you strike your foot against a stone'), LXX. A speaker other than Jesus -- the antagonist -- quoting an apparently apt proof-text, met by counter-citation. ZEITGEIST IRONY: Psalm 91 was the protective/apotropaic psalm par excellence, paired with anti-demonic incantations in the Qumran exorcism collection 11Q11 (11QApocryphal Psalms). So the demonic tempter weaponizing the very psalm used to ward off demons is a pointed inversion available to a first-century audience. The exchange also models the canon's own thesis in miniature: citation can be marshalled in either direction, and the speaker matters as much as the text.",
+          "scholarship": [
+            "11Q11 (11QApocryphal Psalms), cols. with Ps 91",
+            "Davies-Allison, ICC Matthew I, on 4:6",
+            "Kraus, 'Psalm 91 in 11Q11,' and Sanders DJD on 11Q11"
+          ]
+        },
+        {
+          "id": "I.3-d",
+          "locus": "Mark 1:13",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "Eden / new-Adam animal-peace (Isa 11:6-8; cf. Adam at peace with beasts); alternative: hostile beasts (Ps 22; T. Naph. 8:4)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "Mark alone adds 'and he was with the wild beasts, and the angels served him.' Two readings, and the choice is interpretive. (i) New-Adam / restored-Eden: peace with the animals as in the messianic-age oracle Isa 11:6-8, Jesus as the second Adam at home among the beasts a paradise regained. (ii) Hostile beasts as a danger he is preserved through (cf. Ps 22:12-21; Test. Naphtali 8:4, where the devil flees and 'wild beasts will fear you'). The Eden reading is rendered probable -- the angelic ministry favors a paradise-restored tableau -- with the alternative flagged, not suppressed.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:13",
+            "Bauckham, 'Jesus and the Wild Animals,' in Jesus of Nazareth: Lord and Christ"
+          ]
+        }
+      ]
+    },
+    "II.1": {
+      "canon_title": "Call of the first disciples",
+      "primary_ref": "John 1:35-51",
+      "parallels": [
+        "Mark 1:16-20",
+        "Matt 4:18-22",
+        "Luke 5:1-11"
+      ],
+      "references": [
+        {
+          "id": "II.1-a",
+          "locus": "John 1:36",
+          "speaker": "John",
+          "axis": "text",
+          "type": "allusion",
+          "source": "Lamb imagery (contested): Passover lamb (Exod 12); Servant 'as a lamb led to slaughter' (Isa 53:7); the daily Tamid lamb (Exod 29:38-42); apocalyptic conquering lamb (cf. 1 En., Rev)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "John the Baptist's 'Behold, the Lamb of God' is unmistakably an allusion but the referent is genuinely undecided. Candidates all available in first-century Judaism: the Passover lamb (John's passion is dated to the slaughter of the lambs, 19:14, favoring this), the Isaiah 53 Servant-lamb, the Tamid sacrifice, or the apocalyptic warrior-lamb. Given as a candidate set; the Gospel itself activates more than one. Confidence: established that it alludes; probable as to Passover as the lead sense.",
+          "scholarship": [
+            "Brown, AYB John I-XII, on 1:29,36",
+            "Keener, Gospel of John, 1:452-454"
+          ]
+        },
+        {
+          "id": "II.1-b",
+          "locus": "John 1:51",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Genesis 28:12 (Jacob's ladder at Bethel); with Gen 27:35 behind 1:47",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "'You will see heaven opened and the angels of God ascending and descending upon the son of the human being' rewrites Jacob's dream at Bethel (Gen 28:12), where angels ascend and descend on the ladder/stairway at 'the gate of heaven, the house of God.' Jesus replaces Bethel: the son of humanity is now the junction of heaven and earth. The frame is set two verses earlier when Nathanael is called 'an Israelite in whom there is no guile' (1:47) -- a pointed inversion of Jacob, who took the blessing 'with guile' (Gen 27:35). The whole call scene is staged over the Jacob cycle.",
+          "scholarship": [
+            "Brown, AYB John, on 1:51",
+            "Keener, Gospel of John, 1:488-490"
+          ]
+        },
+        {
+          "id": "II.1-c",
+          "locus": "Mark 1:16-20 // Matt 4:18-22",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "type-scene",
+          "source": "prophetic-call type-scene (1 Kgs 19:19-21, Elijah calls Elisha); 'fishers of people' OT imagery (Jer 16:16; Ezek 29:4-5; Amos 4:2)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "probable",
+          "note": "Two layers. (i) The abrupt leave-everything-and-follow call is the prophetic-call type-scene: Elijah throws his mantle over Elisha at the plough, who abandons the oxen to follow (1 Kgs 19:19-21). Mark's 'immediately they left the nets' reproduces the pattern. Established. (ii) 'Fishers of people' is often traced to Jer 16:16 / Ezek 29:4-5 / Amos 4:2 -- but in every one of those texts the fishing is an image of JUDGMENT (people hauled off to destruction). The cross-reference apparatus does not strongly support the link, and the tension is real: Jesus's usage is positive (gathering for the reign). Marked possible, and the judgment-irony flagged rather than smoothed; this may be a fresh coinage, not an echo.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:16-20",
+            "France, NIGTC Matthew, on 4:19 (skeptical of the Jeremiah echo)"
+          ]
+        },
+        {
+          "id": "II.1-d",
+          "locus": "Luke 5:8",
+          "speaker": "other",
+          "axis": "text",
+          "type": "echo",
+          "source": "Isaiah 6:5 (prophetic-call unworthiness response)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "In Luke's miraculous-catch version, Peter's reaction to the sign -- 'Depart from me, for I am a sinful man' -- echoes the prophet's self-abasement at commissioning, paradigmatically Isaiah's 'Woe is me... I am a man of unclean lips' (Isa 6:5). The catch functions as an epiphany that triggers the call. Probable.",
+          "scholarship": [
+            "Fitzmyer, AYB Luke I-IX, on 5:1-11"
+          ]
+        }
+      ]
+    },
+    "II.2": {
+      "canon_title": "The wedding at Cana",
+      "primary_ref": "John 2:1-12",
+      "parallels": [],
+      "references": [
+        {
+          "id": "II.2-a",
+          "locus": "John 2:7-10",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "allusion",
+          "source": "eschatological wine-abundance: Amos 9:13-14; Joel 3:18 [MT 4:18]; Isaiah 25:6; Jeremiah 31:12",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "The sheer quantity -- six stone jars, perhaps 120-180 gallons of the best wine -- signals the messianic age, which the prophets imaged as mountains dripping new wine and a banquet of well-aged wines (Amos 9:13-14; Joel 3:18; Isa 25:6 the feast 'of wine on the lees'; Jer 31:12). The sign is read against this Jewish eschatological-abundance stream. Probable-to-established as background.",
+          "scholarship": [
+            "Brown, AYB John, on 2:1-11",
+            "Keener, Gospel of John, 1:500-513"
+          ]
+        },
+        {
+          "id": "II.2-b",
+          "locus": "John 2:1-11",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "Dionysus wine-miracle epiphany (Pausanias 6.26.1-2, the Elis kettles; Pliny NH 2.231 and 31.16, the Andros wine-spring)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "possible",
+          "note": "THE first history-of-religions flashpoint in the canon. Dionysus, god of wine, was credited with wine-miracles: at Elis three sealed empty kettles filled with wine overnight; on Andros a spring ran with wine at the festival -- both falling near early January, the season later assigned to Cana's commemoration. The wine-god miracle was unquestionably in the Hellenistic air. BUT direction of dependence is sharply contested. Bultmann and the older history-of-religions school read Cana as Christianized Dionysus; many since stress the differences -- no possession, no frenzy, no epiphany of the god's power as such; Jesus is reluctant ('my hour has not yet come'), the wine serves a human wedding, and the meaning is drawn from Jewish messianic abundance (II.2-a), not Greek ecstasy. Held as POSSIBLE ambient resonance, NOT a source (direction: available-convention, not cites). DIVERGENCE: where the Dionysian miracle manifests the god, John's sign is restrained and points away from itself to 'glory' and faith. Flagged, not asserted -- this is precisely the kind of parallel the apparatus exists to weigh in the open.",
+          "scholarship": [
+            "Bultmann, The Gospel of John, 118-120 (the Dionysian proposal)",
+            "Hengel, 'The Interpretation of the Wine Miracle at Cana,' in The Glory of Christ in the NT",
+            "Keener, Gospel of John, 1:497-500 (the case against direct dependence)",
+            "on the parallelomania hazard: Smith, Drudgery Divine"
+          ]
+        },
+        {
+          "id": "II.2-c",
+          "locus": "John 2:6",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "Jewish purification practice; water-of-purification -> wine-of-the-new-age replacement motif",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "probable",
+          "note": "John specifies the jars were 'for the Jewish rites of purification.' The transformation of purification-water into celebratory wine is a deliberate replacement motif characteristic of John (cf. the temple, the well, the festivals -- Jesus supersedes the institution). Historical-cultural and motival; probable.",
+          "scholarship": [
+            "Brown, AYB John, on 2:6",
+            "Keener, Gospel of John, 1:509-511"
+          ]
+        }
+      ]
+    },
+    "II.3": {
+      "canon_title": "Cleansing of the temple (Johannine placement)",
+      "primary_ref": "John 2:13-25",
+      "parallels": [],
+      "placement_flag": "DISPUTED: John places the cleansing at the start; the Synoptics at the final week. Synoptic cleansing and its citations (Isa 56:7 + Jer 7:11) are handled at Part X. This entry covers John's distinct citation-base only.",
+      "references": [
+        {
+          "id": "II.3-a",
+          "locus": "John 2:17",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Psalm 69:9 [LXX 68:10]",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "The disciples recall 'Zeal for your house will consume me' = Psalm 69:9 LXX. John shifts the verb to the future ('will consume') where the Hebrew/LXX reads past ('has consumed'), bending the citation toward the passion -- zeal for the house is what will get Jesus killed. Psalm 69 is one of the principal passion psalms, mined again at the crucifixion (the vinegar, 19:28-29). Established.",
+          "scholarship": [
+            "Brown, AYB John, on 2:17",
+            "Menken, Old Testament Quotations in the Fourth Gospel, ch. on Ps 69"
+          ]
+        },
+        {
+          "id": "II.3-b",
+          "locus": "John 2:16",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "allusion",
+          "source": "Zechariah 14:21 ('no longer a trader in the house of YHWH of hosts')",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "John's Jesus says 'do not make my Father's house a house of trade (emporion)' -- distinct from the Synoptic 'den of robbers.' The wording alludes to Zechariah 14:21, the eschatological vision in which 'there shall no longer be a trader (Canaanite/merchant) in the house of YHWH of hosts on that day.' John's cleansing is keyed to Zechariah's day-of-the-LORD, not to the Isaiah/Jeremiah pair the Synoptics use. Probable.",
+          "scholarship": [
+            "Brown, AYB John, on 2:16",
+            "Keener, Gospel of John, 1:526-528"
+          ]
+        },
+        {
+          "id": "II.3-c",
+          "locus": "John 2:19-21",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "eschatological new-temple expectation (Ezek 40-48; 11QTemple; Tob 14:5); temple-as-body",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "'Destroy this temple and in three days I will raise it' trades on the live Second Temple hope for a renewed/eschatological temple (Ezekiel's visionary temple; the Temple Scroll; Tobit 14:5), which John redirects to Jesus's body. The same saying surfaces, garbled, at the Synoptic trial (Mark 14:58; 15:29) -- cross-reference to Part X. Probable; the body-temple reading is the narrator's own gloss (2:21).",
+          "scholarship": [
+            "Brown, AYB John, on 2:19-22",
+            "Marcus, AYB Mark, on 14:58 (the temple-saying tradition)"
+          ]
+        }
+      ]
+    },
+    "II.4": {
+      "canon_title": "Nicodemus",
+      "primary_ref": "John 3:1-21",
+      "parallels": [],
+      "references": [
+        {
+          "id": "II.4-a",
+          "locus": "John 3:5",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "allusion",
+          "source": "Ezekiel 36:25-27 (clean water + new spirit); pneuma/wind wordplay at 3:8",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "'Born of water and spirit' pairs the two terms of Ezekiel's new-covenant promise: 'I will sprinkle clean water on you... and a new spirit I will put within you' (Ezek 36:25-27). At 3:8 the discourse exploits pneuma = wind/breath/spirit: 'the wind/spirit blows where it wills.' The double sense is untranslatable and should be preserved (glossary: pneuma). Probable for the Ezekiel background.",
+          "scholarship": [
+            "Brown, AYB John, on 3:5",
+            "Keener, Gospel of John, 1:546-552"
+          ]
+        },
+        {
+          "id": "II.4-b",
+          "locus": "John 3:14-15",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Numbers 21:8-9 (the bronze serpent); reception in Wisdom 16:5-7; cf. 2 Kgs 18:4",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "'As Moses lifted up the serpent in the wilderness, so must the son of humanity be lifted up' cites Numbers 21:8-9: those bitten who looked at the bronze serpent on the pole lived. The 'lifting up' (hypsoO) puns on crucifixion-and-exaltation. ZEITGEIST: the episode was already being reinterpreted -- Wisdom of Solomon 16:5-7 insists the serpent was 'a symbol of salvation' and that people were saved not by what they saw but by God the savior of all; and 2 Kings 18:4 records Hezekiah destroying the same bronze serpent (Nehushtan) once it became an idol. So John reaches for an OT image whose meaning was already contested and moralized. Established.",
+          "scholarship": [
+            "Brown, AYB John, on 3:14",
+            "Wisdom 16:5-7",
+            "Keener, Gospel of John, 1:562-565"
+          ]
+        },
+        {
+          "id": "II.4-c",
+          "locus": "John 3:16",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "echo",
+          "source": "Genesis 22:2,16 (the Aqedah: 'your only son, whom you love')",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "possible",
+          "note": "'God so loved the world that he gave his only son' may echo the Aqedah, where God commends Abraham 'because you have not withheld your only son' (Gen 22:16; cf. 22:2 'your son, your only son, whom you love'). The giving-up-of-the-only-son resonance is suggestive and joins the agapEtos thread at the baptism (I.2-b), but is not marked as citation. Possible; contested.",
+          "scholarship": [
+            "Brown, AYB John, on 3:16 (cautious)",
+            "Levenson, The Death and Resurrection of the Beloved Son"
+          ]
+        }
+      ]
+    },
+    "II.5": {
+      "canon_title": "John the Baptist's final testimony",
+      "primary_ref": "John 3:22-36",
+      "parallels": [],
+      "references": [
+        {
+          "id": "II.5-a",
+          "locus": "John 3:29",
+          "speaker": "John",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "covenant marriage metaphor (Hos 2; Isa 62:5; Jer 2:2); the 'friend of the bridegroom' (shoshbin) wedding role",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "John casts himself as 'the friend of the bridegroom' who rejoices at the bridegroom's voice. The bridegroom is a covenant image: YHWH weds Israel (Hosea 2; Isa 62:5; Jer 2:2), here transferred to Jesus -- joining the bridegroom motif that runs through the Samaritan-woman scene (II.6) and the fasting question (Mark 2:19). The 'friend of the bridegroom' is the Jewish wedding attendant (shoshbin). This discourse is mostly theological reflection and otherwise light on citation. Probable.",
+          "scholarship": [
+            "Brown, AYB John, on 3:29",
+            "Keener, Gospel of John, 1:579-581"
+          ]
+        }
+      ]
+    },
+    "II.6": {
+      "canon_title": "The Samaritan woman at the well",
+      "primary_ref": "John 4:1-42",
+      "parallels": [],
+      "references": [
+        {
+          "id": "II.6-a",
+          "locus": "John 4:4-30",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "type-scene",
+          "source": "OT betrothal-at-the-well type-scene: Gen 24 (Rebekah); Gen 29:1-12 (Rachel); Exod 2:15-22 (Zipporah)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "established",
+          "note": "The premier type-scene in the canon. The Torah has a fixed template: a man travels to a foreign land, meets a woman at a well, water is drawn, the woman runs home, a betrothal follows (Isaac/Rebekah, Jacob/Rachel, Moses/Zipporah). John switches it on -- a stranger at Jacob's own well, a woman, the drawing of water, her run to the town -- and SUBVERTS it: there is no betrothal; she has had five husbands and the present man is not her husband; the 'living water' supplants the well; the bridegroom (II.5) is present in a wholly transposed key. The audience that knew the template would feel the swerve, and the swerve is the meaning. Established (a recognized evocation since Alter's analysis).",
+          "scholarship": [
+            "Alter, The Art of Biblical Narrative, ch. 3 ('the type-scene')",
+            "Brown, AYB John, on 4:1-42",
+            "Keener, Gospel of John, 1:599-602"
+          ]
+        },
+        {
+          "id": "II.6-b",
+          "locus": "John 4:10-14",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "allusion",
+          "source": "living water: Jeremiah 2:13; 17:13; Zechariah 14:8; Isaiah 12:3; 55:1; 49:10",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "established",
+          "note": "'Living water' is literally flowing/spring water, but the discourse activates the OT metaphor in which YHWH himself is 'the fountain of living water' whom Israel forsook (Jer 2:13; 17:13), with the eschatological living-waters flowing from Jerusalem (Zech 14:8) and the wells of salvation (Isa 12:3; 55:1). Since in Jeremiah the fountain IS God, Jesus offering living water is a pointed self-implication. The double sense (spring-water / Spirit) is the hinge of the dialogue and should be preserved. Established background.",
+          "scholarship": [
+            "Brown, AYB John, on 4:10-14",
+            "Menken, OT Quotations in the Fourth Gospel"
+          ]
+        },
+        {
+          "id": "II.6-c",
+          "locus": "John 4:20-22",
+          "speaker": "other",
+          "axis": "tradition",
+          "type": "genre-convention",
+          "source": "Samaritan-Jewish cult dispute; Mount Gerizim (Deut 27:12; Samaritan Pentateuch)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "'Our fathers worshiped on this mountain' refers to the Samaritan temple on Mount Gerizim (sanctioned in the Samaritan Pentateuch's reading of Deut 27 and the Decalogue), destroyed by John Hyrcanus c. 128 BCE -- a wound still raw in the first century. Historical-cultural background the modern reader cannot supply unaided. Established.",
+          "scholarship": [
+            "Brown, AYB John, on 4:20",
+            "Pummer, The Samaritans: A Profile"
+          ]
+        },
+        {
+          "id": "II.6-d",
+          "locus": "John 4:25",
+          "speaker": "other",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "Samaritan messianic expectation (the Taheb), rooted in the prophet-like-Moses of Deuteronomy 18:15-18",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "probable",
+          "note": "The woman's 'I know that Messiah is coming' reflects distinctively Samaritan eschatology: rejecting the prophets and Davidic kingship, Samaritans awaited the Taheb ('the Restorer'), a Mosaic prophet on the model of Deut 18:15-18. The precise first-century form of Taheb belief is debated, so probable rather than established, but the Mosaic-prophet expectation is secure and explains why John frames the disclosure here as prophet-recognition.",
+          "scholarship": [
+            "Brown, AYB John, on 4:25",
+            "Pummer, The Samaritans",
+            "Meeks, The Prophet-King"
+          ]
+        }
+      ]
+    },
+    "II.7": {
+      "canon_title": "Return to Galilee; the official's son",
+      "primary_ref": "John 4:43-54",
+      "parallels": [],
+      "references": [
+        {
+          "id": "II.7-a",
+          "locus": "John 4:46-54",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "inner-canon parallel: the centurion's servant (Matt 8:5-13 // Luke 7:1-10) -- handled at Part V",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "possible",
+          "note": "The healing-at-a-distance of a Capernaum official's son is widely held to be a Johannine form of the centurion's-servant tradition (Matt 8 // Luke 7): same town, same long-distance cure, same faith-of-the-petitioner emphasis. Whether they are one tradition or two similar episodes is contested. Logged as an inner-canon cross-reference (to Part V), not an external allusion. Possible.",
+          "scholarship": [
+            "Brown, AYB John, on 4:46-54",
+            "Fitzmyer, AYB Luke, on 7:1-10"
+          ]
+        },
+        {
+          "id": "II.7-b",
+          "locus": "John 4:44",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "echo",
+          "source": "the prophet-without-honor logion: Mark 6:4 // Matt 13:57 // Luke 4:24 // Thomas 31 // P.Oxy 1.30-35",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "'A prophet has no honor in his own country' is one of the most strongly multiply-attested sayings of Jesus -- in Mark, Matthew, Luke, John, AND Thomas/P.Oxy 1 independently. Multiple attestation across independent streams is a leading criterion of authenticity. Cross-reference to the Nazareth rejection (II.9-c), where Luke pairs it with the physician proverb exactly as Thomas 31 does. Established.",
+          "scholarship": [
+            "Meier, A Marginal Jew, on multiple attestation",
+            "DeConick, The Original Gospel of Thomas, on logion 31"
+          ]
+        }
+      ]
+    },
+    "II.8": {
+      "canon_title": "Beginning of the Galilean proclamation",
+      "primary_ref": "Mark 1:14-15",
+      "parallels": [
+        "Matt 4:12-17",
+        "Luke 4:14-15"
+      ],
+      "references": [
+        {
+          "id": "II.8-a",
+          "locus": "Matt 4:15-16",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Isaiah 9:1-2 [MT 8:23-9:1]",
+          "text_form": "mixed",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Matthew's formula citation: 'Galilee of the nations -- the people sitting in darkness have seen a great light' = Isaiah 9:1-2, in Matthew's characteristic abridged, non-LXX form. The point is geographic-theological: the messianic light dawns in despised, half-Gentile Galilee. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew I, on 4:14-16",
+            "Menken, Matthew's Bible"
+          ]
+        },
+        {
+          "id": "II.8-b",
+          "locus": "Mark 1:15",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "kingdom-of-God announcement; herald of good news (Isa 52:7); the everlasting kingdom (Dan 2:44; 7:14)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "'The reign of God has drawn near; turn (metanoeite) and trust the good news' is the programmatic announcement. Its vocabulary draws on Isaiah 52:7 -- the herald who 'brings good news (euangelizomai)... saying to Zion, your God reigns' -- and the Daniel hope of an everlasting kingdom (2:44; 7:14). basileia, metanoia, and euangelion are all glossary terms; the imminence ('has drawn near') is the disputed eschatological crux. Probable for the Isa 52:7 herald background; established as kingdom-announcement language.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:14-15",
+            "Beasley-Murray, Jesus and the Kingdom of God"
+          ]
+        }
+      ]
+    },
+    "II.9": {
+      "canon_title": "Rejection at Nazareth",
+      "primary_ref": "Luke 4:16-30",
+      "parallels": [],
+      "placement_flag": "DISPUTED / possible duplicate with Mark 6:1-6 // Matt 13:53-58 (Part VII).",
+      "references": [
+        {
+          "id": "II.9-a",
+          "locus": "Luke 4:18-19",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Isaiah 61:1-2a, spliced with Isaiah 58:6; deliberately stopping before 61:2b",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "The programmatic citation of the canon. Jesus reads Isaiah 61:1-2 (the Spirit-anointed herald: good news to the poor, release to captives, sight to the blind, the year of the LORD's favor), splices in 'to set the oppressed free' from Isaiah 58:6, and -- crucially -- STOPS mid-verse, omitting 61:2b 'and the day of vengeance of our God.' The editorial cut IS the message: Jesus defines his mission as favor and release without the vengeance-on-the-nations his hearers awaited. This is the strongest case in the canon so far of the omission carrying the meaning -- what is NOT quoted is as decisive as what is. ZEITGEIST: Isaiah 61's jubilee-release was already read messianically at Qumran, where 11QMelchizedek (11Q13) assigns its 'liberty' and 'year of favor' to an eschatological deliverer -- so Jesus claims a text already charged with end-time liberation, and then pointedly truncates it. Established.",
+          "scholarship": [
+            "Fitzmyer, AYB Luke I-IX, on 4:16-30",
+            "11Q13 (11QMelchizedek)",
+            "Sanders, 'From Isaiah 61 to Luke 4,' in Luke and Scripture"
+          ]
+        },
+        {
+          "id": "II.9-b",
+          "locus": "Luke 4:23",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "proverb 'Physician, heal yourself' (widely attested Greco-Roman and Jewish; cf. Gen. Rab. 23:4)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "probable",
+          "note": "'Physician, heal yourself' is a floating proverb attested across Greek and Jewish sources; Jesus quotes it as the taunt he anticipates. Notably Thomas 31 pairs the physician saying with the prophet saying -- the same pairing Luke makes here (4:23-24). Probable as a proverb in the zeitgeist.",
+          "scholarship": [
+            "Fitzmyer, AYB Luke, on 4:23",
+            "DeConick, Original Gospel of Thomas, on logion 31"
+          ]
+        },
+        {
+          "id": "II.9-c",
+          "locus": "Luke 4:24",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "prophet-without-honor logion (Mark 6:4 // Matt 13:57 // John 4:44 // Thomas 31 // P.Oxy 1.30-35)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "'No prophet is acceptable in his own country.' Cross-reference to II.7-b. The remarkable datum: Thomas 31 ('no prophet is accepted in his own village; no physician heals those who know him') yokes the prophet and physician sayings together exactly as Luke does at 4:23-24, an agreement between Luke and Thomas that bears on their tradition-relationship. Established by multiple attestation.",
+          "scholarship": [
+            "DeConick, Original Gospel of Thomas, on logion 31",
+            "Plisch, The Gospel of Thomas, on 31"
+          ]
+        },
+        {
+          "id": "II.9-d",
+          "locus": "Luke 4:25-27",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "1 Kings 17:8-24 (Elijah and the widow of Zarephath); 2 Kings 5:1-14 (Elisha and Naaman the Syrian)",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Jesus cites two prophetic precedents -- Elijah sent not to Israel's widows but to a Sidonian widow (1 Kgs 17), Elisha cleansing not Israel's lepers but the Syrian Naaman (2 Kgs 5) -- as scriptural warrant that God's favor runs past Israel to outsiders. This is Jesus deploying narrative Scripture as argument, and it is the provocation that turns the synagogue murderous (4:28-29). A clear speaker-cites-Scripture entry, and a programmatic statement of the boundary-crossing mission. Established.",
+          "scholarship": [
+            "Fitzmyer, AYB Luke, on 4:25-27",
+            "Brodie, 'Towards Unravelling Luke's Use of the Old Testament: Luke 7:11-17 and 1 Kings 17'"
+          ]
+        }
+      ]
+    }
+  }
+}
