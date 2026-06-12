@@ -1706,7 +1706,16 @@
 
   function getApparatusEntries(sectionId) {
     if (!state.intertextApparatus) return [];
-    const key = sectionId === "Pr.1" ? "P" : sectionId;
+    // Map data.js slugged IDs → apparatus pericope keys.
+    // "prologue_1" → "P"; "i_1_*" → "I.1"; "ii_3_*" → "II.3", etc.
+    let key;
+    if (sectionId === "prologue_1") {
+      key = "P";
+    } else {
+      const m = sectionId.match(/^([ivxlcdm]+)_(\d+)/i);
+      key = m ? m[1].toUpperCase() + "." + m[2] : null;
+    }
+    if (!key) return [];
     return state.intertextApparatus.pericopes?.[key]?.references || [];
   }
 
