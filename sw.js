@@ -1,4 +1,4 @@
-const CACHE_NAME = "basileian-reader-v8-20260610-lexicon";
+const CACHE_NAME = "basileian-reader-v9-20260612-apparatus";
 const ASSETS = [
   "./",
   "./index.html",
@@ -9,6 +9,7 @@ const ASSETS = [
   "./translations-module.js",
   "./commentary-module.js",
   "./translations-index.json",
+  "./intertext-apparatus.json",
   "./canon.html",
   "./icon-192.png",
   "./icon-512.png",
