@@ -184,4 +184,30 @@ console.log(`\n=== build-greek-lexicon ===`);
 console.log(`  Entries written: ${matched}`);
 console.log(`  Corpus numbers without a lexicon entry: ${missing}`);
 console.log(`  Wrote lexicons/strongs-lexicon.json (${sizeKB} KB)`);
+
+// ─── Patch verse-words.json glosses with the TBESG lexicon's glosses ─────────
+//
+// verse-words.json (built by build-lexicons.js) defaults to KJV-era glosses
+// from the `strongs` npm package (e.g. "anon"), which often diverge sharply
+// from the modern TBESG gloss shown in the Lexicon detail view (e.g.
+// "immediately"). Re-point each word's gloss at the TBESG entry so the
+// Interlinear view and the Lexicon detail view agree.
+
+const verseWordsPath = path.join(LEX_DIR, 'verse-words.json');
+if (fs.existsSync(verseWordsPath)) {
+  const verseWords = JSON.parse(fs.readFileSync(verseWordsPath, 'utf8'));
+  let patched = 0;
+  for (const words of Object.values(verseWords)) {
+    for (const w of words) {
+      const entry = w.strongs && lexicon[w.strongs];
+      if (entry && entry.gloss) {
+        w.gloss = entry.gloss;
+        patched++;
+      }
+    }
+  }
+  fs.writeFileSync(verseWordsPath, JSON.stringify(verseWords) + '\n', 'utf8');
+  console.log(`  Patched ${patched} word glosses in lexicons/verse-words.json`);
+}
+
 console.log('  Done.');
