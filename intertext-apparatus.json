@@ -828,6 +828,1007 @@
           ]
         }
       ]
+    },
+    "III.1": {
+      "canon_title": "Demoniac in the Capernaum synagogue",
+      "primary_ref": "Mark 1:21-28",
+      "parallels": [
+        "Luke 4:31-37"
+      ],
+      "references": [
+        {
+          "id": "III.1-a",
+          "locus": "Mark 1:23-26",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "genre-convention",
+          "source": "ancient exorcism contest: Josephus, Ant. 8.46-49 (Eleazar); the magical papyri (PGM); Qumran exorcism texts (11Q11; 4Q560; Genesis Apocryphon 1QapGen 20)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "established",
+          "note": "The scene runs on the conventions of ancient exorcism, which the first-century audience knew as a recognizable contest. The demon's opening move -- 'I know who you are, the Holy One of God' -- is the standard defensive gambit: to name a spirit precisely is to bid for mastery over it (cf. the adjuration-by-name formulae throughout the magical papyri and the Qumran incantations). DIVERGENCE, and it is the whole point: Jesus answers with none of the apparatus the convention requires -- no incantation, no invocation of a higher name, no ring or root (contrast Eleazar's ring in Josephus) -- only a bare command, 'Be muzzled, and come out.' The crowd's astonishment is at the unmediated authority. Established.",
+          "scholarship": [
+            "Josephus, Ant. 8.46-49",
+            "Marcus, AYB Mark, on 1:21-28",
+            "Twelftree, Jesus the Exorcist"
+          ]
+        },
+        {
+          "id": "III.1-b",
+          "locus": "Mark 1:24",
+          "speaker": "other",
+          "axis": "text",
+          "type": "echo",
+          "source": "'the Holy One of God': Psalm 106:16 (Aaron, 'the holy one of YHWH'); Judges 13:7; 16:17 LXX (Samson)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "possible",
+          "note": "The demon's title 'the Holy One of God' is rare; the nearest scriptural anchors are Aaron, 'the holy one of YHWH' (Ps 106:16), and the nazirite Samson, 'holy one of God' (Judg 16:17 LXX). The echo is faint and the title may simply mark Jesus as the one set apart by/for God. Possible.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:24",
+            "Collins, Hermeneia Mark, on 1:24"
+          ]
+        }
+      ]
+    },
+    "III.2": {
+      "canon_title": "Peter's mother-in-law; evening healings",
+      "primary_ref": "Mark 1:29-34",
+      "parallels": [
+        "Matt 8:14-17",
+        "Luke 4:38-41"
+      ],
+      "references": [
+        {
+          "id": "III.2-a",
+          "locus": "Matt 8:17",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Isaiah 53:4",
+          "text_form": "MT",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Matthew caps the healing summary with Isaiah 53:4: 'He took our infirmities and bore our diseases.' TEXT-FORM showcase: Matthew renders the line for PHYSICAL illness, tracking the Hebrew, and pointedly NOT the LXX, which spiritualizes Isa 53:4 ('he bears our sins'). The evangelist bypasses the Greek Bible because only the literal-illness sense fits a healing report -- the text-form is chosen by the application. This binds the suffering Servant (Isa 53) to the healing ministry, alongside Isa 42 at the baptism (I.2-b) and at III.10.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew II, on 8:17",
+            "Menken, Matthew's Bible, ch. on Isa 53:4"
+          ]
+        }
+      ]
+    },
+    "III.3": {
+      "canon_title": "Preaching tour of Galilee",
+      "primary_ref": "Mark 1:35-39",
+      "parallels": [
+        "Luke 4:42-44"
+      ],
+      "references": [
+        {
+          "id": "III.3-a",
+          "locus": "Mark 1:35",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "prophetic withdrawal to a deserted place to pray (cf. Elijah, 1 Kgs 19:3-12)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "possible",
+          "note": "Jesus withdraws before dawn to a deserted place (erEmos topos) to pray -- a recurrent Markan habit that draws lightly on the prophetic-solitude topos (Elijah to Horeb). This pericope is otherwise thin intertextually; logged at possible so the section's coverage stays honest rather than padded.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:35"
+          ]
+        }
+      ]
+    },
+    "III.4": {
+      "canon_title": "Cleansing of a leper",
+      "primary_ref": "Mark 1:40-45",
+      "parallels": [
+        "Matt 8:1-4",
+        "Luke 5:12-16"
+      ],
+      "references": [
+        {
+          "id": "III.4-a",
+          "locus": "Mark 1:44",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Leviticus 14:1-32 (priestly purification of the healed leper); background Leviticus 13-14",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "'Show yourself to the priest and offer for your cleansing what Moses commanded' directs the man to the rite of Leviticus 14:1-32. Jesus cites Torah law and upholds it -- the cleansing is referred back into the priestly purity system (Lev 13-14), whose social-religious exclusion of the leper is the background the modern reader needs to feel the stakes. Established.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:44",
+            "Milgrom, Leviticus 1-16 (AYB), on the metsora rite"
+          ]
+        },
+        {
+          "id": "III.4-b",
+          "locus": "Mark 1:40-42",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "echo",
+          "source": "2 Kings 5:1-14 (Elisha cleanses Naaman's leprosy)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "possible",
+          "note": "As the principal OT leprosy-cleansing narrative -- and the very text Jesus invoked at Nazareth (II.9-d) -- 2 Kings 5 stands behind the episode, casting Jesus in the Elisha role of the prophet who cleanses. Possible; the resonance is thematic, not verbal. NOTE: Mark 1:41's 'moved with compassion' vs. the Western variant 'moved with anger' (orgistheis) is a pure text-critical crux and belongs to the text-critical layer, not this apparatus.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 1:41",
+            "Brodie on Luke's Elijah-Elisha use (analogous)"
+          ]
+        }
+      ]
+    },
+    "III.5": {
+      "canon_title": "The paralytic let down through the roof",
+      "primary_ref": "Mark 2:1-12",
+      "parallels": [
+        "Matt 9:1-8",
+        "Luke 5:17-26"
+      ],
+      "references": [
+        {
+          "id": "III.5-a",
+          "locus": "Mark 2:7",
+          "speaker": "other",
+          "axis": "text",
+          "type": "allusion",
+          "source": "the divine prerogative of pardon: Isaiah 43:25; Exodus 34:6-7; Micah 7:18; Daniel 9:9",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "established",
+          "note": "The scribes' objection -- 'who can forgive sins but God alone?' -- invokes a settled scriptural axiom: it is YHWH who blots out transgressions (Isa 43:25, 'I, I am he'), who forgives iniquity (Exod 34:6-7; Mic 7:18; Dan 9:9). The objection is theologically correct on its own terms, which is what makes the pronouncement provocative. Speaker is the objectors. Established.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 2:7",
+            "Collins, Hermeneia Mark, on 2:1-12"
+          ]
+        },
+        {
+          "id": "III.5-b",
+          "locus": "Mark 2:10",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "allusion",
+          "source": "Daniel 7:13-14 (the one like a son of man given authority and dominion)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "'The son of the human being has authority on earth to forgive sins' first sounds the authority-claim that the Danielic son-of-man carries (Dan 7:13-14, given dominion). Whether 'son of the human being' here is titular (Danielic) or the Aramaic bar enasha idiom ('a human being / one in my position') is the standing crux flagged under the divine-names policy (huios tou anthrOpou rendered 'the son of the human being'; Daniel 7 footnoted at first occurrence). The authority-to-forgive, exercised on earth, leans Danielic. Probable.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 2:10 and 'Son of Man'",
+            "Casey, The Solution to the Son of Man Problem (the bar enasha case)"
+          ]
+        },
+        {
+          "id": "III.5-c",
+          "locus": "Mark 2:9-12",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "echo",
+          "source": "Psalm 103:3 (forgives iniquity / heals diseases); cf. Psalm 41:4",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "probable",
+          "note": "The story's logic -- the visible cure validating the invisible pardon -- rests on the ancient pairing of forgiveness and healing, classically Psalm 103:3, 'who forgives all your iniquity, who heals all your diseases' (cf. Ps 41:4, where sin and sickness are linked). The healing is offered as the demonstrable sign of the harder, unseen forgiveness. Probable.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 2:9-12"
+          ]
+        }
+      ]
+    },
+    "III.6": {
+      "canon_title": "Call of Levi; eating with sinners",
+      "primary_ref": "Mark 2:13-17",
+      "parallels": [
+        "Matt 9:9-13",
+        "Luke 5:27-32",
+        "P.Oxy 1224"
+      ],
+      "references": [
+        {
+          "id": "III.6-a",
+          "locus": "Matt 9:13",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Hosea 6:6 ('I desire mercy, not sacrifice')",
+          "text_form": "mixed",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Matthew alone inserts Hosea 6:6 -- 'go and learn what this means: I desire mercy (eleos / Heb. hesed), not sacrifice' -- which Mark and Luke lack, and which Matthew deploys a second time at 12:7. A redactional addition that recruits the prophetic critique of cult to defend table-fellowship with sinners. Speaker Jesus (in Matthew's form). Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew II, on 9:13",
+            "Menken, Matthew's Bible"
+          ]
+        },
+        {
+          "id": "III.6-b",
+          "locus": "Mark 2:17",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "the physician proverb (cf. II.9-b, Luke 4:23; widely attested Greco-Roman)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "probable",
+          "note": "'Those who are strong have no need of a physician, but those who are sick' is the floating physician proverb, met already at Nazareth (II.9-b). Jesus turns the commonplace into a defense of his mission to the 'sick.' Probable as ambient proverb.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 2:17"
+          ]
+        },
+        {
+          "id": "III.6-c",
+          "locus": "P.Oxy 1224 fr. 2 recto",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical parallel: P.Oxy 1224",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "probable",
+          "note": "The fragmentary P.Oxy 1224 preserves an independent form of this meal-controversy. Its distinctive feature is an expanded list of objectors -- 'the scribes and Pharisees and priests' -- adding the priests, before the physician saying follows. The papyrus is damaged and the reconstruction partial, so the witness is treated cautiously, but it attests the scene outside the Synoptic stream. Probable.",
+          "scholarship": [
+            "Kruger, on P.Oxy 1224",
+            "Lührmann, Fragmente apokryph gewordener Evangelien"
+          ]
+        },
+        {
+          "id": "III.6-d",
+          "locus": "Mark 2:15-16",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "genre-convention",
+          "source": "table-fellowship as social-religious boundary; toll-collectors and 'sinners' (hamartOloi)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "Sharing a table signified acceptance and incurred shared purity status, which is why eating with toll-collectors (collaborator-impure, handling Gentile coin) and 'sinners' (those living outside Torah observance) was a public scandal, not mere bad company. The historical-cultural background the modern reader needs to register the offense. Established.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 2:15-16",
+            "Sanders, Jesus and Judaism, on 'sinners'"
+          ]
+        }
+      ]
+    },
+    "III.7": {
+      "canon_title": "The question about fasting",
+      "primary_ref": "Mark 2:18-22",
+      "parallels": [
+        "Matt 9:14-17",
+        "Luke 5:33-39",
+        "Thomas 47"
+      ],
+      "references": [
+        {
+          "id": "III.7-a",
+          "locus": "Mark 2:19-20",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "covenant-bridegroom imagery (Hos 2; Isa 62:5); cf. II.5-a",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "'Can the wedding guests fast while the bridegroom is with them?' draws on the covenant-bridegroom image (YHWH wedding Israel, Hos 2; Isa 62:5), threaded through the canon at II.5-a and II.6. 'The days will come when the bridegroom is taken away from them' (2:20) is Mark's first veiled passion-hint, smuggled inside a wedding metaphor. Probable.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 2:19-20"
+          ]
+        },
+        {
+          "id": "III.7-b",
+          "locus": "Mark 2:21-22",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical parallel: Gospel of Thomas 47 (patch + wineskins + old/new wine)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "The twin similitudes -- unshrunk patch on an old garment, new wine in old skins -- are independently attested at Thomas 47, which also carries the extra line 'no one drinks old wine and immediately wants new,' a sapiential coda the Synoptics lack (Luke 5:39 preserves a related remark). The proverbial-wisdom form (paired similitudes) is the vehicle; the parallel is established.",
+          "scholarship": [
+            "DeConick, The Original Gospel of Thomas, on logion 47",
+            "Plisch, The Gospel of Thomas, on 47",
+            "Marcus, AYB Mark, on 2:21-22"
+          ]
+        }
+      ]
+    },
+    "III.8": {
+      "canon_title": "Plucking grain on the Sabbath",
+      "primary_ref": "Mark 2:23-28",
+      "parallels": [
+        "Matt 12:1-8",
+        "Luke 6:1-5"
+      ],
+      "references": [
+        {
+          "id": "III.8-a",
+          "locus": "Mark 2:25-26",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "1 Samuel 21:1-6 (David eats the bread of the Presence); Leviticus 24:5-9 (the showbread reserved to priests)",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Jesus cites David's eating of the bread of the Presence at Nob (1 Sam 21:1-6), bread lawful only for priests (Lev 24:5-9), as the precedent that human need overrides cultic restriction. Speaker Jesus; a scriptural argument from precedent. Established.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 2:25-26",
+            "Collins, Hermeneia Mark, on 2:23-28"
+          ]
+        },
+        {
+          "id": "III.8-b",
+          "locus": "Mark 2:26",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "citation error: Mark names Abiathar; 1 Samuel 21 names AHIMELECH (Abiathar's father)",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "SHOWCASE of the apparatus's recurring pattern. Mark sets the episode 'in the days of Abiathar the high priest,' but 1 Samuel 21 names Ahimelech, Abiathar's father; Abiathar succeeds him only later. Mark's slip. And exactly as with the 'Isaiah' mis-attribution (I.1-a), BOTH Matthew (12:3-4) and Luke (6:3-4) independently DELETE the Abiathar clause -- two later evangelists silently repairing a Markan citation-error. The cleanup is itself evidence: it points to Markan priority and confirms the canon-wide tendency of the later tradition to tidy the earlier. Established.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 2:26 (the Abiathar problem)",
+            "Metzger, Textual Commentary, on Mark 2:26"
+          ]
+        },
+        {
+          "id": "III.8-c",
+          "locus": "Mark 2:27",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "rabbinic maxim: Mekhilta on Exod 31:14 (R. Shimon b. Menasya, 'the Sabbath is given to you, not you to the Sabbath')",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "probable",
+          "note": "'The Sabbath was made for the human being, not the human being for the Sabbath' is closely paralleled by the later rabbinic maxim in the Mekhilta (R. Shimon b. Menasya). DIRECTION/DATING DISCIPLINE: the Mekhilta postdates Mark by centuries, so this is NOT Mark citing the rabbis nor the reverse -- the principle was evidently a shared, probably proverbial, Sabbath-axiom in circulation. Flagged as shared-tradition, not dependence. Probable.",
+          "scholarship": [
+            "Mekhilta de-Rabbi Ishmael on Exod 31:14",
+            "Marcus, AYB Mark, on 2:27 (with the dating caveat)"
+          ]
+        }
+      ]
+    },
+    "III.9": {
+      "canon_title": "The man with the withered hand",
+      "primary_ref": "Mark 3:1-6",
+      "parallels": [
+        "Matt 12:9-14",
+        "Luke 6:6-11"
+      ],
+      "references": [
+        {
+          "id": "III.9-a",
+          "locus": "Mark 3:4",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "genre-convention",
+          "source": "Second Temple Sabbath/life-saving debate: 1 Macc 2:29-41; CD 11:13-17 (Qumran stringency); m. Yoma 8:6 (pikuach nefesh)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "'Is it lawful on the Sabbath to do good or to do harm, to save life or to kill?' plants Jesus inside a real, contested first-century halakhic debate. The Maccabean crisis forced a ruling that one may fight to save life on the Sabbath (1 Macc 2:29-41); Qumran took the stringent line (CD 11:13-17 forbids even hauling an animal from a pit on the Sabbath); the Pharisaic-rabbinic tradition permitted overriding the Sabbath to save life (pikuach nefesh, later codified at m. Yoma 8:6). Jesus stakes out the life-prioritizing pole of a live argument, not a timeless abstraction. Established.",
+          "scholarship": [
+            "1 Macc 2:29-41; CD 11:13-17",
+            "Marcus, AYB Mark, on 3:4",
+            "Doering, Schabbat (on Second Temple Sabbath halakhah)"
+          ]
+        },
+        {
+          "id": "III.9-b",
+          "locus": "Mark 3:5",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "echo",
+          "source": "the hardened-heart motif (Isa 6:10; Ps 95:8; Exod 4-14); kardia",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "possible",
+          "note": "Jesus is 'grieved at the hardness of their heart' (pOrOsis tEs kardias) -- the hardened-heart motif of the prophets and the Exodus (Isa 6:10; Ps 95:8; the hardening of Pharaoh). kardia carries the Hebraic sense of the seat of will, not feeling (glossary). Possible-to-probable as motif.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 3:5",
+            "BDAG s.v. pOrOsis"
+          ]
+        }
+      ]
+    },
+    "III.10": {
+      "canon_title": "Crowds at the sea; healings",
+      "primary_ref": "Mark 3:7-12",
+      "parallels": [
+        "Matt 12:15-21"
+      ],
+      "references": [
+        {
+          "id": "III.10-a",
+          "locus": "Matt 12:18-21",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Isaiah 42:1-4 (the first Servant Song)",
+          "text_form": "mixed",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Matthew's longest formula citation: Isaiah 42:1-4, applied to Jesus's withdrawal and his order of silence. 'He will not wrangle or cry aloud, nor will anyone hear his voice in the streets; a bruised reed he will not break' reads the so-called messianic secret as the quiet, non-clamorous Servant fulfilling prophecy; the closing 'in his name the nations will hope' follows the LXX and opens the Gentile horizon. TEXT-FORM: a composite rendering, neither pure LXX nor MT. Binds Isa 42 (already heard at the baptism, I.2-b) to the healing ministry. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew II, on 12:18-21",
+            "Menken, Matthew's Bible, ch. on Isa 42"
+          ]
+        }
+      ]
+    },
+    "III.11": {
+      "canon_title": "Choosing the Twelve",
+      "primary_ref": "Mark 3:13-19",
+      "parallels": [
+        "Luke 6:12-16"
+      ],
+      "references": [
+        {
+          "id": "III.11-a",
+          "locus": "Mark 3:14-16",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "the Twelve as the twelve tribes (eschatological restoration of Israel); cf. Matt 19:28 // Luke 22:30; 1QS 8:1",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "established",
+          "note": "Appointing exactly twelve is a symbolic claim: it reconstitutes the twelve tribes, casting Jesus's movement as restored Israel. The symbolism is made explicit later -- the Twelve will 'judge the twelve tribes of Israel' (Matt 19:28 // Luke 22:30) -- and the number-based council has an analogue at Qumran (1QS 8:1, a council with a twelve-fold core). The figure is an eschatological statement, not an administrative one. Established.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 3:14",
+            "Sanders, Jesus and Judaism, on the Twelve and the restoration of Israel"
+          ]
+        },
+        {
+          "id": "III.11-b",
+          "locus": "Mark 3:13,16-17",
+          "speaker": "narrator",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "mountain as locus of appointment/revelation (Sinai); the renaming-marks-vocation motif (Gen 17:5; 32:28)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "'He went up the mountain' stages the appointment on the mountain of revelation (Moses-Sinai overtones), and the renaming -- Simon to Peter, the sons of Zebedee to Boanerges -- follows the biblical pattern in which a new name marks a new vocation (Abram to Abraham, Gen 17:5; Jacob to Israel, Gen 32:28). Probable.",
+          "scholarship": [
+            "Marcus, AYB Mark, on 3:13-17"
+          ]
+        }
+      ]
+    },
+    "IV.1": {
+      "canon_title": "Beatitudes",
+      "primary_ref": "Matt 5:1-12",
+      "parallels": [
+        "Luke 6:20-23",
+        "Thomas 54"
+      ],
+      "references": [
+        {
+          "id": "IV.1-a",
+          "locus": "Matt 5:3-5",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "allusion",
+          "source": "Isaiah 61:1-2 (good news to the poor; comfort for mourners); Psalm 37:11 (the meek inherit the land)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "established",
+          "note": "The opening beatitudes unpack Isaiah 61:1-2 -- the very manifesto Jesus claimed and truncated at Nazareth (II.9-a): good news to the POOR, comfort to those who MOURN. 'The meek shall inherit the earth' (5:5) is Psalm 37:11 nearly verbatim (LXX 36:11). So the Sermon opens by spelling out the Isaiah-61 program in beatitude form. Established; direct line to II.9-a.",
+          "scholarship": [
+            "Betz, Hermeneia: The Sermon on the Mount, on 5:3-12",
+            "Davies-Allison, ICC Matthew I, on the Beatitudes"
+          ]
+        },
+        {
+          "id": "IV.1-b",
+          "locus": "Matt 5:3-12 // Luke 6:20-26",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "genre-convention",
+          "source": "the macarism (beatitude) form: Ps 1:1; Sir 25:7-10; 4QBeatitudes (4Q525); the prophetic reversal (1 Sam 2:1-10; Isa 29:19)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "established",
+          "note": "The blessing-formula ('blessed/happy is the one who...') is a standing biblical and sapiential genre (Ps 1; Sirach), and a beatitude-SERIES like Jesus's is paralleled at Qumran in 4Q525 -- the form was alive and serialized in the zeitgeist. Luke's matching woes (6:24-26) make explicit the prophetic great-reversal pattern (Hannah's song, the Magnificat): the lowly lifted, the comfortable cast down. Established.",
+          "scholarship": [
+            "Puech, on 4Q525 (4QBeatitudes)",
+            "Fitzmyer, AYB Luke, on 6:20-26"
+          ]
+        },
+        {
+          "id": "IV.1-c",
+          "locus": "Matt 5:3 // Luke 6:20",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical parallel: Gospel of Thomas 54",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "Thomas 54 ('Blessed are the poor, for yours is the kingdom of heaven') is a useful witness to the saying's earliest shape: it reads 'the poor' (with Luke, against Matthew's spiritualizing 'poor in spirit') yet 'kingdom of heaven' (with Matthew, against Luke's 'kingdom of God'). A split agreement bearing on the tradition-history of the first beatitude. Established.",
+          "scholarship": [
+            "DeConick, The Original Gospel of Thomas, on logion 54",
+            "Plisch, The Gospel of Thomas, on 54"
+          ]
+        }
+      ]
+    },
+    "IV.2": {
+      "canon_title": "Salt and light",
+      "primary_ref": "Matt 5:13-16",
+      "parallels": [
+        "Luke 14:34-35",
+        "Thomas 32",
+        "Thomas 33"
+      ],
+      "references": [
+        {
+          "id": "IV.2-a",
+          "locus": "Matt 5:13-16",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "salt of the covenant (Lev 2:13; Num 18:19); light to the nations (Isa 42:6; 49:6; 60:1-3); city-on-a-hill (Thomas 32)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "Two covenant images. Salt carries the 'covenant of salt' freight (Lev 2:13; Num 18:19), here turned to discipleship's preservative role; light draws on Israel/Servant as 'light to the nations' (Isa 42:6; 49:6; 60:1-3). The 'city set on a hill' is independently attested at Thomas 32 ('a city built on a high mountain and fortified cannot fall'), and the lamp-on-a-stand at Thomas 33 (cf. Mark 4:21, handled at VI). Probable.",
+          "scholarship": [
+            "Betz, Hermeneia: Sermon on the Mount, on 5:13-16",
+            "DeConick, Original Gospel of Thomas, on 32-33"
+          ]
+        }
+      ]
+    },
+    "IV.3": {
+      "canon_title": "Law and the prophets; the antitheses",
+      "primary_ref": "Matt 5:17-48",
+      "parallels": [
+        "Luke 16:17",
+        "Luke 12:57-59"
+      ],
+      "references": [
+        {
+          "id": "IV.3-a",
+          "locus": "Matt 5:17-20",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "the permanence of Torah (cf. Luke 16:17; Bar 4:1); the iota/keraia = the yod and the scribal stroke",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "established",
+          "note": "The programmatic frame for the antitheses: not to abolish but to fulfill the law and the prophets; 'not one iota (the smallest letter, yod) or stroke (keraia) will pass.' Luke preserves the same maxim independently (16:17). The affirmation of Torah's enduring validity is the backdrop against which the 'but I say to you' formulas must be read -- intensification, not abrogation. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew I, on 5:17-20",
+            "Betz, Hermeneia: Sermon on the Mount, on 5:17-20"
+          ]
+        },
+        {
+          "id": "IV.3-b",
+          "locus": "Matt 5:21-26",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Exodus 20:13 // Deuteronomy 5:17 ('you shall not kill')",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Antithesis 1. Cites the Decalogue's prohibition of murder and drives it back to its root in anger and contempt ('raca,' an Aramaic insult; the threat of Gehenna -- the Valley of Hinnom, Jerusalem's refuse-fire, as image of judgment). The citation is upheld and radicalized to the disposition behind the act. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew I, on 5:21-26",
+            "on Gehenna: Milgrom / Marcus s.v."
+          ]
+        },
+        {
+          "id": "IV.3-c",
+          "locus": "Matt 5:27-30",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Exodus 20:14 // Deuteronomy 5:18 ('you shall not commit adultery')",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Antithesis 2. Cites the Decalogue on adultery and relocates the offense to the lustful look -- the act traced to the intention. The hyperbolic 'tear out the eye' belongs to the same interiorizing move. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew I, on 5:27-30"
+          ]
+        },
+        {
+          "id": "IV.3-d",
+          "locus": "Matt 5:33-37",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Leviticus 19:12; Numbers 30:2; Deuteronomy 23:21-23 (oaths and vows); cf. the Essene avoidance of oaths (Josephus, War 2.135); Jas 5:12",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Antithesis 4 (oaths). Composite citation of the oath/vow legislation (Lev 19:12, do not swear falsely by the name; Num 30:2; Deut 23:21). Jesus abolishes oath-taking entirely ('let your yes be yes'), a stringency paralleled among the Essenes, who Josephus says shunned oaths as worse than perjury (War 2.135), and echoed at James 5:12. ZEITGEIST: oath-avoidance was a recognizable piety, not a novelty. Established.",
+          "scholarship": [
+            "Josephus, War 2.135",
+            "Betz, Hermeneia: Sermon on the Mount, on 5:33-37",
+            "Davies-Allison, ICC Matthew I, ad loc."
+          ]
+        },
+        {
+          "id": "IV.3-e",
+          "locus": "Matt 5:38-42",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "the lex talionis: Exodus 21:24; Leviticus 24:19-20; Deuteronomy 19:21 ('eye for eye')",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Antithesis 5. Cites the talion law (Exod 21:24; Lev 24:20; Deut 19:21). The crucial background: the talion was itself a LIMIT on vengeance -- proportional, capping retaliation at the equivalent. Jesus extends the trajectory past proportionality to non-retaliation (turn the cheek, give the cloak, go the second mile). The counter-ruling completes a vector the Torah had already started. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew I, on 5:38-42",
+            "Betz, Hermeneia, ad loc."
+          ]
+        },
+        {
+          "id": "IV.3-f",
+          "locus": "Matt 5:43-48",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Leviticus 19:18 ('love your neighbor'); 'hate your enemy' = NOT Torah -- nearest: Qumran 1QS 1:3-4,9-10; cf. Ps 139:21-22",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Antithesis 6, and the most revealing. 'Love your neighbor' is Leviticus 19:18; but 'and hate your enemy' is NOWHERE in the Torah. The nearest formal source is the Qumran Community Rule, which commands loving 'the sons of light' and hating 'the sons of darkness' (1QS 1:3-4, 9-10); cf. the psalmist's 'I hate them with perfect hatred' (Ps 139:21-22). So the 'you have heard' may quote a real sectarian halakhah in the air, not Scripture -- and Jesus counters it with enemy-love grounded in the impartial Father who sends sun and rain on all. CONFIDENCE: established for Lev 19:18; probable that 1QS-type teaching is the target of 'hate your enemy.'",
+          "scholarship": [
+            "1QS 1:3-4, 9-10 (Community Rule)",
+            "Davies-Allison, ICC Matthew I, on 5:43-48",
+            "Betz, Hermeneia, ad loc."
+          ]
+        }
+      ]
+    },
+    "IV.4": {
+      "canon_title": "On divorce",
+      "primary_ref": "Matt 5:31-32",
+      "parallels": [
+        "Mark 10:1-12",
+        "Matt 19:1-12",
+        "Luke 16:18",
+        "1 Cor 7:10-11"
+      ],
+      "references": [
+        {
+          "id": "IV.4-a",
+          "locus": "Matt 5:31-32; Mark 10:2-9",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Deuteronomy 24:1 (the certificate of divorce) countered by Genesis 1:27 + 2:24 (creation: one flesh); cf. CD 4:20-5:2; the Hillel/Shammai debate (m. Gittin 9:10)",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Jesus sets Scripture against Scripture: the Mosaic concession of a divorce-certificate (Deut 24:1) is subordinated to the creation order, Genesis 1:27 ('male and female') and 2:24 ('the two become one flesh'), read as the prior and binding will. ZEITGEIST: the Damascus Document deploys the SAME Genesis 1:27 prooftext ('male and female he created them') against divorce and polygamy (CD 4:20-5:2) -- so Jesus's creation-over-concession argument has a direct Qumran analogue. The whole exchange sits inside the live Hillel/Shammai divorce debate (m. Gittin 9:10: any cause vs. unchastity only), with Jesus stricter than both. Established.",
+          "scholarship": [
+            "CD 4:20-5:2 (Damascus Document)",
+            "Marcus, AYB Mark, on 10:2-12",
+            "Instone-Brewer, Divorce and Remarriage in the Bible"
+          ]
+        },
+        {
+          "id": "IV.4-b",
+          "locus": "1 Cor 7:10-11",
+          "speaker": "other",
+          "axis": "text",
+          "type": "quotation",
+          "source": "inner-canon: Paul citing a dominical command ('not I, but the Lord')",
+          "text_form": "n/a",
+          "direction": "later-dependent",
+          "confidence": "established",
+          "note": "Paul, writing in the mid-50s -- earlier than any Gospel -- expressly cites Jesus's divorce ruling: 'to the married I give charge, not I but the LORD, that a wife should not separate from her husband.' This is the earliest datable attestation of the teaching and a model of the canon's inclusion logic: Paul here functions as a REPORTER of dominical tradition ('not I but the Lord'), explicitly distinguishing the Lord's command from his own counsel two verses later (7:12, 'I say, not the Lord'). Established; valuable as pre-Gospel witness.",
+          "scholarship": [
+            "Fee, NICNT 1 Corinthians, on 7:10-11",
+            "Hengel and Schwemer, on early dominical tradition"
+          ]
+        }
+      ]
+    },
+    "IV.5": {
+      "canon_title": "Almsgiving, prayer, and fasting",
+      "primary_ref": "Matt 6:1-18",
+      "parallels": [],
+      "references": [
+        {
+          "id": "IV.5-a",
+          "locus": "Matt 6:1-18",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "genre-convention",
+          "source": "the three pillars of Jewish piety -- almsgiving, prayer, fasting (Tobit 12:8); hypokritEs = the stage-actor",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "The section is structured on the three classic acts of Jewish righteousness -- almsgiving (tsedaqah), prayer, and fasting -- already triadically linked in Tobit 12:8. Jesus does not abolish them; he targets their performance for an audience. The repeated 'hypocrites' is theatrical vocabulary -- hypokritEs is the masked stage-actor -- framing public piety as playing to a crowd for the wage of being seen. Established.",
+          "scholarship": [
+            "Tobit 12:8",
+            "Betz, Hermeneia: Sermon on the Mount, on 6:1-18",
+            "BDAG s.v. hypokritEs"
+          ]
+        }
+      ]
+    },
+    "IV.6": {
+      "canon_title": "The Lord's Prayer",
+      "primary_ref": "Matt 6:9-13",
+      "parallels": [
+        "Luke 11:1-4",
+        "Didache 8:2"
+      ],
+      "references": [
+        {
+          "id": "IV.6-a",
+          "locus": "Matt 6:9-10",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "allusion",
+          "source": "the Kaddish (sanctify the great name; establish the kingdom); Ezekiel 36:23; cf. the Amidah",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "The opening petitions track the synagogue Kaddish almost step for step -- 'may his great name be magnified and SANCTIFIED... may he establish his KINGDOM' answers 'hallowed be your name, your kingdom come.' 'Hallowed be your name' rests on Ezekiel 36:23, 'I will sanctify my great name,' and the petitions sit within the Eighteen Benedictions (Amidah) tradition. The prayer is a distilled Jewish liturgy, not a departure from one. Established.",
+          "scholarship": [
+            "Betz, Hermeneia: Sermon on the Mount, on the Lord's Prayer",
+            "Fitzmyer, AYB Luke, on 11:1-4",
+            "on the Kaddish parallel: Jeremias, The Prayers of Jesus"
+          ]
+        },
+        {
+          "id": "IV.6-b",
+          "locus": "Matt 6:12",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "debt-release / Jubilee: Deuteronomy 15:1-2 (shemittah); Leviticus 25 (Jubilee); the aphesis word-group",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "probable",
+          "note": "'Forgive us our debts (opheilEmata) as we forgive our debtors' uses the debt-idiom for sin (Aramaic hoba = debt/sin) and trades on the sabbatical/Jubilee release of debts (Deut 15:1-2; Lev 25), the same aphesis ('release') word Jesus read from Isaiah 61 at Nazareth (II.9-a). Sin as debt, forgiveness as release -- the economic metaphor is load-bearing and should not be flattened to 'trespasses.' Probable.",
+          "scholarship": [
+            "Anderson, Sin: A History (on the debt-metaphor)",
+            "BDAG s.v. opheilEma, aphesis"
+          ]
+        },
+        {
+          "id": "IV.6-c",
+          "locus": "Didache 8:2",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical reception: Didache 8:2 (the liturgical form + doxology)",
+          "text_form": "n/a",
+          "direction": "later-dependent",
+          "confidence": "established",
+          "note": "The Didache (c. 100) gives the prayer in close-to-Matthean form WITH the doxology 'for yours is the power and the glory forever,' and directs praying it three times daily -- the earliest evidence of its fixed liturgical use. TEXT-CRITICAL datapoint: the doxology ('for thine is the kingdom, the power, and the glory') is absent from the oldest Matthean manuscripts and present in the Didache, indicating it entered the text from liturgical practice. Established.",
+          "scholarship": [
+            "Niederwimmer, Hermeneia: The Didache, on 8:2",
+            "Metzger, Textual Commentary, on Matt 6:13 (the doxology)"
+          ]
+        }
+      ]
+    },
+    "IV.7": {
+      "canon_title": "Treasure in heaven; serving two masters; anxiety",
+      "primary_ref": "Matt 6:19-34",
+      "parallels": [
+        "Luke 12:22-34",
+        "Luke 16:13",
+        "Thomas 47",
+        "Thomas 76",
+        "P.Oxy 5575"
+      ],
+      "references": [
+        {
+          "id": "IV.7-a",
+          "locus": "Matt 6:19-21",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "treasure in heaven: Tobit 4:8-9; Sirach 29:10-12; 4 Ezra 7:77; cf. Thomas 76",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "Storing 'treasure in heaven' is a settled Second Temple idea -- almsgiving and righteous deeds as capital deposited with God (Tobit 4:8-9; Sirach 29:10-12, 'lay up your treasure according to the commandments'; 4 Ezra 7:77). Thomas 76 carries the same image ('where no moth comes near to devour'). The metaphor is conventional; the demand to relocate one's heart there is the point. Established.",
+          "scholarship": [
+            "Tobit 4:8-9; Sirach 29:10-12",
+            "Betz, Hermeneia, on 6:19-21",
+            "DeConick, Original Gospel of Thomas, on 76"
+          ]
+        },
+        {
+          "id": "IV.7-b",
+          "locus": "Matt 6:24 // Luke 16:13",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical parallel: Thomas 47 (no one can serve two masters); mammon = Aramaic mamona (wealth)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "'No one can serve two masters... you cannot serve God and mammon' is independently attested at Thomas 47, which clusters it with the wineskins and patch sayings (cf. III.7-b). 'Mammon' is the Aramaic mamona, wealth personified as a rival lord. Established.",
+          "scholarship": [
+            "DeConick, Original Gospel of Thomas, on logion 47",
+            "Fitzmyer, AYB Luke, on 16:13"
+          ]
+        },
+        {
+          "id": "IV.7-c",
+          "locus": "Matt 6:27 // Luke 12:25",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical parallel: P.Oxy 5575 (the worry/anxiety saying)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "possible",
+          "note": "The worry-saying ('which of you by being anxious can add a cubit to his span?') is among the sayings preserved on P.Oxy 5575, a recently published papyrus carrying material that overlaps the Sermon and Thomas. FRESHNESS FLAG: the fragment is newly edited and its readings and relationships are still under scholarly assessment, so it is logged at possible rather than established; the witness should be re-checked against the editio princeps as the discussion settles.",
+          "scholarship": [
+            "P.Oxy 5575 (editio princeps, Oxyrhynchus Papyri vol. 87) -- verify readings at build time"
+          ]
+        },
+        {
+          "id": "IV.7-d",
+          "locus": "Matt 6:26-30",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "providential provision: Psalm 147:9 (God feeds the ravens); Job 38:41; cf. 1 Kgs 17 (ravens feed Elijah)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "The birds-and-lilies argument draws on the creation-providence theme: God feeds the ravens (Ps 147:9; Job 38:41) and clothes the wild grass. Luke's form specifies 'ravens' (12:24), sharpening the Psalm 147 allusion. The lesson moves from God's care for the lower creation to the disciple a fortiori. Probable.",
+          "scholarship": [
+            "Fitzmyer, AYB Luke, on 12:22-31",
+            "Betz, Hermeneia, on 6:25-34"
+          ]
+        }
+      ]
+    },
+    "IV.8": {
+      "canon_title": "Judging; the speck and the log",
+      "primary_ref": "Matt 7:1-5",
+      "parallels": [
+        "Luke 6:37-42",
+        "Thomas 26"
+      ],
+      "references": [
+        {
+          "id": "IV.8-a",
+          "locus": "Matt 7:1-5",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical parallel: Thomas 26 (speck and log); the measure-for-measure principle (middah k-neged middah; cf. m. Sotah 1:7)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "The speck-and-log saying is independently attested at Thomas 26. The framing maxim, 'with the measure you use it will be measured to you' (7:2), is the rabbinic principle of measure-for-measure (middah k-neged middah; m. Sotah 1:7) -- God's reciprocal justice answering human conduct in kind. Established.",
+          "scholarship": [
+            "DeConick, Original Gospel of Thomas, on logion 26",
+            "Davies-Allison, ICC Matthew I, on 7:1-5"
+          ]
+        }
+      ]
+    },
+    "IV.9": {
+      "canon_title": "Ask, seek, knock; the golden rule",
+      "primary_ref": "Matt 7:7-12",
+      "parallels": [
+        "Luke 11:9-13",
+        "Luke 6:31",
+        "Thomas 92",
+        "Thomas 94"
+      ],
+      "references": [
+        {
+          "id": "IV.9-a",
+          "locus": "Matt 7:7-8",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical parallel: Thomas 92, 94 (seek and find; knock and it opens)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "'Ask... seek... knock' is multiply attested at Thomas 92 ('seek and you will find') and 94 ('one who seeks will find; to one who knocks it will be opened'). The seek-and-find motif is a Thomasine signature, here shared with Q. Established.",
+          "scholarship": [
+            "DeConick, Original Gospel of Thomas, on 92, 94",
+            "Fitzmyer, AYB Luke, on 11:9-13"
+          ]
+        },
+        {
+          "id": "IV.9-b",
+          "locus": "Matt 7:12 // Luke 6:31",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "the golden rule: Leviticus 19:18; negative form in Tobit 4:15 and Hillel (b. Shabbat 31a)",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "established",
+          "note": "Jesus's 'do to others whatever you would have them do to you -- this is the law and the prophets' restates Leviticus 19:18 and matches Hillel's summary of the whole Torah (b. Shabbat 31a) and Tobit 4:15. DIVERGENCE worth flagging: the common form in the zeitgeist is NEGATIVE ('what you hate, do to no one' -- Tobit, Hillel); Jesus gives the POSITIVE form ('do...'), which demands initiative rather than mere restraint, while making the same whole-Torah-summary claim. Established.",
+          "scholarship": [
+            "b. Shabbat 31a (Hillel); Tobit 4:15",
+            "Davies-Allison, ICC Matthew I, on 7:12"
+          ]
+        }
+      ]
+    },
+    "IV.10": {
+      "canon_title": "The narrow gate; tree and fruit; two foundations",
+      "primary_ref": "Matt 7:13-27",
+      "parallels": [
+        "Luke 6:43-49",
+        "Luke 13:23-24",
+        "Thomas 45"
+      ],
+      "references": [
+        {
+          "id": "IV.10-a",
+          "locus": "Matt 7:13-14",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "the Two Ways: Deuteronomy 30:15-19; Jeremiah 21:8; Psalm 1; the Two-Spirits at Qumran (1QS 3:13-4:26); Didache 1-6; Barnabas 18-20",
+          "text_form": "n/a",
+          "direction": "available-convention",
+          "confidence": "established",
+          "note": "The two gates / two roads is the Two Ways tradition, a widespread catechetical form: the way of life and the way of death (Deut 30:15-19; Jer 21:8; Ps 1), elaborated at Qumran as the two spirits (1QS 3:13-4:26) and as the structuring frame of the Didache (1-6) and Barnabas (18-20). Jesus invokes a form his hearers already used to map moral choice. Established.",
+          "scholarship": [
+            "1QS 3:13-4:26",
+            "Niederwimmer, Hermeneia: The Didache, on the Two Ways",
+            "Betz, Hermeneia, on 7:13-14"
+          ]
+        },
+        {
+          "id": "IV.10-b",
+          "locus": "Matt 7:15-20",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "echo",
+          "source": "non-canonical parallel: Thomas 45 (grapes not from thorns; good treasure of the heart)",
+          "text_form": "n/a",
+          "direction": "shared-tradition",
+          "confidence": "established",
+          "note": "'By their fruits you will know them -- are grapes gathered from thorns?' is independently attested at Thomas 45, which likewise pairs the thorn/fruit image with the good-and-evil treasure of the heart. A sapiential test-by-fruit, shared across Q and Thomas. Established.",
+          "scholarship": [
+            "DeConick, Original Gospel of Thomas, on 45",
+            "Fitzmyer, AYB Luke, on 6:43-45"
+          ]
+        },
+        {
+          "id": "IV.10-c",
+          "locus": "Matt 7:24-27 // Luke 6:47-49",
+          "speaker": "Jesus",
+          "axis": "tradition",
+          "type": "motif",
+          "source": "wisdom-vs-folly building; the storm-tested structure (cf. Ezek 13:10-16; Prov 10:25; 12:7)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "probable",
+          "note": "The two builders -- house on rock vs. on sand, tested by flood and wind -- enacts the wisdom/folly contrast of Proverbs (the righteous stand, the wicked are swept off, Prov 10:25; 12:7) and recalls Ezekiel's wall of untempered whitewash that the storm brings down (Ezek 13:10-16). Building and storm as judgment-test. Probable.",
+          "scholarship": [
+            "Betz, Hermeneia: Sermon on the Mount, on 7:24-27",
+            "Davies-Allison, ICC Matthew I, ad loc."
+          ]
+        }
+      ]
     }
   }
 }
