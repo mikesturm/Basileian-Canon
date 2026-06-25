@@ -403,7 +403,11 @@
 
     els.chapterList.innerHTML = book.chapters.map(chapter => {
       const active = String(chapter) === String(state.chapter);
-      return `<button class="chip ${active ? "active" : ""}" data-chapter="${escapeAttr(chapter)}">${escapeHTML(chapterLabel(state.book, chapter))}</button>`;
+      const name = getSectionsInChapter(state.book, chapter)[0]?.title || "";
+      return `<button class="chip chip-wide ${active ? "active" : ""}" data-chapter="${escapeAttr(chapter)}">
+        <strong>${escapeHTML(chapterLabel(state.book, chapter))}</strong>
+        ${name ? `<span>${escapeHTML(name)}</span>` : ""}
+      </button>`;
     }).join("");
 
     els.chapterList.querySelectorAll("[data-chapter]").forEach(button => {
