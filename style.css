@@ -333,6 +333,35 @@ button {
   padding: 0.28rem 0.45rem;
 }
 
+.chip-row:has(.chip-wide) {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-height: 16rem;
+}
+
+.chip-wide {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border-radius: 13px;
+  padding: 0.5rem 0.7rem;
+}
+
+.chip-wide strong {
+  display: inline-block;
+  min-width: 1.6rem;
+}
+
+.chip-wide span {
+  margin-left: 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.chip-wide.active span {
+  color: #fff8ed;
+}
+
 .sidebar-goto-section {
   padding-bottom: 1rem;
   margin-bottom: 0.25rem;
