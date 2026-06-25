@@ -71,6 +71,9 @@
             "Fitzmyer, AYB Luke I-IX, on 2:41-52",
             "Brown, Birth of the Messiah, 471-496",
             "on the topos: Bultmann, History of the Synoptic Tradition, 300-301"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         },
         {
@@ -87,6 +90,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 2:49 (the ellipsis)",
             "BDAG s.v. ho (the articular-genitive idiom)"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         },
         {
@@ -99,7 +105,10 @@
           "text_form": "n/a",
           "direction": "available-convention",
           "confidence": "noted-and-discounted",
-          "note": "Frequently read as a resurrection-foreshadowing ('after three days they found him'). NOTED-AND-DISCOUNTED: the three-day interval here is most naturally the travel arithmetic (a day out, a day back, plus the searching), and Luke draws no resurrection inference. Included so the reader who has heard the typological reading sees it weighed and set aside rather than silently omitted."
+          "note": "Frequently read as a resurrection-foreshadowing ('after three days they found him'). NOTED-AND-DISCOUNTED: the three-day interval here is most naturally the travel arithmetic (a day out, a day back, plus the searching), and Luke draws no resurrection inference. Included so the reader who has heard the typological reading sees it weighed and set aside rather than silently omitted.",
+          "witnesses": [
+            "Luke"
+          ]
         }
       ]
     },
@@ -127,6 +136,9 @@
             "Marcus, AYB Mark 1-8, on 1:2-3",
             "Metzger, Textual Commentary, on Mark 1:2 (the 'Isaiah'/'prophets' variant)",
             "Collins, Hermeneia Mark, 135-137"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -144,6 +156,9 @@
             "Marcus, AYB Mark, on 1:3 and 'The Way' in Mark",
             "1QS 8:13-14 (Community Rule)",
             "Brooke, The Dead Sea Scrolls and the New Testament, ch. on Isaiah 40"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -160,6 +175,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 1:6",
             "Ohler, 'The Expectation of Elijah and the Presence of the Kingdom of God,' JBL 118 (1999)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -177,6 +195,9 @@
             "Josephus, Ant. 18.116-119",
             "Meier, A Marginal Jew, vol. 2, on John",
             "Taylor, The Immerser"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -205,6 +226,9 @@
             "Collins, Hermeneia Mark, on 1:10-11",
             "Marcus, AYB Mark, on the 'tearing' inclusio",
             "on bat qol: Str-B I.125-134 (with dating caution)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -223,7 +247,10 @@
             "Marcus, The Way of the Lord, 48-79",
             "Davies-Allison, ICC Matthew I, on 3:17"
           ],
-          "speaker_detail": "the heavenly voice"
+          "speaker_detail": "the heavenly voice",
+          "witnesses": [
+            "Mark"
+          ]
         },
         {
           "id": "I.2-c",
@@ -240,6 +267,9 @@
             "Marcus, AYB Mark, on 1:10 (survey of dove interpretations)",
             "Keener, The Gospel of Matthew, on 3:16",
             "Davies-Allison, ICC Matthew I, 331-334"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -256,6 +286,9 @@
           "scholarship": [
             "J. Z. Smith, Drudgery Divine (on the parallelomania hazard)",
             "Sandmel, 'Parallelomania,' JBL 81 (1962)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -283,6 +316,11 @@
             "Davies-Allison, ICC Matthew I, on 4:1-11",
             "Fitzmyer, AYB Luke I-IX, on 4:1-13",
             "Gerhardsson, The Testing of God's Son"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -300,6 +338,10 @@
             "Davies-Allison, ICC Matthew I, on 4:1-11",
             "France, NIGTC Matthew, on the Deut citations",
             "Kloppenborg, Excavating Q (on the Q temptation as a scribal composition)"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -317,6 +359,10 @@
             "11Q11 (11QApocryphal Psalms), cols. with Ps 91",
             "Davies-Allison, ICC Matthew I, on 4:6",
             "Kraus, 'Psalm 91 in 11Q11,' and Sanders DJD on 11Q11"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -333,6 +379,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 1:13",
             "Bauckham, 'Jesus and the Wild Animals,' in Jesus of Nazareth: Lord and Christ"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -360,6 +409,9 @@
           "scholarship": [
             "Brown, AYB John I-XII, on 1:29,36",
             "Keener, Gospel of John, 1:452-454"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -376,6 +428,9 @@
           "scholarship": [
             "Brown, AYB John, on 1:51",
             "Keener, Gospel of John, 1:488-490"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -392,6 +447,10 @@
           "scholarship": [
             "Marcus, AYB Mark, on 1:16-20",
             "France, NIGTC Matthew, on 4:19 (skeptical of the Jeremiah echo)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew"
           ]
         },
         {
@@ -408,7 +467,10 @@
           "scholarship": [
             "Fitzmyer, AYB Luke I-IX, on 5:1-11"
           ],
-          "speaker_detail": "Peter"
+          "speaker_detail": "Peter",
+          "witnesses": [
+            "Luke"
+          ]
         }
       ]
     },
@@ -431,6 +493,9 @@
           "scholarship": [
             "Brown, AYB John, on 2:1-11",
             "Keener, Gospel of John, 1:500-513"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -449,6 +514,9 @@
             "Hengel, 'The Interpretation of the Wine Miracle at Cana,' in The Glory of Christ in the NT",
             "Keener, Gospel of John, 1:497-500 (the case against direct dependence)",
             "on the parallelomania hazard: Smith, Drudgery Divine"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -465,6 +533,9 @@
           "scholarship": [
             "Brown, AYB John, on 2:6",
             "Keener, Gospel of John, 1:509-511"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -489,6 +560,9 @@
           "scholarship": [
             "Brown, AYB John, on 2:17",
             "Menken, Old Testament Quotations in the Fourth Gospel, ch. on Ps 69"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -505,6 +579,9 @@
           "scholarship": [
             "Brown, AYB John, on 2:16",
             "Keener, Gospel of John, 1:526-528"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -521,6 +598,9 @@
           "scholarship": [
             "Brown, AYB John, on 2:19-22",
             "Marcus, AYB Mark, on 14:58 (the temple-saying tradition)"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -544,6 +624,9 @@
           "scholarship": [
             "Brown, AYB John, on 3:5",
             "Keener, Gospel of John, 1:546-552"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -561,6 +644,9 @@
             "Brown, AYB John, on 3:14",
             "Wisdom 16:5-7",
             "Keener, Gospel of John, 1:562-565"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -577,6 +663,9 @@
           "scholarship": [
             "Brown, AYB John, on 3:16 (cautious)",
             "Levenson, The Death and Resurrection of the Beloved Son"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -600,6 +689,9 @@
           "scholarship": [
             "Brown, AYB John, on 3:29",
             "Keener, Gospel of John, 1:579-581"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -624,6 +716,9 @@
             "Alter, The Art of Biblical Narrative, ch. 3 ('the type-scene')",
             "Brown, AYB John, on 4:1-42",
             "Keener, Gospel of John, 1:599-602"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -640,6 +735,9 @@
           "scholarship": [
             "Brown, AYB John, on 4:10-14",
             "Menken, OT Quotations in the Fourth Gospel"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -657,7 +755,10 @@
             "Brown, AYB John, on 4:20",
             "Pummer, The Samaritans: A Profile"
           ],
-          "speaker_detail": "the Samaritan woman"
+          "speaker_detail": "the Samaritan woman",
+          "witnesses": [
+            "John"
+          ]
         },
         {
           "id": "II.6-d",
@@ -675,7 +776,10 @@
             "Pummer, The Samaritans",
             "Meeks, The Prophet-King"
           ],
-          "speaker_detail": "the Samaritan woman"
+          "speaker_detail": "the Samaritan woman",
+          "witnesses": [
+            "John"
+          ]
         }
       ]
     },
@@ -698,6 +802,9 @@
           "scholarship": [
             "Brown, AYB John, on 4:46-54",
             "Fitzmyer, AYB Luke, on 7:1-10"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -714,6 +821,11 @@
           "scholarship": [
             "Meier, A Marginal Jew, on multiple attestation",
             "DeConick, The Original Gospel of Thomas, on logion 31"
+          ],
+          "witnesses": [
+            "John",
+            "P.Oxy",
+            "Thomas"
           ]
         }
       ]
@@ -740,6 +852,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew I, on 4:14-16",
             "Menken, Matthew's Bible"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -756,6 +871,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 1:14-15",
             "Beasley-Murray, Jesus and the Kingdom of God"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -781,6 +899,9 @@
             "Fitzmyer, AYB Luke I-IX, on 4:16-30",
             "11Q13 (11QMelchizedek)",
             "Sanders, 'From Isaiah 61 to Luke 4,' in Luke and Scripture"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         },
         {
@@ -797,6 +918,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 4:23",
             "DeConick, Original Gospel of Thomas, on logion 31"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         },
         {
@@ -813,6 +937,11 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on logion 31",
             "Plisch, The Gospel of Thomas, on 31"
+          ],
+          "witnesses": [
+            "Luke",
+            "P.Oxy",
+            "Thomas"
           ]
         },
         {
@@ -829,6 +958,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 4:25-27",
             "Brodie, 'Towards Unravelling Luke's Use of the Old Testament: Luke 7:11-17 and 1 Kings 17'"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -855,6 +987,9 @@
             "Josephus, Ant. 8.46-49",
             "Marcus, AYB Mark, on 1:21-28",
             "Twelftree, Jesus the Exorcist"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -872,7 +1007,10 @@
             "Marcus, AYB Mark, on 1:24",
             "Collins, Hermeneia Mark, on 1:24"
           ],
-          "speaker_detail": "the unclean spirit"
+          "speaker_detail": "the unclean spirit",
+          "witnesses": [
+            "Mark"
+          ]
         }
       ]
     },
@@ -898,6 +1036,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 8:17",
             "Menken, Matthew's Bible, ch. on Isa 53:4"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -922,6 +1063,9 @@
           "note": "Jesus withdraws before dawn to a deserted place (erEmos topos) to pray -- a recurrent Markan habit that draws lightly on the prophetic-solitude topos (Elijah to Horeb). This pericope is otherwise thin intertextually; logged at possible so the section's coverage stays honest rather than padded.",
           "scholarship": [
             "Marcus, AYB Mark, on 1:35"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -948,6 +1092,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 1:44",
             "Milgrom, Leviticus 1-16 (AYB), on the metsora rite"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -964,6 +1111,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 1:41",
             "Brodie on Luke's Elijah-Elisha use (analogous)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -991,7 +1141,10 @@
             "Marcus, AYB Mark, on 2:7",
             "Collins, Hermeneia Mark, on 2:1-12"
           ],
-          "speaker_detail": "the scribes"
+          "speaker_detail": "the scribes",
+          "witnesses": [
+            "Mark"
+          ]
         },
         {
           "id": "III.5-b",
@@ -1007,6 +1160,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 2:10 and 'Son of Man'",
             "Casey, The Solution to the Son of Man Problem (the bar enasha case)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -1022,6 +1178,9 @@
           "note": "The story's logic -- the visible cure validating the invisible pardon -- rests on the ancient pairing of forgiveness and healing, classically Psalm 103:3, 'who forgives all your iniquity, who heals all your diseases' (cf. Ps 41:4, where sin and sickness are linked). The healing is offered as the demonstrable sign of the harder, unseen forgiveness. Probable.",
           "scholarship": [
             "Marcus, AYB Mark, on 2:9-12"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -1049,6 +1208,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 9:13",
             "Menken, Matthew's Bible"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1064,6 +1226,11 @@
           "note": "'Those who are strong have no need of a physician, but those who are sick' is the floating physician proverb, met already at Nazareth (II.9-b). Jesus turns the commonplace into a defense of his mission to the 'sick.' Probable as ambient proverb.",
           "scholarship": [
             "Marcus, AYB Mark, on 2:17"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -1080,6 +1247,10 @@
           "scholarship": [
             "Kruger, on P.Oxy 1224",
             "Lührmann, Fragmente apokryph gewordener Evangelien"
+          ],
+          "witnesses": [
+            "P.Oxy 1224",
+            "P.Oxy"
           ]
         },
         {
@@ -1096,6 +1267,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 2:15-16",
             "Sanders, Jesus and Judaism, on 'sinners'"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -1122,6 +1296,11 @@
           "note": "'Can the wedding guests fast while the bridegroom is with them?' draws on the covenant-bridegroom image (YHWH wedding Israel, Hos 2; Isa 62:5), threaded through the canon at II.5-a and II.6. 'The days will come when the bridegroom is taken away from them' (2:20) is Mark's first veiled passion-hint, smuggled inside a wedding metaphor. Probable.",
           "scholarship": [
             "Marcus, AYB Mark, on 2:19-20"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -1139,6 +1318,10 @@
             "DeConick, The Original Gospel of Thomas, on logion 47",
             "Plisch, The Gospel of Thomas, on 47",
             "Marcus, AYB Mark, on 2:21-22"
+          ],
+          "witnesses": [
+            "Mark",
+            "Thomas"
           ]
         }
       ]
@@ -1165,6 +1348,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 2:25-26",
             "Collins, Hermeneia Mark, on 2:23-28"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -1181,6 +1367,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 2:26 (the Abiathar problem)",
             "Metzger, Textual Commentary, on Mark 2:26"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -1197,6 +1386,30 @@
           "scholarship": [
             "Mekhilta de-Rabbi Ishmael on Exod 31:14",
             "Marcus, AYB Mark, on 2:27 (with the dating caveat)"
+          ],
+          "witnesses": [
+            "Mark"
+          ]
+        },
+        {
+          "id": "III.8-d",
+          "locus": "Matt 12:5-6",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Numbers 28:9-10 (the Sabbath burnt offerings) + Leviticus 24:8 (showbread set out each Sabbath); the principle that temple service overrides the Sabbath",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Matthean special material (absent from Mark and Luke), which adds a SECOND scriptural argument to the David precedent of III.8-a. The citation formula 'have you not read IN THE LAW' points to the Torah's own requirement that the priests perform sacrificial work on the Sabbath and remain guiltless: the Sabbath burnt offerings commanded in Numbers 28:9-10, and the weekly arrangement of the bread of the Presence 'every sabbath' (Lev 24:8, tying back to the showbread of III.8-a). The unstated rule -- later formalized by the rabbis as 'the temple service overrides the Sabbath' (avodah doheh Shabbat) -- is that a higher obligation suspends the Sabbath rest. Jesus then escalates with the supersession formula 'something GREATER than the temple is here' (12:6), matching 'greater than Solomon / than Jonah' (V.10): if the temple service licenses Sabbath labor, how much more the one greater than the temple. Verse 12:7 then repeats Hosea 6:6 (cross-ref III.6-a), Matthew's second use of it. The same a fortiori reasoning drives the circumcision-on-the-Sabbath argument of John 7:22-23. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew II, on 12:5-7",
+            "Num 28:9-10; Lev 24:8",
+            "on the principle: m. Shabbat; b. Shabbat 132b",
+            "Hos 6:6 (cross-ref III.6-a)"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -1224,6 +1437,11 @@
             "1 Macc 2:29-41; CD 11:13-17",
             "Marcus, AYB Mark, on 3:4",
             "Doering, Schabbat (on Second Temple Sabbath halakhah)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -1240,6 +1458,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 3:5",
             "BDAG s.v. pOrOsis"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -1265,6 +1486,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 12:18-21",
             "Menken, Matthew's Bible, ch. on Isa 42"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -1290,6 +1514,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 3:14",
             "Sanders, Jesus and Judaism, on the Twelve and the restoration of Israel"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -1305,6 +1532,9 @@
           "note": "'He went up the mountain' stages the appointment on the mountain of revelation (Moses-Sinai overtones), and the renaming -- Simon to Peter, the sons of Zebedee to Boanerges -- follows the biblical pattern in which a new name marks a new vocation (Abram to Abraham, Gen 17:5; Jacob to Israel, Gen 32:28). Probable.",
           "scholarship": [
             "Marcus, AYB Mark, on 3:13-17"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -1331,6 +1561,9 @@
           "scholarship": [
             "Betz, Hermeneia: The Sermon on the Mount, on 5:3-12",
             "Davies-Allison, ICC Matthew I, on the Beatitudes"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1347,6 +1580,10 @@
           "scholarship": [
             "Puech, on 4Q525 (4QBeatitudes)",
             "Fitzmyer, AYB Luke, on 6:20-26"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -1363,6 +1600,11 @@
           "scholarship": [
             "DeConick, The Original Gospel of Thomas, on logion 54",
             "Plisch, The Gospel of Thomas, on 54"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke",
+            "Thomas"
           ]
         }
       ]
@@ -1390,6 +1632,10 @@
           "scholarship": [
             "Betz, Hermeneia: Sermon on the Mount, on 5:13-16",
             "DeConick, Original Gospel of Thomas, on 32-33"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
           ]
         }
       ]
@@ -1416,6 +1662,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew I, on 5:17-20",
             "Betz, Hermeneia: Sermon on the Mount, on 5:17-20"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1432,6 +1681,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew I, on 5:21-26",
             "on Gehenna: Milgrom / Marcus s.v."
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1447,6 +1699,9 @@
           "note": "Antithesis 2. Cites the Decalogue on adultery and relocates the offense to the lustful look -- the act traced to the intention. The hyperbolic 'tear out the eye' belongs to the same interiorizing move. Established.",
           "scholarship": [
             "Davies-Allison, ICC Matthew I, on 5:27-30"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1464,6 +1719,9 @@
             "Josephus, War 2.135",
             "Betz, Hermeneia: Sermon on the Mount, on 5:33-37",
             "Davies-Allison, ICC Matthew I, ad loc."
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1480,6 +1738,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew I, on 5:38-42",
             "Betz, Hermeneia, ad loc."
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1497,6 +1758,9 @@
             "1QS 1:3-4, 9-10 (Community Rule)",
             "Davies-Allison, ICC Matthew I, on 5:43-48",
             "Betz, Hermeneia, ad loc."
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -1526,6 +1790,10 @@
             "CD 4:20-5:2 (Damascus Document)",
             "Marcus, AYB Mark, on 10:2-12",
             "Instone-Brewer, Divorce and Remarriage in the Bible"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Mark"
           ]
         },
         {
@@ -1543,7 +1811,10 @@
             "Fee, NICNT 1 Corinthians, on 7:10-11",
             "Hengel and Schwemer, on early dominical tradition"
           ],
-          "speaker_detail": "Paul (citing the Lord)"
+          "speaker_detail": "Paul (citing the Lord)",
+          "witnesses": [
+            "1 Corinthians"
+          ]
         }
       ]
     },
@@ -1567,6 +1838,9 @@
             "Tobit 12:8",
             "Betz, Hermeneia: Sermon on the Mount, on 6:1-18",
             "BDAG s.v. hypokritEs"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -1594,6 +1868,10 @@
             "Betz, Hermeneia: Sermon on the Mount, on the Lord's Prayer",
             "Fitzmyer, AYB Luke, on 11:1-4",
             "on the Kaddish parallel: Jeremias, The Prayers of Jesus"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -1610,6 +1888,10 @@
           "scholarship": [
             "Anderson, Sin: A History (on the debt-metaphor)",
             "BDAG s.v. opheilEma, aphesis"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -1626,6 +1908,9 @@
           "scholarship": [
             "Niederwimmer, Hermeneia: The Didache, on 8:2",
             "Metzger, Textual Commentary, on Matt 6:13 (the doxology)"
+          ],
+          "witnesses": [
+            "Didache"
           ]
         }
       ]
@@ -1656,6 +1941,10 @@
             "Tobit 4:8-9; Sirach 29:10-12",
             "Betz, Hermeneia, on 6:19-21",
             "DeConick, Original Gospel of Thomas, on 76"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
           ]
         },
         {
@@ -1672,6 +1961,11 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on logion 47",
             "Fitzmyer, AYB Luke, on 16:13"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke",
+            "Thomas"
           ]
         },
         {
@@ -1687,6 +1981,12 @@
           "note": "The worry-saying ('which of you by being anxious can add a cubit to his span?') is among the sayings preserved on P.Oxy 5575, a recently published papyrus carrying material that overlaps the Sermon and Thomas. FRESHNESS FLAG: the fragment is newly edited and its readings and relationships are still under scholarly assessment, so it is logged at possible rather than established; the witness should be re-checked against the editio princeps as the discussion settles.",
           "scholarship": [
             "P.Oxy 5575 (editio princeps, Oxyrhynchus Papyri vol. 87) -- verify readings at build time"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke",
+            "P.Oxy 5575",
+            "P.Oxy"
           ]
         },
         {
@@ -1703,6 +2003,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 12:22-31",
             "Betz, Hermeneia, on 6:25-34"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -1729,6 +2032,10 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on logion 26",
             "Davies-Allison, ICC Matthew I, on 7:1-5"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
           ]
         }
       ]
@@ -1757,6 +2064,10 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 92, 94",
             "Fitzmyer, AYB Luke, on 11:9-13"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
           ]
         },
         {
@@ -1773,6 +2084,10 @@
           "scholarship": [
             "b. Shabbat 31a (Hillel); Tobit 4:15",
             "Davies-Allison, ICC Matthew I, on 7:12"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -1801,6 +2116,10 @@
             "1QS 3:13-4:26",
             "Niederwimmer, Hermeneia: The Didache, on the Two Ways",
             "Betz, Hermeneia, on 7:13-14"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Didache"
           ]
         },
         {
@@ -1817,6 +2136,10 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 45",
             "Fitzmyer, AYB Luke, on 6:43-45"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
           ]
         },
         {
@@ -1833,6 +2156,10 @@
           "scholarship": [
             "Betz, Hermeneia: Sermon on the Mount, on 7:24-27",
             "Davies-Allison, ICC Matthew I, ad loc."
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -1859,6 +2186,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 8:11-12",
             "on the eschatological banquet: Isa 25:6-8 with Marcus / Hengel"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1875,6 +2205,10 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 8:5-13",
             "Fitzmyer, AYB Luke, on 7:1-10"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -1898,6 +2232,9 @@
           "scholarship": [
             "Brodie, 'Towards Unravelling Luke's Use of the OT: Luke 7:11-17 and 1 Kings 17:17-24'",
             "Fitzmyer, AYB Luke, on 7:11-17"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -1923,6 +2260,10 @@
           "scholarship": [
             "4Q521 (Messianic Apocalypse); Collins, The Scepter and the Star, on 4Q521",
             "Davies-Allison, ICC Matthew II, on 11:5"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -1939,6 +2280,10 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 11:10",
             "Marcus, AYB Mark, on 1:2 (the relocation)"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -1954,6 +2299,9 @@
           "note": "'He is Elijah who is to come' makes explicit the identification staged by John's wardrobe at I.1-c: John is the Elijah of Malachi 4:5-6 who precedes the Day of YHWH. Established.",
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 11:14"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -1970,6 +2318,10 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 7:31-35",
             "Suggs, Wisdom, Christology, and Law in Matthew's Gospel"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -1995,6 +2347,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 11:20-24",
             "Fitzmyer, AYB Luke, on 10:13-15"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -2021,6 +2376,9 @@
             "Sirach 51:23-27; Jer 6:16",
             "Davies-Allison, ICC Matthew II, on 11:28-30",
             "Suggs, Wisdom, Christology, and Law in Matthew"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -2037,6 +2395,10 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 10:21-22",
             "Davies-Allison, ICC Matthew II, on 11:25-27"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -2061,6 +2423,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 7:36-50",
             "on the anointing traditions: Brown, AYB John, on 12:1-8"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -2094,6 +2459,11 @@
           "scholarship": [
             "Marcus, AYB Mark, on 3:27",
             "Collins, Hermeneia Mark, on 3:22-27"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -2110,6 +2480,10 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 11:20",
             "Davies-Allison, ICC Matthew II, on 12:28"
+          ],
+          "witnesses": [
+            "Luke",
+            "Matthew"
           ]
         },
         {
@@ -2127,7 +2501,12 @@
             "Marcus, AYB Mark, on 3:22 (Beelzebul)",
             "2 Kings 1:2-6"
           ],
-          "speaker_detail": "the scribes (opponents)"
+          "speaker_detail": "the scribes (opponents)",
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
+          ]
         }
       ]
     },
@@ -2152,6 +2531,10 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 12:43-45",
             "on Second Temple demonology: Wright, The Origins of Evil Spirits"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -2177,6 +2560,10 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 12:38-42",
             "Fitzmyer, AYB Luke, on 11:29-32"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -2192,6 +2579,10 @@
           "note": "The queen of Sheba who came for Solomon's wisdom (1 Kgs 10:1-13) and the Ninevites who repented at Jonah's word (Jonah 3) are summoned as witnesses who will 'rise in the judgment' and condemn the present generation -- 'something greater than Solomon / than Jonah is here.' OT figures recruited as eschatological prosecutors. Established.",
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 12:41-42"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -2219,6 +2610,10 @@
           "scholarship": [
             "DeConick, The Original Gospel of Thomas, on logion 99",
             "Marcus, AYB Mark, on 3:31-35"
+          ],
+          "witnesses": [
+            "Mark",
+            "Thomas"
           ]
         }
       ]
@@ -2247,6 +2642,11 @@
             "Marcus, AYB Mark, on 4:10-12",
             "Chilton, A Galilean Rabbi and His Bible (the Targum link)",
             "Evans, To See and Not Perceive (Isa 6:9-10 in early Judaism and the Gospels)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -2263,6 +2663,10 @@
           "scholarship": [
             "DeConick, The Original Gospel of Thomas, on logion 9",
             "Jeremias, The Parables of Jesus (on the secondary interpretation)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Thomas"
           ]
         },
         {
@@ -2279,6 +2683,9 @@
           "scholarship": [
             "Jeremias, The Parables of Jesus, on sowing practice",
             "Marcus, AYB Mark, on 4:3-8"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2307,6 +2714,12 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 5-6, 33",
             "P.Oxy 654.27-31 (Greek Thomas)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Luke",
+            "P.Oxy",
+            "Thomas"
           ]
         },
         {
@@ -2323,6 +2736,11 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on logion 41",
             "Marcus, AYB Mark, on 4:24-25"
+          ],
+          "witnesses": [
+            "Mark",
+            "Luke",
+            "Thomas"
           ]
         }
       ]
@@ -2348,6 +2766,10 @@
           "scholarship": [
             "Marcus, AYB Mark, on 4:26-29",
             "Joel 3:13; Rev 14:15 (same image)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Thomas"
           ]
         }
       ]
@@ -2376,6 +2798,10 @@
             "Marcus, AYB Mark, on 4:30-32",
             "DeConick, Original Gospel of Thomas, on 20",
             "Scott, Hear Then the Parable, on the mustard-seed subversion"
+          ],
+          "witnesses": [
+            "Mark",
+            "Thomas"
           ]
         }
       ]
@@ -2403,6 +2829,11 @@
             "Davies-Allison, ICC Matthew II, on 13:33",
             "DeConick, Original Gospel of Thomas, on 96",
             "Scott, Hear Then the Parable, on the leaven"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke",
+            "Thomas"
           ]
         }
       ]
@@ -2428,6 +2859,30 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 57",
             "Davies-Allison, ICC Matthew II, on 13:24-30, 36-43"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
+          ]
+        },
+        {
+          "id": "VI.6-b",
+          "locus": "Matt 13:34-35",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Psalm 78:2 ('I will open my mouth in parables, I will utter things hidden from the foundation')",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Matthean FORMULA QUOTATION (Reflexionszitat), absent from Mark and Luke. After the tares, Matthew's editorial summary -- 'all this Jesus spoke in parables... to fulfill what was spoken by the prophet' -- quotes Psalm 78:2, 'I will open my mouth in parables, I will utter what has been hidden since the foundation of the world.' Crucially, this supplies a rationale for parabolic speech that COMPLEMENTS and contrasts Mark's: where Mark's Isaiah 6:9-10 (VI.1-a) casts parables as judicial concealment ('so that they may not understand'), Matthew's Psalm 78:2 casts them as REVELATION of things hidden since creation. Psalm 78 is a didactic history-psalm; Matthew (whose text reflects the LXX 'I will utter problEmata,' riddles) makes Jesus the unveiler of hidden things. Concealment vs. disclosure, side by side. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew II, on 13:34-35",
+            "Ps 78:2",
+            "cross-ref VI.1-a (the contrasting Isa 6 rationale)"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -2454,6 +2909,10 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 76, 109",
             "Davies-Allison, ICC Matthew II, on 13:44-46"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
           ]
         }
       ]
@@ -2479,6 +2938,10 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on logion 8",
             "Davies-Allison, ICC Matthew II, on 13:47-50"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
           ]
         }
       ]
@@ -2506,6 +2969,11 @@
             "Marcus, AYB Mark, on 4:35-41",
             "Ps 107:23-30; Job 26:12",
             "on chaoskampf: Day, God's Conflict with the Dragon and the Sea"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -2534,7 +3002,10 @@
             "Myers, Binding the Strong Man (the political reading)",
             "Marcus, AYB Mark, on 5:1-20 (cautious)"
           ],
-          "speaker_detail": "the demons (Legion)"
+          "speaker_detail": "the demons (Legion)",
+          "witnesses": [
+            "Mark"
+          ]
         },
         {
           "id": "VII.2-b",
@@ -2550,6 +3021,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 5:1-13",
             "on the abyss: Luke 8:31 with Fitzmyer AYB"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2576,6 +3050,11 @@
           "scholarship": [
             "Marcus, AYB Mark, on 5:25-34",
             "Lev 15:25-30 with Milgrom, Leviticus (AYB)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -2592,6 +3071,11 @@
           "scholarship": [
             "Marcus, AYB Mark, on 5:35-43",
             "2 Kings 4:18-37 (Elisha and the Shunammite's son)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -2619,6 +3103,11 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 31",
             "Marcus, AYB Mark, on 6:1-6"
+          ],
+          "witnesses": [
+            "Mark",
+            "P.Oxy",
+            "Thomas"
           ]
         }
       ]
@@ -2646,6 +3135,11 @@
           "scholarship": [
             "Fee, NICNT 1 Corinthians, on 9:14",
             "Davies-Allison, ICC Matthew II, on 10:10"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke",
+            "1 Corinthians"
           ]
         }
       ]
@@ -2669,6 +3163,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 10:1 (the 70/72 variant)",
             "Metzger, Textual Commentary, on Luke 10:1"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         },
         {
@@ -2685,6 +3182,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 10:18-19",
             "Ps 91:13; Isa 14:12"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -2712,6 +3212,9 @@
             "Marcus, AYB Mark, on 6:14-29",
             "Josephus, Ant. 18.116-119",
             "on the Esther echo: Aus, Water into Wine and the Beheading of John the Baptist"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2740,6 +3243,9 @@
             "Marcus, AYB Mark, on 6:30-44",
             "2 Kings 4:42-44; Ps 78:24-25",
             "Brown, AYB John, on 6:1-15"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2767,6 +3273,9 @@
             "Marcus, AYB Mark, on 6:45-52 and 'the epiphany on the sea'",
             "Job 9:8; Exod 33:19-23",
             "Brown, AYB John, on 6:16-21"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2792,6 +3301,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 6:56",
             "Num 15:38-39; Mal 4:2"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2818,7 +3330,10 @@
             "Borgen, Bread from Heaven (the homiletic structure)",
             "Menken, OT Quotations in the Fourth Gospel, on 6:31"
           ],
-          "speaker_detail": "the crowd"
+          "speaker_detail": "the crowd",
+          "witnesses": [
+            "John"
+          ]
         },
         {
           "id": "VII.11-b",
@@ -2835,6 +3350,9 @@
             "Brown, AYB John, on 6:35-58",
             "Prov 9:5; Sir 24:19-21",
             "Borgen, Bread from Heaven"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -2861,6 +3379,10 @@
             "Marcus, AYB Mark, on 7:6-7",
             "Menken on the Isa 29:13 form",
             "Metzger, Textual Commentary, ad loc."
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew"
           ]
         },
         {
@@ -2877,6 +3399,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 7:19 (the crux of the parenthesis)",
             "on Corban: m. Nedarim; Marcus ad loc."
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2902,6 +3427,10 @@
           "scholarship": [
             "Marcus, AYB Mark, on 7:24-30",
             "Davies-Allison, ICC Matthew II, on 15:21-28"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew"
           ]
         }
       ]
@@ -2927,6 +3456,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 7:31-37",
             "Isa 35:5-6; Gen 1:31"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2952,6 +3484,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 8:1-10",
             "on the two feedings: Mark 8:19-20"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2977,6 +3512,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 8:11-21",
             "cross-ref V.10, VI.5-a"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -2999,6 +3537,9 @@
           "note": "The cure of blindness invokes the same Isaianic restoration cluster as V.3-a / VII.14 (Isa 35:5; 29:18; 42:7). Distinctive to Mark is the TWO-STAGE healing (men like trees, then clear sight) -- unique in the Gospels and placed deliberately: it mirrors the disciples' half-seeing, bridging their incomprehension (8:21) to Peter's partial confession that follows (8:29). The structure is the message. Probable.",
           "scholarship": [
             "Marcus, AYB Mark, on 8:22-26 (the two-stage healing and Markan structure)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -3027,7 +3568,12 @@
             "Marcus, AYB Mark, on 8:27-30",
             "Collins, The Scepter and the Star (messianic expectations)"
           ],
-          "speaker_detail": "the crowd / Peter"
+          "speaker_detail": "the crowd / Peter",
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
+          ]
         },
         {
           "id": "VIII.1-b",
@@ -3043,6 +3589,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 16:18-19",
             "Isa 22:22; on binding/loosing: Str-B with dating caution"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -3069,6 +3618,11 @@
           "scholarship": [
             "Marcus, AYB Mark, on 8:31 and The Way of the Lord",
             "Ps 118:22; Hos 6:2"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         },
         {
@@ -3085,6 +3639,11 @@
           "scholarship": [
             "Marcus, AYB Mark, on 8:34-9:1",
             "Dan 7:13-14; Ps 49:7-9"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -3112,6 +3671,9 @@
             "Marcus, AYB Mark, on 9:2-8",
             "Exod 24; 34:29-35",
             "on Moses/Elijah: 1 Kgs 19; Mal 4:4-5"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -3130,7 +3692,10 @@
             "Deut 18:15; Ps 2:7; Isa 42:1",
             "Davies-Allison, ICC Matthew II, on 17:5"
           ],
-          "speaker_detail": "the heavenly voice"
+          "speaker_detail": "the heavenly voice",
+          "witnesses": [
+            "Mark"
+          ]
         },
         {
           "id": "VIII.3-c",
@@ -3146,6 +3711,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 9:11-13",
             "Mal 4:5-6"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -3172,6 +3740,11 @@
           "scholarship": [
             "Marcus, AYB Mark, on 9:19",
             "Deut 32:5,20"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -3198,6 +3771,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 9:31",
             "Isa 53:6,12 LXX"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -3221,6 +3797,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 17:24-27",
             "Exod 30:11-16; m. Shekalim"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -3247,6 +3826,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 9:33-37",
             "on the shaliach principle: m. Berakhot 5:5 (with dating caution)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -3272,6 +3854,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 9:38-41",
             "Num 11:26-29"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -3297,6 +3882,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 9:42-50",
             "Isa 66:24"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -3313,6 +3901,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 9:49-50",
             "Lev 2:13; Num 18:19"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -3341,6 +3932,11 @@
             "Davies-Allison, ICC Matthew II, on 18:12-14",
             "Ezek 34",
             "DeConick, Original Gospel of Thomas, on 107"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke",
+            "Thomas"
           ]
         },
         {
@@ -3357,6 +3953,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 18:21-22",
             "Gen 4:24"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -3373,6 +3972,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 18:15-17",
             "1QS 5:24-6:1; CD 9:2-8; Lev 19:17"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -3396,6 +3998,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew II, on 18:23-35",
             "Anderson, Sin: A History (debt-metaphor)"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -3421,6 +4026,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 9:51-62",
             "2 Kgs 1; 1 Kgs 19:19-21; Isa 50:7"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3445,7 +4053,10 @@
             "Fitzmyer, AYB Luke, on 10:25-28",
             "Deut 6:5; Lev 19:18"
           ],
-          "speaker_detail": "the lawyer"
+          "speaker_detail": "the lawyer",
+          "witnesses": [
+            "Luke"
+          ]
         },
         {
           "id": "IX.2-b",
@@ -3461,6 +4072,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 10:29-37",
             "2 Chr 28:15 (the parallel proposed by Spencer and others)"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3483,6 +4097,9 @@
           "note": "Mary 'sat at the Lord's feet and listened' -- the technical posture of the disciple under a teacher (Paul was schooled 'at the feet of Gamaliel,' Acts 22:3). That a WOMAN takes the disciple's place, commended over domestic service, is the quiet reversal. Otherwise a domestic scene, light on allusion. Probable.",
           "scholarship": [
             "Fitzmyer, AYB Luke, on 10:38-42"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3506,6 +4123,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 11:5-8",
             "on anaideia: BDAG s.v."
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3532,6 +4152,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 11:47-51",
             "cross-ref Part X / Matt 23:35"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3556,6 +4179,9 @@
           "note": "A cluster of sayings already in the apparatus: 'nothing covered that will not be revealed' (cf. VI.2-a / Thomas 5-6); confessing-and-being-confessed before the angels invokes the Danielic son of man (Dan 7); and the unforgivable word against the Spirit cross-refs the Beelzebul charge (V.8). The sparrows-and-hairs assurance is sapiential providence (cf. IV.7-d). Probable as cross-references.",
           "scholarship": [
             "Fitzmyer, AYB Luke, on 12:1-12"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3583,6 +4209,12 @@
             "DeConick, Original Gospel of Thomas, on 63",
             "Sirach 11:18-19",
             "P.Oxy 5575 (verify at build time)"
+          ],
+          "witnesses": [
+            "Luke",
+            "P.Oxy 5575",
+            "P.Oxy",
+            "Thomas"
           ]
         }
       ]
@@ -3608,6 +4240,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 12:35-40",
             "Exod 12:11"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3631,6 +4266,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 12:51-53",
             "Mic 7:6"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3654,6 +4292,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 13:1-9",
             "Isa 5:1-7; Jer 8:13"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3677,6 +4318,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 13:10-17",
             "CD 11:13-17; cross-ref III.9-a"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3702,6 +4346,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 13:22-30",
             "Ps 6:8; cross-ref V.1-a"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         },
         {
@@ -3719,6 +4366,10 @@
             "Davies-Allison, ICC Matthew III, on 23:37-39",
             "Fitzmyer, AYB Luke, on 13:34-35",
             "Ps 118:26; Deut 32:11; Jer 22:5"
+          ],
+          "witnesses": [
+            "Luke",
+            "Matthew"
           ]
         }
       ]
@@ -3745,6 +4396,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 14:7-11",
             "Prov 25:6-7"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         },
         {
@@ -3762,6 +4416,11 @@
             "DeConick, Original Gospel of Thomas, on 64",
             "1QSa 2:5-22; cross-ref Lev 21:17-23",
             "Fitzmyer, AYB Luke, on 14:15-24"
+          ],
+          "witnesses": [
+            "Luke",
+            "Matthew",
+            "Thomas"
           ]
         }
       ]
@@ -3790,6 +4449,10 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 55, 101",
             "Deut 33:9"
+          ],
+          "witnesses": [
+            "Luke",
+            "Thomas"
           ]
         }
       ]
@@ -3813,6 +4476,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 15:11-32",
             "Bailey, Poet and Peasant (the cultural reading)"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3836,6 +4502,10 @@
           "scholarship": [
             "cross-ref IV.7-b",
             "Fitzmyer, AYB Luke, on 16:13"
+          ],
+          "witnesses": [
+            "Luke",
+            "Thomas"
           ]
         },
         {
@@ -3853,6 +4523,9 @@
             "Hock, 'Lazarus and Micyllus: Greco-Roman Backgrounds to Luke 16:19-31,' JBL 106 (1987)",
             "Bauckham, 'The Rich Man and Lazarus: The Parable and the Parallels,' NTS 37 (1991)",
             "Fitzmyer, AYB Luke, on 16:19-31"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3876,6 +4549,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 17:11-19",
             "2 Kgs 5; Lev 13-14"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3903,6 +4579,10 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 3, 113",
             "Fitzmyer, AYB Luke, on 17:20-21 (the entos crux)"
+          ],
+          "witnesses": [
+            "Luke",
+            "Thomas"
           ]
         },
         {
@@ -3919,6 +4599,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 17:26-37",
             "Gen 7; 19:24-26"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3942,6 +4625,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 18:1-14",
             "Sir 35:14-19; Ps 51"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -3965,6 +4651,9 @@
           "scholarship": [
             "Brown, AYB John, on 7:37-39",
             "on the Sukkot libation: m. Sukkah 4-5"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -3988,6 +4677,9 @@
           "scholarship": [
             "Brown, AYB John, on 8:12",
             "m. Sukkah 5:2-4 (the illumination)"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -4004,6 +4696,9 @@
           "scholarship": [
             "Brown, AYB John, on 8:58 and Appendix IV (the 'I AM' sayings)",
             "Exod 3:14; Isa 43:10-13"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -4027,6 +4722,9 @@
           "scholarship": [
             "Brown, AYB John, on 9:1-7",
             "Ezek 18; Gen 2:7; Isa 35:5"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -4050,6 +4748,9 @@
           "scholarship": [
             "Brown, AYB John, on 10:1-18",
             "Ezek 34; Ps 23; Zech 11-13"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -4067,6 +4768,9 @@
             "Brown, AYB John, on 10:34-36",
             "Ps 82:6",
             "on the argument: Neyrey, 'I Said: You Are Gods,' JBL 108 (1989)"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -4090,6 +4794,9 @@
           "scholarship": [
             "Brown, AYB John, on 11:1-44",
             "Dan 12:2; Ezek 37:12-13"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -4106,7 +4813,10 @@
           "scholarship": [
             "Brown, AYB John, on 11:49-52"
           ],
-          "speaker_detail": "Caiaphas"
+          "speaker_detail": "Caiaphas",
+          "witnesses": [
+            "John"
+          ]
         }
       ]
     },
@@ -4133,6 +4843,9 @@
           "scholarship": [
             "cross-ref IV.4-a",
             "Marcus, AYB Mark, on 10:2-12"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4160,6 +4873,10 @@
           "scholarship": [
             "DeConick, Original Gospel of Thomas, on 22",
             "Marcus, AYB Mark, on 10:13-16"
+          ],
+          "witnesses": [
+            "Mark",
+            "Thomas"
           ]
         }
       ]
@@ -4186,6 +4903,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 10:17-22",
             "Exod 20:12-16"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -4202,6 +4922,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 10:25",
             "b. Berakhot 55b (elephant through a needle)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4225,6 +4948,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 20:1-16",
             "on the evil eye: BDAG s.v. ophthalmos"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -4251,6 +4977,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 10:32-34",
             "Isa 50:6"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4276,6 +5005,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 10:38-39",
             "Isa 51:17; Jer 25:15"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -4293,6 +5025,9 @@
             "Marcus, AYB Mark, on 10:45 and The Way of the Lord",
             "Isa 53:10-12",
             "Jeremias, NT Theology, on the ransom saying"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4320,7 +5055,10 @@
             "Marcus, AYB Mark, on 10:46-52",
             "on Son of David as healer: Duling, 'Solomon, Exorcism, and the Son of David'"
           ],
-          "speaker_detail": "Bartimaeus"
+          "speaker_detail": "Bartimaeus",
+          "witnesses": [
+            "Mark"
+          ]
         }
       ]
     },
@@ -4343,6 +5081,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 19:1-10",
             "Ezek 34:16; Exod 22:1"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -4368,6 +5109,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 19:11-27",
             "Josephus, Ant. 17.299-320 (Archelaus)"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -4396,6 +5140,11 @@
             "Marcus, AYB Mark, on 11:1-11",
             "Zech 9:9; Ps 118:25-26",
             "Davies-Allison, ICC Matthew III, on 21:1-9"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "John"
           ]
         }
       ]
@@ -4424,6 +5173,9 @@
             "Marcus, AYB Mark, on 14:3-9",
             "Deut 15:11",
             "Brown, AYB John, on 12:1-8"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4449,6 +5201,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 11:12-25 (the intercalation)",
             "Telford, The Barren Temple and the Withered Tree"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4477,6 +5232,28 @@
             "Marcus, AYB Mark, on 11:17",
             "Isa 56:7; Jer 7:11",
             "Evans, 'Jesus' Action in the Temple'"
+          ],
+          "witnesses": [
+            "Mark"
+          ]
+        },
+        {
+          "id": "X.4-b",
+          "locus": "Matt 21:14-16",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Psalm 8:2 LXX ('out of the mouth of infants and nursing babies you have prepared praise')",
+          "text_form": "LXX",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Matthean special material following the cleansing. Matthew alone has the blind and lame come to Jesus in the temple and children crying 'Hosanna to the Son of David'; when the chief priests object, Jesus quotes Psalm 8:2 in its LXX form, 'out of the mouth of infants and nursing babies you have prepared PRAISE' (the Hebrew reads 'you have founded strength'; Matthew follows the Greek 'ainos'). The children's acclamation is divinely-prepared praise, so the leaders' indignation sets them against Scripture itself. Ties the Son-of-David acclamation (the entry, X.1-a; Bartimaeus, IX.31-a) to the temple precinct. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew III, on 21:14-17",
+            "Ps 8:2 LXX"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -4502,6 +5279,9 @@
           "note": "Jesus parries the authority-question with a counter-question about John's baptism ('from heaven or from men?'), a recognized disputation move that traps the questioners between the crowd and their own skepticism. Form, not citation; light. Possible.",
           "scholarship": [
             "Marcus, AYB Mark, on 11:27-33"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4524,6 +5304,9 @@
           "note": "The two sons (one says no but goes, one says yes but doesn't) is applied so that toll-collectors and prostitutes enter the kingdom ahead of the religious leaders, who did not believe John's 'way of righteousness' (dikaiosynE -- glossary). Another insider/outsider reversal; light on direct citation. Probable.",
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 21:28-32"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -4551,6 +5334,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 12:1-12",
             "Isa 5:1-7"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -4567,6 +5353,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 12:10-11",
             "Ps 118:22-23"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -4583,6 +5372,9 @@
           "scholarship": [
             "DeConick, The Original Gospel of Thomas, on 65-66",
             "Plisch, The Gospel of Thomas, on 65"
+          ],
+          "witnesses": [
+            "Thomas"
           ]
         }
       ]
@@ -4609,6 +5401,10 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 22:1-14",
             "cross-ref IX.13-b"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Thomas"
           ]
         }
       ]
@@ -4637,6 +5433,10 @@
             "Marcus, AYB Mark, on 12:13-17",
             "DeConick, Original Gospel of Thomas, on 100",
             "Gen 1:27"
+          ],
+          "witnesses": [
+            "Mark",
+            "Thomas"
           ]
         }
       ]
@@ -4663,6 +5463,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 12:18-27",
             "Exod 3:6; Deut 25:5-6"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4692,6 +5495,10 @@
             "Deut 6:4-5; Lev 19:18",
             "Davies-Allison, ICC Matthew III, on 22:34-40",
             "on the double command in Judaism: T. Iss. 5:2; T. Dan 5:3 (with caution)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew"
           ]
         }
       ]
@@ -4719,6 +5526,9 @@
             "Marcus, AYB Mark, on 12:35-37",
             "Ps 110:1",
             "Hay, Glory at the Right Hand (Ps 110 in early Christianity)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4745,6 +5555,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 23:23",
             "Mic 6:8"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         },
         {
@@ -4761,6 +5574,10 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 23:35",
             "Gen 4:8; 2 Chr 24:20-22"
+          ],
+          "witnesses": [
+            "Matthew",
+            "Luke"
           ]
         }
       ]
@@ -4786,6 +5603,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 12:41-44 (the lament reading)",
             "Wright, 'The Widow's Mites,' CBQ 44 (1982)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4808,6 +5628,9 @@
           "note": "'Unless a grain of wheat falls and dies, it remains alone' makes the agricultural commonplace a figure of redemptive death. The heavenly voice (12:28) is the third Johannine/Synoptic bat qol after the baptism (I.2-a) and transfiguration (VIII.3-a). 'When I am lifted up' continues the hypsoO crucifixion-exaltation pun of II.4-b. Probable.",
           "scholarship": [
             "Brown, AYB John, on 12:20-36"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -4825,6 +5648,9 @@
             "Brown, AYB John, on 12:37-43",
             "Isa 53:1; 6:10",
             "Menken, OT Quotations in the Fourth Gospel"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -4854,6 +5680,9 @@
             "Marcus, AYB Mark, on 13:14-27",
             "Dan 9:27; Isa 13:10; Joel 2:10",
             "Beasley-Murray, Jesus and the Last Days"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -4871,6 +5700,9 @@
             "Marcus, AYB Mark, on 13:26-27",
             "Dan 7:13-14",
             "on 1 Thess 4:15: Fee, NICNT 1-2 Thessalonians"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -4893,6 +5725,9 @@
           "note": "The wise and foolish bridesmaids awaiting the delayed bridegroom extend the bridegroom-motif (the covenant bridegroom, II.5-a; the wedding-guests, III.7-a) into an allegory of readiness for the delayed parousia. 'I do not know you' and the shut door echo the narrow-door warning (IX.12-a). Probable.",
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 25:1-13"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -4919,6 +5754,9 @@
           "scholarship": [
             "cross-ref IX.33, VI.2-b",
             "Davies-Allison, ICC Matthew III, on 25:14-30"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -4942,6 +5780,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 25:31-46",
             "Dan 7:13-14; Ezek 34:17; Joel 3:2"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -4968,6 +5809,9 @@
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 26:14-16",
             "Zech 11:12-13; Exod 21:32"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -4994,6 +5838,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 14:12-16",
             "Jeremias, The Eucharistic Words of Jesus (the dating debate)"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -5017,6 +5864,9 @@
           "scholarship": [
             "Brown, AYB John, on 13:1-20",
             "Ps 41:9"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -5044,6 +5894,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 14:17-21",
             "Ps 41:9; Isa 53"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -5072,6 +5925,11 @@
             "Marcus, AYB Mark, on 14:22-25",
             "Exod 24:8; Jer 31:31; Isa 53:12",
             "Jeremias, The Eucharistic Words of Jesus"
+          ],
+          "witnesses": [
+            "Mark",
+            "Luke",
+            "1 Corinthians"
           ]
         },
         {
@@ -5089,7 +5947,10 @@
             "Fee, NICNT 1 Corinthians, on 11:23-26",
             "Hengel and Schwemer, on the pre-Pauline tradition"
           ],
-          "speaker_detail": "Paul (transmitting tradition)"
+          "speaker_detail": "Paul (transmitting tradition)",
+          "witnesses": [
+            "1 Corinthians"
+          ]
         }
       ]
     },
@@ -5114,6 +5975,10 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 22:28-30",
             "Dan 7:9-10,22; Davies-Allison, ICC Matthew III, on 19:28"
+          ],
+          "witnesses": [
+            "Luke",
+            "Matthew"
           ]
         }
       ]
@@ -5141,6 +6006,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 14:27",
             "Zech 13:7"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -5164,6 +6032,9 @@
           "scholarship": [
             "Brown, AYB John, on 15:1-8",
             "Ps 80; Isa 5; Jer 2:21"
+          ],
+          "witnesses": [
+            "John"
           ]
         },
         {
@@ -5181,6 +6052,9 @@
             "Brown, AYB John, on the Paraclete (Appendix V)",
             "1QS 3:18-4:26",
             "BDAG s.v. paraklEtos"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -5204,6 +6078,9 @@
           "scholarship": [
             "Brown, AYB John, on 17:1-26",
             "Exod 3:14-15; Ezek 36:23; on aiOnios: BDAG / glossary"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -5231,6 +6108,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 14:32-42",
             "Ps 42-43; on Abba: Jeremias, The Prayers of Jesus"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -5258,6 +6138,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 14:43-52",
             "on the naked youth: Amos 2:16"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -5286,6 +6169,9 @@
             "Marcus, AYB Mark, on 14:61-62",
             "Dan 7:13; Ps 110:1",
             "Bock, Blasphemy and Exaltation in Judaism"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -5302,6 +6188,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 14:55-61",
             "Ps 27:12; Isa 53:7"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -5329,6 +6218,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 14:66-72",
             "cross-ref XI.6-a"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -5353,6 +6245,9 @@
             "Davies-Allison, ICC Matthew III, on 27:9-10",
             "Zech 11:12-13; Jer 18-19,32",
             "Metzger / Menken on the attribution"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -5380,6 +6275,9 @@
           "scholarship": [
             "Marcus, AYB Mark, on 15:1-5",
             "Isa 53:7"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -5396,6 +6294,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 23:6-12",
             "Ps 2:1-2; Acts 4:25-27"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -5424,6 +6325,10 @@
             "Marcus, AYB Mark, on 15:24",
             "Ps 22:18",
             "Brown, The Death of the Messiah (Ps 22 in the passion)"
+          ],
+          "witnesses": [
+            "Mark",
+            "John"
           ]
         },
         {
@@ -5440,6 +6345,29 @@
           "scholarship": [
             "Marcus, AYB Mark, on 15:29-32",
             "Ps 22:7-8; Isa 53:12"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew"
+          ]
+        },
+        {
+          "id": "XII.7-c",
+          "locus": "Luke 23:27-31",
+          "speaker": "Jesus",
+          "axis": "text",
+          "type": "quotation",
+          "source": "Hosea 10:8 ('they will say to the mountains, Fall on us; to the hills, Cover us'); cf. Isaiah 2:19",
+          "text_form": "n/a",
+          "direction": "cites",
+          "confidence": "established",
+          "note": "Lukan special material on the way to the cross. To the wailing 'daughters of Jerusalem' Jesus says, 'weep not for me but for yourselves and your children... then they will begin to say to the MOUNTAINS, Fall on us, and to the HILLS, Cover us' -- quoting Hosea 10:8, an oracle of judgment on Samaria's high places, here transferred to the coming destruction of Jerusalem. The green-wood/dry-wood proverb that follows seals the warning. The same verse recurs at Revelation 6:16; Isaiah 2:19 is cognate. A distinctively Lukan prophecy of the city's fall, spoken on the via crucis. Established.",
+          "scholarship": [
+            "Fitzmyer, AYB Luke, on 23:27-31",
+            "Hos 10:8; Isa 2:19"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -5468,6 +6396,10 @@
             "Marcus, AYB Mark, on 15:34",
             "Ps 22:1",
             "Brown, The Death of the Messiah"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew"
           ]
         },
         {
@@ -5485,6 +6417,9 @@
             "Marcus / Collins, Hermeneia Mark, on 15:33-39",
             "Amos 8:9; Exod 26:31-34",
             "on the portent convention: Collins ad loc."
+          ],
+          "witnesses": [
+            "Mark"
           ]
         },
         {
@@ -5501,6 +6436,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 23:46",
             "Ps 31:5"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         },
         {
@@ -5517,6 +6455,29 @@
           "scholarship": [
             "Brown, AYB John, on 19:28-37",
             "Ps 69:21; Exod 12:46; Ps 34:20; Zech 12:10"
+          ],
+          "witnesses": [
+            "John"
+          ]
+        },
+        {
+          "id": "XII.8-e",
+          "locus": "Matt 27:51-53",
+          "speaker": "narrator",
+          "axis": "text",
+          "type": "allusion",
+          "source": "Isaiah 26:19 + Daniel 12:2 (the dead awake); Ezekiel 37:12-13 (graves opened); Zechariah 14:4-5 (earthquake / Mount of Olives)",
+          "text_form": "n/a",
+          "direction": "allusion",
+          "confidence": "established",
+          "note": "Matthean special material at the death. After the torn veil (XII.8-b), Matthew ALONE adds that 'the earth shook, the rocks were split, the TOMBS were opened, and many bodies of the saints who had fallen asleep were RAISED,' appearing in Jerusalem after Jesus's own resurrection. The scene enacts the OT resurrection hope: 'your dead shall live, the bodies shall rise' (Isaiah 26:19); 'many who sleep in the dust shall awake' (Daniel 12:2); 'I will OPEN your GRAVES and raise you' (Ezekiel 37:12-13); with the earthquake of the Day-of-the-LORD theophany and the split Mount of Olives (Zechariah 14:4-5). Matthew frames the cross as the eschatological turning-point that cracks open death itself -- an apocalyptic overlay found in no other Gospel, and a clear instance of narrative scripted from prophetic resurrection-texts. Established.",
+          "scholarship": [
+            "Davies-Allison, ICC Matthew III, on 27:51-53",
+            "Isa 26:19; Dan 12:2; Ezek 37:12-13; Zech 14:4-5",
+            "Brown, The Death of the Messiah"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -5547,6 +6508,11 @@
             "Brown, The Death of the Messiah, on the burial",
             "Isa 53:9",
             "Foster, The Gospel of Peter (commentary and triage)"
+          ],
+          "witnesses": [
+            "Mark",
+            "Matthew",
+            "Gospel of Peter"
           ]
         }
       ]
@@ -5575,6 +6541,9 @@
             "Marcus, AYB Mark, on 16:1-8",
             "Metzger, Textual Commentary, on the endings of Mark",
             "Hos 6:2"
+          ],
+          "witnesses": [
+            "Mark"
           ]
         }
       ]
@@ -5600,6 +6569,9 @@
           "scholarship": [
             "Brown, AYB John, on 20:11-18",
             "on the garden: Song 3:1-4"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -5622,6 +6594,9 @@
           "note": "Matthew's notice that the guards were bribed to say 'his disciples stole him,' a story told 'among the Jews to this day,' is an apologetic answer to a circulating anti-resurrection polemic (later echoed in Justin and the Toledot Yeshu tradition). Historical-cultural/polemical, not OT citation. Probable.",
           "scholarship": [
             "Davies-Allison, ICC Matthew III, on 28:11-15"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -5647,6 +6622,9 @@
           "scholarship": [
             "Fitzmyer, AYB Luke, on 24:13-35,44-47",
             "on Luke's use of Scripture: Bock, Proclamation from Prophecy and Pattern"
+          ],
+          "witnesses": [
+            "Luke"
           ]
         }
       ]
@@ -5673,6 +6651,10 @@
           "scholarship": [
             "Brown, AYB John, on 20:19-23",
             "Gen 2:7; Ezek 37:9-10"
+          ],
+          "witnesses": [
+            "John",
+            "Luke"
           ]
         }
       ]
@@ -5697,7 +6679,10 @@
             "Brown, AYB John, on 20:24-29",
             "Ps 35:23; John 1:1"
           ],
-          "speaker_detail": "Thomas the disciple"
+          "speaker_detail": "Thomas the disciple",
+          "witnesses": [
+            "John"
+          ]
         }
       ]
     },
@@ -5720,6 +6705,9 @@
           "scholarship": [
             "Brown, AYB John, on 21:15-17",
             "Ezek 34; on agapaO/phileO: Carson, cautious"
+          ],
+          "witnesses": [
+            "John"
           ]
         }
       ]
@@ -5746,6 +6734,9 @@
             "Davies-Allison, ICC Matthew III, on 28:16-20",
             "Dan 7:14",
             "on the inclusio: Kupp, Matthew's Emmanuel"
+          ],
+          "witnesses": [
+            "Matthew"
           ]
         }
       ]
@@ -5773,7 +6764,10 @@
             "Isa 53; Hos 6:2; Ps 16:10",
             "Hengel and Schwemer; on the Gospel of the Hebrews: Jerome, De viris illustribus 2"
           ],
-          "speaker_detail": "Paul / the pre-Pauline creed"
+          "speaker_detail": "Paul / the pre-Pauline creed",
+          "witnesses": [
+            "1 Corinthians"
+          ]
         }
       ]
     },
@@ -5797,6 +6791,9 @@
           "scholarship": [
             "on Acts 1:8 and Isa 49:6: Pao, Acts and the Isaianic New Exodus",
             "Isa 49:6; Acts 13:47"
+          ],
+          "witnesses": [
+            "Acts"
           ]
         }
       ]
@@ -5822,7 +6819,10 @@
             "Ps 18:4-5; 116:3 LXX",
             "Pervo, Hermeneia Acts"
           ],
-          "speaker_detail": "Peter (kerygma)"
+          "speaker_detail": "Peter (kerygma)",
+          "witnesses": [
+            "Acts"
+          ]
         }
       ]
     },
@@ -5847,7 +6847,10 @@
             "Isa 52:7; Isa 61:1; Deut 21:23",
             "on the kerygma: Dodd, The Apostolic Preaching and Its Developments"
           ],
-          "speaker_detail": "Peter (kerygma)"
+          "speaker_detail": "Peter (kerygma)",
+          "witnesses": [
+            "Acts"
+          ]
         }
       ]
     },
@@ -5872,7 +6875,10 @@
             "2 Sam 7:12; Ps 132:11",
             "Dodd, The Apostolic Preaching"
           ],
-          "speaker_detail": "Paul (kerygma)"
+          "speaker_detail": "Paul (kerygma)",
+          "witnesses": [
+            "Acts"
+          ]
         }
       ]
     },
@@ -5897,7 +6903,10 @@
             "Jeremias, Unknown Sayings of Jesus (on the agrapha)",
             "Hofius, on the agrapha"
           ],
-          "speaker_detail": "Paul (citing an agraphon)"
+          "speaker_detail": "Paul (citing an agraphon)",
+          "witnesses": [
+            "Acts"
+          ]
         }
       ]
     },
@@ -5921,6 +6930,9 @@
             "Kruger, The Gospel of the Savior / on P.Oxy 840",
             "Bovon, 'Fragment Oxyrhynchus 840'",
             "Lührmann, Fragmente apokryph gewordener Evangelien"
+          ],
+          "witnesses": [
+            "P.Oxy 840"
           ]
         }
       ]
@@ -5944,6 +6956,9 @@
           "scholarship": [
             "Lührmann, Fragmente apokryph gewordener Evangelien",
             "Kruger, on P.Oxy 1224"
+          ],
+          "witnesses": [
+            "P.Oxy 1224"
           ]
         }
       ]
@@ -5970,6 +6985,10 @@
           "scholarship": [
             "P.Oxy 5575 (Oxyrhynchus Papyri vol. 87) -- verify readings at build time",
             "Thomas 27 (cf. P.Oxy 1.27)"
+          ],
+          "witnesses": [
+            "P.Oxy 5575",
+            "Thomas"
           ]
         }
       ]
@@ -5994,6 +7013,9 @@
             "Nicklas, on Egerton Papyrus 2",
             "Kruger / Lührmann, Fragmente apokryph gewordener Evangelien",
             "John 5:39; Isa 29:13"
+          ],
+          "witnesses": [
+            "Egerton Papyrus 2"
           ]
         }
       ]
@@ -6018,6 +7040,9 @@
           "scholarship": [
             "Niederwimmer, Hermeneia: The Didache, on 9-10",
             "Ps 80; cross-ref XI.7-a"
+          ],
+          "witnesses": [
+            "Didache"
           ]
         }
       ]
@@ -6041,6 +7066,9 @@
           "scholarship": [
             "DeConick, The Original Gospel of Thomas, on 41, 86, 113",
             "cross-refs VI.2-b, IX.1, IX.18-a"
+          ],
+          "witnesses": [
+            "Thomas"
           ]
         }
       ]
@@ -6064,6 +7092,9 @@
           "scholarship": [
             "Jeremias, Unknown Sayings of Jesus, on the Bezan agraphon",
             "Metzger, Textual Commentary, on Luke 6:4 (D)"
+          ],
+          "witnesses": [
+            "Codex Bezae"
           ]
         }
       ]
@@ -6088,9 +7119,17 @@
             "Holmes, The Apostolic Fathers (texts and trans.)",
             "Hagner, The Use of the OT and NT in Clement of Rome",
             "cross-ref IV.6-c"
+          ],
+          "witnesses": [
+            "1 Clement",
+            "Polycarp",
+            "Didache"
           ]
         }
       ]
     }
+  },
+  "_schema": {
+    "witnesses": "Array of witness sigla in whose text this entry's citation occurs, derived from `locus` plus a curated override for high-confidence shared citations. App witness-view: show an entry iff the selected witness is in `witnesses`. NOTE: citations shared across parallels but authored with a single-witness locus may list only the primary witness until the locus is enriched; see witness_enrichment_worklist.md."
   }
 }
