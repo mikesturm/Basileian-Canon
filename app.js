@@ -513,10 +513,7 @@
 
       let witnessLabel = "";
       if (witnessEntries.length > 0) {
-        const { bookKey, range } = witnessEntries[safeIdx];
-        const BOOK_DISPLAY = window.NTReader ? window.NTReader.BOOK_DISPLAY : {};
-        const displayName = BOOK_DISPLAY[bookKey] || bookKey;
-        witnessLabel = `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
+        witnessLabel = witnessEntryLabel(witnessEntries[safeIdx]);
       }
 
       const crumbChapter = chLabel ? `Chapter ${chLabel}` : "";
@@ -552,11 +549,27 @@
     hydrateApparatusPanels();
   }
 
+  // Build the full ordered witness list for a section: canonical parallel
+  // refs first (Matthew, Mark, Luke, John, epistles...), then any
+  // non-biblical source pericopes (Thomas, Clement, Polycarp, etc.) that
+  // were inserted here. Non-biblical sources are full numbered witnesses
+  // in their own right, not footnotes tacked onto a canonical witness.
   function getWitnessEntries(section) {
-    if (!section.parallel_refs || Object.keys(section.parallel_refs).length === 0) return [];
-    return Object.entries(section.parallel_refs).flatMap(([bookKey, ranges]) =>
-      ranges.map(range => ({ bookKey, range }))
-    );
+    const canonical = section.parallel_refs
+      ? Object.entries(section.parallel_refs).flatMap(([bookKey, ranges]) =>
+          ranges.map(range => ({ kind: "canonical", bookKey, range }))
+        )
+      : [];
+    const nonbiblical = (section.nonbiblical || []).map(nb => ({ kind: "nonbiblical", nb }));
+    return [...canonical, ...nonbiblical];
+  }
+
+  function witnessEntryLabel(entry) {
+    if (entry.kind === "nonbiblical") return entry.nb.label || entry.nb.source || "Non-biblical source";
+    const { bookKey, range } = entry;
+    const BOOK_DISPLAY = window.NTReader ? window.NTReader.BOOK_DISPLAY : {};
+    const displayName = BOOK_DISPLAY[bookKey] || bookKey;
+    return `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
   }
 
   function renderSingleWitness(section, witnessIndex, witnessEntries) {
@@ -571,24 +584,29 @@
       </section>`;
     }
 
-    const { bookKey, range } = witnessEntries[witnessIndex];
-    const BOOK_DISPLAY = window.NTReader ? window.NTReader.BOOK_DISPLAY : {};
-    const displayName = BOOK_DISPLAY[bookKey] || bookKey;
-    const label = `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
+    const entry = witnessEntries[witnessIndex];
+    const label = witnessEntryLabel(entry);
 
-    const block = `<div class="nt-source-block" data-book="${escapeAttr(bookKey)}" data-chapter="${range.ch}" data-from="${range.from}" data-to="${range.to}">
-      <span class="nt-source-label"><span class="witness-number">${witnessIndex + 1}</span> ${escapeHTML(label)}</span>
-      <div class="nt-verse-content muted">Loading…</div>
-    </div>`;
+    const block = entry.kind === "nonbiblical"
+      ? `<div class="nt-source-block nonbiblical-source-block">
+          <span class="nt-source-label"><span class="witness-number">${witnessIndex + 1}</span> ${escapeHTML(label)}</span>
+          <div class="nt-verse-content">${formatParagraphBody(entry.nb.text || "", section)}</div>
+        </div>`
+      : `<div class="nt-source-block" data-book="${escapeAttr(entry.bookKey)}" data-chapter="${entry.range.ch}" data-from="${entry.range.from}" data-to="${entry.range.to}">
+          <span class="nt-source-label"><span class="witness-number">${witnessIndex + 1}</span> ${escapeHTML(label)}</span>
+          <div class="nt-verse-content muted">Loading…</div>
+        </div>`;
 
     const extraParagraphs = section.paragraphs
-      .filter(p => p.startsWith("[[NONBIBLICAL:") || p.startsWith("[[NOTE]]") || p.startsWith("[[DISPUTED]]"))
+      .filter(p => p.startsWith("[[NOTE]]") || p.startsWith("[[DISPUTED]]"))
       .map(p => `<p>${formatParagraph(p, section)}</p>`)
       .join("");
 
+    const witnessBookAttr = entry.kind === "canonical" ? ` data-witness-book="${escapeAttr(entry.bookKey)}"` : "";
+
     return `<section class="passage nt-passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
       <div class="passage-meta">${source}${tier}</div>
-      <div class="passage-body" data-section-id="${escapeAttr(section.id)}" data-witness-book="${escapeAttr(bookKey)}">${block}${extraParagraphs}</div>
+      <div class="passage-body" data-section-id="${escapeAttr(section.id)}"${witnessBookAttr}>${block}${extraParagraphs}</div>
     </section>`;
   }
 
@@ -610,24 +628,25 @@
     const hasParallelRefs = section.parallel_refs && Object.keys(section.parallel_refs).length > 0;
 
     if (hasParallelRefs) {
-      const ntReader = window.NTReader;
-      const BOOK_DISPLAY = ntReader ? ntReader.BOOK_DISPLAY : {};
-
-      const refEntries = Object.entries(section.parallel_refs).flatMap(([bookKey, ranges]) =>
-        ranges.map(range => ({ bookKey, range }))
-      );
-      const refBlocks = refEntries.map(({ bookKey, range }, i) => {
-        const displayName = BOOK_DISPLAY[bookKey] || bookKey;
-        const label = `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
-        return `<div class="nt-source-block" data-book="${escapeAttr(bookKey)}" data-chapter="${range.ch}" data-from="${range.from}" data-to="${range.to}">
+      const witnessEntries = getWitnessEntries(section);
+      const refBlocks = witnessEntries.map((entry, i) => {
+        const label = witnessEntryLabel(entry);
+        if (entry.kind === "nonbiblical") {
+          return `<div class="nt-source-block nonbiblical-source-block">
+              <span class="nt-source-label"><span class="witness-number">${i + 1}</span> ${escapeHTML(label)}</span>
+              <div class="nt-verse-content">${formatParagraphBody(entry.nb.text || "", section)}</div>
+            </div>`;
+        }
+        return `<div class="nt-source-block" data-book="${escapeAttr(entry.bookKey)}" data-chapter="${entry.range.ch}" data-from="${entry.range.from}" data-to="${entry.range.to}">
             <span class="nt-source-label"><span class="witness-number">${i + 1}</span> ${escapeHTML(label)}</span>
             <div class="nt-verse-content muted">Loading…</div>
           </div>`;
       }).join("");
 
-      // Nonbiblical paragraphs that accompany the NT text
+      // Notes/disputed-placement paragraphs that accompany the NT text.
+      // Non-biblical sources are rendered above as numbered witnesses, not here.
       const extraParagraphs = section.paragraphs
-        .filter(p => p.startsWith("[[NONBIBLICAL:") || p.startsWith("[[NOTE]]") || p.startsWith("[[DISPUTED]]"))
+        .filter(p => p.startsWith("[[NOTE]]") || p.startsWith("[[DISPUTED]]"))
         .map(p => `<p>${formatParagraph(p, section)}</p>`)
         .join("");
 
@@ -1241,7 +1260,7 @@
       return;
     }
 
-    const blocks = [...els.readerContent.querySelectorAll(".nt-source-block")];
+    const blocks = [...els.readerContent.querySelectorAll(".nt-source-block[data-book]")];
     if (!blocks.length) {
       updateTranslationStatus("");
       return;

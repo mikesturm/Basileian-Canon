@@ -338,15 +338,12 @@ const CANON_SECTIONS = [
           matt: [{ch:9, from:9, to:13}],
           luke: [{ch:5, from:27, to:32}]
         },
-        nonbiblicalSources: [
-          {
-            source: 'P.Oxy 1224',
-            label: 'P.Oxy 1224 parallel',
-            text: NONBIBLICAL.poxy_1224 ?
-              (NONBIBLICAL.poxy_1224.fragments['frag2_verso_col_ii'] + ' ' + NONBIBLICAL.poxy_1224.fragments['frag2_recto_col_ii_b']) : ''
-          }
-        ],
-        notes: 'Non-canonical parallel to the "sick need a physician" scene: P.Oxy 1224 (with its unique "and priests" addition).',
+        nonbiblicalSources: NONBIBLICAL.poxy_1224?.fragments?.frag2_verso_col_ii ? [{
+          source: 'P.Oxy 1224',
+          label: 'P.Oxy 1224, Frag. 2 verso col. ii',
+          text: NONBIBLICAL.poxy_1224.fragments.frag2_verso_col_ii
+        }] : [],
+        notes: 'Non-canonical parallel to the "sick need a physician" scene: P.Oxy 1224, Frag. 2 verso col. ii (with its unique "and priests" addition). The fragment\'s other clause — "pray for your enemies… the one who is not against you is for you" — is a different clause of the same papyrus; it is inserted whole at VIII.8 (the strange exorcist), with cross-references here and at IV.3 (Sermon, love of enemies). Not duplicated here.',
       },
       {
         id: 'iii_7_fasting',
@@ -422,12 +419,12 @@ const CANON_SECTIONS = [
           matt: [{ch:5, from:1, to:12}],
           luke: [{ch:6, from:20, to:23}]
         },
-        nonbiblicalSources: thomasLogion(54) ? [{
-          source: 'Gospel of Thomas 54',
-          label: 'Thomas 54',
-          text: thomasLogion(54)
-        }] : [],
-        notes: '"Blessed are the poor" parallels Thomas 54.',
+        nonbiblicalSources: [49, 68, 69, 54].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: '"Blessed are the poor" parallels Thomas 54; Thomas 49, 68, 69 are anchored here as further beatitude sayings.',
       },
       {
         id: 'iv_2_salt_light',
@@ -436,6 +433,12 @@ const CANON_SECTIONS = [
           matt: [{ch:5, from:13, to:16}],
           luke: [{ch:14, from:34, to:35}]
         },
+        nonbiblicalSources: [32, 33].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 32 parallels the city on a hill (Matt 5:14); Thomas 33 parallels the lamp not under a basket (Matt 5:15).',
       },
       {
         id: 'iv_3_law_antitheses',
@@ -444,6 +447,12 @@ const CANON_SECTIONS = [
           matt: [{ch:5, from:17, to:48}],
           luke: [{ch:16, from:17, to:17}, {ch:12, from:57, to:59}]
         },
+        nonbiblicalSources: thomasLogion(95) ? [{
+          source: 'Gospel of Thomas 95',
+          label: 'Thomas 95',
+          text: thomasLogion(95)
+        }] : [],
+        notes: 'Thomas 95 ("do not lend at interest") parallels Luke 6:34–35. The "pray for your enemies" clause of P.Oxy 1224 also echoes the love-of-enemies material here; it is inserted whole at VIII.8 (the strange exorcist) to avoid duplication.',
       },
       {
         id: 'iv_4_divorce',
@@ -462,6 +471,12 @@ const CANON_SECTIONS = [
         parallelRefs: {
           matt: [{ch:6, from:1, to:18}]
         },
+        nonbiblicalSources: [6, 62].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 6 parallels the disciples\' question on fasting/prayer/almsgiving (Matt 6:1–18); Thomas 62 parallels the left-hand/right-hand saying (Matt 6:3).',
       },
       {
         id: 'iv_6_lords_prayer',
@@ -470,12 +485,7 @@ const CANON_SECTIONS = [
           matt: [{ch:6, from:9, to:13}],
           luke: [{ch:11, from:1, to:4}]
         },
-        nonbiblicalSources: NONBIBLICAL.didache?.chapters?.['8'] ? [{
-          source: 'Didache 8:2',
-          label: 'Didache 8:2 (liturgical form)',
-          text: NONBIBLICAL.didache.chapters['8']
-        }] : [],
-        notes: 'Didache 8:2 provides the liturgical form of the prayer.',
+        notes: 'Didache 8:2–8:3 (the liturgical form of the Prayer) is deliberately excluded here as a liturgical adaptation rather than narrated dominical speech.',
       },
       {
         id: 'iv_7_treasure_anxiety',
@@ -485,18 +495,18 @@ const CANON_SECTIONS = [
           luke: [{ch:12, from:22, to:34}, {ch:16, from:13, to:13}]
         },
         nonbiblicalSources: [
-          ...(thomasLogion(47) ? [{
-            source: 'Gospel of Thomas 47',
-            label: 'Thomas 47 (two masters)',
-            text: thomasLogion(47)
+          ...(thomasLogion(36) ? [{
+            source: 'Gospel of Thomas 36',
+            label: 'Thomas 36',
+            text: thomasLogion(36)
           }] : []),
           ...(NONBIBLICAL.poxy_5575 ? [{
             source: 'P.Oxy 5575',
-            label: 'P.Oxy 5575 ("add a cubit")',
+            label: 'P.Oxy 5575 (anxiety material)',
             text: NONBIBLICAL.poxy_5575.description || 'See source URL for text (copyright restricted).'
           }] : [])
         ],
-        notes: '"Two masters" parallels Thomas 47; the "add a cubit to his stature" worry-saying is also attested at P.Oxy 5575.',
+        notes: 'Thomas 36 parallels the anxiety teaching (Matt 6:25–34 // Luke 12:22); P.Oxy 5575 attests the same "do not be anxious" material. Thomas 47 ("two masters" clause) is inserted whole at III.7 (fasting); cross-reference only here, not duplicated.',
       },
       {
         id: 'iv_8_judging',
@@ -505,12 +515,24 @@ const CANON_SECTIONS = [
           matt: [{ch:7, from:1, to:5}],
           luke: [{ch:6, from:37, to:42}]
         },
-        nonbiblicalSources: thomasLogion(26) ? [{
-          source: 'Gospel of Thomas 26',
-          label: 'Thomas 26',
-          text: thomasLogion(26)
-        }] : [],
-        notes: 'Parallels Thomas 26.',
+        nonbiblicalSources: [
+          ...([34, 26].map(n => thomasLogion(n) ? {
+            source: `Gospel of Thomas ${n}`,
+            label: `Thomas ${n}`,
+            text: thomasLogion(n)
+          } : null).filter(Boolean)),
+          ...(NONBIBLICAL.clement?.agrapha?.['13:2'] ? [{
+            source: '1 Clement 13:2',
+            label: '1 Clement 13:2 (c. 96 CE)',
+            text: NONBIBLICAL.clement.agrapha['13:2']
+          }] : []),
+          ...(NONBIBLICAL.polycarp?.agrapha ? [{
+            source: 'Polycarp, Philippians 2:3',
+            label: 'Polycarp, Philippians 2:3 (c. 110 CE)',
+            text: Object.values(NONBIBLICAL.polycarp.agrapha)[0] || ''
+          }] : [])
+        ],
+        notes: 'Thomas 34 parallels the blind leading the blind (Luke 6:39); Thomas 26 parallels the mote and the beam. 1 Clement 13:2 and Polycarp, Phil. 2:3 each preserve a remembered dominical cluster on judging/forgiving/measure (Luke 6:36–38).',
       },
       {
         id: 'iv_9_ask_seek',
@@ -519,6 +541,12 @@ const CANON_SECTIONS = [
           matt: [{ch:7, from:7, to:12}],
           luke: [{ch:11, from:9, to:13}, {ch:6, from:31, to:31}]
         },
+        nonbiblicalSources: [92, 93, 94].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 92 and 94 parallel the seek/find and knock sayings (Matt 7:7–8 // Luke 11:9–10); Thomas 93 parallels the "holy to dogs" saying (Matt 7:6).',
       },
       {
         id: 'iv_10_narrow_gate',
@@ -527,6 +555,12 @@ const CANON_SECTIONS = [
           matt: [{ch:7, from:13, to:27}],
           luke: [{ch:6, from:43, to:49}, {ch:13, from:23, to:24}]
         },
+        nonbiblicalSources: [43, 45].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 43 parallels the tree-and-fruit polemic (Matt 7:16–20); Thomas 45 parallels grapes-from-thorns / good-from-storehouse (Luke 6:43–45 // Matt 7:16, 12:34–35).',
       }
     ]
   },
@@ -952,6 +986,12 @@ const CANON_SECTIONS = [
           mark: [{ch:9, from:38, to:41}],
           luke: [{ch:9, from:49, to:50}]
         },
+        nonbiblicalSources: NONBIBLICAL.poxy_1224?.fragments?.frag2_recto_col_ii_b ? [{
+          source: 'P.Oxy 1224',
+          label: 'P.Oxy 1224, Frag. 2 recto col. ii — "not against you" clause',
+          text: NONBIBLICAL.poxy_1224.fragments.frag2_recto_col_ii_b
+        }] : [],
+        notes: 'P.Oxy 1224\'s "pray for your enemies… the one who is not against you is for you" clause is inserted here, alongside the "whoever is not against us is for us" theme of this pericope. It is the companion clause to the "sick need a physician" scene of the same papyrus, inserted at III.6 (Call of Levi); the two are not duplicated in either place. See also IV.3 (Law and the prophets; the antitheses), which cross-references this clause\'s love-of-enemies theme without repeating the text.',
       },
       {
         id: 'viii_9_stumble_salt',
@@ -1833,36 +1873,9 @@ const CANON_SECTIONS = [
         }],
         notes: 'The most widely attested agraphon in the Fathers; its very popularity raises the worry that it is a free-floating proverb.',
       },
-      {
-        id: 'app_b_10_clement',
-        title: '1 Clement 13:2 — agraphon cluster',
-        parallelRefs: {},
-        nonbiblicalSources: NONBIBLICAL.clement?.agrapha ? [{
-          source: '1 Clement 13:2',
-          label: '1 Clement 13:2 (c. 96 CE)',
-          text: NONBIBLICAL.clement.agrapha['13:2'] || ''
-        }] : [{
-          source: '1 Clement 13:2',
-          label: '1 Clement 13:2 (c. 96 CE)',
-          text: 'Remember the words of the Lord Jesus, which he spake, teaching gentleness and long-suffering. For thus he said: "Have mercy, that ye may receive mercy; forgive, that it may be forgiven to you; as ye do, so shall it be done unto you; as ye give, so shall it be given unto you; as ye judge, so shall ye be judged; as ye are kind, so shall kindness be shown to you; with what measure ye mete, with the same it shall be measured to you."'
-        }],
-        notes: 'c. 96 CE; the same evidentiary category as Didache 8:2 — an apostolic father quoting remembered sayings of Jesus. Mostly synoptic-adjacent (cf. Matt 5:7; 7:1–2; Luke 6:31–38).',
-      },
-      {
-        id: 'app_b_11_polycarp',
-        title: 'Polycarp, Philippians 2:3',
-        parallelRefs: {},
-        nonbiblicalSources: NONBIBLICAL.polycarp?.agrapha ? [{
-          source: 'Polycarp, Philippians 2:3',
-          label: 'Polycarp, Philippians 2:3 (c. 110 CE)',
-          text: Object.values(NONBIBLICAL.polycarp.agrapha)[0] || ''
-        }] : [{
-          source: 'Polycarp, Philippians 2:3',
-          label: 'Polycarp, Philippians 2:3 (c. 110 CE)',
-          text: '"Remembering what the Lord said when he taught: Do not judge, that you may not be judged; forgive, and it will be forgiven you; be merciful, that you may receive mercy; with the measure you use, it will be measured back to you." (Polycarp, Epistle to the Philippians 2:3, c. 110 CE)'
-        }],
-        notes: 'c. 110 CE; parallel to Matt 5:7; 6:14; 7:1–2 and Luke 6:31–38.',
-      }
+      // 1 Clement 13:2 and Polycarp, Phil. 2:3 are anchored (not unanchored) —
+      // they are inserted at IV.8 (Judging; the speck and the log) per the
+      // editor's placement decision; see that pericope.
     ]
   }
 ];
