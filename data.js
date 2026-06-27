@@ -3356,11 +3356,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] Non-canonical parallel to the \"sick need a physician\" scene: P.Oxy 1224 (with its unique \"and priests\" addition).",
+    "[[NOTE]] Non-canonical parallel to the \"sick need a physician\" scene: P.Oxy 1224, Frag. 2 verso col. ii (with its unique \"and priests\" addition). The fragment's other clause — \"pray for your enemies… the one who is not against you is for you\" — is a different clause of the same papyrus; it is inserted whole at VIII.8 (the strange exorcist), with cross-references here and at IV.3 (Sermon, love of enemies). Not duplicated here.",
     "[[SOURCE:Mark 2:13–17]] Jesus went out again by the sea. The whole crowd came to him, and he taught them. As he went along, he saw Levi, the son of Alphaeus, sitting at the tax booth. “Follow me,” he said to him. And he got up and followed him. As Jesus was having a meal in Levi’s home, many tax collectors and sinners were eating with Jesus and his disciples, for there were many who followed him. When the experts in the law and the Pharisees saw that he was eating with sinners and tax collectors, they said to his disciples, “Why does he eat with tax collectors and sinners?” When Jesus heard this he said to them, “Those who are healthy don’t need a physician, but those who are sick do. I have not come to call the righteous, but sinners.”",
     "[[SOURCE:Matthew 9:9–13]] As Jesus went on from there, he saw a man named Matthew sitting at the tax booth. “Follow me,” he said to him. So he got up and followed him. As Jesus was having a meal in Matthew’s house, many tax collectors and sinners came and ate with Jesus and his disciples. When the Pharisees saw this they said to his disciples, “Why does your teacher eat with tax collectors and sinners?” When Jesus heard this he said, “Those who are healthy don’t need a physician, but those who are sick do. Go and learn what this saying means: ‘ I want mercy and not sacrifice .’ For I did not come to call the righteous, but sinners.”",
     "[[SOURCE:Luke 5:27–32]] After this, Jesus went out and saw a tax collector named Levi sitting at the tax booth. “Follow me,” he said to him. And he got up and followed him, leaving everything behind. Then Levi gave a great banquet in his house for Jesus, and there was a large crowd of tax collectors and others sitting at the table with them. But the Pharisees and their experts in the law complained to his disciples, saying, “Why do you eat and drink with tax collectors and sinners?” Jesus answered them, “Those who are well don’t need a physician, but those who are sick do. I have not come to call the righteous, but sinners to repentance.”",
-    "[[NONBIBLICAL:P.Oxy 1224 parallel]] When the scribes and Pharisees and priests saw him, they were angry that with sinners (right in the middle of them) he was reclining. But when Jesus heard, he said, \"Those who are healthy have no need of a physician . . .\" \". . . and pray for your enemies. For the one who is not against you is for you. The one who is far away today, tomorrow will be near you and in [ . . . ] the adversary [ . . . ]\""
+    "[[NONBIBLICAL:P.Oxy 1224, Frag. 2 verso col. ii]] When the scribes and Pharisees and priests saw him, they were angry that with sinners (right in the middle of them) he was reclining. But when Jesus heard, he said, \"Those who are healthy have no need of a physician . . .\""
    ],
    "verseMarkers": [
     {
@@ -3463,11 +3463,11 @@ window.BASILEIAN_DATA = {
    "nonbiblical": [
     {
      "source": "P.Oxy 1224",
-     "label": "P.Oxy 1224 parallel",
-     "text": "When the scribes and Pharisees and priests saw him, they were angry that with sinners (right in the middle of them) he was reclining. But when Jesus heard, he said, \"Those who are healthy have no need of a physician . . .\" \". . . and pray for your enemies. For the one who is not against you is for you. The one who is far away today, tomorrow will be near you and in [ . . . ] the adversary [ . . . ]\""
+     "label": "P.Oxy 1224, Frag. 2 verso col. ii",
+     "text": "When the scribes and Pharisees and priests saw him, they were angry that with sinners (right in the middle of them) he was reclining. But when Jesus heard, he said, \"Those who are healthy have no need of a physician . . .\""
     }
    ],
-   "notes": "Non-canonical parallel to the \"sick need a physician\" scene: P.Oxy 1224 (with its unique \"and priests\" addition).",
+   "notes": "Non-canonical parallel to the \"sick need a physician\" scene: P.Oxy 1224, Frag. 2 verso col. ii (with its unique \"and priests\" addition). The fragment's other clause — \"pray for your enemies… the one who is not against you is for you\" — is a different clause of the same papyrus; it is inserted whole at VIII.8 (the strange exorcist), with cross-references here and at IV.3 (Sermon, love of enemies). Not duplicated here.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -4427,7 +4427,7 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] Thomas 95 (\"do not lend at interest\") parallels Luke 6:34–35. The \"pray for your enemies\" clause of P.Oxy 1224 also echoes the love-of-enemies material here; it is inserted whole at III.6 to avoid duplication.",
+    "[[NOTE]] Thomas 95 (\"do not lend at interest\") parallels Luke 6:34–35. The \"pray for your enemies\" clause of P.Oxy 1224 also echoes the love-of-enemies material here; it is inserted whole at VIII.8 (the strange exorcist) to avoid duplication.",
     "[[SOURCE:Matthew 5:17–48]] “Do not think that I have come to abolish the law or the prophets. I have not come to abolish these things but to fulfill them. I tell you the truth, until heaven and earth pass away not the smallest letter or stroke of a letter will pass from the law until everything takes place. So anyone who breaks one of the least of these commands and teaches others to do so will be called least in the kingdom of heaven, but whoever obeys them and teaches others to do so will be called great in the kingdom of heaven. For I tell you, unless your righteousness goes beyond that of the experts in the law and the Pharisees, you will never enter the kingdom of heaven! “You have heard that it was said to an older generation, ‘ Do not murder ,’ and ‘whoever murders will be subjected to judgment.’ But I say to you that anyone who is angry with a brother will be subjected to judgment. And whoever insults a brother will be brought before the council, and whoever says ‘Fool’ will be sent to fiery hell. So then, if you bring your gift to the altar and there you remember that your brother has something against you, leave your gift there in front of the altar. First go and be reconciled to your brother and then come and present your gift. Reach agreement quickly with your accuser while on the way to court, or he may hand you over to the judge, and the judge hand you over to the warden, and you will be thrown into prison. I tell you the truth, you will never get out of there until you have paid the last penny! “You have heard that it was said, ‘ Do not commit adultery .’ But I say to you that whoever looks at a woman to desire her has already committed adultery with her in his heart. If your right eye causes you to sin, tear it out and throw it away! It is better to lose one of your members than to have your whole body thrown into hell. If your right hand causes you to sin, cut it off and throw it away! It is better to lose one of your members than to have your whole body go into hell. “It was said, ‘ Whoever divorces his wife must give her a legal document .’ But I say to you that everyone who divorces his wife, except for immorality, makes her commit adultery, and whoever marries a divorced woman commits adultery. “Again, you have heard that it was said to an older generation, ‘ Do not break an oath, but fulfill your vows to the Lord .’ But I say to you, do not take oaths at all—not by heaven, because it is the throne of God, not by earth, because it is his footstool, and not by Jerusalem, because it is the city of the great King. Do not take an oath by your head, because you are not able to make one hair white or black. Let your word be ‘Yes, yes’ or ‘No, no.’ More than this is from the evil one. “You have heard that it was said, ‘ An eye for an eye and a tooth for a tooth .’ But I say to you, do not resist the evildoer. But whoever strikes you on the right cheek, turn the other to him as well. And if someone wants to sue you and take your tunic, let him have your coat also. And if anyone forces you to go one mile, go with him two. Give to the one who asks you, and do not reject the one who wants to borrow from you. “You have heard that it was said, ‘ Love your neighbor ’ and ‘hate your enemy.’ But I say to you, love your enemy and pray for those who persecute you, so that you may be like your Father in heaven, since he causes the sun to rise on the evil and the good, and sends rain on the righteous and the unrighteous. For if you love those who love you, what reward do you have? Even the tax collectors do the same, don’t they? And if you only greet your brothers, what more do you do? Even the Gentiles do the same, don’t they? So then, be perfect, as your heavenly Father is perfect.",
     "[[SOURCE:Luke 16:17, 12:57–59]] But it is easier for heaven and earth to pass away than for one tiny stroke of a letter in the law to become void. “And why don’t you judge for yourselves what is right? As you are going with your accuser before the magistrate, make an effort to settle with him on the way, so that he will not drag you before the judge, and the judge hand you over to the officer, and the officer throw you into prison. I tell you, you will never get out of there until you have paid the very last cent!”",
     "[[NONBIBLICAL:Thomas 95]] Jesus said, \"If you have money, do not lend it at interest, but give it to one from whom you will not get it back.\""
@@ -4657,7 +4657,7 @@ window.BASILEIAN_DATA = {
      "text": "Jesus said, \"If you have money, do not lend it at interest, but give it to one from whom you will not get it back.\""
     }
    ],
-   "notes": "Thomas 95 (\"do not lend at interest\") parallels Luke 6:34–35. The \"pray for your enemies\" clause of P.Oxy 1224 also echoes the love-of-enemies material here; it is inserted whole at III.6 to avoid duplication.",
+   "notes": "Thomas 95 (\"do not lend at interest\") parallels Luke 6:34–35. The \"pray for your enemies\" clause of P.Oxy 1224 also echoes the love-of-enemies material here; it is inserted whole at VIII.8 (the strange exorcist) to avoid duplication.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -12616,8 +12616,10 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] P.Oxy 1224's \"pray for your enemies… the one who is not against you is for you\" clause is inserted here, alongside the \"whoever is not against us is for us\" theme of this pericope. It is the companion clause to the \"sick need a physician\" scene of the same papyrus, inserted at III.6 (Call of Levi); the two are not duplicated in either place. See also IV.3 (Law and the prophets; the antitheses), which cross-references this clause's love-of-enemies theme without repeating the text.",
     "[[SOURCE:Mark 9:38–41]] John said to him, “Teacher, we saw someone casting out demons in your name, and we tried to stop him because he was not following us.” But Jesus said, “Do not stop him, because no one who does a miracle in my name will be able soon afterward to say anything bad about me. For whoever is not against us is for us. For I tell you the truth, whoever gives you a cup of water because you bear Christ’s name will never lose his reward.",
-    "[[SOURCE:Luke 9:49–50]] John answered, “Master, we saw someone casting out demons in your name, and we tried to stop him because he is not a disciple along with us.” But Jesus said to him, “Do not stop him, for whoever is not against you is for you.”"
+    "[[SOURCE:Luke 9:49–50]] John answered, “Master, we saw someone casting out demons in your name, and we tried to stop him because he is not a disciple along with us.” But Jesus said to him, “Do not stop him, for whoever is not against you is for you.”",
+    "[[NONBIBLICAL:P.Oxy 1224, Frag. 2 recto col. ii — \"not against you\" clause]] \". . . and pray for your enemies. For the one who is not against you is for you. The one who is far away today, tomorrow will be near you and in [ . . . ] the adversary [ . . . ]\""
    ],
    "verseMarkers": [
     {
@@ -12657,8 +12659,14 @@ window.BASILEIAN_DATA = {
      "verse": 50
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "P.Oxy 1224",
+     "label": "P.Oxy 1224, Frag. 2 recto col. ii — \"not against you\" clause",
+     "text": "\". . . and pray for your enemies. For the one who is not against you is for you. The one who is far away today, tomorrow will be near you and in [ . . . ] the adversary [ . . . ]\""
+    }
+   ],
+   "notes": "P.Oxy 1224's \"pray for your enemies… the one who is not against you is for you\" clause is inserted here, alongside the \"whoever is not against us is for us\" theme of this pericope. It is the companion clause to the \"sick need a physician\" scene of the same papyrus, inserted at III.6 (Call of Levi); the two are not duplicated in either place. See also IV.3 (Law and the prophets; the antitheses), which cross-references this clause's love-of-enemies theme without repeating the text.",
    "disputed": null,
    "rawText": null,
    "tier": null,

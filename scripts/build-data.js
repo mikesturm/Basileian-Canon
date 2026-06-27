@@ -338,15 +338,12 @@ const CANON_SECTIONS = [
           matt: [{ch:9, from:9, to:13}],
           luke: [{ch:5, from:27, to:32}]
         },
-        nonbiblicalSources: [
-          {
-            source: 'P.Oxy 1224',
-            label: 'P.Oxy 1224 parallel',
-            text: NONBIBLICAL.poxy_1224 ?
-              (NONBIBLICAL.poxy_1224.fragments['frag2_verso_col_ii'] + ' ' + NONBIBLICAL.poxy_1224.fragments['frag2_recto_col_ii_b']) : ''
-          }
-        ],
-        notes: 'Non-canonical parallel to the "sick need a physician" scene: P.Oxy 1224 (with its unique "and priests" addition).',
+        nonbiblicalSources: NONBIBLICAL.poxy_1224?.fragments?.frag2_verso_col_ii ? [{
+          source: 'P.Oxy 1224',
+          label: 'P.Oxy 1224, Frag. 2 verso col. ii',
+          text: NONBIBLICAL.poxy_1224.fragments.frag2_verso_col_ii
+        }] : [],
+        notes: 'Non-canonical parallel to the "sick need a physician" scene: P.Oxy 1224, Frag. 2 verso col. ii (with its unique "and priests" addition). The fragment\'s other clause — "pray for your enemies… the one who is not against you is for you" — is a different clause of the same papyrus; it is inserted whole at VIII.8 (the strange exorcist), with cross-references here and at IV.3 (Sermon, love of enemies). Not duplicated here.',
       },
       {
         id: 'iii_7_fasting',
@@ -455,7 +452,7 @@ const CANON_SECTIONS = [
           label: 'Thomas 95',
           text: thomasLogion(95)
         }] : [],
-        notes: 'Thomas 95 ("do not lend at interest") parallels Luke 6:34–35. The "pray for your enemies" clause of P.Oxy 1224 also echoes the love-of-enemies material here; it is inserted whole at III.6 to avoid duplication.',
+        notes: 'Thomas 95 ("do not lend at interest") parallels Luke 6:34–35. The "pray for your enemies" clause of P.Oxy 1224 also echoes the love-of-enemies material here; it is inserted whole at VIII.8 (the strange exorcist) to avoid duplication.',
       },
       {
         id: 'iv_4_divorce',
@@ -989,6 +986,12 @@ const CANON_SECTIONS = [
           mark: [{ch:9, from:38, to:41}],
           luke: [{ch:9, from:49, to:50}]
         },
+        nonbiblicalSources: NONBIBLICAL.poxy_1224?.fragments?.frag2_recto_col_ii_b ? [{
+          source: 'P.Oxy 1224',
+          label: 'P.Oxy 1224, Frag. 2 recto col. ii — "not against you" clause',
+          text: NONBIBLICAL.poxy_1224.fragments.frag2_recto_col_ii_b
+        }] : [],
+        notes: 'P.Oxy 1224\'s "pray for your enemies… the one who is not against you is for you" clause is inserted here, alongside the "whoever is not against us is for us" theme of this pericope. It is the companion clause to the "sick need a physician" scene of the same papyrus, inserted at III.6 (Call of Levi); the two are not duplicated in either place. See also IV.3 (Law and the prophets; the antitheses), which cross-references this clause\'s love-of-enemies theme without repeating the text.',
       },
       {
         id: 'viii_9_stumble_salt',
