@@ -568,7 +568,6 @@ button {
 .passage-body {
   font-size: clamp(1.05rem, 2.4vw, 1.22rem);
   line-height: 1.78;
-  hyphens: auto;
 }
 
 .passage-body p {
