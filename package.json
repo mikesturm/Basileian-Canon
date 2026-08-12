@@ -7,6 +7,7 @@
   "scripts": {
     "fetch-nonbiblical": "node scripts/fetch-nonbiblical.js",
     "build-canon": "node scripts/build-data.js",
+    "build-portable": "node scripts/build-print-portable.js",
     "build": "node scripts/fetch-nonbiblical.js && node scripts/build-data.js",
     "fetch-translations": "node scripts/fetch-translations.js",
     "fetch-commentary": "node scripts/fetch-commentary.js",
