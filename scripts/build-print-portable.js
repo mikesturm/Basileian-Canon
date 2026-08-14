@@ -17,6 +17,7 @@ const ctx = {};
 new Function('window', dataSrc).call(ctx, ctx);
 const DATA = ctx.BASILEIAN_DATA;
 const APPARATUS = JSON.parse(readFileSync(join(ROOT, 'intertext-apparatus.json'), 'utf8'));
+const NET = JSON.parse(readFileSync(join(ROOT, 'net.json'), 'utf8'));
 
 // Set to true to append the per-reference scholarship citations to each
 // apparatus note (adds roughly a dozen pages).
@@ -74,6 +75,69 @@ function fmtRefs(refs) {
   return parts.join(' · ');
 }
 
+// ---------------------------------------------------------------------------
+// Verse-numbered rendering of SOURCE paragraphs.
+// data.js paragraphs are flat text with verse boundaries lost, so re-resolve
+// the verses from net.json by parsing the source label, e.g.
+// "Mark 1:1–8" or "Luke 16:17, 12:57–59". Falls back to the flat paragraph
+// (and warns) if the label doesn't parse or the text doesn't match.
+// ---------------------------------------------------------------------------
+const LABEL_TO_NET = {
+  'Mark': 'mark', 'Matthew': 'matthew', 'Luke': 'luke', 'John': 'john',
+  'Acts': 'acts', '1 Corinthians': '1corinthians', 'Galatians': 'galatians',
+  '1 Thessalonians': '1thessalonians',
+};
+
+// Parse "Book ch:from[–to][, ch:from[–to]]…" into [{ch, from, to}, …]
+function parseSourceLabel(label) {
+  const m = label.match(/^(.+?)\s+(\d+:.+)$/);
+  if (!m) return null;
+  const book = LABEL_TO_NET[m[1].trim()];
+  if (!book) return null;
+  const ranges = [];
+  for (const part of m[2].split(',')) {
+    const r = part.trim().match(/^(\d+):(\d+)(?:[–-](\d+))?$/);
+    if (!r) return null;
+    ranges.push({ ch: +r[1], from: +r[2], to: +(r[3] || r[2]) });
+  }
+  return { book, ranges };
+}
+
+let verseFallbacks = 0;
+function renderSourceText(label, flatText) {
+  const parsed = parseSourceLabel(label);
+  if (!parsed) {
+    verseFallbacks++;
+    console.warn(`  ! could not parse source label "${label}" — printed without verse numbers`);
+    return esc(cleanText(flatText));
+  }
+  const multiChapter = new Set(parsed.ranges.map(r => r.ch)).size > 1;
+  const pieces = [];
+  let lastCh = null;
+  for (const r of parsed.ranges) {
+    for (let v = r.from; v <= r.to; v++) {
+      const raw = NET[`${parsed.book}.${r.ch}.${v}`];
+      if (raw === undefined) continue; // verse absent from NET (e.g. Mark 15:28)
+      const num = multiChapter && r.ch !== lastCh ? `${r.ch}:${v}` : `${v}`;
+      lastCh = r.ch;
+      pieces.push(`<sup class="vn">${num}</sup>${esc(cleanText(raw))}`);
+    }
+  }
+  if (!pieces.length) {
+    verseFallbacks++;
+    console.warn(`  ! no NET verses found for "${label}" — printed without verse numbers`);
+    return esc(cleanText(flatText));
+  }
+  // Sanity check: the re-resolved text must match the flat paragraph text.
+  const rebuilt = pieces.join(' ').replace(/<sup class="vn">[^<]*<\/sup>/g, '').replace(/\s+/g, ' ').trim();
+  if (rebuilt !== esc(cleanText(flatText))) {
+    verseFallbacks++;
+    console.warn(`  ! verse text mismatch for "${label}" — printed without verse numbers`);
+    return esc(cleanText(flatText));
+  }
+  return pieces.join(' ');
+}
+
 // Map a section to its apparatus pericope ID.
 // Sections carry book "I. Inauguration…" + chapter 2 -> apparatus "I.2";
 // the Prologue's single pericope is keyed "P"; appendices are "A.n"/"B.n".
@@ -127,7 +191,8 @@ p { margin: 0 0 0.3em 0; text-align: justify; hyphens: auto; }
 .pericope-refs { font-weight: 400; font-style: italic; font-size: 7.5pt; color: #555; }
 .lbl { font-variant: small-caps; letter-spacing: 0.03em; font-size: 8pt; color: #333; font-weight: 600; padding-right: 0.35em; }
 .note { font-size: 8pt; font-style: italic; color: #444; margin: 0.25em 0; }
-.apparatus { font-size: 7.6pt; line-height: 1.22; color: #222; border-top: 0.5pt solid #999; margin-top: 0.4em; padding-top: 0.25em; }
+.vn { font-size: 5.8pt; line-height: 0; color: #555; font-variant-numeric: tabular-nums; padding-right: 0.08em; }
+.apparatus { font-size: 7pt; line-height: 1.18; color: #222; border-top: 0.5pt solid #999; margin-top: 0.4em; padding-top: 0.25em; }
 .apparatus p { margin: 0 0 0.22em 0; }
 .app-locus { font-weight: 700; }
 .app-source { font-style: italic; }
@@ -184,7 +249,9 @@ for (const book of DATA.books) {
       const p = parsePara(raw);
       if (p.kind === 'note' || p.kind === 'disputed') {
         html.push(`<p class="note">${esc(cleanText(p.text))}</p>`);
-      } else if (p.kind === 'source' || p.kind === 'nonbiblical') {
+      } else if (p.kind === 'source') {
+        html.push(`<p><span class="lbl">${esc(p.label)}</span>${renderSourceText(p.label, p.text)}</p>`);
+      } else if (p.kind === 'nonbiblical') {
         html.push(`<p><span class="lbl">${esc(p.label)}</span>${esc(cleanText(p.text))}</p>`);
       } else {
         html.push(`<p>${esc(cleanText(p.text))}</p>`);
