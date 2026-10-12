@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#251a13">
   <title>Basileian Reader</title>
-  <link rel="manifest" href="site.webmanifest?v=20261012-ui1">
+  <link rel="manifest" href="site.webmanifest?v=20261012-ui2">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="stylesheet" href="style.css?v=20261012-ui1">
-  <link rel="stylesheet" href="style-additions.css?v=20261012-ui1">
+  <link rel="stylesheet" href="style.css?v=20261012-ui2">
+  <link rel="stylesheet" href="style-additions.css?v=20261012-ui2">
 </head>
 <body>
   <div id="app" class="app-shell">
@@ -90,15 +90,13 @@
         <label class="field-label" for="bookSelect">Book / source</label>
         <select id="bookSelect" class="control"></select>
 
-        <label class="field-label" for="translationSelect" hidden>Translation</label>
         <select id="translationSelect" class="control" hidden></select>
-        <span id="translationStatus" class="hint translation-status"></span>
+        <span id="translationStatus" class="translation-status" hidden></span>
 
         <label class="field-label">Chapter</label>
         <div id="chapterList" class="chip-row" aria-label="Chapters"></div>
 
-        <div class="field-label">Passages</div>
-        <div id="passageList" class="passage-list"></div>
+        <div id="passageList" class="passage-list" hidden></div>
 
         <div id="verseSection" class="sidebar-section" hidden>
           <div class="field-label">Verses</div>
@@ -141,29 +139,20 @@
     </div>
   </div>
 
-  <div id="selectionMenu" class="selection-menu hidden" role="menu" aria-label="Word study options">
+  <div id="selectionMenu" class="selection-menu hidden" role="menu" aria-label="Selection options">
     <div id="selectionHeader" class="sm-selection-header">
       <span id="selectionRangeLabel" class="sm-range-label"></span>
-      <button id="selectionCloseBtn" class="sm-close-btn" aria-label="Close selection">×</button>
+      <button id="selectionCloseBtn" class="sm-close-btn" aria-label="Clear selection">×</button>
     </div>
-    <div class="sm-section">Study</div>
-    <button id="menuInterlinearBtn" class="sm-item">
-      <span class="sm-label">Interlinear</span>
-      <span class="sm-arrow">›</span>
-    </button>
-    <button id="menuCommentaryBtn" class="sm-item" hidden>
-      <span class="sm-label">Commentary</span>
-      <span class="sm-arrow">›</span>
-    </button>
-    <div class="sm-section">Annotate</div>
-    <button id="menuHighlightBtn" class="sm-item">
-      <span class="sm-label">Highlight</span>
-      <span class="sm-arrow">›</span>
-    </button>
-    <button id="menuNoteBtn" class="sm-item">
-      <span class="sm-label">Add Note</span>
-      <span class="sm-arrow">›</span>
-    </button>
+    <p id="selectionHint" class="sm-hint" hidden>Tap more verses to add them · tap an end verse to drop it</p>
+    <div class="sm-actions">
+      <button id="menuHighlightBtn" class="sm-item">Highlight</button>
+      <button id="menuNoteBtn" class="sm-item">Add note</button>
+      <button id="menuEditHighlightBtn" class="sm-item" hidden>Edit note</button>
+      <button id="menuRemoveHighlightBtn" class="sm-item" hidden>Remove</button>
+      <button id="menuInterlinearBtn" class="sm-item">Interlinear</button>
+      <button id="menuCommentaryBtn" class="sm-item" hidden>Commentary</button>
+    </div>
   </div>
 
   <div id="modalBackdrop" class="modal-backdrop hidden" role="presentation"></div>
@@ -176,11 +165,11 @@
     <div id="modalActions" class="modal-actions"></div>
   </div>
 
-  <script src="data.js?v=20261012-ui1"></script>
-  <script src="translations-module.js?v=20261012-ui1"></script>
-  <script src="commentary-module.js?v=20261012-ui1"></script>
-  <script src="nt-reader.js?v=20261012-ui1"></script>
-  <script src="sync-module.js?v=20261012-ui1"></script>
-  <script src="app.js?v=20261012-ui1"></script>
+  <script src="data.js?v=20261012-ui2"></script>
+  <script src="translations-module.js?v=20261012-ui2"></script>
+  <script src="commentary-module.js?v=20261012-ui2"></script>
+  <script src="nt-reader.js?v=20261012-ui2"></script>
+  <script src="sync-module.js?v=20261012-ui2"></script>
+  <script src="app.js?v=20261012-ui2"></script>
 </body>
 </html>

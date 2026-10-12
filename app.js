@@ -119,6 +119,9 @@
     menuCommentaryBtn: document.getElementById("menuCommentaryBtn"),
     menuHighlightBtn: document.getElementById("menuHighlightBtn"),
     menuNoteBtn: document.getElementById("menuNoteBtn"),
+    menuEditHighlightBtn: document.getElementById("menuEditHighlightBtn"),
+    menuRemoveHighlightBtn: document.getElementById("menuRemoveHighlightBtn"),
+    selectionHint: document.getElementById("selectionHint"),
     selectionCloseBtn: document.getElementById("selectionCloseBtn"),
     modalBackdrop: document.getElementById("modalBackdrop"),
     modal: document.getElementById("modal"),
@@ -152,7 +155,7 @@
     loadIntertextApparatus(); // async: pre-fetches apparatus JSON so panels hydrate quickly
 
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-      navigator.serviceWorker.register("sw.js?v=20261012-ui1").catch(() => {});
+      navigator.serviceWorker.register("sw.js?v=20261012-ui2").catch(() => {});
     }
   }
 
@@ -292,6 +295,29 @@
 
     els.menuHighlightBtn.addEventListener("click", () => commitHighlight(false));
     els.menuNoteBtn.addEventListener("click", () => commitHighlight(true));
+    els.menuEditHighlightBtn.addEventListener("click", () => {
+      const highlight = state.highlights.find(h => h.id === _menuHighlightIds[0]);
+      hideSelectionMenu();
+      if (highlight) openHighlightEditor(highlight);
+    });
+    els.menuRemoveHighlightBtn.addEventListener("click", () => {
+      const ids = _menuHighlightIds.slice();
+      hideSelectionMenu();
+      removeHighlights(ids);
+    });
+
+    // Tap-to-select verses (touch), and taps on existing highlights.
+    document.addEventListener("pointerdown", event => {
+      _lastPointerType = event.pointerType || "mouse";
+    }, true);
+    els.readerContent.addEventListener("click", handleReaderTap);
+    // Touching anywhere outside the text and the menu clears a tap selection.
+    // (pointerdown, because iOS doesn't send clicks from non-interactive areas.)
+    document.addEventListener("pointerdown", event => {
+      if (!_verseSel) return;
+      if (els.readerContent.contains(event.target) || els.selectionMenu.contains(event.target)) return;
+      hideSelectionMenu();
+    });
     els.menuInterlinearBtn.addEventListener("click", () => { const verses = _menuSelectionVerses.slice(); hideSelectionMenu(); if (verses.length) openInterlinearModal(verses); });
     els.menuCommentaryBtn.addEventListener("click", () => { const verses = _menuSelectionVerses.slice(); hideSelectionMenu(); if (verses.length) showCommentaryForVerses(verses); });
 
@@ -306,6 +332,13 @@
       if (_programmaticSelection) return;
       const menuVisible = !els.selectionMenu.classList.contains('hidden');
       const sel = window.getSelection();
+
+      // Verses picked by tapping are tracked by the app, not the browser's
+      // selection. A long-press that starts a native selection takes over.
+      if (_verseSel) {
+        if (!sel || sel.isCollapsed || !sel.toString().trim()) return;
+        clearVerseSelection();
+      }
 
       if (menuVisible && (!sel || sel.isCollapsed)) {
         if (_savedSelectionRange) {
@@ -504,6 +537,7 @@
   }
 
   function renderReader() {
+    if (_verseSel) hideSelectionMenu();
     updateLocationLabel();
     updateViewToggle();
     // Each time the user navigates to a new "page" of content, collapse the
@@ -523,13 +557,14 @@
     let heading, sectionsHtml;
 
     if (state.viewMode === "chapter") {
-      const title = `${state.book}${state.chapter !== "All" ? " " + chapterLabel(state.book, state.chapter) : ""}`;
-      const subtitle = `${visibleSections.length} passage${visibleSections.length === 1 ? "" : "s"}`;
-      heading = `<header class="chapter-heading">
-        <h2>${escapeHTML(title)}</h2>
-        <p class="muted">${escapeHTML(subtitle)}</p>
-      </header>`;
-      sectionsHtml = visibleSections.map(section => renderPassage(section)).join("");
+      // Each chapter normally holds a single passage: its title becomes the
+      // page heading. With several passages, each keeps its own title.
+      const single = visibleSections.length === 1;
+      const chLabel = state.chapter !== "All" ? chapterLabel(state.book, state.chapter) : "";
+      heading = single
+        ? renderPassageHeading(state.book, chLabel, visibleSections[0])
+        : `<header class="chapter-heading"><h2>${escapeHTML(state.book)}</h2></header>`;
+      sectionsHtml = visibleSections.map(section => renderPassage(section, !single)).join("");
 
     } else {
       // Witness view
@@ -540,24 +575,10 @@
 
       const chNum = currentSection.startChapter ?? currentSection.chapter;
       const chLabel = chNum != null ? chapterLabel(state.book, chNum) : "";
-      const passageRef = displayRef(currentSection);
-      const passageTitle = currentSection.title || currentSection.heading || "";
-      const crumbPassage = [passageRef, passageTitle].filter(Boolean).join(" — ");
-
-      let witnessLabel = "";
-      if (witnessEntries.length > 0) {
-        witnessLabel = witnessEntryLabel(witnessEntries[safeIdx]);
-      }
-
-      const crumbChapter = chLabel ? `Chapter ${chLabel}` : "";
-      heading = `<header class="section-heading witness-heading">
-        <div class="witness-breadcrumb">
-          <span class="crumb-book">${escapeHTML(state.book)}</span>${crumbChapter ? `<span class="crumb-sep">›</span><span class="crumb-chapter">${escapeHTML(crumbChapter)}</span>` : ""}${crumbPassage ? `<span class="crumb-sep">›</span><span class="crumb-passage">${escapeHTML(crumbPassage)}</span>` : ""}
-        </div>
-        <p class="witness-label">${witnessEntries.length > 0
-          ? `<span class="witness-number">${safeIdx + 1}</span> ${escapeHTML(witnessLabel)} <span class="witness-count muted">of ${witnessEntries.length}</span>`
-          : "No witnesses"}</p>
-      </header>`;
+      const witnessLine = witnessEntries.length > 0
+        ? `<p class="witness-label"><span class="witness-number">${safeIdx + 1}</span> ${escapeHTML(witnessEntryLabel(witnessEntries[safeIdx]))}${witnessEntries.length > 1 ? ` <span class="witness-count">of ${witnessEntries.length} witnesses</span>` : ""}</p>`
+        : "";
+      heading = renderPassageHeading(state.book, chLabel, currentSection, witnessLine);
       sectionsHtml = renderSingleWitness(currentSection, safeIdx, witnessEntries)
         + renderApparatusPlaceholder(currentSection.id);
     }
@@ -603,28 +624,43 @@
     return `${displayName} ${range.ch}:${range.from}${range.from !== range.to ? "–" + range.to : ""}`;
   }
 
+  // Page heading for a single passage: a small "Book · chapter" line above
+  // the passage title, plus optional extra lines (the witness label).
+  function renderPassageHeading(bookName, chLabel, section, extraHtml = "") {
+    const kicker = [bookName, chLabel].filter(Boolean).join(" · ");
+    const title = section.title || section.heading || displayRef(section);
+    return `<header class="chapter-heading">
+      <p class="heading-kicker">${escapeHTML(kicker)}</p>
+      <h2>${escapeHTML(title)}</h2>
+      ${extraHtml}
+    </header>`;
+  }
+
+  function renderPassageMeta(section) {
+    return section.tier
+      ? `<div class="passage-meta"><span class="source-pill">${escapeHTML(section.tier)}</span></div>`
+      : "";
+  }
+
   function renderSingleWitness(section, witnessIndex, witnessEntries) {
-    const source = section.source ? `<span class="source-pill">${escapeHTML(section.source)}</span>` : "";
-    const tier = section.tier ? `<span class="source-pill">${escapeHTML(section.tier.replace(/^Tier /, "Tier "))}</span>` : "";
+    const meta = renderPassageMeta(section);
 
     if (!witnessEntries || witnessEntries.length === 0) {
       const paragraphs = section.paragraphs.map(p => `<p>${formatParagraph(p, section)}</p>`).join("");
       return `<section class="passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
-        <div class="passage-meta">${source}${tier}</div>
+        ${meta}
         <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${paragraphs}</div>
       </section>`;
     }
 
+    // The witness label is shown in the page heading, so the block itself
+    // carries only the text.
     const entry = witnessEntries[witnessIndex];
-    const label = witnessEntryLabel(entry);
-
     const block = entry.kind === "nonbiblical"
       ? `<div class="nt-source-block nonbiblical-source-block">
-          <span class="nt-source-label"><span class="witness-number">${witnessIndex + 1}</span> ${escapeHTML(label)}</span>
           <div class="nt-verse-content">${formatParagraphBody(entry.nb.text || "", section)}</div>
         </div>`
       : `<div class="nt-source-block" data-book="${escapeAttr(entry.bookKey)}" data-chapter="${entry.range.ch}" data-from="${entry.range.from}" data-to="${entry.range.to}">
-          <span class="nt-source-label"><span class="witness-number">${witnessIndex + 1}</span> ${escapeHTML(label)}</span>
           <div class="nt-verse-content muted">Loading…</div>
         </div>`;
 
@@ -636,13 +672,13 @@
     const witnessBookAttr = entry.kind === "canonical" ? ` data-witness-book="${escapeAttr(entry.bookKey)}"` : "";
 
     return `<section class="passage nt-passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
-      <div class="passage-meta">${source}${tier}</div>
+      ${meta}
       <div class="passage-body" data-section-id="${escapeAttr(section.id)}"${witnessBookAttr}>${block}${extraParagraphs}</div>
     </section>`;
   }
 
-  function renderPassage(section) {
-    let html = renderNTPassage(section);
+  function renderPassage(section, showTitle = true) {
+    let html = renderNTPassage(section, showTitle);
     if (state.crossRefEnabled && canTranslateSection(section)) {
       html += renderCrossRefPanel(section);
     }
@@ -653,9 +689,11 @@
   // Render a passage using NT-Material XHTML files (for sections with parallel_refs)
   // or formatted paragraph text (for non-biblical / unanchored sections).
   // Sections with parallel_refs get loading placeholders filled by hydrateNTPassages().
-  function renderNTPassage(section) {
-    const source = section.source ? `<span class="source-pill">${escapeHTML(section.source)}</span>` : "";
-    const tier = section.tier ? `<span class="source-pill">${escapeHTML(section.tier.replace(/^Tier /, "Tier "))}</span>` : "";
+  function renderNTPassage(section, showTitle = true) {
+    const meta = renderPassageMeta(section);
+    const title = showTitle
+      ? `<h3>${escapeHTML(displayRef(section))}${section.title ? ` — ${escapeHTML(section.title)}` : ""}</h3>`
+      : "";
     const hasParallelRefs = section.parallel_refs && Object.keys(section.parallel_refs).length > 0;
 
     if (hasParallelRefs) {
@@ -682,8 +720,8 @@
         .join("");
 
       return `<section class="passage nt-passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
-        <h3>${escapeHTML(displayRef(section))}${section.title ? ` — ${escapeHTML(section.title)}` : ""}</h3>
-        <div class="passage-meta">${source}${tier}</div>
+        ${title}
+        ${meta}
         <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${refBlocks}${extraParagraphs}</div>
       </section>`;
     }
@@ -691,8 +729,8 @@
     // No parallel refs — non-biblical or unanchored: show formatted paragraphs
     const paragraphs = section.paragraphs.map(p => `<p>${formatParagraph(p, section)}</p>`).join("");
     return `<section class="passage" id="${escapeAttr(section.id)}" data-section-id="${escapeAttr(section.id)}">
-      <h3>${escapeHTML(displayRef(section))}${section.title ? ` — ${escapeHTML(section.title)}` : ""}</h3>
-      <div class="passage-meta">${source}${tier}</div>
+      ${title}
+      ${meta}
       <div class="passage-body" data-section-id="${escapeAttr(section.id)}">${paragraphs}</div>
     </section>`;
   }
@@ -782,10 +820,13 @@
     // Build a lookup from "chapter:verse" → verseMarker, so we can use the
     // canonical verse_id (marker.id) rather than deriving it from section.book
     // (which is often a part title, not a canonical book name).
+    // Chapter view shows several gospels at once (Matthew 3:4 and Luke 3:4
+    // both exist), so key by gospel too, falling back to chapter:verse.
     const markerById = new Map();
     for (const vm of (section.verseMarkers || [])) {
-      const key = `${vm.chapter}:${vm.verse}`;
-      if (!markerById.has(key)) markerById.set(key, vm);
+      for (const key of [`${vm.book}:${vm.chapter}:${vm.verse}`, `${vm.chapter}:${vm.verse}`]) {
+        if (!markerById.has(key)) markerById.set(key, vm);
+      }
     }
 
     const markers = [...body.querySelectorAll(".verse-number[data-chapter][data-verse]")];
@@ -799,7 +840,7 @@
       // marker.start <= range.start → candidate for startIdx
       if (range.compareBoundaryPoints(Range.START_TO_START, r) >= 0) startIdx = i;
       // marker.start < range.end → marker falls inside selection on its leading edge
-      if (range.compareBoundaryPoints(Range.END_TO_START, r) > 0) endIdx = i;
+      if (range.compareBoundaryPoints(Range.START_TO_END, r) > 0) endIdx = i;
     }
     if (startIdx < 0) startIdx = 0;
     if (endIdx < startIdx) endIdx = startIdx;
@@ -810,7 +851,8 @@
       const m = markers[i];
       const ch = m.dataset.chapter;
       const v = m.dataset.verse;
-      const vm = markerById.get(`${ch}:${v}`);
+      const book = m.closest(".nt-source-block[data-book]")?.dataset.book || body.dataset.witnessBook;
+      const vm = (book && markerById.get(`${book}:${ch}:${v}`)) || markerById.get(`${ch}:${v}`);
       const verseId = vm?.id || `${bookToVerseIdPrefix(section.book)}.${ch}.${v}`;
       if (seen.has(verseId)) continue;
       seen.add(verseId);
@@ -1356,15 +1398,6 @@
       button.addEventListener("click", event => {
         event.preventDefault();
         openEndnote(button.dataset.note);
-      });
-    });
-
-    // Existing highlight handlers
-    els.readerContent.querySelectorAll(".user-highlight").forEach(mark => {
-      mark.addEventListener("click", event => {
-        event.stopPropagation();
-        const highlight = state.highlights.find(h => h.id === mark.dataset.highlightId);
-        if (highlight) openHighlightEditor(highlight);
       });
     });
 
@@ -1982,6 +2015,8 @@
     } else {
       els.translationStatus.textContent = "";
     }
+    // Only surface the status line when something went wrong.
+    els.translationStatus.hidden = status !== "error";
   }
 
   /**
@@ -2262,9 +2297,15 @@
     }
 
     const sectionId = body.dataset.sectionId;
-    const witnessBook = body.dataset.witnessBook || null;
+    // In chapter view one passage body holds several gospels; record which one
+    // the selection is in so the highlight is drawn on the right text.
+    const startEl = range.startContainer.nodeType === Node.ELEMENT_NODE
+      ? range.startContainer : range.startContainer.parentElement;
+    const witnessBook = body.dataset.witnessBook
+      || startEl?.closest(".nt-source-block[data-book]")?.dataset.book
+      || null;
 
-    const quote = range.toString().trim();
+    const quote = rangeQuoteText(range);
     if (!quote) return;
 
     // Try verse-based anchoring first; fall back to body char offsets for non-NT text.
@@ -2344,7 +2385,7 @@
     renderAll();
     setTimeout(() => {
       const mark = document.querySelector(`[data-highlight-id="${CSS.escape(highlight.id)}"]`);
-      if (mark) mark.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (mark) { holdChrome(); mark.scrollIntoView({ behavior: "smooth", block: "center" }); }
     }, 70);
   }
 
@@ -2352,6 +2393,18 @@
     if (!confirm("Delete this highlight and note?")) return;
     state.highlights = state.highlights.filter(h => h.id !== id);
     if (window.BasileianSync) window.BasileianSync.recordDeletion(id);
+    saveHighlights();
+    renderAll();
+  }
+
+  // Removes highlights from the selection menu; asks first only when one of
+  // them carries a note that would be lost.
+  function removeHighlights(ids) {
+    const doomed = state.highlights.filter(h => ids.includes(h.id));
+    if (!doomed.length) return;
+    if (doomed.some(h => h.note) && !confirm("Remove this highlight and its note?")) return;
+    state.highlights = state.highlights.filter(h => !ids.includes(h.id));
+    if (window.BasileianSync) doomed.forEach(h => window.BasileianSync.recordDeletion(h.id));
     saveHighlights();
     renderAll();
   }
@@ -2365,10 +2418,12 @@
   function applyHighlightsToBody(sectionId, body) {
     const inWitnessMode = !!body.dataset.witnessBook;
 
-    // For witness-mode bodies, only apply verse-anchored highlights (h.anchor).
-    // For non-witness bodies, also apply legacy body-offset highlights.
+    // For witness-mode bodies, only apply verse-anchored highlights (h.anchor)
+    // made on this witness. For non-witness bodies, also apply legacy
+    // body-offset highlights.
     const candidates = state.highlights
       .filter(h => h.sectionId === sectionId && (h.anchor || !inWitnessMode))
+      .filter(h => !inWitnessMode || !h.witnessBook || h.witnessBook === body.dataset.witnessBook)
       .sort((a, b) => {
         if (a.anchor && b.anchor) {
           const ae = a.anchor.end, be = b.anchor.end;
@@ -2384,8 +2439,11 @@
       try {
         let startPos, endPos;
         if (highlight.anchor) {
-          startPos = findVerseAnchorPosition(body, highlight.anchor.start);
-          endPos = findVerseAnchorPosition(body, highlight.anchor.end);
+          // Chapter view: look the verse up inside the gospel it was made on.
+          const root = (!inWitnessMode && highlight.witnessBook
+            && body.querySelector(`.nt-source-block[data-book="${CSS.escape(highlight.witnessBook)}"]`)) || body;
+          startPos = findVerseAnchorPosition(root, highlight.anchor.start);
+          endPos = findVerseAnchorPosition(root, highlight.anchor.end);
         } else {
           startPos = findTextPosition(body, highlight.start);
           endPos = findTextPosition(body, highlight.end);
@@ -2513,6 +2571,177 @@
   let _programmaticSelection = false;
   // Debounce timer for selectionchange → updateSelectionMenu.
   let _selectionDebounceTimer = null;
+  // Ids of saved highlights that overlap the current selection.
+  let _menuHighlightIds = [];
+
+  // ---------------------------------------------------------------------------
+  // Tap-to-select verses (touch screens)
+  //
+  // One tap selects a whole verse; tapping other verses extends the selection
+  // to include them (and everything between). Tapping the first or last
+  // selected verse drops it; tapping a verse in the middle trims the selection
+  // to end there. Long-press still makes a native word-level selection for
+  // highlighting part of a verse.
+  //
+  // Verses are not wrapped in their own elements: a verse is the text between
+  // one .verse-number marker and the next inside the same .nt-verse-content.
+  // ---------------------------------------------------------------------------
+  let _lastPointerType = "mouse";
+  // { container, body, markers, start, end } — start/end index into markers.
+  let _verseSel = null;
+  const _supportsCustomHighlight = typeof Highlight === "function" && !!(window.CSS && CSS.highlights);
+
+  function handleReaderTap(event) {
+    const target = event.target;
+    const mark = target.closest(".user-highlight");
+    const touch = _lastPointerType === "touch" || _lastPointerType === "pen";
+
+    // Mouse: clicking a highlight edits its note; drag-selection is unchanged.
+    if (!touch) {
+      if (mark && window.getSelection().isCollapsed) openHighlightById(mark.dataset.highlightId);
+      return;
+    }
+
+    // Leave footnote markers, Strong's words, links and panels alone.
+    if (target.closest("button, a, input, textarea, select, .source-word, .footnotes-panel, .apparatus-panel, .crossref-panel")) return;
+    // A native (long-press) selection is in progress.
+    if (!_verseSel && !window.getSelection().isCollapsed) return;
+
+    const container = target.closest(".nt-verse-content");
+    const body = container && container.closest(".passage-body[data-section-id]");
+    const markers = container ? [...container.querySelectorAll(".verse-number[data-chapter][data-verse]")] : [];
+    const idx = (body && markers.length && !target.closest(".paragraphtitle"))
+      ? verseIndexAtPoint(markers, event.clientX, event.clientY, target)
+      : -1;
+
+    if (idx < 0) {
+      // Not on a verse: clear any tap selection, otherwise behave as before.
+      if (_verseSel) hideSelectionMenu();
+      else if (mark) openHighlightById(mark.dataset.highlightId);
+      return;
+    }
+
+    event.preventDefault();
+    if (!_verseSel || _verseSel.container !== container) {
+      if (_verseSel) clearVerseSelection();
+      _verseSel = { container, body, markers, start: idx, end: idx };
+    } else if (idx < _verseSel.start) {
+      _verseSel.start = idx;
+    } else if (idx > _verseSel.end) {
+      _verseSel.end = idx;
+    } else if (_verseSel.start === _verseSel.end) {
+      hideSelectionMenu();
+      return;
+    } else if (idx === _verseSel.start) {
+      _verseSel.start++;          // drop the first verse
+    } else if (idx === _verseSel.end) {
+      _verseSel.end--;            // drop the last verse
+    } else {
+      _verseSel.end = idx;        // a middle verse: trim the selection to end there
+    }
+    renderVerseSelection(idx);
+  }
+
+  function openHighlightById(id) {
+    const highlight = state.highlights.find(h => h.id === id);
+    if (highlight) openHighlightEditor(highlight);
+  }
+
+  // Index of the verse under a screen point: the last marker at or before it.
+  function verseIndexAtPoint(markers, x, y, fallbackNode) {
+    let node = fallbackNode;
+    let caretNode = null;
+    let caretOffset = 0;
+    if (document.caretPositionFromPoint) {
+      const pos = document.caretPositionFromPoint(x, y);
+      if (pos) { caretNode = pos.offsetNode; caretOffset = pos.offset; }
+    } else if (document.caretRangeFromPoint) {
+      const r = document.caretRangeFromPoint(x, y);
+      if (r) { caretNode = r.startContainer; caretOffset = r.startOffset; }
+    }
+    if (caretNode && fallbackNode.contains(caretNode)) {
+      node = caretNode;
+      if (node.nodeType === Node.ELEMENT_NODE && node.childNodes.length) {
+        node = node.childNodes[Math.min(caretOffset, node.childNodes.length - 1)];
+      }
+    }
+    if (node.nodeType === Node.ELEMENT_NODE && node.closest(".paragraphtitle")) return -1;
+    if (node.parentElement && node.parentElement.closest(".paragraphtitle")) return -1;
+
+    let idx = -1;
+    for (let i = 0; i < markers.length; i++) {
+      const m = markers[i];
+      if (m === node || m.contains(node) || (m.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING)) {
+        idx = i;
+      } else {
+        break;
+      }
+    }
+    return idx;
+  }
+
+  // First and last text nodes of verse `idx`, skipping verse numbers and
+  // section headings.
+  function verseTextBounds(container, markers, idx) {
+    const startMarker = markers[idx];
+    const nextMarker = markers[idx + 1] || null;
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+    walker.currentNode = startMarker;
+    let first = null;
+    let last = null;
+    let node;
+    while ((node = walker.nextNode())) {
+      if (nextMarker && (nextMarker.contains(node) || (nextMarker.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING))) break;
+      const parent = node.parentElement;
+      if (!parent || parent.closest(".verse-number, .paragraphtitle, sup, .nt-note-btn")) continue;
+      if (!node.nodeValue.trim()) continue;
+      if (!first) first = node;
+      last = node;
+    }
+    return first ? { first, last } : null;
+  }
+
+  function verseSelectionRange(sel) {
+    const a = verseTextBounds(sel.container, sel.markers, sel.start);
+    const b = verseTextBounds(sel.container, sel.markers, sel.end);
+    if (!a || !b) return null;
+    const range = document.createRange();
+    range.setStart(a.first, a.first.nodeValue.length - a.first.nodeValue.trimStart().length);
+    range.setEnd(b.last, b.last.nodeValue.trimEnd().length);
+    return range;
+  }
+
+  function renderVerseSelection(tappedIdx) {
+    const range = verseSelectionRange(_verseSel);
+    if (!range) {
+      hideSelectionMenu();
+      return;
+    }
+    _verseSel.markers.forEach((m, i) => {
+      m.classList.toggle("verse-selected", i >= _verseSel.start && i <= _verseSel.end);
+    });
+    if (_supportsCustomHighlight) {
+      CSS.highlights.set("verse-selection", new Highlight(range));
+    }
+    // Keep the tapped verse in view above the bottom sheet.
+    const tapped = verseSelectionRange({ ..._verseSel, start: tappedIdx, end: tappedIdx });
+    const focusRect = (tapped || range).getBoundingClientRect();
+    showSelectionMenu(range, _verseSel.body, focusRect);
+  }
+
+  function clearVerseSelection() {
+    if (!_verseSel) return;
+    _verseSel.markers.forEach(m => m.classList.remove("verse-selected"));
+    if (_supportsCustomHighlight) CSS.highlights.delete("verse-selection");
+    _verseSel = null;
+  }
+
+  // Selected text without verse numbers or footnote markers.
+  function rangeQuoteText(range) {
+    const frag = range.cloneContents();
+    frag.querySelectorAll(".verse-number, sup, .nt-note-btn, .note-link, .net-note-link").forEach(el => el.remove());
+    return frag.textContent.replace(/\s+/g, " ").trim();
+  }
 
   function updateSelectionMenu() {
     const selection = window.getSelection();
@@ -2531,11 +2760,32 @@
       hideSelectionMenu();
       return;
     }
+    showSelectionMenu(range, body, rect);
+  }
 
+  // Shows the menu for a range, from either a native text selection or verses
+  // picked by tapping. `focusRect` is the part of the page to keep visible
+  // above the bottom sheet on phones.
+  function showSelectionMenu(range, body, focusRect) {
+    const rect = focusRect;
     _selectionBody = body;
     _savedSelectionRange = range.cloneRange();
     _menuSelectionVerses = findVersesInSelection(range);
     _menuSelectionSection = sectionById.get(body.dataset.sectionId) || null;
+
+    // Existing highlights inside the selection can be edited or removed.
+    const highlightIds = [...new Set([...body.querySelectorAll(".user-highlight[data-highlight-id]")]
+      .filter(mark => range.intersectsNode(mark))
+      .map(mark => mark.dataset.highlightId))];
+    // Already-highlighted text offers Edit / Remove in place of Highlight / Add
+    // note, so the menu keeps a short, single row of actions.
+    _menuHighlightIds = highlightIds;
+    const overlapsHighlight = highlightIds.length > 0;
+    els.menuHighlightBtn.hidden = overlapsHighlight;
+    els.menuNoteBtn.hidden = overlapsHighlight;
+    els.menuEditHighlightBtn.hidden = highlightIds.length !== 1;
+    els.menuRemoveHighlightBtn.hidden = !overlapsHighlight;
+    els.selectionHint.hidden = !_verseSel;
 
     if (els.selectionRangeLabel) {
       const first = _menuSelectionVerses[0];
@@ -2554,7 +2804,7 @@
     const isMobile = window.innerWidth <= 640;
     if (!isMobile) {
       const menuW = 220;
-      const menuH = 190;
+      const menuH = els.selectionMenu.offsetHeight || 220;
       let left = rect.left;
       let top = rect.top - menuH - 10;
       if (top < 8) top = rect.bottom + 10;
@@ -2587,6 +2837,13 @@
     els.selectionMenu.classList.add("hidden");
     document.body.classList.remove('selection-menu-open');
     clearTimeout(_selectionDebounceTimer);
+    _menuHighlightIds = [];
+
+    // A tap selection has no native selection to hand back to the browser.
+    if (_verseSel) {
+      clearVerseSelection();
+      restoreToNative = false;
+    }
 
     if (restoreToNative && _savedSelectionRange && _selectionBody) {
       const body = _selectionBody;
@@ -3021,15 +3278,16 @@
 
   function scrollToSection(id) {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) { holdChrome(); el.scrollIntoView({ behavior: "smooth", block: "start" }); }
   }
 
   function scrollToAnchor(anchor) {
     const el = document.getElementById(anchor);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (el) { holdChrome(); el.scrollIntoView({ behavior: "smooth", block: "center" }); }
   }
 
   function scrollToTopReader() {
+    holdChrome();
     els.readerContent.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -3072,7 +3330,16 @@
 
   // On small screens, slide the top bar and pager out of the way while
   // scrolling down through the text, and bring them back on scroll up.
+  let _chromeHoldUntil = 0;
+
+  // Keep the bars showing while the app scrolls the page itself.
+  function holdChrome(ms = 1200) {
+    _chromeHoldUntil = Date.now() + ms;
+    document.body.classList.remove("chrome-hidden");
+  }
+
   function bindAutoHideChrome() {
+    holdChrome(2000); // the initial jump to a linked or last-read passage
     const mobile = window.matchMedia("(max-width: 860px)");
     let lastY = window.scrollY;
     let ticking = false;
@@ -3082,6 +3349,13 @@
       requestAnimationFrame(() => {
         const y = window.scrollY;
         const delta = y - lastY;
+        // Scrolls the app makes itself (jumping to a verse or search result)
+        // are not the reader scrolling, so they never hide the bars.
+        if (Date.now() < _chromeHoldUntil) {
+          lastY = y;
+          ticking = false;
+          return;
+        }
         if (!mobile.matches || openPopover || y < 80) {
           document.body.classList.remove("chrome-hidden");
         } else if (delta > 8) {
