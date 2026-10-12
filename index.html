@@ -5,31 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#251a13">
   <title>Basileian Reader</title>
-  <link rel="manifest" href="site.webmanifest?v=20260521-ot-reader1">
+  <link rel="manifest" href="site.webmanifest?v=20261012-ui1">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="stylesheet" href="style.css?v=20260521-ot-reader1">
-  <link rel="stylesheet" href="style-additions.css?v=20260610-lexicon">
+  <link rel="stylesheet" href="style.css?v=20261012-ui1">
+  <link rel="stylesheet" href="style-additions.css?v=20261012-ui1">
 </head>
 <body>
   <div id="app" class="app-shell">
     <header class="topbar">
       <button id="navToggle" class="icon-button nav-toggle" aria-label="Open navigation">☰</button>
-      <div class="brand">
+      <button id="brandBtn" class="brand" type="button" aria-label="Open navigation">
         <span class="brand-mark" aria-hidden="true">β</span>
-        <div class="brand-copy">
-          <h1>Basileian Reader</h1>
-          <p id="docSubtitle">Jesus Tradition Canon</p>
-        </div>
-      </div>
+        <span class="brand-copy">
+          <span class="brand-title">Basileian Reader</span>
+          <span id="docSubtitle" class="brand-location">Jesus Tradition Canon</span>
+        </span>
+      </button>
+      <nav class="tabbar" aria-label="Main sections">
+        <button class="tab active" data-tab="reader">Reader</button>
+        <button class="tab" data-tab="notes">Notes</button>
+      </nav>
       <div class="top-actions">
-        <button id="themeToggle" class="icon-button" aria-label="Toggle theme">◐</button>
+        <button id="searchToggle" class="icon-button" aria-label="Search" aria-expanded="false" aria-controls="searchPanel">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button id="settingsToggle" class="icon-button settings-toggle" aria-label="Display settings" aria-expanded="false" aria-controls="settingsPanel">Aa</button>
       </div>
     </header>
 
-    <nav class="tabbar" aria-label="Main sections">
-      <button class="tab active" data-tab="reader">Reader</button>
-      <button class="tab" data-tab="notes">Notes</button>
-    </nav>
+    <section id="searchPanel" class="top-popover search-panel" aria-label="Search the canon" hidden>
+      <div class="search-row">
+        <input id="searchInput" class="control search-control" type="search" placeholder="Search words, phrases, references, or endnotes" aria-label="Search the canon">
+        <button id="clearSearch" class="button ghost">Clear</button>
+      </div>
+      <div id="searchSummary" class="hint"></div>
+      <div id="searchResults" class="search-results"></div>
+    </section>
+
+    <section id="settingsPanel" class="top-popover settings-panel" aria-label="Display settings" hidden>
+      <div class="settings-group">
+        <div class="settings-label">Footnotes</div>
+        <button id="footnotesToggleBtn" class="setting-row active" aria-pressed="true">
+          <span>Show markers in text</span><span class="switch" aria-hidden="true"></span>
+        </button>
+        <button id="footnoteTypeTnBtn" class="setting-row fn-type-btn active" data-fn-type="tn" aria-pressed="true">
+          <span>Translator's notes <small>tn</small></span><span class="switch" aria-hidden="true"></span>
+        </button>
+        <button id="footnoteTypeSnBtn" class="setting-row fn-type-btn active" data-fn-type="sn" aria-pressed="true">
+          <span>Study notes <small>sn</small></span><span class="switch" aria-hidden="true"></span>
+        </button>
+        <button id="footnoteTypeTcBtn" class="setting-row fn-type-btn active" data-fn-type="tc" aria-pressed="true">
+          <span>Text-critical notes <small>tc</small></span><span class="switch" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="settings-group">
+        <div class="settings-label">Appearance</div>
+        <button id="themeToggle" class="setting-row" aria-pressed="false">
+          <span>Dark mode</span><span class="switch" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
 
     <div class="main-layout">
       <aside id="sidebar" class="sidebar" aria-label="Reader navigation">
@@ -37,6 +72,11 @@
           <strong>Navigate</strong>
           <button id="closeSidebar" class="icon-button close-sidebar" aria-label="Close navigation">×</button>
         </div>
+
+        <nav class="tabbar sidebar-tabs" aria-label="Main sections">
+          <button class="tab active" data-tab="reader">Reader</button>
+          <button class="tab" data-tab="notes">Notes</button>
+        </nav>
 
         <div class="sidebar-goto-section">
           <label class="field-label" for="gotoInput">Go to reference</label>
@@ -65,36 +105,24 @@
           <div id="verseList" class="chip-row small" aria-label="Verses"></div>
         </div>
       </aside>
+      <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
 
       <main class="content">
         <section id="readerTab" class="tab-panel active" aria-label="Reader">
-          <section class="search-panel">
-            <label class="field-label" for="searchInput">Search the canon</label>
-            <div class="search-row">
-              <input id="searchInput" class="control search-control" type="search" placeholder="Search words, phrases, references, or endnotes">
-              <button id="searchBtn" class="button">Search</button>
-              <button id="clearSearch" class="button secondary">Clear</button>
-            </div>
-            <div id="searchSummary" class="hint"></div>
-            <div id="searchResults" class="search-results"></div>
-          </section>
-
           <article class="reader-card">
-            <div class="reader-toolbar">
-              <button id="prevBtn" class="button secondary">← Previous</button>
-              <button id="backBtn" class="button secondary" disabled>↩ Back</button>
-              <button id="chapterModeBtn" class="button secondary">Chapter view</button>
-              <button id="nextBtn" class="button secondary">Next →</button>
-            </div>
-            <div class="reader-opts-bar">
-              <span class="footnotes-toolbar-label">Footnotes:</span>
-              <button id="footnotesToggleBtn" class="button secondary active" aria-pressed="true" title="Show or hide footnote markers in the text">Markers</button>
-              <button id="footnoteTypeTnBtn" class="button secondary fn-type-btn active" data-fn-type="tn" aria-pressed="true" title="Translator's notes">tn</button>
-              <button id="footnoteTypeSnBtn" class="button secondary fn-type-btn active" data-fn-type="sn" aria-pressed="true" title="Study notes">sn</button>
-              <button id="footnoteTypeTcBtn" class="button secondary fn-type-btn active" data-fn-type="tc" aria-pressed="true" title="Text-critical notes">tc</button>
+            <div class="reader-head">
+              <button id="backBtn" class="button ghost back-btn" hidden>↩ Back</button>
+              <div class="view-toggle" role="group" aria-label="View mode">
+                <button id="viewChapterBtn" class="view-option" data-view="chapter" aria-pressed="false">Chapter</button>
+                <button id="viewWitnessBtn" class="view-option" data-view="witness" aria-pressed="false">Witness</button>
+              </div>
             </div>
             <div id="readerContent" class="reader-content" tabindex="-1"></div>
           </article>
+          <nav class="reader-pager" aria-label="Previous and next">
+            <button id="prevBtn" class="pager-btn">← Previous</button>
+            <button id="nextBtn" class="pager-btn">Next →</button>
+          </nav>
         </section>
 
         <section id="notesTab" class="tab-panel" aria-label="Notes">
@@ -148,11 +176,11 @@
     <div id="modalActions" class="modal-actions"></div>
   </div>
 
-  <script src="data.js?v=20260521-ot-reader1"></script>
-  <script src="translations-module.js?v=20260610-lexicon"></script>
-  <script src="commentary-module.js?v=20260521-ot-reader1"></script>
-  <script src="nt-reader.js?v=20260604-sync2"></script>
-  <script src="sync-module.js?v=20260604-sync1"></script>
-  <script src="app.js?v=20260610-lexicon"></script>
+  <script src="data.js?v=20261012-ui1"></script>
+  <script src="translations-module.js?v=20261012-ui1"></script>
+  <script src="commentary-module.js?v=20261012-ui1"></script>
+  <script src="nt-reader.js?v=20261012-ui1"></script>
+  <script src="sync-module.js?v=20261012-ui1"></script>
+  <script src="app.js?v=20261012-ui1"></script>
 </body>
 </html>
