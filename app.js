@@ -19,6 +19,16 @@
   const sections = DATA.sections;
   const books = DATA.books;
   const sectionById = new Map(sections.map(section => [section.id, section]));
+  // Searchable text for each passage: its paragraphs with [[...]] markers removed.
+  sections.forEach(section => {
+    if (section.plainText == null) {
+      section.plainText = (section.paragraphs || [])
+        .join(" ")
+        .replace(/\[\[[^\]]*\]\]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+  });
   const bookByName = new Map(books.map(book => [book.name, book]));
 
   const OT_BOOK_KEYS = [
@@ -94,7 +104,14 @@
     prevBtn: document.getElementById("prevBtn"),
     backBtn: document.getElementById("backBtn"),
     nextBtn: document.getElementById("nextBtn"),
-    chapterModeBtn: document.getElementById("chapterModeBtn"),
+    viewToggle: document.querySelector(".view-toggle"),
+    viewOptionBtns: document.querySelectorAll(".view-option"),
+    brandBtn: document.getElementById("brandBtn"),
+    sidebarBackdrop: document.getElementById("sidebarBackdrop"),
+    searchToggle: document.getElementById("searchToggle"),
+    searchPanel: document.getElementById("searchPanel"),
+    settingsToggle: document.getElementById("settingsToggle"),
+    settingsPanel: document.getElementById("settingsPanel"),
     selectionMenu: document.getElementById("selectionMenu"),
     selectionHeader: document.getElementById("selectionHeader"),
     selectionRangeLabel: document.getElementById("selectionRangeLabel"),
@@ -135,7 +152,7 @@
     loadIntertextApparatus(); // async: pre-fetches apparatus JSON so panels hydrate quickly
 
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-      navigator.serviceWorker.register("sw.js?v=20260508-fix4").catch(() => {});
+      navigator.serviceWorker.register("sw.js?v=20261012-ui1").catch(() => {});
     }
   }
 
@@ -144,8 +161,21 @@
       button.addEventListener("click", () => setTab(button.dataset.tab));
     });
 
-    els.navToggle.addEventListener("click", () => els.sidebar.classList.add("open"));
-    els.closeSidebar.addEventListener("click", () => els.sidebar.classList.remove("open"));
+    els.navToggle.addEventListener("click", openSidebar);
+    els.closeSidebar.addEventListener("click", closeSidebar);
+    els.sidebarBackdrop.addEventListener("click", closeSidebar);
+    els.brandBtn.addEventListener("click", () => {
+      if (window.matchMedia("(max-width: 860px)").matches) openSidebar();
+    });
+
+    els.searchToggle.addEventListener("click", () => togglePopover(els.searchPanel, els.searchToggle));
+    els.settingsToggle.addEventListener("click", () => togglePopover(els.settingsPanel, els.settingsToggle));
+    document.addEventListener("pointerdown", event => {
+      if (!openPopover) return;
+      if (openPopover.panel.contains(event.target) || openPopover.toggle.contains(event.target)) return;
+      closePopover();
+    });
+    bindAutoHideChrome();
 
     els.bookSelect.addEventListener("change", () => {
       const val = els.bookSelect.value;
@@ -205,11 +235,13 @@
 
     els.prevBtn.addEventListener("click", goPrevious);
     els.nextBtn.addEventListener("click", goNext);
-    els.chapterModeBtn.addEventListener("click", () => {
-      const next = state.viewMode === "chapter" ? "witness" : "chapter";
-      state.currentWitnessIndex = 0;
-      setViewMode(next);
-      renderAll();
+    els.viewOptionBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (btn.dataset.view === state.viewMode) return;
+        state.currentWitnessIndex = 0;
+        setViewMode(btn.dataset.view);
+        renderAll();
+      });
     });
 
     if (els.crossRefBtn) {
@@ -294,7 +326,7 @@
     els.modalClose.addEventListener("click", closeModal);
     els.modalBackdrop.addEventListener("click", closeModal);
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape") { closeModal(); hideSelectionMenu(); }
+      if (event.key === "Escape") { closeModal(); hideSelectionMenu(); closePopover(); }
     });
 
     // Delegated handler for NET Bible footnote buttons (added to DOM asynchronously)
@@ -307,6 +339,7 @@
     });
 
     els.themeToggle.addEventListener("click", toggleTheme);
+    updateThemeToggle();
 
     window.addEventListener("hashchange", () => {
       restoreFromHash();
@@ -471,6 +504,8 @@
   }
 
   function renderReader() {
+    updateLocationLabel();
+    updateViewToggle();
     // Each time the user navigates to a new "page" of content, collapse the
     // footnotes panel by default. The panel re-renders below using this state.
     state.footnotesExpanded = false;
@@ -491,12 +526,10 @@
       const title = `${state.book}${state.chapter !== "All" ? " " + chapterLabel(state.book, state.chapter) : ""}`;
       const subtitle = `${visibleSections.length} passage${visibleSections.length === 1 ? "" : "s"}`;
       heading = `<header class="chapter-heading">
-        <span class="eyebrow">Chapter view</span>
         <h2>${escapeHTML(title)}</h2>
         <p class="muted">${escapeHTML(subtitle)}</p>
       </header>`;
       sectionsHtml = visibleSections.map(section => renderPassage(section)).join("");
-      els.chapterModeBtn.textContent = "Witness view";
 
     } else {
       // Witness view
@@ -518,7 +551,6 @@
 
       const crumbChapter = chLabel ? `Chapter ${chLabel}` : "";
       heading = `<header class="section-heading witness-heading">
-        <span class="eyebrow">Witness view</span>
         <div class="witness-breadcrumb">
           <span class="crumb-book">${escapeHTML(state.book)}</span>${crumbChapter ? `<span class="crumb-sep">›</span><span class="crumb-chapter">${escapeHTML(crumbChapter)}</span>` : ""}${crumbPassage ? `<span class="crumb-sep">›</span><span class="crumb-passage">${escapeHTML(crumbPassage)}</span>` : ""}
         </div>
@@ -528,7 +560,6 @@
       </header>`;
       sectionsHtml = renderSingleWitness(currentSection, safeIdx, witnessEntries)
         + renderApparatusPlaceholder(currentSection.id);
-      els.chapterModeBtn.textContent = "Chapter view";
     }
 
     els.readerContent.innerHTML = heading + sectionsHtml;
@@ -1057,6 +1088,8 @@
   }
 
   async function renderOTChapter(book, chapter) {
+    updateLocationLabel();
+    updateViewToggle();
     const bookDisplay = BOOK_DISPLAY_NAMES[book] || book;
     const heading = `<header class="chapter-heading">
       <span class="eyebrow">Old Testament — NET Bible</span>
@@ -1064,7 +1097,6 @@
       <p class="muted">Loading…</p>
     </header>`;
     els.readerContent.innerHTML = heading;
-    els.chapterModeBtn.textContent = state.viewMode === "witness" ? "Chapter view" : "Witness view";
 
     if (!window.TranslationsModule) return;
 
@@ -1832,7 +1864,7 @@
       .filter(result => result.index >= 0)
       .slice(0, 80);
 
-    const noteResults = Object.entries(DATA.notes)
+    const noteResults = Object.entries(DATA.notes || {})
       .map(([number, text]) => ({ number, text, index: normalize(text).indexOf(lower) }))
       .filter(result => result.index >= 0)
       .slice(0, 20);
@@ -1869,6 +1901,7 @@
         setViewMode("witness"); state.currentWitnessIndex = 0;
         updateHash();
         renderAll();
+        closePopover();
         setTimeout(() => {
           scrollToSection(section.id);
           const first = els.readerContent.querySelector(".search-inline");
@@ -2888,7 +2921,7 @@
 
   function updateBackButton() {
     if (els.backBtn) {
-      els.backBtn.disabled = state.navHistory.length === 0;
+      els.backBtn.hidden = state.navHistory.length === 0;
     }
   }
 
@@ -3002,8 +3035,90 @@
 
   function closeSidebarOnMobile() {
     if (window.matchMedia("(max-width: 860px)").matches) {
-      els.sidebar.classList.remove("open");
+      closeSidebar();
     }
+  }
+
+  function openSidebar() {
+    closePopover();
+    els.sidebar.classList.add("open");
+  }
+
+  function closeSidebar() {
+    els.sidebar.classList.remove("open");
+  }
+
+  // Search and display settings open as popovers under the top bar; only one
+  // is open at a time.
+  let openPopover = null;
+
+  function togglePopover(panel, toggle) {
+    const wasOpen = openPopover && openPopover.panel === panel;
+    closePopover();
+    if (wasOpen) return;
+    panel.hidden = false;
+    toggle.setAttribute("aria-expanded", "true");
+    openPopover = { panel, toggle };
+    document.body.classList.remove("chrome-hidden");
+    if (panel === els.searchPanel) els.searchInput.focus();
+  }
+
+  function closePopover() {
+    if (!openPopover) return;
+    openPopover.panel.hidden = true;
+    openPopover.toggle.setAttribute("aria-expanded", "false");
+    openPopover = null;
+  }
+
+  // On small screens, slide the top bar and pager out of the way while
+  // scrolling down through the text, and bring them back on scroll up.
+  function bindAutoHideChrome() {
+    const mobile = window.matchMedia("(max-width: 860px)");
+    let lastY = window.scrollY;
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const delta = y - lastY;
+        if (!mobile.matches || openPopover || y < 80) {
+          document.body.classList.remove("chrome-hidden");
+        } else if (delta > 8) {
+          document.body.classList.add("chrome-hidden");
+        } else if (delta < -8) {
+          document.body.classList.remove("chrome-hidden");
+        }
+        if (Math.abs(delta) > 8 || y < 80) lastY = y;
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
+  function updateLocationLabel() {
+    let label;
+    if (state.otBook) {
+      label = `${BOOK_DISPLAY_NAMES[state.otBook] || state.otBook} ${state.otChapter}`;
+    } else if (state.book) {
+      const ch = state.chapter && state.chapter !== "All" ? chapterLabel(state.book, state.chapter) : "";
+      label = ch ? `${state.book} · ${ch}` : state.book;
+    }
+    els.docSubtitle.textContent = label || DATA.subtitle || DATA.title;
+  }
+
+  function updateViewToggle() {
+    els.viewToggle.hidden = Boolean(state.otBook);
+    els.viewOptionBtns.forEach(btn => {
+      const on = btn.dataset.view === state.viewMode;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+  }
+
+  function updateThemeToggle() {
+    const dark = document.documentElement.dataset.theme === "dark";
+    els.themeToggle.classList.toggle("active", dark);
+    els.themeToggle.setAttribute("aria-pressed", String(dark));
   }
 
   function openModal(title, bodyHTML, actions = [], opts = {}) {
@@ -3136,6 +3251,7 @@
     const current = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = current;
     localStorage.setItem(STORAGE_THEME, current);
+    updateThemeToggle();
   }
 
   function applyStoredTheme() {

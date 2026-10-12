@@ -72,28 +72,36 @@ button {
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 40;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: calc(0.7rem + env(safe-area-inset-top)) 1rem 0.7rem;
-  background: rgba(37, 26, 19, 0.96);
+  gap: 0.5rem;
+  height: calc(3.25rem + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) 0.75rem 0;
+  background: rgba(37, 26, 19, 0.97);
   color: #fff8ed;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px);
+  transition: transform 0.22s ease;
 }
 
 .brand {
   min-width: 0;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   flex: 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: default;
 }
 
 .brand-mark {
-  width: 2.35rem;
-  height: 2.35rem;
+  width: 2rem;
+  height: 2rem;
   display: inline-grid;
   place-items: center;
   flex: 0 0 auto;
@@ -101,27 +109,29 @@ button {
   border-radius: 999px;
   color: #f7d69b;
   font-family: Georgia, serif;
-  font-size: 1.65rem;
+  font-size: 1.35rem;
   line-height: 1;
 }
 
 .brand-copy {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.brand h1 {
-  margin: 0;
-  line-height: 1.05;
+.brand-title {
   font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-size: clamp(1.15rem, 2.3vw, 1.6rem);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.15;
   letter-spacing: 0.02em;
 }
 
-.brand p {
-  margin: 0.1rem 0 0;
-  color: rgba(255, 248, 237, 0.78);
+.brand-location {
+  color: rgba(255, 248, 237, 0.75);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  line-height: 1.3;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -130,7 +140,7 @@ button {
 .top-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.15rem;
 }
 
 .icon-button {
@@ -139,50 +149,176 @@ button {
   background: transparent;
   display: inline-grid;
   place-items: center;
-  min-width: 2.25rem;
-  min-height: 2.25rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   border-radius: 999px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 1.25rem;
 }
 
-.icon-button:hover {
-  background: rgba(255, 255, 255, 0.11);
+.icon-button:hover,
+.icon-button[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.12);
 }
 
+.settings-toggle {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Reader / Notes switch: lives in the top bar on wide screens and at the top
+   of the navigation drawer on small ones. */
 .tabbar {
-  position: sticky;
-  top: calc(3.8rem + env(safe-area-inset-top));
-  z-index: 25;
   display: flex;
-  gap: 0.35rem;
-  padding: 0.55rem 1rem;
-  background: rgba(246, 239, 229, 0.9);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(14px);
+  gap: 0.15rem;
 }
 
-[data-theme="dark"] .tabbar {
-  background: rgba(17, 16, 14, 0.88);
+.topbar .tabbar {
+  margin-right: 0.5rem;
 }
 
 .tab {
-  flex: 1;
-  border: 1px solid transparent;
+  border: 0;
   border-radius: 999px;
   background: transparent;
-  color: var(--muted);
-  padding: 0.55rem 0.8rem;
+  color: rgba(255, 248, 237, 0.7);
+  padding: 0.35rem 0.85rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 650;
 }
 
+.tab:hover {
+  color: #fff8ed;
+}
+
 .tab.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff8ed;
+}
+
+.sidebar-tabs {
+  display: none;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+}
+
+.sidebar-tabs .tab {
+  flex: 1;
+  color: var(--muted);
+}
+
+.sidebar-tabs .tab.active {
   background: var(--accent);
   color: #fff7ed;
-  border-color: transparent;
-  box-shadow: 0 6px 18px rgba(122, 61, 31, 0.22);
+}
+
+/* Popovers (search, display settings) that drop down from the top bar. */
+.top-popover {
+  position: fixed;
+  z-index: 50;
+  top: calc(3.25rem + env(safe-area-inset-top) + 0.5rem);
+  max-height: calc(100dvh - 5rem - env(safe-area-inset-top));
+  overflow: auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.9rem;
+}
+
+.top-popover[hidden] {
+  display: none;
+}
+
+.search-panel {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100vw - 1.5rem), 44rem);
+}
+
+.settings-panel {
+  right: 0.75rem;
+  width: min(calc(100vw - 1.5rem), 20rem);
+  padding: 0.6rem;
+}
+
+.settings-group + .settings-group {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.settings-label {
+  padding: 0.3rem 0.5rem;
+  color: var(--muted);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.setting-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.5rem;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.setting-row:hover {
+  background: var(--bg-soft);
+}
+
+.setting-row small {
+  margin-left: 0.3rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.switch {
+  position: relative;
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 1.3rem;
+  border-radius: 999px;
+  background: var(--line);
+  transition: background 0.15s ease;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.setting-row.active .switch {
+  background: var(--accent);
+}
+
+.setting-row.active .switch::after {
+  transform: translateX(0.95rem);
 }
 
 .main-layout {
@@ -197,8 +333,8 @@ button {
 
 .sidebar {
   position: sticky;
-  top: calc(7.25rem + env(safe-area-inset-top));
-  max-height: calc(100dvh - 8rem);
+  top: calc(4.25rem + env(safe-area-inset-top));
+  max-height: calc(100dvh - 5.25rem - env(safe-area-inset-top));
   overflow: auto;
   background: var(--card);
   border: 1px solid var(--line);
@@ -220,7 +356,8 @@ button {
   color: var(--muted);
 }
 
-.nav-toggle {
+.nav-toggle,
+.sidebar-backdrop {
   display: none;
 }
 
@@ -424,7 +561,6 @@ button {
   display: block;
 }
 
-.search-panel,
 .reader-card {
   width: min(100%, var(--reader-width));
   margin: 0 auto 1rem;
@@ -432,10 +568,6 @@ button {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-}
-
-.search-panel {
-  padding: 1rem;
 }
 
 .search-row {
@@ -487,18 +619,79 @@ button {
   padding: clamp(1rem, 3vw, 2rem);
 }
 
-.reader-toolbar {
+.reader-head {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
   gap: 0.5rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 0.75rem;
 }
 
-.reader-toolbar .button {
-  white-space: nowrap;
-  font-size: 0.82rem;
+.back-btn {
+  margin-right: auto;
+  padding-inline: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.view-toggle {
+  display: inline-flex;
+  padding: 0.15rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-soft);
+}
+
+.view-toggle[hidden] {
+  display: none;
+}
+
+.view-option {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  padding: 0.25rem 0.75rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.view-option.active {
+  background: var(--card);
+  color: var(--accent-strong);
+  box-shadow: 0 1px 3px rgba(37, 26, 19, 0.15);
+}
+
+/* Previous / next: a slim bar pinned to the bottom of the screen. */
+.reader-pager {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  width: min(100%, var(--reader-width));
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--card) 98%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 14px 14px 0 0;
+  backdrop-filter: blur(12px);
+  transition: transform 0.22s ease;
+}
+
+.pager-btn {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent-strong);
+  padding: 0.45rem 0.9rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.pager-btn:hover {
+  background: var(--accent-soft);
 }
 
 .reader-content {
@@ -583,7 +776,7 @@ button {
   font-size: 0.72em;
   font-weight: 800;
   vertical-align: super;
-  scroll-margin-top: 8rem;
+  scroll-margin-top: 5rem;
 }
 
 .note-link,
@@ -807,11 +1000,24 @@ button {
 @media (max-width: 860px) {
   .nav-toggle {
     display: inline-grid;
+    margin-left: -0.35rem;
+  }
+
+  .brand {
+    cursor: pointer;
+  }
+
+  .topbar .tabbar {
+    display: none;
+  }
+
+  .sidebar-tabs {
+    display: flex;
   }
 
   .main-layout {
     display: block;
-    padding: 0.75rem;
+    padding: 0.75rem 0.75rem 0;
   }
 
   .sidebar {
@@ -827,35 +1033,29 @@ button {
     transform: translateY(0);
   }
 
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    background: rgba(17, 12, 8, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+  }
+
+  .sidebar.open + .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .close-sidebar {
     display: inline-grid;
   }
 
-  .tabbar {
-    top: calc(3.55rem + env(safe-area-inset-top));
-    padding-inline: 0.75rem;
-  }
-
-  .reader-card,
-  .search-panel {
+  .reader-card {
     border-radius: 16px;
-  }
-
-  .reader-toolbar {
-    position: sticky;
-    top: calc(6.9rem + env(safe-area-inset-top));
-    z-index: 20;
-    margin: -0.2rem -0.2rem 1rem;
-    background: color-mix(in srgb, var(--card) 92%, transparent);
-    backdrop-filter: blur(10px);
-    border-radius: 14px;
-    padding: 0.45rem;
-    border: 1px solid var(--line);
-  }
-
-  .reader-toolbar .button {
-    padding: 0.45rem 0.55rem;
-    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .search-row,
@@ -863,43 +1063,27 @@ button {
     align-items: stretch;
   }
 
-  .search-row .button,
   .inline-control .button {
     padding-inline: 0.7rem;
+  }
+
+  /* Hide the bars while reading down the page; scrolling up brings them back. */
+  body.chrome-hidden .topbar {
+    transform: translateY(-100%);
+  }
+
+  body.chrome-hidden .reader-pager {
+    transform: translateY(110%);
   }
 }
 
 @media (max-width: 520px) {
-  .topbar {
-    padding-inline: 0.65rem;
-  }
-
-  .brand-mark {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.4rem;
-  }
-
-  .brand h1 {
-    font-size: 1.05rem;
-  }
-
-  .brand p {
-    font-size: 0.72rem;
-  }
-
-  .tab {
-    padding: 0.45rem 0.35rem;
-    font-size: 0.82rem;
-  }
-
   .main-layout {
-    padding: 0.6rem;
+    padding: 0.5rem 0.5rem 0;
   }
 
-  .search-panel,
   .reader-card {
-    padding: 0.85rem;
+    padding: 1rem 0.9rem;
   }
 
   .passage-body {
