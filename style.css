@@ -1761,3 +1761,141 @@ button {
 .ot-book:hover {
   background: var(--bg-soft);
 }
+
+/* ---------------------------------------------------------------------------
+   Scripture references in notes and the apparatus, and their preview sheet
+   --------------------------------------------------------------------------- */
+.scripture-ref {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  cursor: pointer;
+}
+
+.scripture-ref:hover {
+  text-decoration-color: currentColor;
+}
+
+.ref-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background: rgba(17, 12, 8, 0.35);
+}
+
+.ref-sheet {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(calc(100vw - 2rem), 34rem);
+  max-height: min(80dvh, 40rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.ref-sheet[hidden],
+.ref-sheet-backdrop[hidden] {
+  display: none;
+}
+
+.ref-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.ref-sheet-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.ref-sheet-header .icon-button {
+  color: var(--muted);
+}
+
+.ref-sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.ref-verse {
+  margin: 0 0 0.5rem;
+}
+
+.ref-vnum {
+  margin-right: 0.2rem;
+  color: color-mix(in srgb, var(--accent) 70%, var(--muted));
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.7em;
+  font-weight: 650;
+  vertical-align: 0.3em;
+}
+
+.ref-attribution {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+}
+
+.ref-sheet-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.ref-sheet-note {
+  margin-right: auto;
+  color: var(--muted);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.8rem;
+}
+
+/* Verses a reference pointed to, briefly marked after "Open in reader". */
+.ot-verse.ref-target {
+  background: var(--verse-select);
+  border-radius: 6px;
+  transition: background 0.6s ease;
+}
+
+@media (max-width: 640px) {
+  .ref-sheet {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    width: auto;
+    max-height: 75dvh;
+    border-radius: 18px 18px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Footnote markers: a real box (buttons ignore line-height: 0 layout-wise
+   but end up 0px tall) plus padding offset by negative margins, so the
+   tap target is larger than the digits without spacing lines apart. */
+.nt-note-btn,
+.note-link,
+.net-note-link {
+  line-height: 1;
+  padding: 0.45em 0.3em;
+  margin: -0.45em -0.3em;
+}

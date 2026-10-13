@@ -90,7 +90,7 @@ const TranslationsModule = (() => {
     if (initPromise) return initPromise;
     initPromise = (async () => {
       try {
-        translationsMetadata = await fetchJSON("translations-index.json?v=20260520-net");
+        translationsMetadata = await fetchJSON("translations-index.json?v=20261013-net");
         loadFromCache();
       } catch (error) {
         console.warn("Translations module init failed:", error);
