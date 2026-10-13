@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#251a13">
   <title>Basileian Reader</title>
-  <link rel="manifest" href="site.webmanifest?v=20261012-ui2">
+  <link rel="manifest" href="site.webmanifest?v=20261013-ui3">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="stylesheet" href="style.css?v=20261012-ui2">
-  <link rel="stylesheet" href="style-additions.css?v=20261012-ui2">
+  <link rel="stylesheet" href="style.css?v=20261013-ui3">
+  <link rel="stylesheet" href="style-additions.css?v=20261013-ui3">
 </head>
 <body>
   <div id="app" class="app-shell">
@@ -23,6 +23,7 @@
       </button>
       <nav class="tabbar" aria-label="Main sections">
         <button class="tab active" data-tab="reader">Reader</button>
+        <button class="tab" data-tab="contents">Contents</button>
         <button class="tab" data-tab="notes">Notes</button>
       </nav>
       <div class="top-actions">
@@ -75,6 +76,7 @@
 
         <nav class="tabbar sidebar-tabs" aria-label="Main sections">
           <button class="tab active" data-tab="reader">Reader</button>
+          <button class="tab" data-tab="contents">Contents</button>
           <button class="tab" data-tab="notes">Notes</button>
         </nav>
 
@@ -110,6 +112,7 @@
           <article class="reader-card">
             <div class="reader-head">
               <button id="backBtn" class="button ghost back-btn" hidden>↩ Back</button>
+              <button id="greekToggle" class="greek-toggle" aria-pressed="false" title="Show the Greek under each verse">Greek</button>
               <div class="view-toggle" role="group" aria-label="View mode">
                 <button id="viewChapterBtn" class="view-option" data-view="chapter" aria-pressed="false">Chapter</button>
                 <button id="viewWitnessBtn" class="view-option" data-view="witness" aria-pressed="false">Witness</button>
@@ -121,6 +124,10 @@
             <button id="prevBtn" class="pager-btn">← Previous</button>
             <button id="nextBtn" class="pager-btn">Next →</button>
           </nav>
+        </section>
+
+        <section id="contentsTab" class="tab-panel" aria-label="Contents">
+          <div id="contentsBody" class="reader-card contents-card"></div>
         </section>
 
         <section id="notesTab" class="tab-panel" aria-label="Notes">
@@ -150,10 +157,13 @@
       <button id="menuNoteBtn" class="sm-item">Add note</button>
       <button id="menuEditHighlightBtn" class="sm-item" hidden>Edit note</button>
       <button id="menuRemoveHighlightBtn" class="sm-item" hidden>Remove</button>
-      <button id="menuInterlinearBtn" class="sm-item">Interlinear</button>
+      <button id="menuInterlinearBtn" class="sm-item">Greek</button>
       <button id="menuCommentaryBtn" class="sm-item" hidden>Commentary</button>
+      <button id="menuCopyBtn" class="sm-item">Copy</button>
     </div>
   </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
   <div id="modalBackdrop" class="modal-backdrop hidden" role="presentation"></div>
   <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -165,11 +175,11 @@
     <div id="modalActions" class="modal-actions"></div>
   </div>
 
-  <script src="data.js?v=20261012-ui2"></script>
-  <script src="translations-module.js?v=20261012-ui2"></script>
-  <script src="commentary-module.js?v=20261012-ui2"></script>
-  <script src="nt-reader.js?v=20261012-ui2"></script>
-  <script src="sync-module.js?v=20261012-ui2"></script>
-  <script src="app.js?v=20261012-ui2"></script>
+  <script src="data.js?v=20261013-ui3"></script>
+  <script src="translations-module.js?v=20261013-ui3"></script>
+  <script src="commentary-module.js?v=20261013-ui3"></script>
+  <script src="nt-reader.js?v=20261013-ui3"></script>
+  <script src="sync-module.js?v=20261013-ui3"></script>
+  <script src="app.js?v=20261013-ui3"></script>
 </body>
 </html>
