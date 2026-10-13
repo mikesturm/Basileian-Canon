@@ -15,6 +15,8 @@
   const STORAGE_FOOTNOTES = "basileian.reader.v2.footnotesVisible";
   const STORAGE_FOOTNOTE_TYPES = "basileian.reader.v2.footnoteTypes";
   const STORAGE_VIEW_MODE = "basileian.reader.v2.viewMode";
+  const STORAGE_GREEK = "basileian.reader.v2.greekMode";
+  const STORAGE_READ = "basileian.reader.v2.readSections";
 
   const sections = DATA.sections;
   const books = DATA.books;
@@ -70,7 +72,9 @@
     otVerseStrongs: null, // lazy-loaded from lexicons/ot-verse-strongs.json
     otBook: null,         // active OT book key, or null when in corpus mode
     otChapter: 1,
-    lastGreekVerses: null,
+    greekMode: localStorage.getItem(STORAGE_GREEK) === "1",
+    readSections: new Set(),
+    verseWordsReady: null,  // Promise for lexicons/verse-words.json
     crossRefEnabled: false,
     activeCommentary: 'jfb',
     navHistory: [],
@@ -105,6 +109,10 @@
     backBtn: document.getElementById("backBtn"),
     nextBtn: document.getElementById("nextBtn"),
     viewToggle: document.querySelector(".view-toggle"),
+    greekToggle: document.getElementById("greekToggle"),
+    menuCopyBtn: document.getElementById("menuCopyBtn"),
+    toast: document.getElementById("toast"),
+    contentsBody: document.getElementById("contentsBody"),
     viewOptionBtns: document.querySelectorAll(".view-option"),
     brandBtn: document.getElementById("brandBtn"),
     sidebarBackdrop: document.getElementById("sidebarBackdrop"),
@@ -140,6 +148,7 @@
   };
 
   function init() {
+    state.readSections = loadReadSections();
     els.docSubtitle.textContent = DATA.subtitle || DATA.title;
     applyStoredTheme();
     restoreFootnotesPreference();
@@ -155,7 +164,7 @@
     loadIntertextApparatus(); // async: pre-fetches apparatus JSON so panels hydrate quickly
 
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-      navigator.serviceWorker.register("sw.js?v=20261012-ui2").catch(() => {});
+      navigator.serviceWorker.register("sw.js?v=20261013-ui3").catch(() => {});
     }
   }
 
@@ -179,6 +188,8 @@
       closePopover();
     });
     bindAutoHideChrome();
+    bindPageTurnGestures();
+    bindContentsEvents();
 
     els.bookSelect.addEventListener("change", () => {
       const val = els.bookSelect.value;
@@ -311,6 +322,18 @@
       _lastPointerType = event.pointerType || "mouse";
     }, true);
     els.readerContent.addEventListener("click", handleReaderTap);
+    els.readerContent.addEventListener("click", event => {
+      const word = event.target.closest(".il-word[data-strongs]");
+      if (!word) return;
+      openStrongsModal(word.dataset.strongs, { text: word.dataset.form, morph: word.dataset.morph });
+    });
+    els.readerContent.addEventListener("click", event => {
+      const tab = event.target.closest(".witness-tab[data-witness-index]");
+      if (!tab || tab.classList.contains("active")) return;
+      state.currentWitnessIndex = Number(tab.dataset.witnessIndex);
+      updateHash();
+      renderReader();
+    });
     // Touching anywhere outside the text and the menu clears a tap selection.
     // (pointerdown, because iOS doesn't send clicks from non-interactive areas.)
     document.addEventListener("pointerdown", event => {
@@ -318,7 +341,9 @@
       if (els.readerContent.contains(event.target) || els.selectionMenu.contains(event.target)) return;
       hideSelectionMenu();
     });
-    els.menuInterlinearBtn.addEventListener("click", () => { const verses = _menuSelectionVerses.slice(); hideSelectionMenu(); if (verses.length) openInterlinearModal(verses); });
+    els.menuInterlinearBtn.addEventListener("click", showGreekForSelection);
+    els.menuCopyBtn.addEventListener("click", copySelectionWithReference);
+    els.greekToggle.addEventListener("click", () => setGreekMode(!state.greekMode));
     els.menuCommentaryBtn.addEventListener("click", () => { const verses = _menuSelectionVerses.slice(); hideSelectionMenu(); if (verses.length) showCommentaryForVerses(verses); });
 
     // Close button restores selection and enables native Safari callout menu.
@@ -408,6 +433,8 @@
     document.querySelectorAll(".tab").forEach(button => button.classList.toggle("active", button.dataset.tab === tab));
     document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `${tab}Tab`));
     if (tab === "notes") renderNotes();
+    if (tab === "contents") renderContents();
+    window.scrollTo(0, 0);
   }
 
   function renderAll() {
@@ -575,10 +602,7 @@
 
       const chNum = currentSection.startChapter ?? currentSection.chapter;
       const chLabel = chNum != null ? chapterLabel(state.book, chNum) : "";
-      const witnessLine = witnessEntries.length > 0
-        ? `<p class="witness-label"><span class="witness-number">${safeIdx + 1}</span> ${escapeHTML(witnessEntryLabel(witnessEntries[safeIdx]))}${witnessEntries.length > 1 ? ` <span class="witness-count">of ${witnessEntries.length} witnesses</span>` : ""}</p>`
-        : "";
-      heading = renderPassageHeading(state.book, chLabel, currentSection, witnessLine);
+      heading = renderPassageHeading(state.book, chLabel, currentSection, renderWitnessTabs(witnessEntries, safeIdx));
       sectionsHtml = renderSingleWitness(currentSection, safeIdx, witnessEntries)
         + renderApparatusPlaceholder(currentSection.id);
     }
@@ -634,6 +658,35 @@
       <h2>${escapeHTML(title)}</h2>
       ${extraHtml}
     </header>`;
+  }
+
+  // One tab per witness (Mark · Matthew · Luke · John · Thomas …). With a
+  // single witness the tab row is just a label.
+  function renderWitnessTabs(entries, activeIdx) {
+    if (!entries.length) return "";
+    const tabs = entries.map((entry, i) => {
+      const active = i === activeIdx;
+      return `<button class="witness-tab${active ? " active" : ""}" data-witness-index="${i}" aria-pressed="${active}">${escapeHTML(witnessEntryLabel(entry))}</button>`;
+    }).join("");
+    return `<nav class="witness-tabs" aria-label="Witnesses">${tabs}</nav>`;
+  }
+
+  // Which witness of `section` continues the one being read: the same gospel
+  // (or source) when the section has it, otherwise the first witness.
+  function matchingWitnessIndex(section, previousEntry) {
+    const entries = getWitnessEntries(section);
+    if (!previousEntry) return 0;
+    // "Gospel of Thomas 47" and "Gospel of Thomas 20" are the same work.
+    const work = nb => String(nb.source || nb.label || "").replace(/[\s\d:.,–-]+$/, "");
+    const idx = entries.findIndex(e => previousEntry.kind === "canonical"
+      ? e.kind === "canonical" && e.bookKey === previousEntry.bookKey
+      : e.kind === "nonbiblical" && work(e.nb) === work(previousEntry.nb));
+    return idx >= 0 ? idx : 0;
+  }
+
+  function currentWitnessEntry() {
+    const section = sectionById.get(state.currentSectionId);
+    return section ? getWitnessEntries(section)[state.currentWitnessIndex] || null : null;
   }
 
   function renderPassageMeta(section) {
@@ -751,17 +804,135 @@
   // clickable for a full Strong's definition.
   // ---------------------------------------------------------------------------
 
-  async function loadVerseWords() {
-    if (state.verseWords !== null) return; // already loaded or attempted
-    state.verseWords = {}; // mark as attempted; empty object is safe to read
-    try {
-      const resp = await fetch("lexicons/verse-words.json");
-      if (!resp.ok) return;
-      state.verseWords = await resp.json();
-      // Re-evaluate the toolbar in case a selection is already active.
-      updateSelectionToolbar();
-    } catch {
-      // silently ignore — the Show Greek button just won't appear
+  function loadVerseWords() {
+    if (state.verseWordsReady) return state.verseWordsReady; // already loading or loaded
+    state.verseWords = {}; // empty object is safe to read until the data arrives
+    state.verseWordsReady = (async () => {
+      try {
+        const resp = await fetch("lexicons/verse-words.json");
+        if (resp.ok) state.verseWords = await resp.json();
+      } catch {
+        // no Greek data: the Greek view shows nothing extra
+      }
+    })();
+    return state.verseWordsReady;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Inline Greek
+  //
+  // With the Greek view on, each verse's English is followed by its Greek,
+  // word by word with a gloss under each word. Tapping a word opens the
+  // lexicon for that form. The Greek blocks (.il-verse) are inserted into the
+  // passage after the text loads and are skipped by highlighting, verse
+  // selection and copying, so those keep working on the English.
+  // ---------------------------------------------------------------------------
+  function verseIdForMarker(section, book, marker) {
+    const ch = marker.dataset.chapter;
+    const v = marker.dataset.verse;
+    const vm = (section.verseMarkers || []).find(m =>
+      m.book === book && String(m.chapter) === String(ch) && String(m.verse) === String(v));
+    return vm ? vm.id : null;
+  }
+
+  // The word data abbreviates two epistles ("1cor", "1thess") that the canon
+  // spells out ("1corinthians", "1thessalonians").
+  const VERSE_WORDS_BOOK_ALIASES = { "1corinthians": "1cor", "1thessalonians": "1thess" };
+  function greekWordsFor(verseId) {
+    const words = state.verseWords[verseId];
+    if (words) return words;
+    const [book, ...rest] = verseId.split(".");
+    const alias = VERSE_WORDS_BOOK_ALIASES[book];
+    return alias ? state.verseWords[[alias, ...rest].join(".")] || null : null;
+  }
+
+  function inlineGreekHTML(words) {
+    return words.map(w => {
+      if (!w || !w.text) return "";
+      const attrs = w.strongs
+        ? ` data-strongs="${escapeAttr(w.strongs)}" data-form="${escapeAttr(w.text)}" data-morph="${escapeAttr(w.morph || "")}"`
+        : "";
+      return `<button class="il-word"${attrs}${w.strongs ? "" : " disabled"}><span class="il-greek" lang="grc">${escapeHTML(w.text)}</span><span class="il-gloss">${escapeHTML(w.gloss || "")}</span></button>`;
+    }).join("");
+  }
+
+  // Puts `block` right after the last bit of verse `idx` (its text and any
+  // footnote markers), inside whatever paragraph that verse ends in.
+  function insertAfterVerse(container, markers, idx, block) {
+    const next = markers[idx + 1] || null;
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+    walker.currentNode = markers[idx];
+    let last = null;
+    let node;
+    while ((node = walker.nextNode())) {
+      if (next && (next.contains(node) || (next.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING))) break;
+      const parent = node.parentElement;
+      if (!parent || parent.closest(".verse-number, .paragraphtitle, .il-verse")) continue;
+      if (node.nodeValue.trim()) last = node;
+    }
+    if (!last) return false;
+    // Climb out of inline wrappers (footnote sup/button, b, i, highlight
+    // marks) so the block lands in the paragraph, not inside a footnote.
+    const BLOCK_TAGS = new Set(["P", "DIV", "LI", "BLOCKQUOTE", "SECTION", "ARTICLE", "TD"]);
+    let anchor = last;
+    while (anchor.parentElement && anchor.parentElement !== container
+      && !BLOCK_TAGS.has(anchor.parentElement.tagName)) {
+      anchor = anchor.parentElement;
+    }
+    anchor.after(block);
+    return true;
+  }
+
+  function removeInlineGreek() {
+    els.readerContent.querySelectorAll(".il-verse").forEach(el => el.remove());
+  }
+
+  async function renderInlineGreek() {
+    removeInlineGreek();
+    if (!state.greekMode || state.otBook) return;
+    await loadVerseWords();
+    if (!state.greekMode) return; // turned off while loading
+    removeInlineGreek();
+    els.readerContent.querySelectorAll(".nt-source-block[data-book] .nt-verse-content").forEach(container => {
+      const body = container.closest(".passage-body[data-section-id]");
+      const section = body && sectionById.get(body.dataset.sectionId);
+      const book = container.closest(".nt-source-block").dataset.book;
+      if (!section) return;
+      const markers = [...container.querySelectorAll(".verse-number[data-chapter][data-verse]")];
+      markers.forEach((marker, i) => {
+        const verseId = verseIdForMarker(section, book, marker);
+        const words = verseId && greekWordsFor(verseId);
+        if (!Array.isArray(words) || !words.length) return;
+        const block = document.createElement("span");
+        block.className = "il-verse";
+        block.dataset.verseId = verseId;
+        block.setAttribute("aria-label", `Greek text of ${verseIdToRef(verseId)}`);
+        block.innerHTML = inlineGreekHTML(words);
+        insertAfterVerse(container, markers, i, block);
+      });
+    });
+  }
+
+  function setGreekMode(on) {
+    state.greekMode = on;
+    localStorage.setItem(STORAGE_GREEK, on ? "1" : "0");
+    notifyPreferencesChanged();
+    updateViewToggle();
+    if (_verseSel) hideSelectionMenu();
+    return renderInlineGreek();
+  }
+
+  // Selection menu "Greek": turn the Greek view on and keep the selected
+  // verse in view.
+  async function showGreekForSelection() {
+    const range = _savedSelectionRange;
+    const startEl = range && (range.startContainer.nodeType === Node.ELEMENT_NODE
+      ? range.startContainer : range.startContainer.parentElement);
+    hideSelectionMenu();
+    if (!state.greekMode) await setGreekMode(true);
+    if (startEl && startEl.isConnected) {
+      holdChrome();
+      startEl.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }
 
@@ -883,17 +1054,42 @@
     }).filter(Boolean).join(" ");
   }
 
-  function transliterateGreek(text) {
-    if (!text) return '';
+  // Academic (SBL-style) transliteration, matching the Glossary's forms:
+  // euangelion, psychē, huios, hypokritēs, hamartia. The canon-style Greek
+  // has no breathings, so a rough breathing ("h") is taken from the
+  // dictionary form (lemma) when one is given. The data writes mu as the
+  // micro sign (µ, U+00B5) by convention; it is read as μ here.
+  function transliterateGreek(text, lemma = "") {
+    if (!text) return "";
     const map = {
-      'α':'a','β':'b','γ':'g','δ':'d','ε':'e','ζ':'z','η':'ē','θ':'th',
-      'ι':'i','κ':'k','λ':'l','μ':'m','ν':'n','ξ':'x','ο':'o','π':'p',
-      'ρ':'r','σ':'s','ς':'s','τ':'t','υ':'y','φ':'ph','χ':'ch','ψ':'ps','ω':'ō',
+      "α":"a","β":"b","γ":"g","δ":"d","ε":"e","ζ":"z","η":"ē","θ":"th",
+      "ι":"i","κ":"k","λ":"l","μ":"m","ν":"n","ξ":"x","ο":"o","π":"p",
+      "ρ":"r","σ":"s","ς":"s","τ":"t","υ":"y","φ":"ph","χ":"ch","ψ":"ps","ω":"ō",
     };
-    return text.normalize('NFD')
-      .replace(/[̀-ͯ᷀-᷿⃐-⃿︠-︯]/g, '')
+    const plain = text.normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .replace(/[α-ωϲ]/gu, c => map[c] || c);
+      .replace(/\u00b5/g, "μ");
+    let out = "";
+    for (let i = 0; i < plain.length; i++) {
+      const c = plain[i];
+      const next = plain[i + 1];
+      if (c === "γ" && "γκξχ".includes(next || "")) { out += "n"; continue; }        // γγ → ng
+      if (c === "υ" && i > 0 && "αεηο".includes(plain[i - 1])) { out += "u"; continue; } // au, eu, ēu, ou
+      if (c === "υ" && next === "ι") { out += "u"; continue; }                         // ui
+      out += map[c] ?? c;
+    }
+    // Rough breathing: the lemma's opening vowel(s) carry U+0314. Two rules
+    // cover forms whose lemma doesn't show it: every initial upsilon is
+    // rough, and so are the plural pronoun forms of ἐγώ (ἡμεῖς, ἡμῖν…).
+    const lemmaHead = (lemma || "").normalize("NFD").slice(0, 4);
+    const rough = (lemmaHead.includes("\u0314") && /^[αεηιουωρ]/.test(plain))
+      || plain[0] === "υ"
+      || /^ημ(εισ|ων|ιν|ασ)$/.test(plain);
+    if (rough) {
+      out = plain[0] === "ρ" ? "rh" + out.slice(1) : "h" + out;
+    }
+    return out;
   }
 
   // Expand a Robinson-style morphology code (e.g. "N-NSF", "V-RPI-3S") into a
@@ -960,60 +1156,6 @@
     }
     const c = cng(suffix);
     return [base, person, c].filter(Boolean).join(", ");
-  }
-
-  function buildInterlinearWordHTML(w) {
-    if (!w || !w.text) return "";
-    const greek = `<span class="iw-greek">${escapeHTML(w.text)}</span>`;
-    const gloss = `<span class="iw-gloss">${escapeHTML(w.gloss || "")}</span>`;
-    const translit = `<span class="iw-translit">${escapeHTML(transliterateGreek(w.text))}</span>`;
-    const morphTitle = w.morph ? describeMorph(w.morph) : "";
-    const morph = w.morph
-      ? `<span class="iw-morph"${morphTitle ? ` title="${escapeAttr(morphTitle)}"` : ""}>${escapeHTML(w.morph)}</span>`
-      : "";
-    const badge = w.strongs
-      ? `<button class="iw-strongs" data-strongs="${escapeAttr(w.strongs)}">${escapeHTML(w.strongs)}</button>`
-      : "";
-    return `<span class="interlinear-word">${greek}${gloss}${translit}${morph}${badge}</span>`;
-  }
-
-  function openInterlinearModal(verses) {
-    state.lastGreekVerses = verses;
-    const body = verses.map(v => {
-      const words = state.verseWords ? state.verseWords[v.verseId] : null;
-      const wordsHTML = Array.isArray(words) && words.length
-        ? `<div class="interlinear-words">${words.map(buildInterlinearWordHTML).filter(Boolean).join("")}</div>`
-        : `<p class="interlinear-no-data">No interlinear data available for this passage.</p>`;
-      return `<div class="interlinear-verse">
-        <h4 class="interlinear-ref">${escapeHTML(v.reference)}</h4>
-        ${wordsHTML}
-      </div>`;
-    }).join("");
-
-    openModal("Interlinear", body, [
-      { label: "Close", className: "button", onClick: closeModal }
-    ]);
-
-    els.modalBody.querySelectorAll(".iw-strongs[data-strongs]").forEach(badge => {
-      badge.addEventListener("click", event => {
-        event.stopPropagation();
-        openStrongsModal(badge.dataset.strongs, verses);
-      });
-    });
-  }
-
-  // Back-compat alias used by openStrongsModal's back button.
-  const openGreekVersesModal = (verses) => openInterlinearModal(verses);
-
-  function showInterlinearForCurrentSelection() {
-    const sel = window.getSelection();
-    if (!sel || !sel.rangeCount || sel.isCollapsed) return;
-    const verses = findVersesInSelection(sel.getRangeAt(0));
-    if (!verses.length) return;
-    _savedSelectionRange = null;
-    sel.removeAllRanges();
-    hideSelectionMenu();
-    openInterlinearModal(verses);
   }
 
   function showBibleVersesForCurrentSelection() {
@@ -1093,14 +1235,18 @@
     }
   }
 
+  // verse_id → the first passage containing it, built once on first use.
+  let _sectionByVerseId = null;
   function findSectionByVerseId(verseId) {
-    for (const [, section] of sectionById) {
-      if (!Array.isArray(section.verseMarkers)) continue;
-      for (const marker of section.verseMarkers) {
-        if (marker.id === verseId) return section;
+    if (!_sectionByVerseId) {
+      _sectionByVerseId = new Map();
+      for (const [, section] of sectionById) {
+        for (const marker of section.verseMarkers || []) {
+          if (!_sectionByVerseId.has(marker.id)) _sectionByVerseId.set(marker.id, section);
+        }
       }
     }
-    return null;
+    return _sectionByVerseId.get(verseId) || null;
   }
 
   const BOOK_DISPLAY_NAMES = {
@@ -1331,12 +1477,14 @@
   async function hydrateNTPassages() {
     if (!window.NTReader) {
       updateTranslationStatus("");
+      trackReading();
       return;
     }
 
     const blocks = [...els.readerContent.querySelectorAll(".nt-source-block[data-book]")];
     if (!blocks.length) {
       updateTranslationStatus("");
+      trackReading();
       return;
     }
 
@@ -1386,6 +1534,8 @@
     // the initial applyVisibleHighlights() call (which fired on placeholder text),
     // so highlights become visible once the real verse text is loaded.
     applyVisibleHighlights();
+    renderInlineGreek();
+    trackReading();
 
     updateTranslationStatus("loaded", "NET Bible 2.1 loaded.");
     renderFootnotesPanel();
@@ -1474,6 +1624,8 @@
     state.footnotesVisible = localStorage.getItem(STORAGE_FOOTNOTES) !== "0";
     state.noteTypeFilters = { tn: true, sn: true, tc: true };
     restoreFootnoteTypePreferences();
+    state.greekMode = localStorage.getItem(STORAGE_GREEK) === "1";
+    state.readSections = loadReadSections();
     renderAll();
   }
 
@@ -2027,7 +2179,9 @@
    * concordance of occurrences on the other. Greek (G####) numbers get the full
    * lexicon entry; any number still gets the short Strong's gloss + concordance.
    */
-  async function openStrongsModal(strongsNum, backVerses) {
+  // `form` is the word as it stands in the verse ({text, morph}), shown above
+  // the dictionary entry when the lexicon is opened from the Greek view.
+  async function openStrongsModal(strongsNum, form = null) {
     try {
       if (!window.TranslationsModule || typeof TranslationsModule.getStrongsDefinition !== "function") {
         throw new Error("TranslationsModule is unavailable");
@@ -2046,7 +2200,15 @@
       const pos = (lex && lex.pos) || "";
       const gloss = (lex && lex.gloss) || "";
 
-      const header = `
+      const formLine = form && form.text ? `
+        <p class="lex-form">
+          <span class="lex-form-label">This form</span>
+          <span class="lex-form-greek" lang="grc">${escapeHTML(form.text)}</span>
+          <em class="lex-form-translit">${escapeHTML(transliterateGreek(form.text, lemma))}</em>
+          ${form.morph ? `<span class="lex-form-parse">${escapeHTML(describeMorph(form.morph) || form.morph)}</span>` : ""}
+        </p>` : "";
+
+      const header = formLine + `
         <div class="lex-header">
           <span class="lex-id">${escapeHTML(strongsNum)}</span>
           ${lemma ? `<span class="lex-lemma">${escapeHTML(lemma)}</span>` : ""}
@@ -2083,9 +2245,6 @@
       const body = header + `<div class="lexicon-layout">${defPane}${concPane}</div>`;
 
       const actions = [];
-      if (backVerses) {
-        actions.push({ label: "← Back", className: "button secondary", onClick: () => openInterlinearModal(backVerses) });
-      }
       actions.push({
         label: "BLB",
         className: "button secondary",
@@ -2119,22 +2278,38 @@
       return;
     }
 
+    // Occurrences in this canon come first, then the rest of the NT.
+    const inCanonIds = isOT ? [] : verseIds.filter(id => findSectionByVerseId(id) !== null);
+    const inCanonSet = new Set(inCanonIds);
+    const elsewhereIds = verseIds.filter(id => !inCanonSet.has(id));
+    const ordered = [...inCanonIds, ...elsewhereIds];
     const MAX = 80;
-    const shown = verseIds.slice(0, MAX);
-    const rows = shown.map(verseId => {
+    const shown = ordered.slice(0, MAX);
+    const rows = shown.map((verseId, i) => {
       const ref = verseIdToRef(verseId);
-      const inCorpus = !isOT && findSectionByVerseId(verseId) !== null;
+      const inCorpus = i < inCanonIds.length;
+      const groupHeading = i === 0 && inCanonIds.length
+        ? `<p class="lex-conc-group">In this canon</p>`
+        : i === inCanonIds.length && elsewhereIds.length
+          ? `<p class="lex-conc-group">Elsewhere in the New Testament</p>` : "";
+      return groupHeading + rowHTML(verseId, ref, inCorpus);
+    }).join("");
+
+    function rowHTML(verseId, ref, inCorpus) {
       const badge = inCorpus ? ` <span class="lex-incanon-badge">in canon</span>` : "";
       return `<button class="cc-result lex-occurrence${inCorpus ? " in-corpus" : ""}" data-verse-id="${escapeAttr(verseId)}"${inCorpus ? "" : ' style="cursor:default"'}>
         <span class="cc-ref">${escapeHTML(ref)}${badge}</span>
         <span class="cc-kjv loading" data-verse-id="${escapeAttr(verseId)}">Loading…</span>
       </button>`;
-    }).join("");
-    const footer = verseIds.length > MAX
-      ? `<p class="cc-no-results">Showing ${MAX} of ${verseIds.length}.</p>` : "";
+    }
+    const footer = ordered.length > MAX
+      ? `<p class="cc-no-results">Showing ${MAX} of ${ordered.length}.</p>` : "";
+    const count = isOT
+      ? `${verseIds.length} occurrence${verseIds.length === 1 ? "" : "s"} — Old Testament`
+      : `${inCanonIds.length} in this canon · ${verseIds.length} in the New Testament`;
 
     el.innerHTML = `
-      <p class="lex-conc-count">${verseIds.length} occurrence${verseIds.length === 1 ? "" : "s"}${isOT ? " — Old Testament" : " — New Testament"}</p>
+      <p class="lex-conc-count">${count}</p>
       <div class="concordance-results">${rows}</div>${footer}`;
 
     el.querySelectorAll(".cc-result.in-corpus[data-verse-id]").forEach(btn => {
@@ -2142,14 +2317,7 @@
       if (!section) return;
       btn.addEventListener("click", () => {
         closeModal();
-        pushNavHistory();
-        state.book = section.book;
-        state.chapter = section.startChapter ?? section.chapter ?? "All";
-        state.currentSectionId = section.id;
-        setViewMode("witness"); state.currentWitnessIndex = 0;
-        updateHash();
-        renderAll();
-        setTimeout(() => scrollToSection(section.id), 50);
+        goToVerse(section, btn.dataset.verseId);
       });
     });
 
@@ -2163,6 +2331,37 @@
         else cell.remove();
       } catch { cell.remove(); }
     }
+  }
+
+  // Opens `section` in witness view on the gospel that contains `verseId`
+  // and brings that verse into view once its text has loaded.
+  function goToVerse(section, verseId) {
+    pushNavHistory();
+    setTab("reader");
+    state.otBook = null;
+    state.book = section.book;
+    state.chapter = section.startChapter ?? section.chapter ?? "All";
+    state.currentSectionId = section.id;
+    setViewMode("witness");
+    const vm = (section.verseMarkers || []).find(m => m.id === verseId);
+    const entries = getWitnessEntries(section);
+    const idx = vm ? entries.findIndex(e => e.kind === "canonical" && e.bookKey === vm.book) : -1;
+    state.currentWitnessIndex = idx >= 0 ? idx : 0;
+    updateHash();
+    renderAll();
+    if (!vm) return;
+    const started = Date.now();
+    const tryScroll = () => {
+      const marker = els.readerContent.querySelector(
+        `.nt-source-block[data-book="${CSS.escape(vm.book)}"] .verse-number[data-chapter="${vm.chapter}"][data-verse="${vm.verse}"]`);
+      if (marker) {
+        holdChrome();
+        marker.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else if (Date.now() - started < 4000) {
+        setTimeout(tryScroll, 120);
+      }
+    };
+    setTimeout(tryScroll, 60);
   }
 
   function formatParagraph(raw, section) {
@@ -2485,7 +2684,7 @@
     let node;
 
     while ((node = walker.nextNode())) {
-      if (node.parentElement && node.parentElement.closest('.verse-number')) continue;
+      if (node.parentElement && node.parentElement.closest('.verse-number, .il-verse')) continue;
       if (!started) {
         if (span.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING) {
           started = true;
@@ -2520,7 +2719,10 @@
     const r = document.createRange();
     r.setStartAfter(verseSpan);
     r.setEnd(container, pointOffset);
-    return { chapter, verse, offset: r.toString().length };
+    // Measure the English only: the inline Greek isn't part of the saved text.
+    const frag = r.cloneContents();
+    frag.querySelectorAll(".il-verse").forEach(el => el.remove());
+    return { chapter, verse, offset: frag.textContent.length };
   }
 
   function getRangeVerseAnchors(body, range) {
@@ -2603,7 +2805,7 @@
     }
 
     // Leave footnote markers, Strong's words, links and panels alone.
-    if (target.closest("button, a, input, textarea, select, .source-word, .footnotes-panel, .apparatus-panel, .crossref-panel")) return;
+    if (target.closest("button, a, input, textarea, select, .source-word, .il-verse, .footnotes-panel, .apparatus-panel, .crossref-panel")) return;
     // A native (long-press) selection is in progress.
     if (!_verseSel && !window.getSelection().isCollapsed) return;
 
@@ -2693,7 +2895,7 @@
     while ((node = walker.nextNode())) {
       if (nextMarker && (nextMarker.contains(node) || (nextMarker.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING))) break;
       const parent = node.parentElement;
-      if (!parent || parent.closest(".verse-number, .paragraphtitle, sup, .nt-note-btn")) continue;
+      if (!parent || parent.closest(".verse-number, .paragraphtitle, sup, .nt-note-btn, .il-verse")) continue;
       if (!node.nodeValue.trim()) continue;
       if (!first) first = node;
       last = node;
@@ -2736,10 +2938,84 @@
     _verseSel = null;
   }
 
+  // "Mark 4:30", "Mark 4:30–32", "Mark 4:30–5:2".
+  function formatVerseRange(verses) {
+    if (!verses.length) return "";
+    const parse = ref => {
+      const m = /^(.*) (\d+):(\d+)$/.exec(ref);
+      return m ? { book: m[1], ch: m[2], v: m[3] } : null;
+    };
+    const a = parse(verses[0].reference);
+    const b = parse(verses[verses.length - 1].reference);
+    if (!a || !b || verses.length === 1) return verses[0].reference;
+    if (a.book !== b.book) return `${verses[0].reference} – ${verses[verses.length - 1].reference}`;
+    return a.ch === b.ch ? `${a.book} ${a.ch}:${a.v}–${b.v}` : `${a.book} ${a.ch}:${a.v}–${b.ch}:${b.v}`;
+  }
+
+  async function copySelectionWithReference() {
+    const range = _savedSelectionRange;
+    const verses = _menuSelectionVerses.slice();
+    const body = _selectionBody;
+    hideSelectionMenu();
+    if (!range) return;
+    const text = rangeQuoteText(range);
+    if (!text) return;
+    let reference = formatVerseRange(verses);
+    if (reference) {
+      reference += " (NET)";
+    } else {
+      // Non-biblical witness: name the source instead.
+      const startEl = range.startContainer.nodeType === Node.ELEMENT_NODE
+        ? range.startContainer : range.startContainer.parentElement;
+      const section = body && sectionById.get(body.dataset.sectionId);
+      const witness = state.viewMode === "witness" ? currentWitnessEntry() : null;
+      reference = startEl?.closest(".nt-source-block")?.querySelector(".nt-source-label")?.textContent.trim()
+        || (witness ? witnessEntryLabel(witness) : "")
+        || section?.title || "";
+    }
+    const output = reference ? `${text}\n— ${reference}` : text;
+    const ok = await copyText(output);
+    showToast(ok ? `Copied${reference ? " " + reference.replace(/ \(NET\)$/, "") : ""}` : "Couldn't copy — try selecting and copying the text");
+  }
+
+  async function copyText(text) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch { /* fall back below */ }
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch { ok = false; }
+    area.remove();
+    return ok;
+  }
+
+  let _toastTimer = null;
+  function showToast(message) {
+    els.toast.textContent = message;
+    els.toast.hidden = false;
+    els.toast.classList.remove("show");
+    void els.toast.offsetWidth;
+    els.toast.classList.add("show");
+    clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(() => {
+      els.toast.classList.remove("show");
+      setTimeout(() => { els.toast.hidden = true; }, 250);
+    }, 2200);
+  }
+
   // Selected text without verse numbers or footnote markers.
   function rangeQuoteText(range) {
     const frag = range.cloneContents();
-    frag.querySelectorAll(".verse-number, sup, .nt-note-btn, .note-link, .net-note-link").forEach(el => el.remove());
+    frag.querySelectorAll(".verse-number, sup, .nt-note-btn, .note-link, .net-note-link, .il-verse").forEach(el => el.remove());
     return frag.textContent.replace(/\s+/g, " ").trim();
   }
 
@@ -2797,9 +3073,13 @@
           : `${first.reference} – ${last.reference.split(" ").pop()}`;
     }
 
-    if (els.menuCommentaryBtn) {
-      els.menuCommentaryBtn.hidden = !(_menuSelectionVerses && _menuSelectionVerses.length > 0);
+    // Commentary only shows once commentary data exists (none is bundled yet).
+    els.menuCommentaryBtn.hidden = !(state.commentaryAvailable && _menuSelectionVerses.length > 0);
+    if (state.commentaryAvailable === undefined && window.CommentaryModule) {
+      state.commentaryAvailable = false;
+      CommentaryModule.isAvailable("jfb").then(ok => { state.commentaryAvailable = ok; }).catch(() => {});
     }
+    els.menuInterlinearBtn.hidden = state.greekMode || _menuSelectionVerses.length === 0;
 
     const isMobile = window.innerWidth <= 640;
     if (!isMobile) {
@@ -3013,22 +3293,15 @@
       return;
     }
     if (state.viewMode === "witness") {
-      const curSection = sectionById.get(state.currentSectionId);
-      const entries = curSection ? getWitnessEntries(curSection) : [];
-      if (state.currentWitnessIndex > 0) {
-        state.currentWitnessIndex--;
-        updateHash();
-        renderAll();
-        scrollToTopReader();
-        return;
-      }
+      // Previous/Next move between passages; the witness tabs switch witnesses.
+      const reading = currentWitnessEntry();
       const idx = sections.findIndex(s => s.id === state.currentSectionId);
       if (idx > 0) {
         const prev = sections[idx - 1];
         state.book = prev.book;
         state.chapter = prev.startChapter ?? prev.chapter ?? "All";
         state.currentSectionId = prev.id;
-        state.currentWitnessIndex = Math.max(0, getWitnessEntries(prev).length - 1);
+        state.currentWitnessIndex = matchingWitnessIndex(prev, reading);
       }
       updateHash();
       renderAll();
@@ -3090,22 +3363,14 @@
       return;
     }
     if (state.viewMode === "witness") {
-      const curSection = sectionById.get(state.currentSectionId);
-      const entries = curSection ? getWitnessEntries(curSection) : [];
-      if (state.currentWitnessIndex < entries.length - 1) {
-        state.currentWitnessIndex++;
-        updateHash();
-        renderAll();
-        scrollToTopReader();
-        return;
-      }
+      const reading = currentWitnessEntry();
       const idx = sections.findIndex(s => s.id === state.currentSectionId);
       if (idx < sections.length - 1) {
         const next = sections[idx + 1];
         state.book = next.book;
         state.chapter = next.startChapter ?? next.chapter ?? "All";
         state.currentSectionId = next.id;
-        state.currentWitnessIndex = 0;
+        state.currentWitnessIndex = matchingWitnessIndex(next, reading);
       }
       updateHash();
       renderAll();
@@ -3330,6 +3595,288 @@
 
   // On small screens, slide the top bar and pager out of the way while
   // scrolling down through the text, and bring them back on scroll up.
+  // ---------------------------------------------------------------------------
+  // Reading progress
+  //
+  // A passage counts as read once its end has been on screen and it has been
+  // open for at least 8 seconds. Contents can also tick/untick passages.
+  // ---------------------------------------------------------------------------
+  function loadReadSections() {
+    try {
+      const ids = JSON.parse(localStorage.getItem(STORAGE_READ) || "[]");
+      return new Set(Array.isArray(ids) ? ids.filter(id => sectionById.has(id)) : []);
+    } catch {
+      return new Set();
+    }
+  }
+
+  function setRead(sectionId, read) {
+    if (read) state.readSections.add(sectionId); else state.readSections.delete(sectionId);
+    localStorage.setItem(STORAGE_READ, JSON.stringify([...state.readSections]));
+    notifyPreferencesChanged();
+  }
+
+  let _readTimer = null;
+  let _readObserver = null;
+  function trackReading() {
+    clearTimeout(_readTimer);
+    if (_readObserver) _readObserver.disconnect();
+    els.readerContent.querySelectorAll(".read-sentinel").forEach(el => el.remove());
+    const id = state.currentSectionId;
+    if (state.otBook || !id || state.readSections.has(id)) return;
+    const passages = els.readerContent.querySelectorAll(".passage");
+    const last = passages[passages.length - 1];
+    if (!last) return;
+    const sentinel = document.createElement("div");
+    sentinel.className = "read-sentinel";
+    last.after(sentinel);
+    let endSeen = !("IntersectionObserver" in window);
+    let timeUp = false;
+    const finish = () => {
+      if (endSeen && timeUp && state.currentSectionId === id && !state.otBook) setRead(id, true);
+    };
+    if (!endSeen) {
+      _readObserver = new IntersectionObserver(entries => {
+        if (entries.some(e => e.isIntersecting)) {
+          endSeen = true;
+          _readObserver.disconnect();
+          finish();
+        }
+      });
+      _readObserver.observe(sentinel);
+    }
+    _readTimer = setTimeout(() => { timeUp = true; finish(); }, 8000);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Contents: progress, reading plans, every passage by part, and the OT.
+  // ---------------------------------------------------------------------------
+
+  // Holy Week, following the day markers in Mark 11–16.
+  const HOLY_WEEK_PLAN = [
+    { day: "Palm Sunday", offset: -7, ids: ["x_1_triumphal_entry"] },
+    { day: "Monday", offset: -6, ids: ["x_3_fig_tree", "x_4_temple_synoptic"] },
+    { day: "Tuesday", offset: -5, ids: ["x_5_authority_questioned", "x_6_two_sons", "x_7_wicked_tenants",
+      "x_8_wedding_banquet", "x_9_tribute_caesar", "x_10_sadducees", "x_11_greatest_commandment",
+      "x_12_davids_son", "x_13_woes_scribes", "x_14_widows_offering", "x_15_greeks_voice",
+      "x_16_olivet", "x_17_ten_virgins", "x_18_talents", "x_19_sheep_goats"] },
+    { day: "Wednesday", offset: -4, ids: ["x_2_anointing_bethany", "x_20_plot_judas"] },
+    { day: "Maundy Thursday", offset: -3, ids: ["xi_1_preparation", "xi_2_footwashing", "xi_3_betrayer",
+      "xi_4_institution_supper", "xi_5_greatness_thrones", "xi_6_peter_denial_foretold",
+      "xi_7_farewell_discourses", "xi_8_high_priestly_prayer", "xii_1_gethsemane", "xii_2_arrest"] },
+    { day: "Good Friday", offset: -2, ids: ["xii_3_trial", "xii_4_peter_denial", "xii_5_judas_end",
+      "xii_6_before_pilate", "xii_7_crucifixion", "xii_8_death"] },
+    { day: "Holy Saturday", offset: -1, ids: ["xii_9_burial"] },
+    { day: "Easter Sunday", offset: 0, ids: ["xiii_1_empty_tomb", "xiii_2_mary_magdalene",
+      "xiii_3_guards_report", "xiii_4_emmaus", "xiii_5_disciples_jerusalem"] },
+  ];
+
+  // Western Easter Sunday (Anonymous Gregorian algorithm).
+  function easterSunday(year) {
+    const a = year % 19, b = Math.floor(year / 100), c = year % 100;
+    const d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    const g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    const i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7;
+    const m = Math.floor((a + 11 * h + 22 * l) / 451);
+    const month = Math.floor((h + l - 7 * m + 114) / 31);
+    const day = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(year, month - 1, day);
+  }
+
+  // The coming (or current) Holy Week: Easter of this year until it has passed.
+  function upcomingEaster(today = new Date()) {
+    const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const easter = easterSunday(start.getFullYear());
+    return start <= easter ? easter : easterSunday(start.getFullYear() + 1);
+  }
+
+  function shortDate(date) {
+    return date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  }
+
+  function tocRowHTML(section) {
+    const read = state.readSections.has(section.id);
+    const current = section.id === state.currentSectionId && !state.otBook;
+    const witnesses = getWitnessEntries(section).map(witnessEntryLabel);
+    const refs = witnesses.slice(0, 2).join(" · ") + (witnesses.length > 2 ? ` +${witnesses.length - 2}` : "");
+    return `<li class="toc-item${read ? " read" : ""}${current ? " current" : ""}">
+      <button class="toc-check" data-read-toggle="${escapeAttr(section.id)}" aria-pressed="${read}"
+        aria-label="${read ? "Mark as unread" : "Mark as read"}: ${escapeAttr(section.title || "")}">✓</button>
+      <button class="toc-link" data-section-id="${escapeAttr(section.id)}">
+        <span class="toc-num">${escapeHTML(String(displayRef(section)))}</span>
+        <span class="toc-text">
+          <span class="toc-title">${escapeHTML(section.title || "")}</span>
+          ${refs ? `<span class="toc-refs">${escapeHTML(refs)}</span>` : ""}
+        </span>
+      </button>
+    </li>`;
+  }
+
+  function renderContents() {
+    const openParts = new Set([...els.contentsBody.querySelectorAll("details[open][data-key]")].map(d => d.dataset.key));
+    const firstRender = !els.contentsBody.childElementCount;
+    const total = sections.length;
+    const readCount = sections.filter(s => state.readSections.has(s.id)).length;
+    const pct = total ? Math.round((readCount / total) * 100) : 0;
+
+    // Continue with the first unread passage at or after the current one.
+    const curIdx = Math.max(0, sections.findIndex(s => s.id === state.currentSectionId));
+    const nextUnread = sections.slice(curIdx).find(s => !state.readSections.has(s.id))
+      || sections.find(s => !state.readSections.has(s.id));
+
+    const easter = upcomingEaster();
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const dayDate = offset => new Date(easter.getFullYear(), easter.getMonth(), easter.getDate() + offset);
+    const planIds = HOLY_WEEK_PLAN.flatMap(d => d.ids).filter(id => sectionById.has(id));
+    const planRead = planIds.filter(id => state.readSections.has(id)).length;
+    const inHolyWeek = today >= dayDate(-7) && today <= easter;
+    const planDays = HOLY_WEEK_PLAN.map(d => {
+      const date = dayDate(d.offset);
+      const isToday = date.getTime() === today.getTime();
+      const rows = d.ids.map(id => sectionById.get(id)).filter(Boolean).map(tocRowHTML).join("");
+      return `<li class="plan-day${isToday ? " today" : ""}">
+        <div class="plan-day-head"><span class="plan-day-name">${escapeHTML(d.day)}</span>
+          <span class="plan-date">${isToday ? "Today · " : ""}${escapeHTML(shortDate(date))}</span></div>
+        <ol class="toc-list">${rows}</ol>
+      </li>`;
+    }).join("");
+
+    const parts = books.map(book => {
+      const bookSections = book.sectionIds.map(id => sectionById.get(id)).filter(Boolean);
+      const done = bookSections.filter(s => state.readSections.has(s.id)).length;
+      const key = `part:${book.name}`;
+      const open = openParts.has(key) || (firstRender && book.name === state.book && !state.otBook);
+      return `<details class="toc-part" data-key="${escapeAttr(key)}"${open ? " open" : ""}>
+        <summary><span class="toc-part-title">${escapeHTML(book.name)}</span>
+          <span class="toc-part-count${done === bookSections.length ? " complete" : ""}">${done}/${bookSections.length}</span></summary>
+        <ol class="toc-list">${bookSections.map(tocRowHTML).join("")}</ol>
+      </details>`;
+    }).join("");
+
+    const otBooks = OT_BOOK_KEYS.map(key =>
+      `<button class="ot-book" data-ot-book="${escapeAttr(key)}">${escapeHTML(BOOK_DISPLAY_NAMES[key] || key)}</button>`
+    ).join("");
+
+    const planOpen = openParts.has("plan:holy-week") || (firstRender && inHolyWeek);
+    els.contentsBody.innerHTML = `
+      <header class="contents-head">
+        <h2>Contents</h2>
+        <div class="progress" role="img" aria-label="${readCount} of ${total} passages read">
+          <div class="progress-track"><span style="width:${pct}%"></span></div>
+          <p class="progress-label"><strong>${readCount}</strong> of ${total} passages read</p>
+        </div>
+        ${nextUnread ? `<button class="button continue-btn" data-section-id="${escapeAttr(nextUnread.id)}">Continue: ${escapeHTML(nextUnread.title || displayRef(nextUnread))}</button>` : ""}
+      </header>
+
+      <section class="contents-section">
+        <h3 class="contents-subhead">Reading plan</h3>
+        <details class="plan" data-key="plan:holy-week"${planOpen ? " open" : ""}>
+          <summary>
+            <span class="plan-title">Holy Week</span>
+            <span class="plan-meta">${escapeHTML(shortDate(dayDate(-7)))} – ${escapeHTML(shortDate(easter))}, ${easter.getFullYear()} · ${planRead} of ${planIds.length} read</span>
+          </summary>
+          <p class="plan-note">Eight days from Palm Sunday to Easter, following the day-by-day markers in Mark 11–16. John's timing differs in places — for example, John 12:1 sets the anointing at Bethany six days before the Passover.</p>
+          <ol class="plan-days">${planDays}</ol>
+        </details>
+      </section>
+
+      <section class="contents-section">
+        <h3 class="contents-subhead">The Basileian Canon</h3>
+        ${parts}
+      </section>
+
+      <section class="contents-section">
+        <h3 class="contents-subhead">Old Testament <span class="muted">(NET)</span></h3>
+        <div class="ot-books">${otBooks}</div>
+      </section>`;
+  }
+
+  function openSectionFromContents(sectionId) {
+    const section = sectionById.get(sectionId);
+    if (!section) return;
+    pushNavHistory();
+    state.otBook = null;
+    state.book = section.book;
+    state.chapter = section.startChapter ?? section.chapter ?? "All";
+    state.currentSectionId = section.id;
+    state.currentWitnessIndex = 0;
+    setTab("reader");
+    updateHash();
+    renderAll();
+    holdChrome();
+    window.scrollTo(0, 0);
+  }
+
+  function bindContentsEvents() {
+    els.contentsBody.addEventListener("click", event => {
+      const toggle = event.target.closest("[data-read-toggle]");
+      if (toggle) {
+        const id = toggle.dataset.readToggle;
+        setRead(id, !state.readSections.has(id));
+        renderContents();
+        return;
+      }
+      const link = event.target.closest(".toc-link[data-section-id], .continue-btn[data-section-id]");
+      if (link) {
+        openSectionFromContents(link.dataset.sectionId);
+        return;
+      }
+      const ot = event.target.closest("[data-ot-book]");
+      if (ot) {
+        state.otBook = ot.dataset.otBook;
+        state.otChapter = 1;
+        setTab("reader");
+        updateHash();
+        renderAll();
+      }
+    });
+  }
+
+  // Swipe left/right on the text (phones) or press ←/→ (keyboard) to turn to
+  // the previous or next passage.
+  function bindPageTurnGestures() {
+    let start = null;
+    els.readerContent.addEventListener("touchstart", event => {
+      if (event.touches.length !== 1) { start = null; return; }
+      const t = event.touches[0];
+      start = { x: t.clientX, y: t.clientY, time: Date.now(), target: event.target };
+    }, { passive: true });
+
+    els.readerContent.addEventListener("touchend", event => {
+      if (!start) return;
+      const t = event.changedTouches[0];
+      const dx = t.clientX - start.x;
+      const dy = t.clientY - start.y;
+      const quick = Date.now() - start.time < 700;
+      const target = start.target;
+      start = null;
+      if (!quick || Math.abs(dx) < 70 || Math.abs(dy) > Math.abs(dx) * 0.5) return;
+      // Leave sideways-scrolling rows and text being selected alone.
+      if (target.closest && target.closest(".witness-tabs, .il-verse, .footnotes-panel, .apparatus-panel")) return;
+      const sel = window.getSelection();
+      if (sel && !sel.isCollapsed) return;
+      turnPage(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    document.addEventListener("keydown", event => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      const el = document.activeElement;
+      if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))) return;
+      if (!els.modal.classList.contains("hidden") || openPopover || state.tab !== "reader") return;
+      if (els.sidebar.classList.contains("open")) return;
+      event.preventDefault();
+      turnPage(event.key === "ArrowRight" ? 1 : -1);
+    });
+  }
+
+  function turnPage(direction) {
+    if (direction > 0) goNext(); else goPrevious();
+    els.readerContent.classList.remove("turn-next", "turn-prev");
+    void els.readerContent.offsetWidth; // restart the animation
+    els.readerContent.classList.add(direction > 0 ? "turn-next" : "turn-prev");
+  }
+
   let _chromeHoldUntil = 0;
 
   // Keep the bars showing while the app scrolls the page itself.
@@ -3382,6 +3929,9 @@
 
   function updateViewToggle() {
     els.viewToggle.hidden = Boolean(state.otBook);
+    els.greekToggle.hidden = Boolean(state.otBook);
+    els.greekToggle.classList.toggle("active", state.greekMode);
+    els.greekToggle.setAttribute("aria-pressed", String(state.greekMode));
     els.viewOptionBtns.forEach(btn => {
       const on = btn.dataset.view === state.viewMode;
       btn.classList.toggle("active", on);

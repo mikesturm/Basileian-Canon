@@ -30,7 +30,9 @@
   const PREF_KEYS = [
     "basileian.reader.v2.viewMode",
     "basileian.reader.v2.footnotesVisible",
-    "basileian.reader.v2.footnoteTypes"
+    "basileian.reader.v2.footnoteTypes",
+    "basileian.reader.v2.greekMode",
+    "basileian.reader.v2.readSections"
   ];
 
   const listeners = new Set();
