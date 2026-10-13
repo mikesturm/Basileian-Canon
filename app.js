@@ -113,6 +113,13 @@
     menuCopyBtn: document.getElementById("menuCopyBtn"),
     toast: document.getElementById("toast"),
     contentsBody: document.getElementById("contentsBody"),
+    refSheet: document.getElementById("refSheet"),
+    refSheetBackdrop: document.getElementById("refSheetBackdrop"),
+    refSheetTitle: document.getElementById("refSheetTitle"),
+    refSheetBody: document.getElementById("refSheetBody"),
+    refSheetNote: document.getElementById("refSheetNote"),
+    refSheetOpen: document.getElementById("refSheetOpen"),
+    refSheetClose: document.getElementById("refSheetClose"),
     viewOptionBtns: document.querySelectorAll(".view-option"),
     brandBtn: document.getElementById("brandBtn"),
     sidebarBackdrop: document.getElementById("sidebarBackdrop"),
@@ -164,7 +171,7 @@
     loadIntertextApparatus(); // async: pre-fetches apparatus JSON so panels hydrate quickly
 
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-      navigator.serviceWorker.register("sw.js?v=20261013-ui3").catch(() => {});
+      navigator.serviceWorker.register("sw.js?v=20261013-ui4").catch(() => {});
     }
   }
 
@@ -190,6 +197,7 @@
     bindAutoHideChrome();
     bindPageTurnGestures();
     bindContentsEvents();
+    bindScriptureRefs();
 
     els.bookSelect.addEventListener("change", () => {
       const val = els.bookSelect.value;
@@ -299,7 +307,7 @@
       e.preventDefault();
       const noteId = btn.dataset.noteId;
       const content = state._ntNotes[noteId] || "Note not available.";
-      openModal("Note", `<div class="note-text">${content}</div>`, [
+      openModal("Note", `<div class="note-text" data-ref-book="${escapeAttr(noteBookKey(noteId) || "")}">${content}</div>`, [
         { label: "Close", className: "button", onClick: closeModal }
       ]);
     });
@@ -1289,11 +1297,21 @@
     if (!window.TranslationsModule) return;
 
     const verseTexts = [];
-    for (let v = 1; v <= 200; v++) {
-      const verseId = `${book}.${chapter}.${v}`;
-      const text = await TranslationsModule.getVerseText(verseId, "net");
-      if (!text) break;
-      verseTexts.push({ v, verseId, text });
+    try {
+      for (let v = 1; v <= 200; v++) {
+        const verseId = `${book}.${chapter}.${v}`;
+        const text = await TranslationsModule.getVerseText(verseId, "net");
+        if (!text) break;
+        verseTexts.push({ v, verseId, text });
+      }
+    } catch (err) {
+      console.error("Old Testament text failed to load:", err);
+      if (state.otBook !== book || state.otChapter !== chapter) return;
+      els.readerContent.innerHTML = `<header class="chapter-heading">
+        <h2>${escapeHTML(bookDisplay)} ${escapeHTML(String(chapter))}</h2>
+        <p class="muted">Could not load the Old Testament text. Check your connection and try again.</p>
+      </header>`;
+      return;
     }
 
     if (state.otBook !== book || state.otChapter !== chapter) return; // stale render
@@ -1808,7 +1826,7 @@
       <div class="footnotes-panel-body${expanded ? "" : " collapsed"}">
         ${entries.map((e, i) => `<div class="footnote-item" data-fn-idx="${i}"${e.type ? ` data-note-type="${e.type}"` : ""}>
           <span class="footnote-num">${escapeHTML(e.label)}</span>
-          <div class="footnote-text">${e.html}</div>
+          <div class="footnote-text"${e.noteId ? ` data-ref-book="${escapeAttr(noteBookKey(e.noteId) || "")}"` : ""}>${e.html}</div>
         </div>`).join("")}
       </div>
     `;
@@ -2458,7 +2476,7 @@
   async function openNetNote(noteId, bookKey) {
     openModal(
       "NET Bible Note",
-      `<div class="note-text"><p class="muted">Loading…</p></div>`,
+      `<div class="note-text" data-ref-book="${escapeAttr(noteBookKey(noteId) || "")}"><p class="muted">Loading…</p></div>`,
       [{ label: "Close", className: "button", onClick: closeModal }]
     );
     try {
@@ -3421,7 +3439,10 @@
       chapter: state.chapter,
       currentSectionId: state.currentSectionId,
       viewMode: state.viewMode,
-      currentWitnessIndex: state.currentWitnessIndex
+      currentWitnessIndex: state.currentWitnessIndex,
+      otBook: state.otBook,
+      otChapter: state.otChapter,
+      scrollY: window.scrollY
     });
     if (state.navHistory.length > 50) state.navHistory.shift();
     updateBackButton();
@@ -3435,9 +3456,18 @@
     state.currentSectionId = pos.currentSectionId;
     state.viewMode = pos.viewMode;
     state.currentWitnessIndex = pos.currentWitnessIndex;
+    state.otBook = pos.otBook || null;
+    state.otChapter = pos.otChapter || 1;
+    setTab("reader");
     updateHash();
     renderAll();
-    setTimeout(() => scrollToSection(pos.currentSectionId), 50);
+    // Return to where the reader was, once the text has loaded.
+    if (pos.scrollY != null) {
+      holdChrome(2500);
+      setTimeout(() => window.scrollTo(0, pos.scrollY), 400);
+    } else {
+      setTimeout(() => scrollToSection(pos.currentSectionId), 50);
+    }
     updateBackButton();
   }
 
@@ -3595,6 +3625,376 @@
 
   // On small screens, slide the top bar and pager out of the way while
   // scrolling down through the text, and bring them back on scroll up.
+  // ---------------------------------------------------------------------------
+  // Scripture references in notes and the apparatus
+  //
+  // References such as "Pss 104:3; 135:7; 107:23-30", "Isa 52:13–53:12",
+  // "Jonah 1" or "cf. Thomas 20" become links. A tap shows the passage (NET)
+  // in a sheet over whatever is open, with "Open in reader" to go there; the
+  // Back button then returns. NET notes also cite bare "4:3-9" references,
+  // meaning the note's own book; containers carry that book in data-ref-book.
+  // Books without text in the app (Tobit, Sirach, 1 Enoch…) stay plain text.
+  // ---------------------------------------------------------------------------
+
+  // [NET book id, display name, other names/abbreviations]; order = NET book number.
+  const SCRIPTURE_BOOKS = [
+    ["genesis", "Genesis", "Gen"], ["exodus", "Exodus", "Exod", "Ex"], ["leviticus", "Leviticus", "Lev"],
+    ["numbers", "Numbers", "Num"], ["deuteronomy", "Deuteronomy", "Deut", "Dt"], ["joshua", "Joshua", "Josh"],
+    ["judges", "Judges", "Judg"], ["ruth", "Ruth"], ["1samuel", "1 Samuel", "1 Sam"], ["2samuel", "2 Samuel", "2 Sam"],
+    ["1kings", "1 Kings", "1 Kgs"], ["2kings", "2 Kings", "2 Kgs"],
+    ["1chronicles", "1 Chronicles", "1 Chron", "1 Chr"], ["2chronicles", "2 Chronicles", "2 Chron", "2 Chr"],
+    ["ezra", "Ezra"], ["nehemiah", "Nehemiah", "Neh"], ["esther", "Esther", "Esth"], ["job", "Job"],
+    ["psalms", "Psalms", "Psalm", "Pss", "Ps"], ["proverbs", "Proverbs", "Prov"],
+    ["ecclesiastes", "Ecclesiastes", "Eccl", "Qoh"],
+    ["songofsolomon", "Song of Songs", "Song of Solomon", "Songs", "Song", "Cant"],
+    ["isaiah", "Isaiah", "Isa"], ["jeremiah", "Jeremiah", "Jer"], ["lamentations", "Lamentations", "Lam"],
+    ["ezekiel", "Ezekiel", "Ezek"], ["daniel", "Daniel", "Dan"], ["hosea", "Hosea", "Hos"], ["joel", "Joel"],
+    ["amos", "Amos"], ["obadiah", "Obadiah", "Obad"], ["jonah", "Jonah"], ["micah", "Micah", "Mic"],
+    ["nahum", "Nahum", "Nah"], ["habakkuk", "Habakkuk", "Hab"], ["zephaniah", "Zephaniah", "Zeph"],
+    ["haggai", "Haggai", "Hag"], ["zechariah", "Zechariah", "Zech"], ["malachi", "Malachi", "Mal"],
+    ["matthew", "Matthew", "Matt", "Mt"], ["mark", "Mark", "Mk"], ["luke", "Luke", "Lk"], ["john", "John", "Jn"],
+    ["acts", "Acts"], ["romans", "Romans", "Rom"], ["1corinthians", "1 Corinthians", "1 Cor"],
+    ["2corinthians", "2 Corinthians", "2 Cor"], ["galatians", "Galatians", "Gal"], ["ephesians", "Ephesians", "Eph"],
+    ["philippians", "Philippians", "Phil"], ["colossians", "Colossians", "Col"],
+    ["1thessalonians", "1 Thessalonians", "1 Thess"], ["2thessalonians", "2 Thessalonians", "2 Thess"],
+    ["1timothy", "1 Timothy", "1 Tim"], ["2timothy", "2 Timothy", "2 Tim"], ["titus", "Titus"],
+    ["philemon", "Philemon", "Phlm", "Philem"], ["hebrews", "Hebrews", "Heb"], ["james", "James", "Jas"],
+    ["1peter", "1 Peter", "1 Pet"], ["2peter", "2 Peter", "2 Pet"], ["1john", "1 John", "1 Jn"],
+    ["2john", "2 John", "2 Jn"], ["3john", "3 John", "3 Jn"], ["jude", "Jude"], ["revelation", "Revelation", "Rev"],
+  ];
+  const SCRIPTURE_BOOK_NAME = {};
+  const SCRIPTURE_BOOK_BY_ALIAS = new Map();
+  SCRIPTURE_BOOKS.forEach(([key, ...names]) => {
+    SCRIPTURE_BOOK_NAME[key] = names[0];
+    names.forEach(n => SCRIPTURE_BOOK_BY_ALIAS.set(n.replace(/\s+/g, "").toLowerCase(), key));
+  });
+  const SINGLE_CHAPTER_BOOKS = new Set(["obadiah", "philemon", "2john", "3john", "jude"]);
+  const OT_BOOK_SET = new Set(OT_BOOK_KEYS);
+
+  const BOOK_ALIAS_PATTERN = SCRIPTURE_BOOKS.flatMap(([, ...names]) => names)
+    .sort((a, b) => b.length - a.length)
+    .map(n => n.replace(/ /g, "\\s?"))
+    .join("|");
+  // A book name (not inside a longer word), optional period, then a number.
+  const BOOK_REF_RE = new RegExp(`(^|[^A-Za-z0-9])(${BOOK_ALIAS_PATTERN})\\.?\\s+(?=\\d)`, "g");
+  // A Thomas logion: "Thomas 20", "Gos. Thom. 20", "Logion 54".
+  const THOMAS_REF_RE = /(^|[^A-Za-z0-9])((?:Gospel of Thomas|Gos\.\s?Thom\.?|Thomas|Thom\.|Logion|logion)\s+(\d{1,3}))(?![\d:])/g;
+  // chapter[:verse][letter][-chapter[:verse]]
+  const REF_NUM_RE = /^(\d{1,3})(?::(\d{1,3})[a-d]?)?(?:\s*[-–]\s*(\d{1,3})(?::(\d{1,3})[a-d]?)?)?(?![\d:])/;
+
+  // NET note ids start with the NET book number: n41… is Mark, n19… Psalms.
+  function noteBookKey(noteId) {
+    const m = /^n(\d{2})/.exec(String(noteId || ""));
+    const book = m && SCRIPTURE_BOOKS[Number(m[1]) - 1];
+    return book ? book[0] : null;
+  }
+
+  // Turns a REF_NUM_RE match into a reference. `chapterContext` lets a bare
+  // ", 26-32" continue in the previous chapter.
+  function refFromNumbers(book, m, chapterContext) {
+    let [, a, b, c, d] = m;
+    a = Number(a);
+    let ref;
+    if (b != null) {
+      ref = { ch: a, v1: Number(b), ch2: d != null ? Number(c) : a, v2: d != null ? Number(d) : c != null ? Number(c) : Number(b) };
+    } else if (chapterContext != null) {
+      ref = { ch: chapterContext, v1: a, ch2: chapterContext, v2: c != null ? Number(c) : a };
+    } else if (SINGLE_CHAPTER_BOOKS.has(book)) {
+      ref = { ch: 1, v1: a, ch2: 1, v2: c != null ? Number(c) : a };
+    } else {
+      ref = { ch: a, v1: null, ch2: c != null ? Number(c) : a, v2: null };
+    }
+    if (ref.ch < 1 || ref.ch > 150 || ref.ch2 < ref.ch) return null;
+    if (OT_BOOK_SET.has(book) && OT_CHAPTER_COUNTS[book] && ref.ch2 > OT_CHAPTER_COUNTS[book]) return null;
+    return { book, ...ref };
+  }
+
+  // After a reference, follow "; 135:7", ", 26-32", "; cf. 13:28" in the same book.
+  function readContinuations(text, pos, book, last, out) {
+    const SEP_RE = /^(\s*([;,])\s*(?:cf\.\s*|see\s+|also\s+|and\s+)?)(?=\d)/;
+    for (;;) {
+      const sep = SEP_RE.exec(text.slice(pos));
+      if (!sep) return;
+      const at = pos + sep[1].length;
+      const rest = text.slice(at);
+      if (/^[123]\s?[A-Z]/.test(rest)) return;          // "; 2 Sam 7:14" — a new book
+      const m = REF_NUM_RE.exec(rest);
+      if (!m) return;
+      const hasColon = m[2] != null;
+      // "; 135:7" or ", 4:3" → chapter:verse. ", 26-32" → verses in the same
+      // chapter. "; 69" (no colon) → a chapter, only after a chapter reference.
+      let ref;
+      if (hasColon) ref = refFromNumbers(book, m, null);
+      else if (sep[2] === "," && last.v1 != null) ref = refFromNumbers(book, m, last.ch2);
+      else if (last.v1 == null) ref = refFromNumbers(book, m, null);
+      if (!ref) return;
+      out.push({ start: at, end: at + m[0].length, ref });
+      last = ref;
+      pos = at + m[0].length;
+    }
+  }
+
+  // All references in a string: [{start, end, ref}] with ref = {book, ch, v1, ch2, v2}
+  // or {thomas: n}. Bare "4:3-9" references use `defaultBook` when given.
+  function findScriptureRefs(text, defaultBook) {
+    const out = [];
+    BOOK_REF_RE.lastIndex = 0;
+    let m;
+    while ((m = BOOK_REF_RE.exec(text))) {
+      const book = SCRIPTURE_BOOK_BY_ALIAS.get(m[2].replace(/\s+/g, "").toLowerCase());
+      const start = m.index + m[1].length;
+      const numAt = BOOK_REF_RE.lastIndex;
+      const nm = REF_NUM_RE.exec(text.slice(numAt));
+      const ref = book && nm && refFromNumbers(book, nm, null);
+      if (!ref) continue;
+      out.push({ start, end: numAt + nm[0].length, ref });
+      readContinuations(text, numAt + nm[0].length, book, ref, out);
+      BOOK_REF_RE.lastIndex = out[out.length - 1].end;
+    }
+    THOMAS_REF_RE.lastIndex = 0;
+    while ((m = THOMAS_REF_RE.exec(text))) {
+      const n = Number(m[3]);
+      const start = m.index + m[1].length;
+      if (n >= 1 && n <= 114 && !out.some(r => start < r.end && r.start < start + m[2].length)) {
+        out.push({ start, end: start + m[2].length, ref: { thomas: n } });
+      }
+    }
+    if (defaultBook) {
+      // Bare chapter:verse references, e.g. "(cf. 2:19-22; 3:23-25; 4:3-9, 26-32)".
+      const BARE_RE = /(^|[^\w:.–-])(\d{1,3}:\d{1,3})/g;
+      while ((m = BARE_RE.exec(text))) {
+        const start = m.index + m[1].length;
+        if (out.some(r => start >= r.start && start < r.end)) continue;
+        if (/\b(?:v|vv|ch|chs)\.\s*$/.test(text.slice(Math.max(0, start - 5), start))) continue;
+        const nm = REF_NUM_RE.exec(text.slice(start));
+        const ref = nm && refFromNumbers(defaultBook, nm, null);
+        if (!ref) continue;
+        out.push({ start, end: start + nm[0].length, ref });
+        const before = out.length;
+        readContinuations(text, start + nm[0].length, defaultBook, ref, out);
+        BARE_RE.lastIndex = out[out.length - 1].end;
+        if (out.length === before) BARE_RE.lastIndex = start + nm[0].length;
+      }
+    }
+    return out.sort((a, b) => a.start - b.start);
+  }
+
+  const SCRIPTURE_SCOPES = ".note-text, .footnote-text, .apparatus-panel-body";
+
+  function linkifyScriptureRefs(root) {
+    const defaultBook = root.closest("[data-ref-book]")?.dataset.refBook || null;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    let node;
+    while ((node = walker.nextNode())) {
+      if (!/\d/.test(node.nodeValue)) continue;
+      if (node.parentElement.closest("a, button, .scripture-ref, .verse-number, .il-verse")) continue;
+      nodes.push(node);
+    }
+    nodes.forEach(textNode => {
+      const text = textNode.nodeValue;
+      const refs = findScriptureRefs(text, defaultBook);
+      if (!refs.length) return;
+      const frag = document.createDocumentFragment();
+      let pos = 0;
+      refs.forEach(({ start, end, ref }) => {
+        if (start < pos) return;
+        frag.append(text.slice(pos, start));
+        const link = document.createElement("a");
+        link.className = "scripture-ref";
+        link.href = "#";
+        link.textContent = text.slice(start, end);
+        link.dataset.ref = JSON.stringify(ref);
+        frag.append(link);
+        pos = end;
+      });
+      frag.append(text.slice(pos));
+      textNode.replaceWith(frag);
+    });
+  }
+
+  function bindScriptureRefs() {
+    // Notes and apparatus panels fill in asynchronously, so link whatever
+    // appears inside them.
+    let queued = false;
+    const run = () => {
+      queued = false;
+      [els.readerContent, els.modalBody].forEach(root =>
+        root.querySelectorAll(SCRIPTURE_SCOPES).forEach(linkifyScriptureRefs));
+    };
+    const observer = new MutationObserver(() => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(run);
+    });
+    observer.observe(els.readerContent, { childList: true, subtree: true });
+    observer.observe(els.modalBody, { childList: true, subtree: true });
+
+    document.addEventListener("click", event => {
+      const link = event.target.closest(".scripture-ref[data-ref]");
+      if (!link) return;
+      event.preventDefault();
+      event.stopPropagation();
+      openRefSheet(JSON.parse(link.dataset.ref), link.textContent);
+    }, true);
+
+    els.refSheetClose.addEventListener("click", closeRefSheet);
+    els.refSheetOpen.addEventListener("click", openRefInReader);
+    els.refSheetBackdrop.addEventListener("click", closeRefSheet);
+    // Escape closes the sheet before anything underneath it.
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && !els.refSheet.hidden) {
+        event.stopImmediatePropagation();
+        closeRefSheet();
+      }
+    }, true);
+  }
+
+  function formatScriptureRef(ref) {
+    if (ref.thomas) return `Gospel of Thomas ${ref.thomas}`;
+    let name = SCRIPTURE_BOOK_NAME[ref.book] || ref.book;
+    if (ref.book === "psalms" && ref.ch2 === ref.ch) name = "Psalm";
+    if (ref.v1 == null) return ref.ch2 !== ref.ch ? `${name} ${ref.ch}–${ref.ch2}` : `${name} ${ref.ch}`;
+    if (ref.ch2 !== ref.ch) return `${name} ${ref.ch}:${ref.v1}–${ref.ch2}:${ref.v2}`;
+    return ref.v2 !== ref.v1 ? `${name} ${ref.ch}:${ref.v1}–${ref.v2}` : `${name} ${ref.ch}:${ref.v1}`;
+  }
+
+  // Verse ids covered by a reference (capped so whole-book ranges stay quick).
+  async function scriptureRefVerses(ref, cap = 80) {
+    await TranslationsModule.loadTranslation("net");
+    const verses = [];
+    for (let ch = ref.ch; ch <= ref.ch2 && verses.length < cap; ch++) {
+      const from = ch === ref.ch && ref.v1 != null ? ref.v1 : 1;
+      const to = ch === ref.ch2 && ref.v2 != null ? ref.v2 : 200;
+      for (let v = from; v <= to && verses.length < cap; v++) {
+        const id = `${ref.book}.${ch}.${v}`;
+        const text = await TranslationsModule.getVerseText(id, "net");
+        if (!text) break;
+        const clean = text.replace(/⟦[^⟧]*⟧/g, "").replace(/\s+/g, " ").replace(/\s+([,.;:!?’”])/g, "$1").trim();
+        verses.push({ id, ch, v, text: clean });
+      }
+    }
+    return verses;
+  }
+
+  // Where "Open in reader" goes: an OT chapter, a passage of this canon, or
+  // nowhere (NT books outside the canon are shown here only).
+  function scriptureRefTarget(ref) {
+    if (ref.thomas) {
+      const label = `Gospel of Thomas ${ref.thomas}`;
+      const section = sections.find(s => (s.nonbiblical || []).some(nb => nb.source === label || nb.label === `Thomas ${ref.thomas}`));
+      return section ? { kind: "thomas", section, label } : null;
+    }
+    if (OT_BOOK_SET.has(ref.book)) return { kind: "ot" };
+    const section = findSectionByVerseId(`${ref.book}.${ref.ch}.${ref.v1 ?? 1}`);
+    return section ? { kind: "canon", section, verseId: `${ref.book}.${ref.ch}.${ref.v1 ?? 1}` } : null;
+  }
+
+  let _refSheetRef = null;
+  async function openRefSheet(ref, linkText) {
+    _refSheetRef = ref;
+    els.refSheetTitle.textContent = formatScriptureRef(ref);
+    els.refSheetBody.innerHTML = `<p class="muted">Loading…</p>`;
+    els.refSheetNote.textContent = "";
+    const target = scriptureRefTarget(ref);
+    els.refSheetOpen.hidden = !target;
+    if (!target && !ref.thomas) els.refSheetNote.textContent = "Not part of this canon — shown for reference.";
+    if (!target && ref.thomas) els.refSheetNote.textContent = "This logion isn't placed in the canon.";
+    els.refSheet.hidden = false;
+    els.refSheetBackdrop.hidden = false;
+    els.refSheetClose.focus();
+
+    try {
+      if (ref.thomas) {
+        const data = await loadThomasLogia();
+        const text = data && data[String(ref.thomas)];
+        els.refSheetBody.innerHTML = text
+          ? `<p class="ref-verse">${escapeHTML(text)}</p><p class="ref-attribution">Trans. Thomas O. Lambdin</p>`
+          : `<p class="muted">Logion not found.</p>`;
+        return;
+      }
+      const verses = await scriptureRefVerses(ref);
+      if (_refSheetRef !== ref) return; // another reference was opened meanwhile
+      if (!verses.length) {
+        els.refSheetBody.innerHTML = `<p class="muted">No NET text found for ${escapeHTML(linkText || formatScriptureRef(ref))}.</p>`;
+        els.refSheetOpen.hidden = true;
+        return;
+      }
+      const multiChapter = verses.some(x => x.ch !== verses[0].ch);
+      els.refSheetBody.innerHTML = verses.map(x =>
+        `<p class="ref-verse"><span class="ref-vnum">${multiChapter ? `${x.ch}:${x.v}` : x.v}</span> ${escapeHTML(x.text)}</p>`
+      ).join("") + `<p class="ref-attribution">NET Bible</p>`;
+    } catch (err) {
+      console.error("Reference preview failed:", err);
+      els.refSheetBody.innerHTML = `<p class="muted">Could not load this passage.</p>`;
+    }
+  }
+
+  function closeRefSheet() {
+    els.refSheet.hidden = true;
+    els.refSheetBackdrop.hidden = true;
+    _refSheetRef = null;
+  }
+
+  let _thomasLogia = null;
+  async function loadThomasLogia() {
+    if (_thomasLogia) return _thomasLogia;
+    const resp = await fetch("nonbiblical/thomas.json");
+    const data = resp.ok ? await resp.json() : null;
+    _thomasLogia = data && data.logia && typeof data.logia === "object" ? data.logia : null; // keyed "1"…"114"
+    return _thomasLogia;
+  }
+
+  function openRefInReader() {
+    const ref = _refSheetRef;
+    const target = ref && scriptureRefTarget(ref);
+    if (!target) return;
+    closeRefSheet();
+    closeModal();
+    if (target.kind === "canon") {
+      goToVerse(target.section, target.verseId);
+      return;
+    }
+    if (target.kind === "thomas") {
+      pushNavHistory();
+      setTab("reader");
+      state.otBook = null;
+      state.book = target.section.book;
+      state.chapter = target.section.startChapter ?? target.section.chapter ?? "All";
+      state.currentSectionId = target.section.id;
+      setViewMode("witness");
+      const idx = getWitnessEntries(target.section).findIndex(e => e.kind === "nonbiblical" && e.nb.source === target.label);
+      state.currentWitnessIndex = Math.max(0, idx);
+      updateHash();
+      renderAll();
+      holdChrome();
+      window.scrollTo(0, 0);
+      return;
+    }
+    // Old Testament chapter, scrolled to the first verse and marked briefly.
+    pushNavHistory();
+    setTab("reader");
+    state.otBook = ref.book;
+    state.otChapter = ref.ch;
+    renderAll();
+    if (ref.v1 == null) { holdChrome(); window.scrollTo(0, 0); return; }
+    const started = Date.now();
+    const verseIds = [];
+    for (let v = ref.v1; v <= (ref.ch2 === ref.ch ? ref.v2 : ref.v1); v++) verseIds.push(`${ref.book}.${ref.ch}.${v}`);
+    const tryScroll = () => {
+      const first = els.readerContent.querySelector(`.ot-verse[data-verse-id="${CSS.escape(verseIds[0])}"]`);
+      if (!first) {
+        if (Date.now() - started < 6000) setTimeout(tryScroll, 120);
+        return;
+      }
+      verseIds.forEach(id => els.readerContent.querySelector(`.ot-verse[data-verse-id="${CSS.escape(id)}"]`)?.classList.add("ref-target"));
+      holdChrome();
+      first.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => els.readerContent.querySelectorAll(".ref-target").forEach(el => el.classList.remove("ref-target")), 4000);
+    };
+    setTimeout(tryScroll, 60);
+  }
+
   // ---------------------------------------------------------------------------
   // Reading progress
   //
