@@ -171,7 +171,7 @@
     loadIntertextApparatus(); // async: pre-fetches apparatus JSON so panels hydrate quickly
 
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-      navigator.serviceWorker.register("sw.js?v=20261013-ui4").catch(() => {});
+      navigator.serviceWorker.register("sw.js?v=20261013-ui5").catch(() => {});
     }
   }
 
@@ -677,19 +677,6 @@
       return `<button class="witness-tab${active ? " active" : ""}" data-witness-index="${i}" aria-pressed="${active}">${escapeHTML(witnessEntryLabel(entry))}</button>`;
     }).join("");
     return `<nav class="witness-tabs" aria-label="Witnesses">${tabs}</nav>`;
-  }
-
-  // Which witness of `section` continues the one being read: the same gospel
-  // (or source) when the section has it, otherwise the first witness.
-  function matchingWitnessIndex(section, previousEntry) {
-    const entries = getWitnessEntries(section);
-    if (!previousEntry) return 0;
-    // "Gospel of Thomas 47" and "Gospel of Thomas 20" are the same work.
-    const work = nb => String(nb.source || nb.label || "").replace(/[\s\d:.,–-]+$/, "");
-    const idx = entries.findIndex(e => previousEntry.kind === "canonical"
-      ? e.kind === "canonical" && e.bookKey === previousEntry.bookKey
-      : e.kind === "nonbiblical" && work(e.nb) === work(previousEntry.nb));
-    return idx >= 0 ? idx : 0;
   }
 
   function currentWitnessEntry() {
@@ -3311,15 +3298,15 @@
       return;
     }
     if (state.viewMode === "witness") {
-      // Previous/Next move between passages; the witness tabs switch witnesses.
-      const reading = currentWitnessEntry();
+      // Previous/Next move between passages, opening each on its first
+      // witness; the witness tabs switch witnesses.
       const idx = sections.findIndex(s => s.id === state.currentSectionId);
       if (idx > 0) {
         const prev = sections[idx - 1];
         state.book = prev.book;
         state.chapter = prev.startChapter ?? prev.chapter ?? "All";
         state.currentSectionId = prev.id;
-        state.currentWitnessIndex = matchingWitnessIndex(prev, reading);
+        state.currentWitnessIndex = 0;
       }
       updateHash();
       renderAll();
@@ -3381,14 +3368,13 @@
       return;
     }
     if (state.viewMode === "witness") {
-      const reading = currentWitnessEntry();
       const idx = sections.findIndex(s => s.id === state.currentSectionId);
       if (idx < sections.length - 1) {
         const next = sections[idx + 1];
         state.book = next.book;
         state.chapter = next.startChapter ?? next.chapter ?? "All";
         state.currentSectionId = next.id;
-        state.currentWitnessIndex = matchingWitnessIndex(next, reading);
+        state.currentWitnessIndex = 0;
       }
       updateHash();
       renderAll();
