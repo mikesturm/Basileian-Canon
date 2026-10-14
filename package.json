@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "node tests/run.cjs",
     "fetch-nonbiblical": "node scripts/fetch-nonbiblical.js",
     "build-canon": "node scripts/build-data.js",
     "build": "node scripts/fetch-nonbiblical.js && node scripts/build-data.js",

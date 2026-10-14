@@ -17,6 +17,14 @@
   --radius: 18px;
   --reader-width: 720px;
   --verse-select: rgba(122, 61, 31, 0.16);
+  /* Older names used throughout style-additions.css */
+  --surface: var(--card);
+  --border: var(--line);
+  --hl-yellow: #fff2a8;
+  --hl-green: #d3efc2;
+  --hl-blue: #cfe4ff;
+  --hl-pink: #ffd5e0;
+  --hl-purple: #e5d8ff;
   color-scheme: light;
 }
 
@@ -36,6 +44,11 @@
   --danger: #e07968;
   --shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
   --verse-select: rgba(215, 167, 97, 0.26);
+  --hl-yellow: #6d5617;
+  --hl-green: #2d4f2c;
+  --hl-blue: #1f4363;
+  --hl-pink: #5e2d3c;
+  --hl-purple: #46355f;
   color-scheme: dark;
 }
 
@@ -810,8 +823,8 @@ button {
 }
 
 .passage-body {
-  font-size: clamp(1.05rem, 2.4vw, 1.22rem);
-  line-height: 1.65;
+  font-size: calc(clamp(1.05rem, 2.4vw, 1.22rem) * var(--reader-scale, 1));
+  line-height: var(--reader-leading, 1.68);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -837,7 +850,7 @@ button {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 0.62em;
   font-weight: 650;
-  line-height: 0;
+  line-height: 1;
   vertical-align: baseline;
   scroll-margin-top: 5rem;
 }
@@ -873,8 +886,7 @@ button {
   font-weight: 650;
   line-height: 0;
   vertical-align: super;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration: underline dotted;
   text-underline-offset: 0.15em;
 }
 
@@ -994,7 +1006,7 @@ button {
 
   /* Push page content down so users can scroll above the open menu */
   body.selection-menu-open .main-layout {
-    padding-bottom: 220px;
+    padding-bottom: 270px;
   }
 }
 
@@ -1005,32 +1017,6 @@ button {
 .notes-list {
   display: grid;
   gap: 0.8rem;
-}
-
-.note-card {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--bg-soft);
-  padding: 0.85rem;
-}
-
-.note-card blockquote {
-  margin: 0 0 0.6rem;
-  padding-left: 0.75rem;
-  border-left: 3px solid var(--gold);
-  color: var(--ink);
-  font-size: 0.95rem;
-}
-
-.note-card p {
-  margin: 0.25rem 0 0;
-}
-
-.note-card .actions {
-  display: flex;
-  gap: 0.45rem;
-  flex-wrap: wrap;
-  margin-top: 0.7rem;
 }
 
 .source-pre {
@@ -1194,9 +1180,6 @@ button {
     padding: 1rem 0.9rem;
   }
 
-  .passage-body {
-    line-height: 1.72;
-  }
 
   .modal {
     width: 94vw;
@@ -1828,8 +1811,8 @@ button {
   flex: 1;
   overflow-y: auto;
   padding: 0.75rem 1rem;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: calc(1.05rem * var(--reader-scale, 1));
+  line-height: var(--reader-leading, 1.68);
 }
 
 .ref-verse {
@@ -1898,4 +1881,337 @@ button {
   line-height: 1;
   padding: 0.45em 0.3em;
   margin: -0.45em -0.3em;
+}
+
+/* ---------------------------------------------------------------------------
+   Reading settings: text size stepper and line-spacing choice
+   --------------------------------------------------------------------------- */
+.setting-row.setting-static {
+  cursor: default;
+}
+
+.setting-row.setting-static:hover {
+  background: transparent;
+}
+
+.stepper,
+.choice-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-soft);
+}
+
+.stepper-btn,
+.choice-option {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent-strong);
+  padding: 0.25rem 0.6rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.stepper-btn:disabled {
+  color: var(--line);
+  cursor: default;
+}
+
+.stepper-value {
+  min-width: 3rem;
+  text-align: center;
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.choice-option {
+  color: var(--muted);
+  padding: 0.25rem 0.55rem;
+}
+
+.choice-option.active {
+  background: var(--card);
+  color: var(--accent-strong);
+  box-shadow: 0 1px 3px rgba(37, 26, 19, 0.15);
+}
+
+/* NET markers sit inside <sup>, which already raises them. */
+.passage-body sup .net-note-link {
+  vertical-align: baseline;
+}
+
+/* ---------------------------------------------------------------------------
+   Highlight colours
+   --------------------------------------------------------------------------- */
+.user-highlight.hl-yellow { background: var(--hl-yellow); }
+.user-highlight.hl-green { background: var(--hl-green); }
+.user-highlight.hl-blue { background: var(--hl-blue); }
+.user-highlight.hl-pink { background: var(--hl-pink); }
+.user-highlight.hl-purple { background: var(--hl-purple); }
+
+.hl-swatch-yellow { background: var(--hl-yellow); }
+.hl-swatch-green { background: var(--hl-green); }
+.hl-swatch-blue { background: var(--hl-blue); }
+.hl-swatch-pink { background: var(--hl-pink); }
+.hl-swatch-purple { background: var(--hl-purple); }
+
+/* Colour row in the selection menu */
+.sm-colors {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.sm-colors-label {
+  margin-right: auto;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.sm-color,
+.filter-color {
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 999px;
+}
+
+.sm-color.active,
+.filter-color.active {
+  box-shadow: 0 0 0 2px var(--card), 0 0 0 4px var(--accent);
+}
+
+@media (max-width: 640px) {
+  .sm-colors {
+    gap: 0.6rem;
+    padding: 0.1rem 0.75rem 0.65rem;
+    border-top: 0;
+  }
+
+  .sm-color {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Notes page
+   --------------------------------------------------------------------------- */
+.notes-head h2 {
+  margin: 0;
+}
+
+.notes-summary {
+  margin: 0.2rem 0 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+}
+
+.notes-toolbar {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.notes-filters,
+.notes-export {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-colors {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.filter-chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  padding: 0.3rem 0.75rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.filter-chip.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.notes-empty {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.notes-group {
+  margin-bottom: 1.4rem;
+}
+
+.notes-group-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  width: 100%;
+  margin-bottom: 0.6rem;
+  padding: 0 0 0.4rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+}
+
+.notes-group-kicker {
+  color: var(--muted);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.notes-group-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.note-item {
+  margin: 0 0 0.9rem;
+  padding: 0.2rem 0 0.2rem 0.85rem;
+  border-left: 4px solid var(--hl-yellow);
+}
+
+.note-item.hl-border-green { border-left-color: var(--hl-green); }
+.note-item.hl-border-blue { border-left-color: var(--hl-blue); }
+.note-item.hl-border-pink { border-left-color: var(--hl-pink); }
+.note-item.hl-border-purple { border-left-color: var(--hl-purple); }
+
+.note-quote {
+  margin: 0;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.note-body {
+  margin: 0.35rem 0 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem 0.5rem;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+}
+
+.note-actions {
+  display: inline-flex;
+  gap: 0.1rem;
+}
+
+.note-actions .button {
+  padding: 0.2rem 0.45rem;
+  font-size: 0.78rem;
+}
+
+.button.ghost.danger {
+  color: var(--danger);
+  border-color: transparent;
+  background: transparent;
+}
+
+.notes-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+}
+
+.print-only {
+  display: none;
+}
+
+/* Print / PDF from the Notes page: just the notes, on white. */
+@media print {
+  body.print-notes {
+    background: #fff;
+    color: #000;
+  }
+
+  body.print-notes .topbar,
+  body.print-notes .sidebar,
+  body.print-notes .sidebar-backdrop,
+  body.print-notes .top-popover,
+  body.print-notes .selection-menu,
+  body.print-notes .toast,
+  body.print-notes .ref-sheet,
+  body.print-notes .ref-sheet-backdrop,
+  body.print-notes .modal,
+  body.print-notes .modal-backdrop,
+  body.print-notes .tab-panel:not(#notesTab),
+  body.print-notes .notes-toolbar,
+  body.print-notes .notes-foot,
+  body.print-notes .note-actions {
+    display: none !important;
+  }
+
+  body.print-notes #notesTab {
+    display: block !important;
+  }
+
+  body.print-notes .main-layout {
+    display: block;
+    padding: 0;
+  }
+
+  body.print-notes .reader-card {
+    width: auto;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: #fff;
+  }
+
+  body.print-notes .notes-group-head,
+  body.print-notes .note-quote,
+  body.print-notes .note-body {
+    color: #000;
+  }
+
+  body.print-notes .note-item {
+    break-inside: avoid;
+  }
+
+  body.print-notes .print-only {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: #444;
+  }
 }

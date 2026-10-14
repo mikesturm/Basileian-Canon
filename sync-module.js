@@ -32,7 +32,9 @@
     "basileian.reader.v2.footnotesVisible",
     "basileian.reader.v2.footnoteTypes",
     "basileian.reader.v2.greekMode",
-    "basileian.reader.v2.readSections"
+    "basileian.reader.v2.readSections",
+    "basileian.reader.v2.textSize",
+    "basileian.reader.v2.lineSpacing"
   ];
 
   const listeners = new Set();
