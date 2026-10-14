@@ -2107,6 +2107,7 @@
         const section = sectionById.get(button.dataset.sectionId);
         if (!section) return;
         pushNavHistory();
+        state.otBook = null;
         state.book = section.book;
         state.chapter = section.startChapter ?? section.chapter ?? "All";
         state.currentSectionId = section.id;
@@ -2762,6 +2763,7 @@
     if (!section) return;
     pushNavHistory();
     setTab("reader");
+    state.otBook = null; // leave the Old Testament reader if it was open
     state.book = section.book;
     state.chapter = section.startChapter ?? section.chapter ?? "All";
     state.currentSectionId = section.id;
@@ -3386,78 +3388,21 @@
     renderAll();
   }
 
+  // "Mark 4:21", "Ps 23", "Isa 53:5", "Logion 54": parsed like references in
+  // notes. Passages in this canon (and the Old Testament) open in the reader;
+  // books outside the canon show their text in the reference sheet.
   function goToReference() {
     const raw = els.gotoInput.value.trim();
     if (!raw) return;
-    const target = findReference(raw);
-    if (!target) {
-      els.gotoMessage.textContent = 'Reference not found. Try "Mark 4:21", "John 20:24", or "Logion 54".';
+    const first = findScriptureRefs(raw)[0];
+    const ref = first && raw.slice(0, first.start).trim() === "" ? first.ref : null;
+    if (!ref) {
+      els.gotoMessage.textContent = 'Reference not found. Try "Mark 4:21", "Psalm 23" or "Logion 54".';
       return;
     }
-
-    pushNavHistory();
-    state.book = target.section.book;
-    state.chapter = target.chapter || target.section.startChapter || target.section.chapter || "All";
-    state.currentSectionId = target.section.id;
-    if (target.verse) { setViewMode("witness"); state.currentWitnessIndex = 0; }
-    updateHash(target.anchor || target.section.id);
-    renderAll();
     els.gotoMessage.textContent = "";
-    setTimeout(() => {
-      if (target.anchor) scrollToAnchor(target.anchor);
-      else scrollToSection(target.section.id);
-    }, 60);
     closeSidebarOnMobile();
-  }
-
-  function findReference(raw) {
-    const input = raw.trim().replace(/\s+/g, " ");
-    const aliases = [
-      ["Mark", /^(mark|mk)\s+/i],
-      ["Matthew", /^(matthew|matt|mt)\s+/i],
-      ["Luke", /^(luke|lk)\s+/i],
-      ["John", /^(john|jn)\s+/i],
-      ["Acts", /^(acts|ac)\s+/i],
-      ["1 Corinthians", /^(1\s*corinthians|1\s*cor|i\s*corinthians|i\s*cor)\s+/i],
-      ["Galatians", /^(galatians|gal)\s+/i],
-      ["Didache", /^(didache)\s+/i],
-      ["Thomas", /^(thomas|gospel of thomas)\s+/i]
-    ];
-
-    const logion = input.match(/^(?:logion|thomas\s+logion|thomas)\s+(\d+)/i);
-    if (logion) {
-      const chapter = logion[1];
-      const section = sections.find(s => s.book === "Thomas" && String(s.startChapter) === chapter);
-      return section ? { section, chapter, verse: null, anchor: section.id } : null;
-    }
-
-    for (const [book, regex] of aliases) {
-      const match = input.match(regex);
-      if (!match) continue;
-      const rest = input.slice(match[0].length).trim();
-      const refMatch = rest.match(/^(\d+)(?::(\d+[a-z]?))?/i);
-      if (!refMatch) continue;
-      const chapter = refMatch[1];
-      const verse = refMatch[2] || null;
-      const candidates = sections.filter(s => s.book === book && sectionContainsChapter(s, chapter));
-      let section = null;
-      let anchor = null;
-      if (verse) {
-        for (const s of candidates) {
-          const marker = (s.verseMarkers || []).find(v => String(v.chapter) === String(chapter) && String(v.verse).toLowerCase() === String(verse).toLowerCase());
-          if (marker) {
-            section = s;
-            anchor = marker.anchor;
-            break;
-          }
-        }
-        if (!section) section = candidates.find(s => sectionContainsVerseRange(s, chapter, verse));
-      } else {
-        section = candidates[0];
-      }
-      return section ? { section, chapter, verse, anchor } : null;
-    }
-    return null;
+    if (!openScriptureRef(ref)) openRefSheet(ref);
   }
 
   function sectionContainsChapter(section, chapter) {
@@ -3468,21 +3413,6 @@
     const ch = numeric(chapter);
     if (sc == null || ec == null || ch == null) return String(startChapter) === String(chapter);
     return ch >= sc && ch <= ec;
-  }
-
-  function sectionContainsVerseRange(section, chapter, verse) {
-    const ch = numeric(chapter);
-    const v = numeric(verse);
-    const sc = numeric(section.startChapter ?? section.chapter);
-    const sv = numeric(section.startVerse);
-    const ec = numeric(section.endChapter ?? section.startChapter ?? section.chapter);
-    const ev = numeric(section.endVerse || section.startVerse);
-    if ([ch, v, sc, sv, ec, ev].some(x => x == null)) return false;
-    if (ch < sc || ch > ec) return false;
-    if (sc === ec) return v >= sv && v <= ev;
-    if (ch === sc) return v >= sv;
-    if (ch === ec) return v <= ev;
-    return true;
   }
 
   function getVisibleSections() {
@@ -3745,6 +3675,7 @@
       }
     }
     if (section) {
+      state.otBook = null;
       state.book = section.book;
       state.chapter = section.startChapter ?? section.chapter ?? "All";
       state.currentSectionId = section.id;
@@ -4120,8 +4051,17 @@
       return section ? { kind: "thomas", section, label } : null;
     }
     if (OT_BOOK_SET.has(ref.book)) return { kind: "ot" };
-    const section = findSectionByVerseId(`${ref.book}.${ref.ch}.${ref.v1 ?? 1}`);
-    return section ? { kind: "canon", section, verseId: `${ref.book}.${ref.ch}.${ref.v1 ?? 1}` } : null;
+    let verse = ref.v1;
+    if (verse == null) {
+      // "Mark 4": the first verse of that chapter that this canon includes.
+      verse = 1;
+      for (let v = 1; v <= 200; v++) {
+        if (findSectionByVerseId(`${ref.book}.${ref.ch}.${v}`)) { verse = v; break; }
+      }
+    }
+    const verseId = `${ref.book}.${ref.ch}.${verse}`;
+    const section = findSectionByVerseId(verseId);
+    return section ? { kind: "canon", section, verseId } : null;
   }
 
   let _refSheetRef = null;
@@ -4181,13 +4121,19 @@
 
   function openRefInReader() {
     const ref = _refSheetRef;
-    const target = ref && scriptureRefTarget(ref);
-    if (!target) return;
+    if (!ref || !scriptureRefTarget(ref)) return;
     closeRefSheet();
     closeModal();
+    openScriptureRef(ref);
+  }
+
+  // Opens a reference in the reader; false when it isn't in the canon or the OT.
+  function openScriptureRef(ref) {
+    const target = scriptureRefTarget(ref);
+    if (!target) return false;
     if (target.kind === "canon") {
       goToVerse(target.section, target.verseId);
-      return;
+      return true;
     }
     if (target.kind === "thomas") {
       pushNavHistory();
@@ -4203,7 +4149,7 @@
       renderAll();
       holdChrome();
       window.scrollTo(0, 0);
-      return;
+      return true;
     }
     // Old Testament chapter, scrolled to the first verse and marked briefly.
     pushNavHistory();
@@ -4211,7 +4157,7 @@
     state.otBook = ref.book;
     state.otChapter = ref.ch;
     renderAll();
-    if (ref.v1 == null) { holdChrome(); window.scrollTo(0, 0); return; }
+    if (ref.v1 == null) { holdChrome(); window.scrollTo(0, 0); return true; }
     const started = Date.now();
     const verseIds = [];
     for (let v = ref.v1; v <= (ref.ch2 === ref.ch ? ref.v2 : ref.v1); v++) verseIds.push(`${ref.book}.${ref.ch}.${v}`);
@@ -4227,6 +4173,7 @@
       setTimeout(() => els.readerContent.querySelectorAll(".ref-target").forEach(el => el.classList.remove("ref-target")), 4000);
     };
     setTimeout(tryScroll, 60);
+    return true;
   }
 
   // ---------------------------------------------------------------------------

@@ -59,6 +59,23 @@ module.exports = {
     t.check(Math.abs(lh / size1 - 1.9) < 0.05, "Loose line spacing applied");
     for (let i = 0; i < 10 && !(await p.isDisabled("#textLarger")); i++) await p.tap("#textLarger");
     t.check(await p.isDisabled("#textLarger") && (await p.textContent("#textSizeValue")) === "145%", "text size stops at 145%");
+    await p.keyboard.press("Escape");
+
+    // Leaving the Old Testament by search and by Go to reference
+    await p.tap("#searchToggle");
+    await p.fill("#searchInput", "mustard");
+    await p.waitForTimeout(400);
+    await p.tap(".search-result >> nth=0");
+    await p.waitForSelector(".nt-source-block[data-book] .verse-number", { state: "attached", timeout: 15000 });
+    t.check(await p.locator(".ot-chapter-body").count() === 0, "a search result opens the gospel passage from an Old Testament page");
+    await p.selectOption("#bookSelect", "__ot__psalms");
+    await p.waitForSelector(".ot-verse", { state: "attached", timeout: 15000 });
+    await p.tap("#navToggle");
+    await p.fill("#gotoInput", "Mark 4:21");
+    await p.tap("#gotoBtn");
+    await p.waitForSelector(".nt-source-block[data-book] .verse-number", { state: "attached", timeout: 15000 });
+    t.check(await p.locator(".ot-chapter-body").count() === 0, "Go to reference opens the gospel passage from an Old Testament page");
+
     await p.reload();
     await p.waitForTimeout(800);
     t.check(await p.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--reader-scale").trim()) === "1.45", "text size is remembered");

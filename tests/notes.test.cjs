@@ -97,6 +97,14 @@ module.exports = {
     await p.waitForSelector(".ot-chapter-body .user-highlight.hl-purple", { timeout: 15000 });
     t.check(await p.isVisible("#readerTab") && /Psalm 1/.test(await p.textContent("#docSubtitle")), "Go to opens the Old Testament chapter");
 
+    // ...and from there, a gospel highlight leaves the Old Testament
+    await p.tap("#navToggle");
+    await p.tap('.sidebar-tabs .tab[data-tab="notes"]');
+    await p.tap('.notes-group-head:has-text("John the Baptist")');
+    await p.waitForSelector(".nt-source-block[data-book] .user-highlight", { state: "attached", timeout: 15000 });
+    t.check(await p.locator(".ot-chapter-body").count() === 0 && /Inauguration/.test(await p.textContent("#docSubtitle")),
+      "Go to a gospel highlight from an Old Testament page opens the gospel passage");
+
     // Delete one
     await p.tap("#navToggle");
     await p.tap('.sidebar-tabs .tab[data-tab="notes"]');

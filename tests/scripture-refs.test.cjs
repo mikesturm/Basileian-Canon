@@ -119,5 +119,30 @@ module.exports = {
     await p.tap("#refSheetOpen");
     await p.waitForTimeout(1500);
     t.check(/Thomas 20/.test(await p.textContent(".witness-tab.active")), "Open goes to the Thomas witness");
+
+    // Go to reference (sidebar) uses the same parser
+    const goto = async text => {
+      await p.tap("#navToggle");
+      await p.fill("#gotoInput", text);
+      await p.tap("#gotoBtn");
+      await p.waitForTimeout(1500);
+    };
+    const inView = sel => p.evaluate(sel => {
+      const r = document.querySelector(sel)?.getBoundingClientRect();
+      return Boolean(r && r.top > 0 && r.top < innerHeight);
+    }, sel);
+    await goto("Mark 4:21");
+    t.check(await inView('.nt-source-block[data-book="mark"] .verse-number[data-chapter="4"][data-verse="21"]'), "Go to Mark 4:21 opens the verse in view");
+    await goto("Ps 23");
+    t.check((await p.textContent(".chapter-heading h2")).trim() === "Psalm 23", "Go to Ps 23 opens the Old Testament chapter");
+    await goto("Logion 20");
+    t.check(await p.locator(".ot-chapter-body").count() === 0 && /Thomas 20/.test(await p.textContent(".witness-tab.active")), "Go to Logion 20 opens the Thomas witness");
+    await goto("Rom 9:32");
+    t.check(await sheetOpen() && (await p.textContent("#refSheetTitle")) === "Romans 9:32", "Go to Rom 9:32 (outside the canon) shows it in the sheet");
+    await p.tap("#refSheetClose");
+    await p.tap("#navToggle");
+    await p.fill("#gotoInput", "see Mark 4");
+    await p.tap("#gotoBtn");
+    t.check(/Reference not found/.test(await p.textContent("#gotoMessage")), "Go to rejects text that isn't a reference");
   },
 };
