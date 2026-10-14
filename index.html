@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#251a13">
   <title>Basileian Reader</title>
-  <link rel="manifest" href="site.webmanifest?v=20261013-ui5">
+  <link rel="manifest" href="site.webmanifest?v=20261014-ui6">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="stylesheet" href="style.css?v=20261013-ui5">
-  <link rel="stylesheet" href="style-additions.css?v=20261013-ui5">
+  <link rel="stylesheet" href="style.css?v=20261014-ui6">
+  <link rel="stylesheet" href="style-additions.css?v=20261014-ui6">
 </head>
 <body>
   <div id="app" class="app-shell">
@@ -58,6 +58,25 @@
         <button id="footnoteTypeTcBtn" class="setting-row fn-type-btn active" data-fn-type="tc" aria-pressed="true">
           <span>Text-critical notes <small>tc</small></span><span class="switch" aria-hidden="true"></span>
         </button>
+      </div>
+      <div class="settings-group">
+        <div class="settings-label">Reading</div>
+        <div class="setting-row setting-static">
+          <span>Text size</span>
+          <div class="stepper" role="group" aria-label="Text size">
+            <button id="textSmaller" class="stepper-btn" aria-label="Smaller text">A−</button>
+            <span id="textSizeValue" class="stepper-value" aria-live="polite">100%</span>
+            <button id="textLarger" class="stepper-btn" aria-label="Larger text">A+</button>
+          </div>
+        </div>
+        <div class="setting-row setting-static">
+          <span>Line spacing</span>
+          <div class="choice-toggle" role="group" aria-label="Line spacing">
+            <button class="choice-option" data-spacing="compact">Tight</button>
+            <button class="choice-option" data-spacing="normal">Normal</button>
+            <button class="choice-option" data-spacing="relaxed">Loose</button>
+          </div>
+        </div>
       </div>
       <div class="settings-group">
         <div class="settings-label">Appearance</div>
@@ -131,14 +150,35 @@
         </section>
 
         <section id="notesTab" class="tab-panel" aria-label="Notes">
-          <div class="reader-card">
-            <h2>Your highlights & notes</h2>
-            <p class="muted">Highlights and notes are stored only in this browser on this device.</p>
-            <div class="sync-bar">
-              <button id="syncSettingsBtn" class="button secondary">Sync settings</button>
-              <span id="syncStatus" class="hint sync-status"></span>
+          <div class="reader-card notes-card">
+            <header class="notes-head">
+              <h2>Highlights &amp; notes</h2>
+              <p id="notesSummary" class="muted notes-summary"></p>
+            </header>
+            <div class="notes-toolbar">
+              <input id="notesSearch" class="control" type="search" placeholder="Search highlights and notes" aria-label="Search highlights and notes">
+              <div class="notes-filters" role="group" aria-label="Filter highlights">
+                <button id="notesFilterNotes" class="filter-chip" aria-pressed="false">With notes</button>
+                <span class="filter-colors">
+                  <button class="filter-color hl-swatch-yellow" data-filter-color="yellow" aria-pressed="false" aria-label="Only yellow"></button>
+                  <button class="filter-color hl-swatch-green" data-filter-color="green" aria-pressed="false" aria-label="Only green"></button>
+                  <button class="filter-color hl-swatch-blue" data-filter-color="blue" aria-pressed="false" aria-label="Only blue"></button>
+                  <button class="filter-color hl-swatch-pink" data-filter-color="pink" aria-pressed="false" aria-label="Only pink"></button>
+                  <button class="filter-color hl-swatch-purple" data-filter-color="purple" aria-pressed="false" aria-label="Only purple"></button>
+                </span>
+              </div>
+              <div class="notes-export">
+                <button id="exportMarkdownBtn" class="button secondary">Export Markdown</button>
+                <button id="exportPrintBtn" class="button secondary">Print / PDF</button>
+              </div>
             </div>
             <div id="notesList" class="notes-list"></div>
+            <p class="print-only notes-print-attribution">Scripture quotations are from the NET Bible® https://netbible.com copyright ©1996, 2019, used with permission from Biblical Studies Press, L.L.C. All rights reserved.</p>
+            <footer class="notes-foot">
+              <span class="muted">Saved in this browser.</span>
+              <button id="syncSettingsBtn" class="button ghost">Sync settings</button>
+              <span id="syncStatus" class="hint sync-status"></span>
+            </footer>
           </div>
         </section>
 
@@ -152,12 +192,20 @@
       <button id="selectionCloseBtn" class="sm-close-btn" aria-label="Clear selection">×</button>
     </div>
     <p id="selectionHint" class="sm-hint" hidden>Tap more verses to add them · tap an end verse to drop it</p>
+    <div class="sm-colors" role="group" aria-label="Highlight colour">
+      <span id="smColorsLabel" class="sm-colors-label">Highlight</span>
+      <button class="sm-color hl-swatch-yellow" data-color="yellow" aria-label="Yellow"></button>
+      <button class="sm-color hl-swatch-green" data-color="green" aria-label="Green"></button>
+      <button class="sm-color hl-swatch-blue" data-color="blue" aria-label="Blue"></button>
+      <button class="sm-color hl-swatch-pink" data-color="pink" aria-label="Pink"></button>
+      <button class="sm-color hl-swatch-purple" data-color="purple" aria-label="Purple"></button>
+    </div>
     <div class="sm-actions">
-      <button id="menuHighlightBtn" class="sm-item">Highlight</button>
       <button id="menuNoteBtn" class="sm-item">Add note</button>
       <button id="menuEditHighlightBtn" class="sm-item" hidden>Edit note</button>
       <button id="menuRemoveHighlightBtn" class="sm-item" hidden>Remove</button>
       <button id="menuInterlinearBtn" class="sm-item">Greek</button>
+      <button id="menuHebrewBtn" class="sm-item" hidden>Hebrew</button>
       <button id="menuCommentaryBtn" class="sm-item" hidden>Commentary</button>
       <button id="menuCopyBtn" class="sm-item">Copy</button>
     </div>
@@ -188,11 +236,11 @@
     <div id="modalActions" class="modal-actions"></div>
   </div>
 
-  <script src="data.js?v=20261013-ui5"></script>
-  <script src="translations-module.js?v=20261013-ui5"></script>
-  <script src="commentary-module.js?v=20261013-ui5"></script>
-  <script src="nt-reader.js?v=20261013-ui5"></script>
-  <script src="sync-module.js?v=20261013-ui5"></script>
-  <script src="app.js?v=20261013-ui5"></script>
+  <script src="data.js?v=20261014-ui6"></script>
+  <script src="translations-module.js?v=20261014-ui6"></script>
+  <script src="commentary-module.js?v=20261014-ui6"></script>
+  <script src="nt-reader.js?v=20261014-ui6"></script>
+  <script src="sync-module.js?v=20261014-ui6"></script>
+  <script src="app.js?v=20261014-ui6"></script>
 </body>
 </html>

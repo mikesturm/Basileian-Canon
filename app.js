@@ -16,6 +16,10 @@
   const STORAGE_FOOTNOTE_TYPES = "basileian.reader.v2.footnoteTypes";
   const STORAGE_VIEW_MODE = "basileian.reader.v2.viewMode";
   const STORAGE_GREEK = "basileian.reader.v2.greekMode";
+  const STORAGE_TEXT_SIZE = "basileian.reader.v2.textSize";
+  const STORAGE_HL_COLOR = "basileian.reader.v2.highlightColor";
+  const HIGHLIGHT_COLORS = ["yellow", "green", "blue", "pink", "purple"];
+  const STORAGE_LINE_SPACING = "basileian.reader.v2.lineSpacing";
   const STORAGE_READ = "basileian.reader.v2.readSections";
 
   const sections = DATA.sections;
@@ -111,6 +115,7 @@
     viewToggle: document.querySelector(".view-toggle"),
     greekToggle: document.getElementById("greekToggle"),
     menuCopyBtn: document.getElementById("menuCopyBtn"),
+    menuHebrewBtn: document.getElementById("menuHebrewBtn"),
     toast: document.getElementById("toast"),
     contentsBody: document.getElementById("contentsBody"),
     refSheet: document.getElementById("refSheet"),
@@ -132,7 +137,12 @@
     selectionRangeLabel: document.getElementById("selectionRangeLabel"),
     menuInterlinearBtn: document.getElementById("menuInterlinearBtn"),
     menuCommentaryBtn: document.getElementById("menuCommentaryBtn"),
-    menuHighlightBtn: document.getElementById("menuHighlightBtn"),
+    smColorsLabel: document.getElementById("smColorsLabel"),
+    notesSummary: document.getElementById("notesSummary"),
+    notesSearch: document.getElementById("notesSearch"),
+    notesFilterNotes: document.getElementById("notesFilterNotes"),
+    exportMarkdownBtn: document.getElementById("exportMarkdownBtn"),
+    exportPrintBtn: document.getElementById("exportPrintBtn"),
     menuNoteBtn: document.getElementById("menuNoteBtn"),
     menuEditHighlightBtn: document.getElementById("menuEditHighlightBtn"),
     menuRemoveHighlightBtn: document.getElementById("menuRemoveHighlightBtn"),
@@ -155,6 +165,7 @@
   };
 
   function init() {
+    applyReadingPrefs();
     state.readSections = loadReadSections();
     els.docSubtitle.textContent = DATA.subtitle || DATA.title;
     applyStoredTheme();
@@ -171,7 +182,7 @@
     loadIntertextApparatus(); // async: pre-fetches apparatus JSON so panels hydrate quickly
 
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-      navigator.serviceWorker.register("sw.js?v=20261013-ui5").catch(() => {});
+      navigator.serviceWorker.register("sw.js?v=20261014-ui6").catch(() => {});
     }
   }
 
@@ -312,8 +323,23 @@
       ]);
     });
 
-    els.menuHighlightBtn.addEventListener("click", () => commitHighlight(false));
+    // Colour dots: highlight the selection in that colour, or recolour the
+    // highlights it overlaps.
+    document.querySelectorAll(".sm-color[data-color]").forEach(dot => {
+      dot.addEventListener("click", () => {
+        const color = dot.dataset.color;
+        localStorage.setItem(STORAGE_HL_COLOR, color);
+        if (_menuHighlightIds.length) {
+          const ids = _menuHighlightIds.slice();
+          hideSelectionMenu();
+          recolorHighlights(ids, color);
+        } else {
+          commitHighlight(false, color);
+        }
+      });
+    });
     els.menuNoteBtn.addEventListener("click", () => commitHighlight(true));
+    bindNotesEvents();
     els.menuEditHighlightBtn.addEventListener("click", () => {
       const highlight = state.highlights.find(h => h.id === _menuHighlightIds[0]);
       hideSelectionMenu();
@@ -351,6 +377,11 @@
     });
     els.menuInterlinearBtn.addEventListener("click", showGreekForSelection);
     els.menuCopyBtn.addEventListener("click", copySelectionWithReference);
+    els.menuHebrewBtn.addEventListener("click", () => {
+      const verse = _menuSelectionVerses[0];
+      hideSelectionMenu();
+      if (verse) openOTVerseStudy(verse.verseId);
+    });
     els.greekToggle.addEventListener("click", () => setGreekMode(!state.greekMode));
     els.menuCommentaryBtn.addEventListener("click", () => { const verses = _menuSelectionVerses.slice(); hideSelectionMenu(); if (verses.length) showCommentaryForVerses(verses); });
 
@@ -405,6 +436,15 @@
     });
 
     els.themeToggle.addEventListener("click", toggleTheme);
+    document.getElementById("textSmaller").addEventListener("click", () => stepTextSize(-1));
+    document.getElementById("textLarger").addEventListener("click", () => stepTextSize(1));
+    document.querySelectorAll(".choice-option[data-spacing]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        localStorage.setItem(STORAGE_LINE_SPACING, btn.dataset.spacing);
+        notifyPreferencesChanged();
+        applyReadingPrefs();
+      });
+    });
     updateThemeToggle();
 
     window.addEventListener("hashchange", () => {
@@ -438,6 +478,7 @@
 
   function setTab(tab) {
     state.tab = tab;
+    closeSidebarOnMobile(); // the phone menu holds the Reader/Contents/Notes switch
     document.querySelectorAll(".tab").forEach(button => button.classList.toggle("active", button.dataset.tab === tab));
     document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `${tab}Tab`));
     if (tab === "notes") renderNotes();
@@ -980,6 +1021,7 @@
   function findVersesInSelection(range) {
     const body = closestPassageBody(range.commonAncestorContainer);
     if (!body) return [];
+    if (body.dataset.otBook) return findOTVersesInSelection(body, range);
     const section = sectionById.get(body.dataset.sectionId);
     if (!section) return [];
 
@@ -1271,15 +1313,16 @@
   }
 
   async function renderOTChapter(book, chapter) {
+    if (_verseSel) hideSelectionMenu();
     updateLocationLabel();
     updateViewToggle();
-    const bookDisplay = BOOK_DISPLAY_NAMES[book] || book;
-    const heading = `<header class="chapter-heading">
-      <span class="eyebrow">Old Testament — NET Bible</span>
+    const bookDisplay = book === "psalms" ? "Psalm" : (BOOK_DISPLAY_NAMES[book] || book);
+    const otHeading = extra => `<header class="chapter-heading">
+      <p class="heading-kicker">Old Testament · NET Bible</p>
       <h2>${escapeHTML(bookDisplay)} ${escapeHTML(String(chapter))}</h2>
-      <p class="muted">Loading…</p>
+      ${extra ? `<p class="muted">${extra}</p>` : ""}
     </header>`;
-    els.readerContent.innerHTML = heading;
+    els.readerContent.innerHTML = otHeading("Loading…");
 
     if (!window.TranslationsModule) return;
 
@@ -1294,53 +1337,31 @@
     } catch (err) {
       console.error("Old Testament text failed to load:", err);
       if (state.otBook !== book || state.otChapter !== chapter) return;
-      els.readerContent.innerHTML = `<header class="chapter-heading">
-        <h2>${escapeHTML(bookDisplay)} ${escapeHTML(String(chapter))}</h2>
-        <p class="muted">Could not load the Old Testament text. Check your connection and try again.</p>
-      </header>`;
+      els.readerContent.innerHTML = otHeading("Could not load the Old Testament text. Check your connection and try again.");
       return;
     }
 
     if (state.otBook !== book || state.otChapter !== chapter) return; // stale render
 
     if (!verseTexts.length) {
-      els.readerContent.innerHTML = `<header class="chapter-heading">
-        <span class="eyebrow">Old Testament — NET Bible</span>
-        <h2>${escapeHTML(bookDisplay)} ${escapeHTML(String(chapter))}</h2>
-        <p class="muted">No verses found.</p>
-      </header>`;
+      els.readerContent.innerHTML = otHeading("No verses found.");
       return;
     }
 
-    const versesHTML = verseTexts.map(({ v, verseId, text }) => {
-      const rendered = text.includes("⟦") ? renderNetVerseText(text, verseId) : escapeHTML(text);
-      return `<p class="ot-verse" data-verse-id="${escapeAttr(verseId)}">
-        <span class="verse-number ot-verse-num">${v}</span>
-        <span class="ot-verse-text">${rendered}</span>
-        <button class="ot-study-btn" data-verse-id="${escapeAttr(verseId)}" title="Hebrew word study">Study</button>
-      </p>`;
-    }).join("");
+    // One paragraph per verse. Verse numbers carry chapter/verse so that tap
+    // selection, highlights and copying work as in the gospels; the body's
+    // section id ("ot:psalms.107") keys this chapter's highlights. Hebrew word
+    // study is in the selection menu. NET footnote taps are handled by the
+    // delegated listener on the reader.
+    const versesHTML = verseTexts.map(({ v, verseId, text }) =>
+      `<p class="ot-verse" data-verse-id="${escapeAttr(verseId)}"><span class="verse-number ot-verse-num" data-chapter="${chapter}" data-verse="${v}">${v}</span> <span class="ot-verse-text">${renderNetVerseText(text, verseId)}</span></p>`
+    ).join("");
 
-    const subtitle = `${verseTexts.length} verse${verseTexts.length === 1 ? "" : "s"} · NET Bible`;
-    els.readerContent.innerHTML = `<header class="chapter-heading">
-      <span class="eyebrow">Old Testament — NET Bible</span>
-      <h2>${escapeHTML(bookDisplay)} ${escapeHTML(String(chapter))}</h2>
-      <p class="muted">${subtitle}</p>
-    </header>
+    els.readerContent.innerHTML = otHeading("") + `
     <section class="passage ot-chapter-passage">
-      <div class="passage-body ot-chapter-body">${versesHTML}</div>
+      <div class="passage-body ot-chapter-body" data-section-id="ot:${escapeAttr(book)}.${chapter}" data-ot-book="${escapeAttr(book)}">${versesHTML}</div>
     </section>`;
-
-    els.readerContent.querySelectorAll(".net-note-link").forEach(btn => {
-      btn.addEventListener("click", event => {
-        event.preventDefault();
-        openNetNote(btn.dataset.netNote, btn.dataset.bookKey);
-      });
-    });
-
-    els.readerContent.querySelectorAll(".ot-study-btn").forEach(btn => {
-      btn.addEventListener("click", () => openOTVerseStudy(btn.dataset.verseId));
-    });
+    applyVisibleHighlights();
   }
 
   async function openOTVerseStudy(verseId) {
@@ -1631,6 +1652,7 @@
     restoreFootnoteTypePreferences();
     state.greekMode = localStorage.getItem(STORAGE_GREEK) === "1";
     state.readSections = loadReadSections();
+    applyReadingPrefs();
     renderAll();
   }
 
@@ -2105,34 +2127,188 @@
     });
   }
 
+  // ---------------------------------------------------------------------------
+  // Notes page: highlights grouped by passage (canon order, then the OT),
+  // with search, filters and export.
+  // ---------------------------------------------------------------------------
+  const notesFilter = { query: "", withNotes: false, color: null };
+
+  // "Mark 1:5–6", "Psalm 23:1–3"; "" when the highlight has no verse anchor.
+  function highlightReference(h) {
+    const a = h.anchor;
+    if (!a) return "";
+    const ot = /^ot:([a-z0-9]+)\./.exec(h.sectionId || "");
+    let book = "";
+    if (ot) book = ot[1] === "psalms" ? "Psalm" : (SCRIPTURE_BOOK_NAME[ot[1]] || ot[1]);
+    else if (h.witnessBook) book = (window.NTReader && NTReader.BOOK_DISPLAY[h.witnessBook]) || h.witnessBook;
+    else return "";
+    const { start, end } = a;
+    if (start.chapter !== end.chapter) return `${book} ${start.chapter}:${start.verse}–${end.chapter}:${end.verse}`;
+    return start.verse === end.verse ? `${book} ${start.chapter}:${start.verse}` : `${book} ${start.chapter}:${start.verse}–${end.verse}`;
+  }
+
+  // Group key, title, subtitle and sort order for a highlight's passage.
+  function highlightGroup(h) {
+    const ot = /^ot:([a-z0-9]+)\.(\d+)$/.exec(h.sectionId || "");
+    if (ot) {
+      const name = ot[1] === "psalms" ? "Psalm" : (SCRIPTURE_BOOK_NAME[ot[1]] || ot[1]);
+      return { key: h.sectionId, title: `${name} ${ot[2]}`, kicker: "Old Testament",
+        order: 100000 + OT_BOOK_KEYS.indexOf(ot[1]) * 1000 + Number(ot[2]) };
+    }
+    const section = sectionById.get(h.sectionId);
+    if (!section) return { key: h.sectionId || "?", title: "Unknown passage", kicker: "", order: 999999 };
+    const ch = section.startChapter ?? section.chapter;
+    return { key: section.id, title: section.title || displayRef(section),
+      kicker: [section.book, ch != null ? chapterLabel(section.book, ch) : ""].filter(Boolean).join(" · "),
+      order: sections.indexOf(section), section };
+  }
+
+  function filteredHighlights() {
+    const q = notesFilter.query.trim().toLowerCase();
+    return state.highlights.filter(h => {
+      if (notesFilter.withNotes && !h.note) return false;
+      if (notesFilter.color && (h.color || "yellow") !== notesFilter.color) return false;
+      if (!q) return true;
+      const g = highlightGroup(h);
+      return [h.quote, h.note, highlightReference(h), g.title, g.kicker].join(" ").toLowerCase().includes(q);
+    });
+  }
+
+  // [{group, items}] in reading order; items in text order within a passage.
+  function groupedHighlights(list) {
+    const groups = new Map();
+    list.forEach(h => {
+      const g = highlightGroup(h);
+      if (!groups.has(g.key)) groups.set(g.key, { group: g, items: [] });
+      groups.get(g.key).items.push(h);
+    });
+    const pos = h => h.anchor ? h.anchor.start.chapter * 1e6 + h.anchor.start.verse * 1e3 + Math.min(h.anchor.start.offset, 999) : (h.start ?? 0);
+    return [...groups.values()]
+      .sort((a, b) => a.group.order - b.group.order)
+      .map(entry => ({ ...entry, items: entry.items.sort((a, b) => pos(a) - pos(b) || a.createdAt - b.createdAt) }));
+  }
+
   function renderNotes() {
-    const sorted = [...state.highlights].sort((a, b) => b.createdAt - a.createdAt);
-    if (!sorted.length) {
-      els.notesList.innerHTML = `<p class="muted">No highlights yet. Select text in the Reader tab, then choose Highlight or Add note.</p>`;
+    const total = state.highlights.length;
+    const withNotes = state.highlights.filter(h => h.note).length;
+    els.notesSummary.textContent = total
+      ? `${total} highlight${total === 1 ? "" : "s"} · ${withNotes} with note${withNotes === 1 ? "" : "s"}`
+      : "";
+    els.notesFilterNotes.classList.toggle("active", notesFilter.withNotes);
+    els.notesFilterNotes.setAttribute("aria-pressed", String(notesFilter.withNotes));
+    document.querySelectorAll(".filter-color[data-filter-color]").forEach(btn => {
+      const on = btn.dataset.filterColor === notesFilter.color;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+    els.exportMarkdownBtn.disabled = !total;
+    els.exportPrintBtn.disabled = !total;
+
+    if (!total) {
+      els.notesList.innerHTML = `<p class="muted notes-empty">No highlights yet. In the Reader, tap a verse (or select words), then pick a colour or Add note.</p>`;
       return;
     }
+    const groups = groupedHighlights(filteredHighlights());
+    if (!groups.length) {
+      els.notesList.innerHTML = `<p class="muted notes-empty">Nothing matches.</p>`;
+      return;
+    }
+    els.notesList.innerHTML = groups.map(({ group, items }) => `
+      <section class="notes-group">
+        <button class="notes-group-head" data-go-highlight="${escapeAttr(items[0].id)}">
+          ${group.kicker ? `<span class="notes-group-kicker">${escapeHTML(group.kicker)}</span>` : ""}
+          <span class="notes-group-title">${escapeHTML(group.title)}</span>
+        </button>
+        ${items.map(h => {
+          const color = HIGHLIGHT_COLORS.includes(h.color) ? h.color : "yellow";
+          const ref = highlightReference(h);
+          const date = new Date(h.updatedAt || h.createdAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+          return `<article class="note-item hl-border-${color}" data-highlight-id="${escapeAttr(h.id)}">
+            <blockquote class="note-quote">${escapeHTML(h.quote || "[highlight]")}</blockquote>
+            ${h.note ? `<p class="note-body">${escapeHTML(h.note)}</p>` : ""}
+            <div class="note-meta">
+              <span>${ref ? `${escapeHTML(ref)} · ` : ""}${escapeHTML(date)}</span>
+              <span class="note-actions">
+                <button class="button ghost" data-action="go">Go to</button>
+                <button class="button ghost" data-action="edit">${h.note ? "Edit note" : "Add note"}</button>
+                <button class="button ghost danger" data-action="delete">Delete</button>
+              </span>
+            </div>
+          </article>`;
+        }).join("")}
+      </section>`).join("");
+  }
 
-    els.notesList.innerHTML = sorted.map(highlight => {
-      const section = sectionById.get(highlight.sectionId);
-      return `<article class="note-card" data-highlight-id="${escapeAttr(highlight.id)}">
-        <blockquote>${escapeHTML(highlight.quote || "[highlight]")}</blockquote>
-        <p>${highlight.note ? escapeHTML(highlight.note) : "<span class='muted'>No note attached.</span>"}</p>
-        <p class="hint">${section ? escapeHTML(displayRef(section)) : "Unknown section"}</p>
-        <div class="actions">
-          <button class="button secondary" data-action="go">Go to text</button>
-          <button class="button secondary" data-action="edit">Edit note</button>
-          <button class="button danger" data-action="delete">Delete</button>
-        </div>
-      </article>`;
-    }).join("");
-
-    els.notesList.querySelectorAll(".note-card").forEach(card => {
-      const highlight = state.highlights.find(h => h.id === card.dataset.highlightId);
-      if (!highlight) return;
-      card.querySelector("[data-action='go']").addEventListener("click", () => goToHighlight(highlight));
-      card.querySelector("[data-action='edit']").addEventListener("click", () => openHighlightEditor(highlight));
-      card.querySelector("[data-action='delete']").addEventListener("click", () => deleteHighlight(highlight.id));
+  function bindNotesEvents() {
+    els.notesSearch.addEventListener("input", debounce(() => {
+      notesFilter.query = els.notesSearch.value;
+      renderNotes();
+    }, 120));
+    els.notesFilterNotes.addEventListener("click", () => {
+      notesFilter.withNotes = !notesFilter.withNotes;
+      renderNotes();
     });
+    document.querySelectorAll(".filter-color[data-filter-color]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        notesFilter.color = notesFilter.color === btn.dataset.filterColor ? null : btn.dataset.filterColor;
+        renderNotes();
+      });
+    });
+    els.exportMarkdownBtn.addEventListener("click", exportNotesMarkdown);
+    // Print only the notes: a class scopes the print stylesheet to this.
+    els.exportPrintBtn.addEventListener("click", () => {
+      document.body.classList.add("print-notes");
+      window.print();
+    });
+    window.addEventListener("afterprint", () => document.body.classList.remove("print-notes"));
+    els.notesList.addEventListener("click", event => {
+      const head = event.target.closest("[data-go-highlight]");
+      if (head) {
+        const h = state.highlights.find(x => x.id === head.dataset.goHighlight);
+        if (h) goToHighlight(h);
+        return;
+      }
+      const btn = event.target.closest("[data-action]");
+      const item = btn && btn.closest("[data-highlight-id]");
+      const h = item && state.highlights.find(x => x.id === item.dataset.highlightId);
+      if (!h) return;
+      if (btn.dataset.action === "go") goToHighlight(h);
+      else if (btn.dataset.action === "edit") openHighlightEditor(h);
+      else if (btn.dataset.action === "delete") deleteHighlight(h.id);
+    });
+  }
+
+  // Everything currently shown (respecting search and filters) as Markdown.
+  function notesMarkdown() {
+    const groups = groupedHighlights(filteredHighlights());
+    const date = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+    const lines = ["# Basileian Reader — Highlights & notes", "", `Exported ${date}`, ""];
+    groups.forEach(({ group, items }) => {
+      lines.push(`## ${group.title}`);
+      if (group.kicker) lines.push(`*${group.kicker}*`);
+      lines.push("");
+      items.forEach(h => {
+        const ref = highlightReference(h);
+        lines.push(`> ${String(h.quote || "").replace(/\n+/g, " ")}${ref ? ` — ${ref}` : ""}`);
+        lines.push("");
+        if (h.note) { lines.push(h.note); lines.push(""); }
+      });
+    });
+    lines.push("---", "Scripture quotations are from the NET Bible® https://netbible.com copyright ©1996, 2019, used with permission from Biblical Studies Press, L.L.C. All rights reserved.");
+    return lines.join("\n");
+  }
+
+  function exportNotesMarkdown() {
+    const blob = new Blob([notesMarkdown()], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `basileian-notes-${new Date().toISOString().slice(0, 10)}.md`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    showToast("Notes exported");
   }
 
 
@@ -2326,13 +2502,13 @@
       });
     });
 
-    const translation = isOT ? "net" : "kjv";
+    // NET throughout (bundled with the app), for OT and NT alike.
     for (const verseId of shown) {
       const cell = el.querySelector(`.cc-kjv[data-verse-id="${CSS.escape(verseId)}"]`);
       if (!cell) continue;
       try {
-        const text = await TranslationsModule.getVerseText(verseId, translation);
-        if (text) { cell.textContent = text; cell.classList.remove("loading"); }
+        const text = await TranslationsModule.getVerseText(verseId, "net");
+        if (text) { cell.textContent = netPlainText(text); cell.classList.remove("loading"); }
         else cell.remove();
       } catch { cell.remove(); }
     }
@@ -2450,7 +2626,8 @@
     const parts = text.split(/⟦(\d+[a-z]?)·(n[0-9a-z]+)⟧/);
     let html = "";
     for (let i = 0; i < parts.length; i += 3) {
-      html += escapeHTML(parts[i]);
+      // The NET data has stray spaces before some punctuation ("the Lord , his").
+      html += escapeHTML(parts[i].replace(/\s+([,.;:!?’”])/g, "$1"));
       if (i + 2 < parts.length) {
         const num = parts[i + 1];
         const noteId = parts[i + 2];
@@ -2477,7 +2654,7 @@
     }
   }
 
-  function createHighlightFromSelection(withNote) {
+  function createHighlightFromSelection(withNote, color = "yellow") {
     let range = _savedSelectionRange;
     let body = _selectionBody;
 
@@ -2525,6 +2702,7 @@
       ...(fallbackOffsets ? { start: fallbackOffsets.start, end: fallbackOffsets.end } : {}),
       quote,
       note: "",
+      color,
       createdAt: Date.now(),
       updatedAt: Date.now()
     };
@@ -2547,7 +2725,7 @@
     const section = sectionById.get(highlight.sectionId);
     const textareaId = "noteTextarea";
     const body = `<blockquote>${escapeHTML(highlight.quote || "")}</blockquote>
-      <p class="hint">${section ? escapeHTML(displayRef(section)) : ""}</p>
+      <p class="hint">${escapeHTML(highlightReference(highlight) || (section ? section.title || displayRef(section) : ""))}</p>
       <label class="field-label" for="${textareaId}">Personal note</label>
       <textarea id="${textareaId}" class="control" placeholder="Write your note here...">${escapeHTML(highlight.note || "")}</textarea>`;
 
@@ -2570,6 +2748,16 @@
   }
 
   function goToHighlight(highlight) {
+    const ot = /^ot:([a-z0-9]+)\.(\d+)$/.exec(highlight.sectionId || "");
+    if (ot) {
+      pushNavHistory();
+      setTab("reader");
+      state.otBook = ot[1];
+      state.otChapter = Number(ot[2]);
+      renderAll();
+      scrollToHighlightMark(highlight.id);
+      return;
+    }
     const section = sectionById.get(highlight.sectionId);
     if (!section) return;
     pushNavHistory();
@@ -2587,10 +2775,22 @@
     }
     updateHash();
     renderAll();
-    setTimeout(() => {
-      const mark = document.querySelector(`[data-highlight-id="${CSS.escape(highlight.id)}"]`);
-      if (mark) { holdChrome(); mark.scrollIntoView({ behavior: "smooth", block: "center" }); }
-    }, 70);
+    scrollToHighlightMark(highlight.id);
+  }
+
+  // Highlights are drawn once the passage text has loaded, so wait for the mark.
+  function scrollToHighlightMark(id) {
+    const started = Date.now();
+    const tryScroll = () => {
+      const mark = els.readerContent.querySelector(`[data-highlight-id="${CSS.escape(id)}"]`);
+      if (mark) {
+        holdChrome();
+        mark.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else if (Date.now() - started < 5000) {
+        setTimeout(tryScroll, 120);
+      }
+    };
+    setTimeout(tryScroll, 70);
   }
 
   function deleteHighlight(id) {
@@ -2666,7 +2866,8 @@
     range.setEnd(endPos.node, endPos.offset);
 
     const mark = document.createElement("mark");
-    mark.className = `user-highlight${highlight.note ? " has-note" : ""}`;
+    const color = HIGHLIGHT_COLORS.includes(highlight.color) ? highlight.color : "yellow";
+    mark.className = `user-highlight hl-${color}${highlight.note ? " has-note" : ""}`;
     mark.dataset.highlightId = highlight.id;
     mark.title = highlight.note ? "Tap to edit note" : "Tap to add a note";
 
@@ -2814,7 +3015,7 @@
     // A native (long-press) selection is in progress.
     if (!_verseSel && !window.getSelection().isCollapsed) return;
 
-    const container = target.closest(".nt-verse-content");
+    const container = target.closest(".nt-verse-content, .ot-chapter-body");
     const body = container && container.closest(".passage-body[data-section-id]");
     const markers = container ? [...container.querySelectorAll(".verse-number[data-chapter][data-verse]")] : [];
     const idx = (body && markers.length && !target.closest(".paragraphtitle"))
@@ -3021,6 +3222,8 @@
   function rangeQuoteText(range) {
     const frag = range.cloneContents();
     frag.querySelectorAll(".verse-number, sup, .nt-note-btn, .note-link, .net-note-link, .il-verse").forEach(el => el.remove());
+    // Line and paragraph breaks (poetry lines) become spaces: "you, who".
+    frag.querySelectorAll("p, div, li, br").forEach(el => el.after(" "));
     return frag.textContent.replace(/\s+/g, " ").trim();
   }
 
@@ -3062,7 +3265,12 @@
     // note, so the menu keeps a short, single row of actions.
     _menuHighlightIds = highlightIds;
     const overlapsHighlight = highlightIds.length > 0;
-    els.menuHighlightBtn.hidden = overlapsHighlight;
+    els.smColorsLabel.textContent = overlapsHighlight ? "Colour" : "Highlight";
+    const currentColor = overlapsHighlight
+      ? (state.highlights.find(h => h.id === highlightIds[0])?.color || "yellow")
+      : lastHighlightColor();
+    document.querySelectorAll(".sm-color[data-color]").forEach(dot =>
+      dot.classList.toggle("active", dot.dataset.color === currentColor));
     els.menuNoteBtn.hidden = overlapsHighlight;
     els.menuEditHighlightBtn.hidden = highlightIds.length !== 1;
     els.menuRemoveHighlightBtn.hidden = !overlapsHighlight;
@@ -3084,7 +3292,9 @@
       state.commentaryAvailable = false;
       CommentaryModule.isAvailable("jfb").then(ok => { state.commentaryAvailable = ok; }).catch(() => {});
     }
-    els.menuInterlinearBtn.hidden = state.greekMode || _menuSelectionVerses.length === 0;
+    const inOT = Boolean(body.dataset.otBook);
+    els.menuInterlinearBtn.hidden = inOT || state.greekMode || _menuSelectionVerses.length === 0;
+    els.menuHebrewBtn.hidden = !inOT || _menuSelectionVerses.length === 0;
 
     const isMobile = window.innerWidth <= 640;
     if (!isMobile) {
@@ -3158,8 +3368,22 @@
     _menuSelectionSection = null;
   }
 
-  function commitHighlight(withNote) {
-    createHighlightFromSelection(withNote);
+  function commitHighlight(withNote, color) {
+    createHighlightFromSelection(withNote, color || lastHighlightColor());
+  }
+
+  function lastHighlightColor() {
+    const c = localStorage.getItem(STORAGE_HL_COLOR);
+    return HIGHLIGHT_COLORS.includes(c) ? c : "yellow";
+  }
+
+  function recolorHighlights(ids, color) {
+    const now = Date.now();
+    state.highlights.forEach(h => {
+      if (ids.includes(h.id)) { h.color = color; h.updatedAt = now; }
+    });
+    saveHighlights();
+    renderAll();
   }
 
   function goToReference() {
@@ -3845,6 +4069,31 @@
     return ref.v2 !== ref.v1 ? `${name} ${ref.ch}:${ref.v1}–${ref.v2}` : `${name} ${ref.ch}:${ref.v1}`;
   }
 
+  // NET verse text without its ⟦note⟧ markers or stray spaces before punctuation.
+  function netPlainText(text) {
+    return String(text || "").replace(/⟦[^⟧]*⟧/g, "").replace(/\s+/g, " ").replace(/\s+([,.;:!?’”])/g, "$1").trim();
+  }
+
+  // Old Testament chapter: the verses a range touches, as {verseId, reference}.
+  function findOTVersesInSelection(body, range) {
+    const book = body.dataset.otBook;
+    const name = book === "psalms" ? "Psalm" : (SCRIPTURE_BOOK_NAME[book] || book);
+    const markers = [...body.querySelectorAll(".verse-number[data-chapter][data-verse]")];
+    let startIdx = 0;
+    let endIdx = -1;
+    markers.forEach((m, i) => {
+      const r = document.createRange();
+      r.selectNode(m);
+      if (range.compareBoundaryPoints(Range.START_TO_START, r) >= 0) startIdx = i;
+      if (range.compareBoundaryPoints(Range.START_TO_END, r) > 0) endIdx = i;
+    });
+    if (endIdx < startIdx) endIdx = startIdx;
+    return markers.slice(startIdx, endIdx + 1).map(m => ({
+      verseId: `${book}.${m.dataset.chapter}.${m.dataset.verse}`,
+      reference: `${name} ${m.dataset.chapter}:${m.dataset.verse}`
+    }));
+  }
+
   // Verse ids covered by a reference (capped so whole-book ranges stay quick).
   async function scriptureRefVerses(ref, cap = 80) {
     await TranslationsModule.loadTranslation("net");
@@ -3856,8 +4105,7 @@
         const id = `${ref.book}.${ch}.${v}`;
         const text = await TranslationsModule.getVerseText(id, "net");
         if (!text) break;
-        const clean = text.replace(/⟦[^⟧]*⟧/g, "").replace(/\s+/g, " ").replace(/\s+([,.;:!?’”])/g, "$1").trim();
-        verses.push({ id, ch, v, text: clean });
+        verses.push({ id, ch, v, text: netPlainText(text) });
       }
     }
     return verses;
@@ -4305,7 +4553,7 @@
   function updateLocationLabel() {
     let label;
     if (state.otBook) {
-      label = `${BOOK_DISPLAY_NAMES[state.otBook] || state.otBook} ${state.otChapter}`;
+      label = `${state.otBook === "psalms" ? "Psalm" : (BOOK_DISPLAY_NAMES[state.otBook] || state.otBook)} ${state.otChapter}`;
     } else if (state.book) {
       const ch = state.chapter && state.chapter !== "All" ? chapterLabel(state.book, state.chapter) : "";
       label = ch ? `${state.book} · ${ch}` : state.book;
@@ -4320,6 +4568,44 @@
     els.greekToggle.setAttribute("aria-pressed", String(state.greekMode));
     els.viewOptionBtns.forEach(btn => {
       const on = btn.dataset.view === state.viewMode;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+  }
+
+  // Text size and line spacing for the reading text, applied as CSS
+  // variables (--reader-scale, --reader-leading) on the root element.
+  const TEXT_SIZES = [0.85, 0.92, 1, 1.1, 1.2, 1.32, 1.45];
+  const LINE_SPACINGS = { compact: 1.5, normal: 1.68, relaxed: 1.9 };
+
+  function currentTextSizeIndex() {
+    const size = Number(localStorage.getItem(STORAGE_TEXT_SIZE)) || 1;
+    let best = 0;
+    TEXT_SIZES.forEach((s, i) => { if (Math.abs(s - size) < Math.abs(TEXT_SIZES[best] - size)) best = i; });
+    return best;
+  }
+
+  function stepTextSize(direction) {
+    const idx = Math.max(0, Math.min(TEXT_SIZES.length - 1, currentTextSizeIndex() + direction));
+    localStorage.setItem(STORAGE_TEXT_SIZE, String(TEXT_SIZES[idx]));
+    notifyPreferencesChanged();
+    applyReadingPrefs();
+  }
+
+  function applyReadingPrefs() {
+    const idx = currentTextSizeIndex();
+    const spacing = LINE_SPACINGS[localStorage.getItem(STORAGE_LINE_SPACING)] ? localStorage.getItem(STORAGE_LINE_SPACING) : "normal";
+    const root = document.documentElement.style;
+    root.setProperty("--reader-scale", String(TEXT_SIZES[idx]));
+    root.setProperty("--reader-leading", String(LINE_SPACINGS[spacing]));
+    const value = document.getElementById("textSizeValue");
+    if (value) value.textContent = `${Math.round(TEXT_SIZES[idx] * 100)}%`;
+    const smaller = document.getElementById("textSmaller");
+    const larger = document.getElementById("textLarger");
+    if (smaller) smaller.disabled = idx === 0;
+    if (larger) larger.disabled = idx === TEXT_SIZES.length - 1;
+    document.querySelectorAll(".choice-option[data-spacing]").forEach(btn => {
+      const on = btn.dataset.spacing === spacing;
       btn.classList.toggle("active", on);
       btn.setAttribute("aria-pressed", String(on));
     });
