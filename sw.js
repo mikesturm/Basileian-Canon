@@ -1,4 +1,4 @@
-const CACHE_NAME = "basileian-reader-v15-20261014-ui6";
+const CACHE_NAME = "basileian-reader-v16-20261014-wheel-logo";
 const ASSETS = [
   "./",
   "./index.html",
@@ -13,6 +13,10 @@ const ASSETS = [
   "./canon.html",
   "./icon-192.png",
   "./icon-512.png",
+  "./apple-touch-icon.png",
+  "./logo-mark.png",
+  "./favicon.ico",
+  "./favicon.svg",
   "./site.webmanifest"
 ];
 
