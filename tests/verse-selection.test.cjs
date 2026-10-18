@@ -79,5 +79,26 @@ module.exports = {
     });
     await p.waitForTimeout(700);
     t.check(await menuOpen() && (await selected()) === 0 && !(await p.isVisible("#selectionHint")), "a long-press word selection takes over from a tap selection");
+
+    // John 1:29–34 is two paragraphs: a highlight across both is drawn as one
+    // mark per paragraph, and the paragraphs stay whole.
+    await p.evaluate(() => getSelection().removeAllRanges());
+    await t.open(p, "i_2_baptism");
+    const johnParagraphs = () => p.evaluate(() =>
+      document.querySelectorAll('.nt-source-block[data-book="john"] .nt-verse-content > p').length);
+    const before = await johnParagraphs();
+    await tapVerse(p, marker("john", 1, 29));
+    await tapVerse(p, marker("john", 1, 34));
+    await p.tap('.sm-color[data-color="yellow"]');
+    await p.waitForTimeout(800);
+    const marks = await p.evaluate(() => [...document.querySelectorAll('.nt-source-block[data-book="john"] .user-highlight')].map(m => ({
+      id: m.dataset.highlightId,
+      inParagraph: m.parentElement.tagName === "P",
+      holdsParagraph: !!m.querySelector("p"),
+      sameColor: getComputedStyle(m).color === getComputedStyle(m.parentElement).color,
+    })));
+    t.check(marks.length === 2 && new Set(marks.map(m => m.id)).size === 1, "a highlight across two paragraphs is drawn as two marks: " + marks.length);
+    t.check(marks.every(m => m.inParagraph && !m.holdsParagraph) && (await johnParagraphs()) === before, "the paragraphs stay whole");
+    t.check(marks.every(m => m.sameColor), "highlighted text keeps the text colour");
   },
 };
