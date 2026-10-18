@@ -2861,21 +2861,50 @@
     }
   }
 
+  // A <mark> can't hold paragraphs, so a highlight across several is drawn as
+  // one mark per paragraph. (Paragraphs inside a mark lose the highlight
+  // background, take its default black text, and Safari draws them twice.)
   function wrapTextRange(startPos, endPos, highlight) {
     if (!startPos || !endPos) return;
     const range = document.createRange();
     range.setStart(startPos.node, startPos.offset);
     range.setEnd(endPos.node, endPos.offset);
 
-    const mark = document.createElement("mark");
     const color = HIGHLIGHT_COLORS.includes(highlight.color) ? highlight.color : "yellow";
-    mark.className = `user-highlight hl-${color}${highlight.note ? " has-note" : ""}`;
-    mark.dataset.highlightId = highlight.id;
-    mark.title = highlight.note ? "Tap to edit note" : "Tap to add a note";
+    for (const part of splitRangeByBlock(range)) {
+      const mark = document.createElement("mark");
+      mark.className = `user-highlight hl-${color}${highlight.note ? " has-note" : ""}`;
+      mark.dataset.highlightId = highlight.id;
+      mark.title = highlight.note ? "Tap to edit note" : "Tap to add a note";
+      mark.appendChild(part.extractContents());
+      part.insertNode(mark);
+    }
+  }
 
-    const contents = range.extractContents();
-    mark.appendChild(contents);
-    range.insertNode(mark);
+  // One sub-range per block element the range touches, from the first to the
+  // last of that block's text inside the range. Whitespace-only parts (the
+  // gaps between paragraphs) are dropped.
+  function splitRangeByBlock(range) {
+    const common = range.commonAncestorContainer;
+    const root = common.nodeType === Node.TEXT_NODE ? common.parentNode : common;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const groups = [];
+    let node;
+    while ((node = walker.nextNode())) {
+      if (!range.intersectsNode(node)) continue;
+      const block = node.parentElement.closest("p, div, li, blockquote, h1, h2, h3, h4, h5, h6");
+      const last = groups[groups.length - 1];
+      if (last && last.block === block) last.end = node;
+      else groups.push({ block, start: node, end: node });
+    }
+    return groups
+      .map(g => {
+        const part = document.createRange();
+        part.setStart(g.start, g.start === range.startContainer ? range.startOffset : 0);
+        part.setEnd(g.end, g.end === range.endContainer ? range.endOffset : g.end.nodeValue.length);
+        return part;
+      })
+      .filter(part => part.toString().trim());
   }
 
   // Returns the {node, offset} for a verse-anchored highlight position.
