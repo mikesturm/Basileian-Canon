@@ -353,12 +353,12 @@ const CANON_SECTIONS = [
           matt: [{ch:9, from:14, to:17}],
           luke: [{ch:5, from:33, to:39}]
         },
-        nonbiblicalSources: thomasLogion(47) ? [{
-          source: 'Gospel of Thomas 47',
-          label: 'Thomas 47',
-          text: thomasLogion(47)
-        }] : [],
-        notes: '"New wine in old wineskins" parallels Thomas 47.',
+        nonbiblicalSources: [104, 47].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 104 parallels the bridegroom saying (Mark 2:19–20); "new wine in old wineskins" parallels Thomas 47.',
       },
       {
         id: 'iii_8_sabbath_grain',
@@ -546,7 +546,7 @@ const CANON_SECTIONS = [
           label: `Thomas ${n}`,
           text: thomasLogion(n)
         } : null).filter(Boolean),
-        notes: 'Thomas 92 and 94 parallel the seek/find and knock sayings (Matt 7:7–8 // Luke 11:9–10); Thomas 93 parallels the "holy to dogs" saying (Matt 7:6).',
+        notes: 'Thomas 92 and 94 parallel the seek/find and knock sayings (Matt 7:7–8 // Luke 11:9–10); Thomas 93 parallels the "holy to dogs" saying (Matt 7:6). Thomas 2 (seek, find, marvel, rule; Appendix B) is linked here thematically.',
       },
       {
         id: 'iv_10_narrow_gate',
@@ -593,6 +593,12 @@ const CANON_SECTIONS = [
           matt: [{ch:11, from:2, to:19}],
           luke: [{ch:7, from:18, to:35}]
         },
+        nonbiblicalSources: [46, 78].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 46 parallels "among those born of women" (Matt 11:11 // Luke 7:28); Thomas 78 parallels "a reed shaken by the wind" (Matt 11:7–8 // Luke 7:24–25).',
       },
       {
         id: 'v_4_woes_cities',
@@ -609,6 +615,12 @@ const CANON_SECTIONS = [
           matt: [{ch:11, from:25, to:30}],
           luke: [{ch:10, from:21, to:22}]
         },
+        nonbiblicalSources: thomasLogion(90) ? [{
+          source: 'Gospel of Thomas 90',
+          label: 'Thomas 90',
+          text: thomasLogion(90)
+        }] : [],
+        notes: '"Come to me… my yoke is easy" (Matt 11:28–30) parallels Thomas 90.',
       },
       {
         id: 'v_6_anointing_woman',
@@ -629,6 +641,12 @@ const CANON_SECTIONS = [
           matt: [{ch:12, from:22, to:37}],
           luke: [{ch:11, from:14, to:23}]
         },
+        nonbiblicalSources: [35, 44].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 35 parallels binding the strong man (Mark 3:27); Thomas 44 parallels blasphemy against the Holy Spirit (Mark 3:28–29 // Matt 12:31–32 // Luke 12:10).',
       },
       {
         id: 'v_9_unclean_spirit',
@@ -654,6 +672,12 @@ const CANON_SECTIONS = [
           matt: [{ch:12, from:46, to:50}],
           luke: [{ch:8, from:19, to:21}]
         },
+        nonbiblicalSources: [79, 99].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 99 parallels "whoever does the will of my Father" (Mark 3:35). Thomas 79 parallels the woman in the crowd (Luke 11:27–28), which has no pericope of its own; it is grouped here on the shared "hear and keep the word" theme.',
       }
     ]
   },
@@ -687,6 +711,12 @@ const CANON_SECTIONS = [
           mark: [{ch:4, from:21, to:25}],
           luke: [{ch:8, from:16, to:18}]
         },
+        nonbiblicalSources: [5, 41].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 5 parallels "nothing hidden that will not be revealed" (Mark 4:22 // Luke 8:17); Thomas 41 parallels "whoever has will be given more" (Mark 4:25). The lamp saying of Thomas 33 is inserted at IV.2 (salt and light).',
       },
       {
         id: 'vi_3_seed_secretly',
@@ -741,17 +771,30 @@ const CANON_SECTIONS = [
         parallelRefs: {
           matt: [{ch:13, from:44, to:46}]
         },
-        nonbiblicalSources: thomasLogion(76) ? [{
-          source: 'Gospel of Thomas 76',
-          label: 'Thomas 76 (pearl)',
-          text: thomasLogion(76)
-        }] : [],
-        notes: 'The pearl parallels Thomas 76.',
+        nonbiblicalSources: [
+          ...(thomasLogion(76) ? [{
+            source: 'Gospel of Thomas 76',
+            label: 'Thomas 76 (pearl)',
+            text: thomasLogion(76)
+          }] : []),
+          ...(thomasLogion(109) ? [{
+            source: 'Gospel of Thomas 109',
+            label: 'Thomas 109 (hidden treasure)',
+            text: thomasLogion(109)
+          }] : [])
+        ],
+        notes: 'The pearl parallels Thomas 76; the hidden treasure parallels Thomas 109.',
       },
       {
         id: 'vi_8_dragnet',
         title: 'The dragnet',
         parallelRefs: { matt: [{ch:13, from:47, to:50}] },
+        nonbiblicalSources: thomasLogion(8) ? [{
+          source: 'Gospel of Thomas 8',
+          label: 'Thomas 8',
+          text: thomasLogion(8)
+        }] : [],
+        notes: 'Thomas 8 (the wise fisherman who keeps the one large fish) parallels the dragnet.',
       }
     ]
   },
@@ -813,7 +856,12 @@ const CANON_SECTIONS = [
           luke: [{ch:9, from:1, to:6}],
           '1cor': [{ch:9, from:14, to:14}]
         },
-        notes: '1 Cor 9:14 is grouped here, echoing the "laborer deserves his wages" saying (Matt 10:10 // Luke 10:7).',
+        nonbiblicalSources: thomasLogion(73) ? [{
+          source: 'Gospel of Thomas 73',
+          label: 'Thomas 73',
+          text: thomasLogion(73)
+        }] : [],
+        notes: '1 Cor 9:14 is grouped here, echoing the "laborer deserves his wages" saying (Matt 10:10 // Luke 10:7). Thomas 73 parallels "the harvest is great but the laborers are few" (Matt 9:37–38; also Luke 10:2, the Seventy).',
       },
       {
         id: 'vii_6_mission_seventy',
@@ -870,6 +918,12 @@ const CANON_SECTIONS = [
           mark: [{ch:7, from:1, to:23}],
           matt: [{ch:15, from:1, to:20}]
         },
+        nonbiblicalSources: [14, 40].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 14 parallels "what goes into your mouth will not defile you" (Mark 7:15) and "eat what is set before you" (Luke 10:8); Thomas 40 parallels the plant the Father did not plant (Matt 15:13).',
       },
       {
         id: 'vii_13_syrophoenician',
@@ -927,7 +981,12 @@ const CANON_SECTIONS = [
           matt: [{ch:16, from:13, to:20}],
           luke: [{ch:9, from:18, to:21}]
         },
-        notes: 'Johannine counterpart: John 6:66–71.',
+        nonbiblicalSources: thomasLogion(13) ? [{
+          source: 'Gospel of Thomas 13',
+          label: 'Thomas 13',
+          text: thomasLogion(13)
+        }] : [],
+        notes: 'Johannine counterpart: John 6:66–71. Thomas 13 ("Compare me to someone and tell me whom I am like") parallels "Who do people say that I am?" (Mark 8:27–30).',
       },
       {
         id: 'viii_2_passion_1',
@@ -955,6 +1014,12 @@ const CANON_SECTIONS = [
           matt: [{ch:17, from:14, to:21}],
           luke: [{ch:9, from:37, to:43}]
         },
+        nonbiblicalSources: thomasLogion(106) ? [{
+          source: 'Gospel of Thomas 106',
+          label: 'Thomas 106',
+          text: thomasLogion(106)
+        }] : [],
+        notes: 'Thomas 106 is anchored here by its mountain-moving saying (Matt 17:20).',
       },
       {
         id: 'viii_5_passion_2',
@@ -1008,6 +1073,12 @@ const CANON_SECTIONS = [
           matt: [{ch:18, from:10, to:22}],
           luke: [{ch:15, from:3, to:7}, {ch:17, from:1, to:4}]
         },
+        nonbiblicalSources: [30, 48, 107].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 30 parallels "where two or three are gathered" (Matt 18:20); Thomas 48 parallels the agreement of two (Matt 18:19) with the mountain-moving saying (Matt 17:20); Thomas 107 parallels the lost sheep (Matt 18:12–13 // Luke 15:4–7).',
       },
       {
         id: 'viii_11_unforgiving_servant',
@@ -1032,6 +1103,12 @@ const CANON_SECTIONS = [
           luke: [{ch:9, from:51, to:62}],
           matt: [{ch:8, from:18, to:22}]
         },
+        nonbiblicalSources: thomasLogion(86) ? [{
+          source: 'Gospel of Thomas 86',
+          label: 'Thomas 86',
+          text: thomasLogion(86)
+        }] : [],
+        notes: '"Foxes have holes" (Luke 9:58 // Matt 8:20) parallels Thomas 86.',
       },
       {
         id: 'ix_2_good_samaritan',
@@ -1056,6 +1133,12 @@ const CANON_SECTIONS = [
           luke: [{ch:11, from:37, to:54}],
           matt: [{ch:23, from:1, to:39}]
         },
+        nonbiblicalSources: thomasLogion(39) ? [{
+          source: 'Gospel of Thomas 39',
+          label: 'Thomas 39',
+          text: thomasLogion(39)
+        }] : [],
+        notes: 'Thomas 39 parallels the "key of knowledge" woe (Luke 11:52) and "wise as serpents, innocent as doves" (Matt 10:16).',
       },
       {
         id: 'ix_6_fear_confess',
@@ -1069,19 +1152,12 @@ const CANON_SECTIONS = [
         id: 'ix_7_rich_fool',
         title: 'The rich fool',
         parallelRefs: { luke: [{ch:12, from:13, to:21}] },
-        nonbiblicalSources: [
-          ...(thomasLogion(63) ? [{
-            source: 'Gospel of Thomas 63',
-            label: 'Thomas 63',
-            text: thomasLogion(63)
-          }] : []),
-          ...(NONBIBLICAL.poxy_5575 ? [{
-            source: 'P.Oxy 5575',
-            label: 'P.Oxy 5575 (rich-fool ending)',
-            text: NONBIBLICAL.poxy_5575.description || 'See source URL.'
-          }] : [])
-        ],
-        notes: 'Parallels Thomas 63; the parable\'s ending is also attested in Greek at P.Oxy 5575.',
+        nonbiblicalSources: [72, 63].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 72 parallels "who made me a judge or divider?" (Luke 12:13–14); the parable parallels Thomas 63. The parable\'s ending is also attested in Greek at P.Oxy 5575, which is inserted whole at IV.7 (anxiety); cross-reference only here.',
       },
       {
         id: 'ix_8_watchfulness',
@@ -1090,11 +1166,23 @@ const CANON_SECTIONS = [
           luke: [{ch:12, from:35, to:48}],
           matt: [{ch:24, from:43, to:51}]
         },
+        nonbiblicalSources: [21, 103].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 21 and 103 parallel the householder and the thief (Luke 12:39 // Matt 24:43); Thomas 21 also echoes the sickle at harvest (Mark 4:29).',
       },
       {
         id: 'ix_9_division',
         title: 'Division; interpreting the times',
         parallelRefs: { luke: [{ch:12, from:49, to:59}] },
+        nonbiblicalSources: [10, 91, 16].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 10 parallels "I came to cast fire on the earth" (Luke 12:49); Thomas 91 parallels interpreting the times (Luke 12:54–56 // Matt 16:3); Thomas 16 parallels "not peace but division" (Luke 12:51–53 // Matt 10:34–36).',
       },
       {
         id: 'ix_10_repent_fig',
@@ -1133,18 +1221,28 @@ const CANON_SECTIONS = [
         title: 'The cost of discipleship',
         parallelRefs: { luke: [{ch:14, from:25, to:35}] },
         nonbiblicalSources: [
+          ...(thomasLogion(98) ? [{
+            source: 'Gospel of Thomas 98',
+            label: 'Thomas 98',
+            text: thomasLogion(98)
+          }] : []),
           ...(thomasLogion(55) ? [{
             source: 'Gospel of Thomas 55',
             label: 'Thomas 55 ("hating father and mother")',
             text: thomasLogion(55)
           }] : []),
-          ...(NONBIBLICAL.poxy_5575 ? [{
-            source: 'P.Oxy 5575 / Thomas 27',
-            label: 'P.Oxy 5575 ("fast from the kosmos")',
-            text: NONBIBLICAL.poxy_5575.description || 'See source URL.'
+          ...(thomasLogion(27) ? [{
+            source: 'Gospel of Thomas 27',
+            label: 'Thomas 27',
+            text: thomasLogion(27)
+          }] : []),
+          ...(thomasLogion(101) ? [{
+            source: 'Gospel of Thomas 101',
+            label: 'Thomas 101',
+            text: thomasLogion(101)
           }] : [])
         ],
-        notes: '"Hating father and mother" parallels Thomas 55; "fast from the kosmos" (P.Oxy 5575 / Thomas 27) belongs to the same renunciation theme.',
+        notes: 'Thomas 98 (testing one\'s hand before killing the powerful man) parallels the king going to war (Luke 14:31); "hating father and mother" parallels Thomas 55 and Thomas 101; Thomas 27 ("fast as regards the world") belongs to the same renunciation theme. P.Oxy 5575 attests the "fast from the world" saying in Greek; it is inserted whole at IV.7 (anxiety); cross-reference only here.',
       },
       {
         id: 'ix_15_lost_coin_prodigal',
@@ -1168,12 +1266,12 @@ const CANON_SECTIONS = [
           luke: [{ch:17, from:20, to:37}],
           matt: [{ch:24, from:26, to:41}]
         },
-        nonbiblicalSources: thomasLogion(113) ? [{
-          source: 'Gospel of Thomas 113',
-          label: 'Thomas 113 ("kingdom is within/among you")',
-          text: thomasLogion(113)
-        }] : [],
-        notes: '"The kingdom is within / among you" theme parallels Thomas 113.',
+        nonbiblicalSources: [61, 113, 3].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 113 ("the kingdom of the father is spread out upon the earth") and Thomas 3 ("the kingdom is inside of you, and it is outside of you") parallel "the kingdom of God is in your midst" (Luke 17:20–21); Thomas 61 parallels "two in one bed" (Luke 17:34).',
       },
       {
         id: 'ix_19_persistent_widow',
@@ -1190,6 +1288,12 @@ const CANON_SECTIONS = [
         id: 'ix_21_light_controversies',
         title: '"I am the light of the world"; the controversies',
         parallelRefs: { john: [{ch:8, from:12, to:59}] },
+        nonbiblicalSources: thomasLogion(77) ? [{
+          source: 'Gospel of Thomas 77',
+          label: 'Thomas 77',
+          text: thomasLogion(77)
+        }] : [],
+        notes: 'Thomas 77 ("It is I who am the light which is above them all") is anchored to "I am the light of the world" (John 8:12).',
       },
       {
         id: 'ix_22_man_born_blind',
@@ -1224,6 +1328,12 @@ const CANON_SECTIONS = [
           matt: [{ch:19, from:13, to:15}],
           luke: [{ch:18, from:15, to:17}]
         },
+        nonbiblicalSources: thomasLogion(22) ? [{
+          source: 'Gospel of Thomas 22',
+          label: 'Thomas 22',
+          text: thomasLogion(22)
+        }] : [],
+        notes: 'Thomas 22 (the infants "are like those who enter the kingdom") parallels Mark 10:15.',
       },
       {
         id: 'ix_27_rich_young_ruler',
@@ -1233,6 +1343,12 @@ const CANON_SECTIONS = [
           matt: [{ch:19, from:16, to:30}],
           luke: [{ch:18, from:18, to:30}]
         },
+        nonbiblicalSources: thomasLogion(4) ? [{
+          source: 'Gospel of Thomas 4',
+          label: 'Thomas 4',
+          text: thomasLogion(4)
+        }] : [],
+        notes: 'Thomas 4 is anchored via "many who are first will be last" (Mark 10:31).',
       },
       {
         id: 'ix_28_laborers_vineyard',
@@ -1348,23 +1464,18 @@ const CANON_SECTIONS = [
           matt: [{ch:21, from:33, to:46}],
           luke: [{ch:20, from:9, to:19}]
         },
-        nonbiblicalSources: thomasLogion(65) ? [{
-          source: 'Gospel of Thomas 65',
-          label: 'Thomas 65',
-          text: thomasLogion(65)
-        }] : [],
-        notes: 'Parallels Thomas 65.',
+        nonbiblicalSources: [65, 66].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Parallels Thomas 65; Thomas 66 (the rejected stone) follows it in Thomas just as the cornerstone citation follows the parable (Mark 12:10–11 // Matt 21:42).',
       },
       {
         id: 'x_8_wedding_banquet',
         title: 'The wedding banquet',
         parallelRefs: { matt: [{ch:22, from:1, to:14}] },
-        nonbiblicalSources: thomasLogion(64) ? [{
-          source: 'Gospel of Thomas 64',
-          label: 'Thomas 64',
-          text: thomasLogion(64)
-        }] : [],
-        notes: 'Grouped with Luke\'s great banquet (Section IX) and Thomas 64.',
+        notes: 'Grouped with Luke\'s great banquet (Section IX). Thomas 64 is inserted whole at IX.13 (the great banquet); cross-reference only here.',
       },
       {
         id: 'x_9_tribute_caesar',
@@ -1417,6 +1528,12 @@ const CANON_SECTIONS = [
           matt: [{ch:23, from:1, to:36}],
           luke: [{ch:20, from:45, to:47}]
         },
+        nonbiblicalSources: [102, 89].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: 'Thomas 102 ("a dog sleeping in the manger of oxen") parallels Matt 23:13 // Luke 11:52; Thomas 89 parallels washing the outside of the cup (Matt 23:25–26 // Luke 11:39–41). P.Oxy 840 (Appendix B) shares the inside/outside purity theme.',
       },
       {
         id: 'x_14_widows_offering',
@@ -1440,12 +1557,23 @@ const CANON_SECTIONS = [
           luke: [{ch:21, from:5, to:38}],
           '1thess': [{ch:4, from:15, to:17}]
         },
-        notes: '1 Thess 4:15–17 is grouped here; whether it reports a dominical saying or a later prophetic word is debated.',
+        nonbiblicalSources: [11, 111].map(n => thomasLogion(n) ? {
+          source: `Gospel of Thomas ${n}`,
+          label: `Thomas ${n}`,
+          text: thomasLogion(n)
+        } : null).filter(Boolean),
+        notes: '1 Thess 4:15–17 is grouped here; whether it reports a dominical saying or a later prophetic word is debated. Thomas 11 ("this heaven will pass away") and Thomas 111 ("the heavens and the earth will be rolled up") are anchored via "heaven and earth will pass away" (Mark 13:31).',
       },
       {
         id: 'x_17_ten_virgins',
         title: 'Parable of the ten virgins',
         parallelRefs: { matt: [{ch:25, from:1, to:13}] },
+        nonbiblicalSources: thomasLogion(75) ? [{
+          source: 'Gospel of Thomas 75',
+          label: 'Thomas 75',
+          text: thomasLogion(75)
+        }] : [],
+        notes: 'Thomas 75 ("Many are standing at the door, but it is the solitary who will enter the bridal chamber") shares the door and bridal-chamber imagery.',
       },
       {
         id: 'x_18_talents',
@@ -1579,6 +1707,12 @@ const CANON_SECTIONS = [
           luke: [{ch:22, from:54, to:54}, {ch:22, from:63, to:71}],
           john: [{ch:18, from:13, to:24}]
         },
+        nonbiblicalSources: thomasLogion(71) ? [{
+          source: 'Gospel of Thomas 71',
+          label: 'Thomas 71',
+          text: thomasLogion(71)
+        }] : [],
+        notes: 'Thomas 71 ("I shall destroy this house") parallels the temple charge (Mark 14:58; 15:29).',
       },
       {
         id: 'xii_4_peter_denial',
@@ -1839,12 +1973,12 @@ const CANON_SECTIONS = [
         id: 'app_b_7_thomas_unanchored',
         title: 'Thomas sayings without a narrative anchor',
         parallelRefs: {},
-        nonbiblicalSources: [41, 86, 113].map(n => thomasLogion(n) ? {
+        nonbiblicalSources: [1, 2, 7, 12, 17, 23, 24, 25, 38, 42, 51, 52, 53, 58, 59, 60, 67, 70, 74, 81, 82, 88, 97, 110].map(n => thomasLogion(n) ? {
           source: `Gospel of Thomas ${n}`,
           label: `Thomas ${n}`,
           text: thomasLogion(n)
         } : null).filter(Boolean),
-        notes: 'Logia 41, 86, 113 — most Thomas logia in the canon are grouped with their synoptic parallels above; only those without a narrative home are listed here.',
+        notes: 'Logia 1, 2, 7, 12, 17, 23, 24, 25, 38, 42, 51, 52, 53, 58, 59, 60, 67, 70, 74, 81, 82, 88, 97, 110 — included, but without a narrative home. The other 73 included logia are grouped with their synoptic parallels above; the incipit and 17 logia are not included.',
       },
       {
         id: 'app_b_8_codex_bezae',
