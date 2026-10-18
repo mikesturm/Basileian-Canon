@@ -1,4 +1,4 @@
-const CACHE_NAME = "basileian-reader-v17-20261018-thomas";
+const CACHE_NAME = "basileian-reader-v18-20261018-noncanonical";
 const ASSETS = [
   "./",
   "./index.html",

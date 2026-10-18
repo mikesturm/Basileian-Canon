@@ -152,6 +152,26 @@ function thomasLogion(num) {
   return NONBIBLICAL.thomas.logia[num];
 }
 
+// Gospel of Peter §§from–to, cut at the (n) section numbers. The translation's
+// modern subheadings (lines without a section number) are left out.
+function peterSections(from, to) {
+  const raw = NONBIBLICAL.gospel_of_peter?.rawText;
+  if (!raw) return null;
+  const text = raw.split('\n').filter(line => /\(\d+\)/.test(line)).join(' ');
+  const start = text.indexOf(`(${from})`);
+  if (start < 0) return null;
+  const end = text.indexOf(`(${to + 1})`);
+  return text.slice(start, end < 0 ? undefined : end).trim();
+}
+
+// One Gospel of the Hebrews fragment, found by its [heading] in the text: the
+// patristic lead-in, the saying, and the citation.
+function hebrewsFragment(heading) {
+  const raw = NONBIBLICAL.gospel_of_hebrews?.rawText;
+  const block = raw && raw.split(/\n\s*\n/).find(b => b.startsWith(`[${heading}]`));
+  return block ? block.split('\n').slice(1).join(' ') : null;
+}
+
 // ---------------------------------------------------------------------------
 // Canon structure — full DOCX pericope list
 // ---------------------------------------------------------------------------
@@ -199,6 +219,12 @@ const CANON_SECTIONS = [
           luke: [{ch:3, from:21, to:22}],
           john: [{ch:1, from:29, to:34}]
         },
+        nonbiblicalSources: hebrewsFragment('On the descent of the Spirit at baptism') ? [{
+          source: 'Gospel of the Hebrews',
+          label: 'Gospel of the Hebrews (Jerome, on Isaiah)',
+          text: hebrewsFragment('On the descent of the Spirit at baptism')
+        }] : [],
+        notes: 'The Gospel of the Hebrews (cited by Jerome, on Isa 11:2) has its own account of the Spirit descending and resting on him: "thou art my first-begotten Son that reignest for ever."',
       },
       {
         id: 'i_3_temptation',
@@ -320,6 +346,12 @@ const CANON_SECTIONS = [
           matt: [{ch:8, from:1, to:4}],
           luke: [{ch:5, from:12, to:16}]
         },
+        nonbiblicalSources: NONBIBLICAL.egerton?.fragments?.frag1_recto_leper ? [{
+          source: 'Egerton Gospel',
+          label: 'Egerton Gospel, Fragment 1 recto (the leper)',
+          text: NONBIBLICAL.egerton.fragments.frag1_recto_leper
+        }] : [],
+        notes: 'The Egerton Gospel tells the same healing, with the leper explaining how he caught the disease: "journeying with lepers and eating with them in the inn I myself also became a leper."',
       },
       {
         id: 'iii_5_paralytic',
@@ -923,7 +955,7 @@ const CANON_SECTIONS = [
           label: `Thomas ${n}`,
           text: thomasLogion(n)
         } : null).filter(Boolean),
-        notes: 'Thomas 14 parallels "what goes into your mouth will not defile you" (Mark 7:15) and "eat what is set before you" (Luke 10:8); Thomas 40 parallels the plant the Father did not plant (Matt 15:13).',
+        notes: 'Thomas 14 parallels "what goes into your mouth will not defile you" (Mark 7:15) and "eat what is set before you" (Luke 10:8); Thomas 40 parallels the plant the Father did not plant (Matt 15:13). The Isaiah citation ("This people honour me with their lips…", Mark 7:6–7) also appears in the Egerton Gospel, which is inserted whole at X.9 (tribute to Caesar); cross-reference only here.',
       },
       {
         id: 'vii_13_syrophoenician',
@@ -1288,12 +1320,19 @@ const CANON_SECTIONS = [
         id: 'ix_21_light_controversies',
         title: '"I am the light of the world"; the controversies',
         parallelRefs: { john: [{ch:8, from:12, to:59}] },
-        nonbiblicalSources: thomasLogion(77) ? [{
-          source: 'Gospel of Thomas 77',
-          label: 'Thomas 77',
-          text: thomasLogion(77)
-        }] : [],
-        notes: 'Thomas 77 ("It is I who am the light which is above them all") is anchored to "I am the light of the world" (John 8:12).',
+        nonbiblicalSources: [
+          ...(thomasLogion(77) ? [{
+            source: 'Gospel of Thomas 77',
+            label: 'Thomas 77',
+            text: thomasLogion(77)
+          }] : []),
+          ...(NONBIBLICAL.egerton?.fragments?.frag1_verso ? [{
+            source: 'Egerton Gospel',
+            label: 'Egerton Gospel, Fragment 1 ("search the scriptures")',
+            text: [NONBIBLICAL.egerton.fragments.frag1_verso, NONBIBLICAL.egerton.fragments.frag1_recto_stoning].filter(Boolean).join(' ')
+          }] : [])
+        ],
+        notes: 'Thomas 77 ("It is I who am the light which is above them all") is anchored to "I am the light of the world" (John 8:12). The Egerton Gospel\'s controversy with the rulers ("Search the scriptures… there is one that accuseth you, even Moses") echoes John 5:39–47; its failed stoning and "the hour of his betrayal was not yet come" echo John 8:59 and 7:30; 8:20.',
       },
       {
         id: 'ix_22_man_born_blind',
@@ -1485,12 +1524,19 @@ const CANON_SECTIONS = [
           matt: [{ch:22, from:15, to:22}],
           luke: [{ch:20, from:20, to:26}]
         },
-        nonbiblicalSources: thomasLogion(100) ? [{
-          source: 'Gospel of Thomas 100',
-          label: 'Thomas 100',
-          text: thomasLogion(100)
-        }] : [],
-        notes: 'Parallels Thomas 100.',
+        nonbiblicalSources: [
+          ...(thomasLogion(100) ? [{
+            source: 'Gospel of Thomas 100',
+            label: 'Thomas 100',
+            text: thomasLogion(100)
+          }] : []),
+          ...(NONBIBLICAL.egerton?.fragments?.frag2_recto ? [{
+            source: 'Egerton Gospel',
+            label: 'Egerton Gospel, Fragment 2 recto (the tribute question)',
+            text: NONBIBLICAL.egerton.fragments.frag2_recto
+          }] : [])
+        ],
+        notes: 'Parallels Thomas 100. The Egerton Gospel (Fragment 2 recto) has its own form of the tribute question, followed by the Isaiah citation "This people honour me with their lips, but their heart is far from me" (cf. Mark 7:6–7).',
       },
       {
         id: 'x_10_sadducees',
@@ -1638,7 +1684,7 @@ const CANON_SECTIONS = [
           luke: [{ch:22, from:15, to:20}],
           '1cor': [{ch:11, from:23, to:26}]
         },
-        notes: '1 Cor 11:23–26 is the earliest written account of the eucharistic words.',
+        notes: '1 Cor 11:23–26 is the earliest written account of the eucharistic words. The Didache\'s eucharistic prayers (Did. 9–10), an early liturgical form, are in Appendix B.',
       },
       {
         id: 'xi_5_greatness_thrones',
@@ -1738,7 +1784,12 @@ const CANON_SECTIONS = [
           luke: [{ch:23, from:1, to:25}],
           john: [{ch:18, from:28, to:40}, {ch:19, from:1, to:16}]
         },
-        notes: 'Herod scene: Luke 23:6–12.',
+        nonbiblicalSources: peterSections(1, 5) ? [{
+          source: 'Gospel of Peter',
+          label: 'Gospel of Peter §§1–5',
+          text: peterSections(1, 5)
+        }] : [],
+        notes: 'Herod scene: Luke 23:6–12. The Gospel of Peter (§§1–5) opens mid-trial, with Herod giving the orders and Joseph, "the friend of Pilate and the Lord," asking for the body.',
       },
       {
         id: 'xii_7_crucifixion',
@@ -1749,7 +1800,12 @@ const CANON_SECTIONS = [
           luke: [{ch:23, from:26, to:43}],
           john: [{ch:19, from:16, to:27}]
         },
-        notes: '"Father, forgive them" — Luke 23:34a (text-critically contested). The penitent thief — Luke 23:39–43.',
+        nonbiblicalSources: peterSections(6, 14) ? [{
+          source: 'Gospel of Peter',
+          label: 'Gospel of Peter §§6–14',
+          text: peterSections(6, 14)
+        }] : [],
+        notes: '"Father, forgive them" — Luke 23:34a (text-critically contested). The penitent thief — Luke 23:39–43. Gospel of Peter §§6–14 has the mockery, the crucifixion between two wrongdoers, and the wrongdoer who calls him "Savior of humanity."',
       },
       {
         id: 'xii_8_death',
@@ -1760,6 +1816,12 @@ const CANON_SECTIONS = [
           luke: [{ch:23, from:44, to:49}],
           john: [{ch:19, from:28, to:37}]
         },
+        nonbiblicalSources: peterSections(15, 20) ? [{
+          source: 'Gospel of Peter',
+          label: 'Gospel of Peter §§15–20',
+          text: peterSections(15, 20)
+        }] : [],
+        notes: 'Gospel of Peter §§15–20 has the darkness over Judea, the cry "My Power, the Power, you\'ve left me!", and the temple veil torn in two.',
       },
       {
         id: 'xii_9_burial',
@@ -1770,13 +1832,12 @@ const CANON_SECTIONS = [
           luke: [{ch:23, from:50, to:56}],
           john: [{ch:19, from:38, to:42}]
         },
-        nonbiblicalSources: NONBIBLICAL.gospel_of_peter?.rawText ? [{
+        nonbiblicalSources: [[21, 25], [28, 33]].map(([from, to]) => peterSections(from, to) ? {
           source: 'Gospel of Peter',
-          label: 'Gospel of Peter (passion material)',
-          text: NONBIBLICAL.gospel_of_peter.rawText.substring(0, 800),
-          note: NONBIBLICAL.gospel_of_peter.note || ''
-        }] : [],
-        notes: 'The Gospel of Peter (Akhmim fragment) is included for its passion material only; its talking cross, giant Jesus, and resurrection-witnessing soldiers are excluded.',
+          label: `Gospel of Peter §§${from}–${to}`,
+          text: peterSections(from, to)
+        } : null).filter(Boolean),
+        notes: 'Gospel of Peter §§21–25 has the burial in "Joseph\'s Garden"; §§28–33 has the guard at the tomb (cf. Matt 27:62–66). The resurrection spectacle that follows in §§34–49 (the giant figures, the talking cross, the soldiers as witnesses) is excluded.',
       }
     ]
   },
@@ -1797,6 +1858,12 @@ const CANON_SECTIONS = [
           luke: [{ch:24, from:1, to:12}],
           john: [{ch:20, from:1, to:10}]
         },
+        nonbiblicalSources: peterSections(50, 57) ? [{
+          source: 'Gospel of Peter',
+          label: 'Gospel of Peter §§50–57',
+          text: peterSections(50, 57)
+        }] : [],
+        notes: 'Gospel of Peter §§50–57: Mary Magdalene and her friends find the tomb opened and a young man in a shining robe: "He arose and went away."',
       },
       {
         id: 'xiii_2_mary_magdalene',
@@ -1837,6 +1904,12 @@ const CANON_SECTIONS = [
         id: 'xiii_7_tiberias',
         title: 'By the Sea of Tiberias; Peter restored',
         parallelRefs: { john: [{ch:21, from:1, to:23}] },
+        nonbiblicalSources: peterSections(58, 60) ? [{
+          source: 'Gospel of Peter',
+          label: 'Gospel of Peter §§58–60',
+          text: peterSections(58, 60)
+        }] : [],
+        notes: 'Gospel of Peter §§58–60 breaks off as Peter, Andrew, and Levi take their nets to the sea — a fragmentary parallel to John 21.',
       },
       {
         id: 'xiii_8_great_commission',
@@ -1850,10 +1923,10 @@ const CANON_SECTIONS = [
         id: 'xiii_9_appearances_summary',
         title: 'The appearances summarized',
         parallelRefs: { '1cor': [{ch:15, from:3, to:7}] },
-        nonbiblicalSources: NONBIBLICAL.gospel_of_hebrews?.rawText ? [{
+        nonbiblicalSources: hebrewsFragment('Appearance to James after the resurrection') ? [{
           source: 'Gospel of the Hebrews',
           label: 'Gospel of the Hebrews (appearance to James, cited by Jerome)',
-          text: NONBIBLICAL.gospel_of_hebrews.rawText.substring(0, 600)
+          text: hebrewsFragment('Appearance to James after the resurrection')
         }] : [],
         notes: 'The appearance to James is also preserved in the Gospel of the Hebrews (cited by Jerome).',
       },
@@ -1922,19 +1995,24 @@ const CANON_SECTIONS = [
         nonbiblicalSources: NONBIBLICAL.poxy_840 ? [{
           source: 'P.Oxy 840',
           label: 'Papyrus Oxyrhynchus 840',
-          text: NONBIBLICAL.poxy_840.rawText ? NONBIBLICAL.poxy_840.rawText.substring(0, 600) : NONBIBLICAL.poxy_840.description || ''
+          text: NONBIBLICAL.poxy_840.rawText ? NONBIBLICAL.poxy_840.rawText.split(/\n\s*SIDE \d+\s*\n/).slice(1).join(' ') : NONBIBLICAL.poxy_840.description || ''
         }] : [],
+        notes: 'A tiny parchment leaf found at Oxyrhynchus in 1905 (Bodleian Library). Jesus and his disciples are challenged in the Temple\'s place of purification by a Pharisaic chief priest. Cross-referenced at X.13 (woes on the scribes and Pharisees), where Thomas 89 shares its inside/outside purity theme.',
         rawText: 'A small vellum leaf; Jesus cleanses himself and is challenged by a Pharisaic chief priest about ritual purity in the temple courts.',
       },
       {
         id: 'app_b_3_poxy_1224',
         title: 'Controversy and saying fragments — P.Oxy 1224',
         parallelRefs: {},
-        nonbiblicalSources: NONBIBLICAL.poxy_1224 ? [{
+        nonbiblicalSources: [
+          ['frag2_recto_col_ii', 'P.Oxy 1224 (the vision)'],
+          ['frag2_verso_col_i', 'P.Oxy 1224 ("the new doctrine")']
+        ].map(([key, label]) => NONBIBLICAL.poxy_1224?.fragments?.[key] ? {
           source: 'P.Oxy 1224',
-          label: 'Papyrus Oxyrhynchus 1224',
-          text: Object.values(NONBIBLICAL.poxy_1224.fragments || {}).join('\n\n')
-        }] : [],
+          label,
+          text: NONBIBLICAL.poxy_1224.fragments[key]
+        } : null).filter(Boolean),
+        notes: 'The papyrus\'s other two legible passages are placed in the harmony: the physician saying at III.6 (call of Levi) and "the one who is not against you is for you" at VIII.8 (the strange exorcist). Fragment 1 preserves only scraps ("in everything… Truly, I say to you…").',
       },
       {
         id: 'app_b_4_poxy_5575',
@@ -1952,11 +2030,12 @@ const CANON_SECTIONS = [
         title: 'Egerton Papyrus 2',
         parallelRefs: {},
         rawText: NONBIBLICAL.egerton?.description || 'Controversy with the authorities; cleansing of a leper; the tribute question; a fragmentary nature miracle.',
-        nonbiblicalSources: NONBIBLICAL.egerton?.rawText ? [{
-          source: 'Egerton Papyrus 2',
-          label: 'Egerton Papyrus 2 + Cologne Papyrus 255',
-          text: NONBIBLICAL.egerton.rawText
+        nonbiblicalSources: NONBIBLICAL.egerton?.fragments?.frag2_verso ? [{
+          source: 'Egerton Gospel',
+          label: 'Egerton Gospel, Fragment 2 verso (the Jordan miracle)',
+          text: NONBIBLICAL.egerton.fragments.frag2_verso
         }] : [],
+        notes: 'Egerton Papyrus 2 + Cologne Papyrus 255. Its other passages are placed in the harmony: the leper at III.4, the "search the scriptures" controversy at IX.21 (John 8), and the tribute question at X.9.',
       },
       {
         id: 'app_b_6_didache',
@@ -1970,6 +2049,22 @@ const CANON_SECTIONS = [
         notes: 'Liturgical; borderline status. Included for their eucharistic parallels to the Last Supper words.',
       },
       {
+        id: 'app_b_10_gospel_hebrews',
+        title: 'Gospel of the Hebrews — sayings without a narrative anchor',
+        parallelRefs: {},
+        nonbiblicalSources: [
+          ['On the Holy Spirit as mother', 'Gospel of the Hebrews (Origen)'],
+          ['On seeking and finding', 'Gospel of the Hebrews (Clement)'],
+          ['On love of brother', 'Gospel of the Hebrews (Jerome, on Ephesians)'],
+          ["On grieving a brother's spirit", 'Gospel of the Hebrews (Jerome, on Ezekiel)']
+        ].map(([heading, label]) => hebrewsFragment(heading) ? {
+          source: 'Gospel of the Hebrews',
+          label,
+          text: hebrewsFragment(heading)
+        } : null).filter(Boolean),
+        notes: 'Translation: Philipp Vielhauer and George Ogg, as excerpted in Ron Cameron, The Other Gospels (1982). The baptism fragment is placed at I.2 and the appearance to James at XIII.9; the incarnation fragment (Cyril of Jerusalem) is not included. The seek-find-marvel-reign saying parallels Thomas 2.',
+      },
+      {
         id: 'app_b_7_thomas_unanchored',
         title: 'Thomas sayings without a narrative anchor',
         parallelRefs: {},
@@ -1979,18 +2074,6 @@ const CANON_SECTIONS = [
           text: thomasLogion(n)
         } : null).filter(Boolean),
         notes: 'Logia 1, 2, 7, 12, 17, 23, 24, 25, 38, 42, 51, 52, 53, 58, 59, 60, 67, 70, 74, 81, 82, 88, 97, 110 — included, but without a narrative home. The other 73 included logia are grouped with their synoptic parallels above; the incipit and 17 logia are not included.',
-      },
-      {
-        id: 'app_b_8_codex_bezae',
-        title: 'Codex Bezae addition at Luke 6:4 (Sabbath agraphon)',
-        parallelRefs: {},
-        nonbiblicalSources: NONBIBLICAL.codex_bezae_luke6 ? [{
-          source: 'Codex Bezae',
-          label: 'Codex Bezae (D), Western text addition at Luke 6:4',
-          text: NONBIBLICAL.codex_bezae_luke6.text,
-          note: NONBIBLICAL.codex_bezae_luke6.placement
-        }] : [],
-        notes: "Jeremias's most-cited 'possibly authentic' agraphon; independently attested in the Western text, Palestinian in flavor.",
       },
       {
         id: 'app_b_9_money_changers',
