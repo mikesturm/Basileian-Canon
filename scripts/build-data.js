@@ -2004,15 +2004,12 @@ const CANON_SECTIONS = [
         id: 'app_b_3_poxy_1224',
         title: 'Controversy and saying fragments — P.Oxy 1224',
         parallelRefs: {},
-        nonbiblicalSources: [
-          ['frag2_recto_col_ii', 'P.Oxy 1224 (the vision)'],
-          ['frag2_verso_col_i', 'P.Oxy 1224 ("the new doctrine")']
-        ].map(([key, label]) => NONBIBLICAL.poxy_1224?.fragments?.[key] ? {
+        nonbiblicalSources: NONBIBLICAL.poxy_1224?.fragments?.frag2_recto_col_ii ? [{
           source: 'P.Oxy 1224',
-          label,
-          text: NONBIBLICAL.poxy_1224.fragments[key]
-        } : null).filter(Boolean),
-        notes: 'The papyrus\'s other two legible passages are placed in the harmony: the physician saying at III.6 (call of Levi) and "the one who is not against you is for you" at VIII.8 (the strange exorcist). Fragment 1 preserves only scraps ("in everything… Truly, I say to you…").',
+          label: 'P.Oxy 1224 (the vision)',
+          text: NONBIBLICAL.poxy_1224.fragments.frag2_recto_col_ii
+        }] : [],
+        notes: 'The opening of the vision has no synoptic home. The papyrus\'s two legible clauses are placed in the harmony: the physician saying at III.6 (call of Levi) and "the one who is not against you is for you" at VIII.8 (the strange exorcist).',
       },
       {
         id: 'app_b_4_poxy_5575',

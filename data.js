@@ -29144,9 +29144,8 @@ window.BASILEIAN_DATA = {
    "title": "Controversy and saying fragments — P.Oxy 1224",
    "parallel_refs": {},
    "paragraphs": [
-    "[[NOTE]] The papyrus's other two legible passages are placed in the harmony: the physician saying at III.6 (call of Levi) and \"the one who is not against you is for you\" at VIII.8 (the strange exorcist). Fragment 1 preserves only scraps (\"in everything… Truly, I say to you…\").",
-    "[[NONBIBLICAL:P.Oxy 1224 (the vision)]] It weighed me down. And approaching in a vision, Jesus said, \"Why are you discouraged? For not [ . . . ] you, but the [ . . . ]\"",
-    "[[NONBIBLICAL:P.Oxy 1224 (\"the new doctrine\")]] \"you said, although you are not answering. What then did you renounce? What is the new doctrine that they say you teach, or what is the new baptism that you proclaim? Answer and . . .\""
+    "[[NOTE]] The opening of the vision has no synoptic home. The papyrus's two legible clauses are placed in the harmony: the physician saying at III.6 (call of Levi) and \"the one who is not against you is for you\" at VIII.8 (the strange exorcist).",
+    "[[NONBIBLICAL:P.Oxy 1224 (the vision)]] It weighed me down. And approaching in a vision, Jesus said, \"Why are you discouraged? For not [ . . . ] you, but the [ . . . ]\""
    ],
    "verseMarkers": [],
    "nonbiblical": [
@@ -29154,14 +29153,9 @@ window.BASILEIAN_DATA = {
      "source": "P.Oxy 1224",
      "label": "P.Oxy 1224 (the vision)",
      "text": "It weighed me down. And approaching in a vision, Jesus said, \"Why are you discouraged? For not [ . . . ] you, but the [ . . . ]\""
-    },
-    {
-     "source": "P.Oxy 1224",
-     "label": "P.Oxy 1224 (\"the new doctrine\")",
-     "text": "\"you said, although you are not answering. What then did you renounce? What is the new doctrine that they say you teach, or what is the new baptism that you proclaim? Answer and . . .\""
     }
    ],
-   "notes": "The papyrus's other two legible passages are placed in the harmony: the physician saying at III.6 (call of Levi) and \"the one who is not against you is for you\" at VIII.8 (the strange exorcist). Fragment 1 preserves only scraps (\"in everything… Truly, I say to you…\").",
+   "notes": "The opening of the vision has no synoptic home. The papyrus's two legible clauses are placed in the harmony: the physician saying at III.6 (call of Levi) and \"the one who is not against you is for you\" at VIII.8 (the strange exorcist).",
    "disputed": null,
    "rawText": null,
    "tier": null,
