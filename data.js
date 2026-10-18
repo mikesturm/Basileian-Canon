@@ -3503,10 +3503,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] \"New wine in old wineskins\" parallels Thomas 47.",
+    "[[NOTE]] Thomas 104 parallels the bridegroom saying (Mark 2:19–20); \"new wine in old wineskins\" parallels Thomas 47.",
     "[[SOURCE:Mark 2:18–22]] Now John’s disciples and the Pharisees were fasting. So they came to Jesus and said, “Why do the disciples of John and the disciples of the Pharisees fast, but your disciples don’t fast?” Jesus said to them, “The wedding guests cannot fast while the bridegroom is with them, can they? As long as they have the bridegroom with them they do not fast. But the days are coming when the bridegroom will be taken from them, and at that time they will fast. No one sews a patch of unshrunk cloth on an old garment; otherwise, the patch pulls away from it, the new from the old, and the tear becomes worse. And no one pours new wine into old wineskins; otherwise, the wine will burst the skins, and both the wine and the skins will be destroyed. Instead new wine is poured into new wineskins.”",
     "[[SOURCE:Matthew 9:14–17]] Then John’s disciples came to Jesus and asked, “Why do we and the Pharisees fast often, but your disciples don’t fast?” Jesus said to them, “The wedding guests cannot mourn while the bridegroom is with them, can they? But the days are coming when the bridegroom will be taken from them, and then they will fast. No one sews a patch of unshrunk cloth on an old garment, because the patch will pull away from the garment and the tear will be worse. And no one pours new wine into old wineskins; otherwise the skins burst and the wine is spilled out and the skins are destroyed. Instead they put new wine into new wineskins and both are preserved.”",
     "[[SOURCE:Luke 5:33–39]] Then they said to him, “John’s disciples frequently fast and pray, and so do the disciples of the Pharisees, but yours continue to eat and drink.” So Jesus said to them, “You cannot make the wedding guests fast while the bridegroom is with them, can you? But those days are coming, and when the bridegroom is taken from them, at that time they will fast.” He also told them a parable: “No one tears a patch from a new garment and sews it on an old garment. If he does, he will have torn the new, and the piece from the new will not match the old. And no one pours new wine into old wineskins. If he does, the new wine will burst the skins and will be spilled, and the skins will be destroyed. Instead new wine must be poured into new wineskins. No one after drinking old wine wants the new, for he says, ‘The old is good enough.’”",
+    "[[NONBIBLICAL:Thomas 104]] They said to Jesus, \"Come, let us pray today and let us fast.\" Jesus said, \"What is the sin that I have committed, or wherein have I been defeated? But when the bridegroom leaves the bridal chamber, then let them fast and pray.\"",
     "[[NONBIBLICAL:Thomas 47]] Jesus said, \"It is impossible for a man to mount two horses or to stretch two bows. And it is impossible for a servant to serve two masters; otherwise, he will honor the one and treat the other contemptuously. No man drinks old wine and immediately desires to drink new wine. And new wine is not put into old wineskins, lest they burst; nor is old wine put into a new wineskin, lest it spoil it. An old patch is not sewn onto a new garment, because a tear would result.\""
    ],
    "verseMarkers": [
@@ -3609,12 +3610,17 @@ window.BASILEIAN_DATA = {
    ],
    "nonbiblical": [
     {
+     "source": "Gospel of Thomas 104",
+     "label": "Thomas 104",
+     "text": "They said to Jesus, \"Come, let us pray today and let us fast.\" Jesus said, \"What is the sin that I have committed, or wherein have I been defeated? But when the bridegroom leaves the bridal chamber, then let them fast and pray.\""
+    },
+    {
      "source": "Gospel of Thomas 47",
      "label": "Thomas 47",
      "text": "Jesus said, \"It is impossible for a man to mount two horses or to stretch two bows. And it is impossible for a servant to serve two masters; otherwise, he will honor the one and treat the other contemptuously. No man drinks old wine and immediately desires to drink new wine. And new wine is not put into old wineskins, lest they burst; nor is old wine put into a new wineskin, lest it spoil it. An old patch is not sewn onto a new garment, because a tear would result.\""
     }
    ],
-   "notes": "\"New wine in old wineskins\" parallels Thomas 47.",
+   "notes": "Thomas 104 parallels the bridegroom saying (Mark 2:19–20); \"new wine in old wineskins\" parallels Thomas 47.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -5522,7 +5528,7 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] Thomas 92 and 94 parallel the seek/find and knock sayings (Matt 7:7–8 // Luke 11:9–10); Thomas 93 parallels the \"holy to dogs\" saying (Matt 7:6).",
+    "[[NOTE]] Thomas 92 and 94 parallel the seek/find and knock sayings (Matt 7:7–8 // Luke 11:9–10); Thomas 93 parallels the \"holy to dogs\" saying (Matt 7:6). Thomas 2 (seek, find, marvel, rule; Appendix B) is linked here thematically.",
     "[[SOURCE:Matthew 7:7–12]] “Ask and it will be given to you; seek and you will find; knock and the door will be opened for you. For everyone who asks receives, and the one who seeks finds, and to the one who knocks, the door will be opened. Is there anyone among you who, if his son asks for bread, will give him a stone? Or if he asks for a fish, will give him a snake? If you then, although you are evil, know how to give good gifts to your children, how much more will your Father in heaven give good gifts to those who ask him! In everything, treat others as you would want them to treat you, for this fulfills the law and the prophets.",
     "[[SOURCE:Luke 11:9–13, 6:31]] “So I tell you: Ask, and it will be given to you; seek, and you will find; knock, and the door will be opened for you. For everyone who asks receives, and the one who seeks finds, and to the one who knocks, the door will be opened. What father among you, if your son asks for a fish, will give him a snake instead of a fish? Or if he asks for an egg, will give him a scorpion? If you then, although you are evil, know how to give good gifts to your children, how much more will the heavenly Father give the Holy Spirit to those who ask him!” Treat others in the same way that you would want them to treat you.",
     "[[NONBIBLICAL:Thomas 92]] Jesus said, \"Seek and you will find. Yet, what you asked me about in former times and which I did not tell you then, now I do desire to tell, but you do not inquire after it.\"",
@@ -5620,7 +5626,7 @@ window.BASILEIAN_DATA = {
      "text": "Jesus said, \"He who seeks will find, and he who knocks will be let in.\""
     }
    ],
-   "notes": "Thomas 92 and 94 parallel the seek/find and knock sayings (Matt 7:7–8 // Luke 11:9–10); Thomas 93 parallels the \"holy to dogs\" saying (Matt 7:6).",
+   "notes": "Thomas 92 and 94 parallel the seek/find and knock sayings (Matt 7:7–8 // Luke 11:9–10); Thomas 93 parallels the \"holy to dogs\" saying (Matt 7:6). Thomas 2 (seek, find, marvel, rule; Appendix B) is linked here thematically.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -6066,8 +6072,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 46 parallels \"among those born of women\" (Matt 11:11 // Luke 7:28); Thomas 78 parallels \"a reed shaken by the wind\" (Matt 11:7–8 // Luke 7:24–25).",
     "[[SOURCE:Matthew 11:2–19]] Now when John heard in prison about the deeds Christ had done, he sent his disciples to ask a question: “Are you the one who is to come, or should we look for another?” Jesus answered them, “Go tell John what you hear and see: The blind see, the lame walk, lepers are cleansed, the deaf hear, the dead are raised, and the poor have good news proclaimed to them —and blessed is anyone who takes no offense at me!” While they were going away, Jesus began to speak to the crowd about John: “What did you go out into the wilderness to see? A reed shaken by the wind? What did you go out to see? A man dressed in soft clothing? Look, those who wear soft clothing are in the palaces of kings! What did you go out to see? A prophet? Yes, I tell you, and more than a prophet! This is the one about whom it is written: ‘ Look, I am sending my messenger ahead of you, who will prepare your way before you .’ “I tell you the truth, among those born of women, no one has arisen greater than John the Baptist. Yet the one who is least in the kingdom of heaven is greater than he is! From the days of John the Baptist until now the kingdom of heaven has suffered violence, and forceful people lay hold of it. For all the prophets and the law prophesied until John appeared. And if you are willing to accept it, he is Elijah, who is to come. The one who has ears had better listen! “To what should I compare this generation? They are like children sitting in the marketplaces who call out to one another, ‘We played the flute for you, yet you did not dance; we wailed in mourning, yet you did not weep.’ For John came neither eating nor drinking, and they say, ‘He has a demon!’ The Son of Man came eating and drinking, and they say, ‘Look at him, a glutton and a drunk, a friend of tax collectors and sinners!’ But wisdom is vindicated by her deeds.”",
-    "[[SOURCE:Luke 7:18–35]] John’s disciples informed him about all these things. So John called two of his disciples and sent them to Jesus to ask, “Are you the one who is to come, or should we look for another?” When the men came to Jesus, they said, “John the Baptist has sent us to you to ask, ‘Are you the one who is to come, or should we look for another?’” At that very time Jesus cured many people of diseases, sicknesses, and evil spirits, and granted sight to many who were blind. So he answered them, “Go tell John what you have seen and heard: The blind see, the lame walk, lepers are cleansed, the deaf hear, the dead are raised, the poor have good news proclaimed to them. Blessed is anyone who takes no offense at me.” When John’s messengers had gone, Jesus began to speak to the crowds about John: “What did you go out into the wilderness to see? A reed shaken by the wind? What did you go out to see? A man dressed in soft clothing? Look, those who wear soft clothing and live in luxury are in the royal palaces! What did you go out to see? A prophet? Yes, I tell you, and more than a prophet. This is the one about whom it is written, ‘ Look, I am sending my messenger ahead of you, who will prepare your way before you .’ I tell you, among those born of women no one is greater than John. Yet the one who is least in the kingdom of God is greater than he is.” (Now all the people who heard this, even the tax collectors, acknowledged God’s justice, because they had been baptized with John’s baptism. However, the Pharisees and the experts in religious law rejected God’s purpose for themselves, because they had not been baptized by John.) “To what then should I compare the people of this generation, and what are they like? They are like children sitting in the marketplace and calling out to one another, ‘We played the flute for you, yet you did not dance; we wailed in mourning, yet you did not weep.’ For John the Baptist has come eating no bread and drinking no wine, and you say, ‘He has a demon!’ The Son of Man has come eating and drinking, and you say, ‘Look at him, a glutton and a drunk, a friend of tax collectors and sinners!’ But wisdom is vindicated by all her children.”"
+    "[[SOURCE:Luke 7:18–35]] John’s disciples informed him about all these things. So John called two of his disciples and sent them to Jesus to ask, “Are you the one who is to come, or should we look for another?” When the men came to Jesus, they said, “John the Baptist has sent us to you to ask, ‘Are you the one who is to come, or should we look for another?’” At that very time Jesus cured many people of diseases, sicknesses, and evil spirits, and granted sight to many who were blind. So he answered them, “Go tell John what you have seen and heard: The blind see, the lame walk, lepers are cleansed, the deaf hear, the dead are raised, the poor have good news proclaimed to them. Blessed is anyone who takes no offense at me.” When John’s messengers had gone, Jesus began to speak to the crowds about John: “What did you go out into the wilderness to see? A reed shaken by the wind? What did you go out to see? A man dressed in soft clothing? Look, those who wear soft clothing and live in luxury are in the royal palaces! What did you go out to see? A prophet? Yes, I tell you, and more than a prophet. This is the one about whom it is written, ‘ Look, I am sending my messenger ahead of you, who will prepare your way before you .’ I tell you, among those born of women no one is greater than John. Yet the one who is least in the kingdom of God is greater than he is.” (Now all the people who heard this, even the tax collectors, acknowledged God’s justice, because they had been baptized with John’s baptism. However, the Pharisees and the experts in religious law rejected God’s purpose for themselves, because they had not been baptized by John.) “To what then should I compare the people of this generation, and what are they like? They are like children sitting in the marketplace and calling out to one another, ‘We played the flute for you, yet you did not dance; we wailed in mourning, yet you did not weep.’ For John the Baptist has come eating no bread and drinking no wine, and you say, ‘He has a demon!’ The Son of Man has come eating and drinking, and you say, ‘Look at him, a glutton and a drunk, a friend of tax collectors and sinners!’ But wisdom is vindicated by all her children.”",
+    "[[NONBIBLICAL:Thomas 46]] Jesus said, \"Among those born of women, from Adam until John the Baptist, there is no one so superior to John the Baptist that his eyes should not be lowered (before him). Yet I have said, whichever one of you comes to be a child will be acquainted with the kingdom and will become superior to John.\"",
+    "[[NONBIBLICAL:Thomas 78]] Jesus said, \"Why have you come out into the desert? To see a reed shaken by the wind? And to see a man clothed in fine garments like your kings and your great men? Upon them are the fine garments, and they are unable to discern the truth.\""
    ],
    "verseMarkers": [
     {
@@ -6287,8 +6296,19 @@ window.BASILEIAN_DATA = {
      "verse": 35
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 46",
+     "label": "Thomas 46",
+     "text": "Jesus said, \"Among those born of women, from Adam until John the Baptist, there is no one so superior to John the Baptist that his eyes should not be lowered (before him). Yet I have said, whichever one of you comes to be a child will be acquainted with the kingdom and will become superior to John.\""
+    },
+    {
+     "source": "Gospel of Thomas 78",
+     "label": "Thomas 78",
+     "text": "Jesus said, \"Why have you come out into the desert? To see a reed shaken by the wind? And to see a man clothed in fine garments like your kings and your great men? Upon them are the fine garments, and they are unable to discern the truth.\""
+    }
+   ],
+   "notes": "Thomas 46 parallels \"among those born of women\" (Matt 11:11 // Luke 7:28); Thomas 78 parallels \"a reed shaken by the wind\" (Matt 11:7–8 // Luke 7:24–25).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -6400,8 +6420,10 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] \"Come to me… my yoke is easy\" (Matt 11:28–30) parallels Thomas 90.",
     "[[SOURCE:Matthew 11:25–30]] At that time Jesus said, “I praise you, Father, Lord of heaven and earth, because you have hidden these things from the wise and intelligent, and have revealed them to little children. Yes, Father, for this was your gracious will. All things have been handed over to me by my Father. No one knows the Son except the Father, and no one knows the Father except the Son and anyone to whom the Son decides to reveal him. Come to me, all you who are weary and burdened, and I will give you rest. Take my yoke on you and learn from me, because I am gentle and humble in heart, and you will find rest for your souls. For my yoke is easy to bear, and my load is not hard to carry.”",
-    "[[SOURCE:Luke 10:21–22]] On that same occasion Jesus rejoiced in the Holy Spirit and said, “I praise you, Father, Lord of heaven and earth, because you have hidden these things from the wise and intelligent, and revealed them to little children. Yes, Father, for this was your gracious will. All things have been given to me by my Father. No one knows who the Son is except the Father, or who the Father is except the Son and anyone to whom the Son decides to reveal him.”"
+    "[[SOURCE:Luke 10:21–22]] On that same occasion Jesus rejoiced in the Holy Spirit and said, “I praise you, Father, Lord of heaven and earth, because you have hidden these things from the wise and intelligent, and revealed them to little children. Yes, Father, for this was your gracious will. All things have been given to me by my Father. No one knows who the Son is except the Father, or who the Father is except the Son and anyone to whom the Son decides to reveal him.”",
+    "[[NONBIBLICAL:Thomas 90]] Jesus said, \"Come unto me, for my yoke is easy and my lordship is mild, and you will find repose for yourselves.\""
    ],
    "verseMarkers": [
     {
@@ -6453,8 +6475,14 @@ window.BASILEIAN_DATA = {
      "verse": 22
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 90",
+     "label": "Thomas 90",
+     "text": "Jesus said, \"Come unto me, for my yoke is easy and my lordship is mild, and you will find repose for yourselves.\""
+    }
+   ],
+   "notes": "\"Come to me… my yoke is easy\" (Matt 11:28–30) parallels Thomas 90.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -6653,9 +6681,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 35 parallels binding the strong man (Mark 3:27); Thomas 44 parallels blasphemy against the Holy Spirit (Mark 3:28–29 // Matt 12:31–32 // Luke 12:10).",
     "[[SOURCE:Mark 3:20–30]] Now Jesus went home, and a crowd gathered so that they were not able to eat. When his family heard this they went out to restrain him, for they said, “He is out of his mind.” The experts in the law who came down from Jerusalem said, “He is possessed by Beelzebul,” and, “By the ruler of demons he casts out demons!” So he called them and spoke to them in parables: “How can Satan cast out Satan? If a kingdom is divided against itself, that kingdom will not be able to stand. If a house is divided against itself, that house will not be able to stand. And if Satan rises against himself and is divided, he is not able to stand and his end has come. But no one is able to enter a strong man’s house and steal his property unless he first ties up the strong man. Then he can thoroughly plunder his house. I tell you the truth, people will be forgiven for all sins, even all the blasphemies they utter. But whoever blasphemes against the Holy Spirit will never be forgiven, but is guilty of an eternal sin” (because they said, “He has an unclean spirit”).",
     "[[SOURCE:Matthew 12:22–37]] Then they brought to him a demon-possessed man who was blind and mute. Jesus healed him so that he could speak and see. All the crowds were amazed and said, “Could this one be the Son of David?” But when the Pharisees heard this they said, “He does not cast out demons except by the power of Beelzebul, the ruler of demons!” Now when Jesus realized what they were thinking, he said to them, “Every kingdom divided against itself is destroyed, and no town or house divided against itself will stand. So if Satan casts out Satan, he is divided against himself. How then will his kingdom stand? And if I cast out demons by Beelzebul, by whom do your sons cast them out? For this reason they will be your judges. But if I cast out demons by the Spirit of God, then the kingdom of God has already overtaken you. How else can someone enter a strong man’s house and steal his property, unless he first ties up the strong man? Then he can thoroughly plunder the house. Whoever is not with me is against me, and whoever does not gather with me scatters. For this reason I tell you, people will be forgiven for every sin and blasphemy, but the blasphemy against the Spirit will not be forgiven. Whoever speaks a word against the Son of Man will be forgiven. But whoever speaks against the Holy Spirit will not be forgiven, either in this age or in the age to come. “Make a tree good and its fruit will be good, or make a tree bad and its fruit will be bad, for a tree is known by its fruit. Offspring of vipers! How are you able to say anything good, since you are evil? For the mouth speaks from what fills the heart. The good person brings good things out of his good treasury, and the evil person brings evil things out of his evil treasury. I tell you that on the day of judgment, people will give an account for every worthless word they speak. For by your words you will be justified, and by your words you will be condemned.”",
-    "[[SOURCE:Luke 11:14–23]] Now he was casting out a demon that was mute. When the demon had gone out, the man who had been mute began to speak, and the crowds were amazed. But some of them said, “By the power of Beelzebul, the ruler of demons, he casts out demons!” Others, to test him, began asking for a sign from heaven. But Jesus, realizing their thoughts, said to them, “Every kingdom divided against itself is destroyed, and a divided household falls. So if Satan too is divided against himself, how will his kingdom stand? I ask you this because you claim that I cast out demons by Beelzebul. Now if I cast out demons by Beelzebul, by whom do your sons cast them out? Therefore they will be your judges. But if I cast out demons by the finger of God, then the kingdom of God has already overtaken you. When a strong man, fully armed, guards his own palace, his possessions are safe. But when a stronger man attacks and conquers him, he takes away the first man’s armor on which the man relied and divides up his plunder. Whoever is not with me is against me, and whoever does not gather with me scatters."
+    "[[SOURCE:Luke 11:14–23]] Now he was casting out a demon that was mute. When the demon had gone out, the man who had been mute began to speak, and the crowds were amazed. But some of them said, “By the power of Beelzebul, the ruler of demons, he casts out demons!” Others, to test him, began asking for a sign from heaven. But Jesus, realizing their thoughts, said to them, “Every kingdom divided against itself is destroyed, and a divided household falls. So if Satan too is divided against himself, how will his kingdom stand? I ask you this because you claim that I cast out demons by Beelzebul. Now if I cast out demons by Beelzebul, by whom do your sons cast them out? Therefore they will be your judges. But if I cast out demons by the finger of God, then the kingdom of God has already overtaken you. When a strong man, fully armed, guards his own palace, his possessions are safe. But when a stronger man attacks and conquers him, he takes away the first man’s armor on which the man relied and divides up his plunder. Whoever is not with me is against me, and whoever does not gather with me scatters.",
+    "[[NONBIBLICAL:Thomas 35]] Jesus said, \"It is not possible for anyone to enter the house of a strong man and take it by force unless he binds his hands; then he will (be able to) ransack his house.\"",
+    "[[NONBIBLICAL:Thomas 44]] Jesus said, \"Whoever blasphemes against the father will be forgiven, and whoever blasphemes against the son will be forgiven, but whoever blasphemes against the holy spirit will not be forgiven either on earth or in heaven.\""
    ],
    "verseMarkers": [
     {
@@ -6881,8 +6912,19 @@ window.BASILEIAN_DATA = {
      "verse": 23
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 35",
+     "label": "Thomas 35",
+     "text": "Jesus said, \"It is not possible for anyone to enter the house of a strong man and take it by force unless he binds his hands; then he will (be able to) ransack his house.\""
+    },
+    {
+     "source": "Gospel of Thomas 44",
+     "label": "Thomas 44",
+     "text": "Jesus said, \"Whoever blasphemes against the father will be forgiven, and whoever blasphemes against the son will be forgiven, but whoever blasphemes against the holy spirit will not be forgiven either on earth or in heaven.\""
+    }
+   ],
+   "notes": "Thomas 35 parallels binding the strong man (Mark 3:27); Thomas 44 parallels blasphemy against the Holy Spirit (Mark 3:28–29 // Matt 12:31–32 // Luke 12:10).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -7078,9 +7120,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 99 parallels \"whoever does the will of my Father\" (Mark 3:35). Thomas 79 parallels the woman in the crowd (Luke 11:27–28), which has no pericope of its own; it is grouped here on the shared \"hear and keep the word\" theme.",
     "[[SOURCE:Mark 3:31–35]] Then Jesus’ mother and his brothers came. Standing outside, they sent word to him, to summon him. A crowd was sitting around him and they said to him, “Look, your mother and your brothers are outside looking for you.” He answered them and said, “Who are my mother and my brothers?” And looking at those who were sitting around him in a circle, he said, “Here are my mother and my brothers! For whoever does the will of God is my brother and sister and mother.”",
     "[[SOURCE:Matthew 12:46–50]] While Jesus was still speaking to the crowds, his mother and brothers came and stood outside, asking to speak to him. Someone told him, “Look, your mother and your brothers are standing outside wanting to speak to you.” To the one who had said this, Jesus replied, “Who is my mother and who are my brothers?” And pointing toward his disciples he said, “Here are my mother and my brothers! For whoever does the will of my Father in heaven is my brother and sister and mother.”",
-    "[[SOURCE:Luke 8:19–21]] Now Jesus’ mother and his brothers came to him, but they could not get near him because of the crowd. So he was told, “Your mother and your brothers are standing outside, wanting to see you.” But he replied to them, “My mother and my brothers are those who hear the word of God and do it.”"
+    "[[SOURCE:Luke 8:19–21]] Now Jesus’ mother and his brothers came to him, but they could not get near him because of the crowd. So he was told, “Your mother and your brothers are standing outside, wanting to see you.” But he replied to them, “My mother and my brothers are those who hear the word of God and do it.”",
+    "[[NONBIBLICAL:Thomas 79]] A woman from the crowd said to him, \"Blessed are the womb which bore you and the breasts which nourished you.\" He said to her, \"Blessed are those who have heard the word of the father and have truly kept it. For there will be days when you will say, 'Blessed are the womb which has not conceived and the breasts which have not given milk.'\"",
+    "[[NONBIBLICAL:Thomas 99]] The disciples said to him, \"Your brothers and your mother are standing outside.\" He said to them, \"Those here who do the will of my father are my brothers and my mother. It is they who will enter the kingdom of my father.\""
    ],
    "verseMarkers": [
     {
@@ -7162,8 +7207,19 @@ window.BASILEIAN_DATA = {
      "verse": 21
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 79",
+     "label": "Thomas 79",
+     "text": "A woman from the crowd said to him, \"Blessed are the womb which bore you and the breasts which nourished you.\" He said to her, \"Blessed are those who have heard the word of the father and have truly kept it. For there will be days when you will say, 'Blessed are the womb which has not conceived and the breasts which have not given milk.'\""
+    },
+    {
+     "source": "Gospel of Thomas 99",
+     "label": "Thomas 99",
+     "text": "The disciples said to him, \"Your brothers and your mother are standing outside.\" He said to them, \"Those here who do the will of my father are my brothers and my mother. It is they who will enter the kingdom of my father.\""
+    }
+   ],
+   "notes": "Thomas 99 parallels \"whoever does the will of my Father\" (Mark 3:35). Thomas 79 parallels the woman in the crowd (Luke 11:27–28), which has no pericope of its own; it is grouped here on the shared \"hear and keep the word\" theme.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -7573,8 +7629,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 5 parallels \"nothing hidden that will not be revealed\" (Mark 4:22 // Luke 8:17); Thomas 41 parallels \"whoever has will be given more\" (Mark 4:25). The lamp saying of Thomas 33 is inserted at IV.2 (salt and light).",
     "[[SOURCE:Mark 4:21–25]] He also said to them, “A lamp isn’t brought to be put under a basket or under a bed, is it? Isn’t it to be placed on a lampstand? For nothing is hidden except to be revealed, and nothing concealed except to be brought to light. If anyone has ears to hear, he had better listen!” And he said to them, “Take care about what you hear. The measure you use will be the measure you receive, and more will be added to you. For whoever has will be given more, but whoever does not have, even what he has will be taken from him.”",
-    "[[SOURCE:Luke 8:16–18]] “No one lights a lamp and then covers it with a jar or puts it under a bed, but puts it on a lampstand so that those who come in can see the light. For nothing is hidden that will not be revealed, and nothing concealed that will not be made known and brought to light. So listen carefully, for whoever has will be given more, but whoever does not have, even what he thinks he has will be taken from him.”"
+    "[[SOURCE:Luke 8:16–18]] “No one lights a lamp and then covers it with a jar or puts it under a bed, but puts it on a lampstand so that those who come in can see the light. For nothing is hidden that will not be revealed, and nothing concealed that will not be made known and brought to light. So listen carefully, for whoever has will be given more, but whoever does not have, even what he thinks he has will be taken from him.”",
+    "[[NONBIBLICAL:Thomas 5]] Jesus said, \"Recognize what is in your sight, and that which is hidden from you will become plain to you. For there is nothing hidden which will not become manifest.\"",
+    "[[NONBIBLICAL:Thomas 41]] Jesus said, \"Whoever has something in his hand will receive more, and whoever has nothing will be deprived of even the little he has.\""
    ],
    "verseMarkers": [
     {
@@ -7626,8 +7685,19 @@ window.BASILEIAN_DATA = {
      "verse": 18
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 5",
+     "label": "Thomas 5",
+     "text": "Jesus said, \"Recognize what is in your sight, and that which is hidden from you will become plain to you. For there is nothing hidden which will not become manifest.\""
+    },
+    {
+     "source": "Gospel of Thomas 41",
+     "label": "Thomas 41",
+     "text": "Jesus said, \"Whoever has something in his hand will receive more, and whoever has nothing will be deprived of even the little he has.\""
+    }
+   ],
+   "notes": "Thomas 5 parallels \"nothing hidden that will not be revealed\" (Mark 4:22 // Luke 8:17); Thomas 41 parallels \"whoever has will be given more\" (Mark 4:25). The lamp saying of Thomas 33 is inserted at IV.2 (salt and light).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -7984,9 +8054,10 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] The pearl parallels Thomas 76.",
+    "[[NOTE]] The pearl parallels Thomas 76; the hidden treasure parallels Thomas 109.",
     "[[SOURCE:Matthew 13:44–46]] “The kingdom of heaven is like a treasure, hidden in a field, that a person found and hid. Then because of joy he went and sold all that he had and bought that field. “Again, the kingdom of heaven is like a merchant searching for fine pearls. When he found a pearl of great value, he went out and sold everything he had and bought it.",
-    "[[NONBIBLICAL:Thomas 76 (pearl)]] Jesus said, \"The kingdom of the father is like a merchant who had a consignment of merchandise and who discovered a pearl. That merchant was shrewd. He sold the merchandise and bought the pearl alone for himself. You too, seek his unfailing and enduring treasure where no moth comes near to devour and no worm destroys.\""
+    "[[NONBIBLICAL:Thomas 76 (pearl)]] Jesus said, \"The kingdom of the father is like a merchant who had a consignment of merchandise and who discovered a pearl. That merchant was shrewd. He sold the merchandise and bought the pearl alone for himself. You too, seek his unfailing and enduring treasure where no moth comes near to devour and no worm destroys.\"",
+    "[[NONBIBLICAL:Thomas 109 (hidden treasure)]] Jesus said, \"The kingdom is like a man who had a hidden treasure in his field without knowing it. And after he died, he left it to his son. The son did not know (about the treasure). He inherited the field and sold it. And the one who bought it went plowing and found the treasure. He began to lend money at interest to whomever he wished.\""
    ],
    "verseMarkers": [
     {
@@ -8013,9 +8084,14 @@ window.BASILEIAN_DATA = {
      "source": "Gospel of Thomas 76",
      "label": "Thomas 76 (pearl)",
      "text": "Jesus said, \"The kingdom of the father is like a merchant who had a consignment of merchandise and who discovered a pearl. That merchant was shrewd. He sold the merchandise and bought the pearl alone for himself. You too, seek his unfailing and enduring treasure where no moth comes near to devour and no worm destroys.\""
+    },
+    {
+     "source": "Gospel of Thomas 109",
+     "label": "Thomas 109 (hidden treasure)",
+     "text": "Jesus said, \"The kingdom is like a man who had a hidden treasure in his field without knowing it. And after he died, he left it to his son. The son did not know (about the treasure). He inherited the field and sold it. And the one who bought it went plowing and found the treasure. He began to lend money at interest to whomever he wished.\""
     }
    ],
-   "notes": "The pearl parallels Thomas 76.",
+   "notes": "The pearl parallels Thomas 76; the hidden treasure parallels Thomas 109.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -8037,7 +8113,9 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[SOURCE:Matthew 13:47–50]] “Again, the kingdom of heaven is like a net that was cast into the sea that caught all kinds of fish. When it was full, they pulled it ashore, sat down, and put the good fish into containers and threw the bad away. It will be this way at the end of the age. Angels will come and separate the evil from the righteous and throw them into the fiery furnace , where there will be weeping and gnashing of teeth."
+    "[[NOTE]] Thomas 8 (the wise fisherman who keeps the one large fish) parallels the dragnet.",
+    "[[SOURCE:Matthew 13:47–50]] “Again, the kingdom of heaven is like a net that was cast into the sea that caught all kinds of fish. When it was full, they pulled it ashore, sat down, and put the good fish into containers and threw the bad away. It will be this way at the end of the age. Angels will come and separate the evil from the righteous and throw them into the fiery furnace , where there will be weeping and gnashing of teeth.",
+    "[[NONBIBLICAL:Thomas 8]] And he said, \"The man is like a wise fisherman who cast his net into the sea and drew it up from the sea full of small fish. Among them the wise fisherman found a fine large fish. He threw all the small fish back into the sea and chose the large fish without difficulty. Whoever has ears to hear, let him hear.\""
    ],
    "verseMarkers": [
     {
@@ -8065,8 +8143,14 @@ window.BASILEIAN_DATA = {
      "verse": 50
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 8",
+     "label": "Thomas 8",
+     "text": "And he said, \"The man is like a wise fisherman who cast his net into the sea and drew it up from the sea full of small fish. Among them the wise fisherman found a fine large fish. He threw all the small fish back into the sea and chose the large fish without difficulty. Whoever has ears to hear, let him hear.\""
+    }
+   ],
+   "notes": "Thomas 8 (the wise fisherman who keeps the one large fish) parallels the dragnet.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -8994,11 +9078,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] 1 Cor 9:14 is grouped here, echoing the \"laborer deserves his wages\" saying (Matt 10:10 // Luke 10:7).",
+    "[[NOTE]] 1 Cor 9:14 is grouped here, echoing the \"laborer deserves his wages\" saying (Matt 10:10 // Luke 10:7). Thomas 73 parallels \"the harvest is great but the laborers are few\" (Matt 9:37–38; also Luke 10:2, the Seventy).",
     "[[SOURCE:Mark 6:7–13]] Jesus called the twelve and began to send them out two by two. He gave them authority over the unclean spirits. He instructed them to take nothing for the journey except a staff —no bread, no bag, no money in their belts— and to put on sandals but not to wear two tunics. He said to them, “Wherever you enter a house, stay there until you leave the area. If a place will not welcome you or listen to you, as you go out from there, shake the dust off your feet as a testimony against them.” So they went out and preached that all should repent. They cast out many demons and anointed many sick people with olive oil and healed them.",
     "[[SOURCE:Matthew 9:35–38, 10:1–42]] Then Jesus went throughout all the towns and villages, teaching in their synagogues, preaching the good news of the kingdom, and healing every kind of disease and sickness. When he saw the crowds, he had compassion on them because they were bewildered and helpless, like sheep without a shepherd. Then he said to his disciples, “The harvest is plentiful, but the workers are few. Therefore ask the Lord of the harvest to send out workers into his harvest-ready fields.” Jesus called his twelve disciples and gave them authority over unclean spirits so they could cast them out and heal every kind of disease and sickness. Now these are the names of the twelve apostles: first, Simon (called Peter), and Andrew his brother; James son of Zebedee and John his brother; Philip and Bartholomew; Thomas and Matthew the tax collector; James the son of Alphaeus, and Thaddaeus; Simon the Zealot and Judas Iscariot, who betrayed him. Jesus sent out these twelve, instructing them as follows: “Do not go on a road that leads to Gentile regions and do not enter any Samaritan town. Go instead to the lost sheep of the house of Israel. As you go, preach this message: ‘The kingdom of heaven is near!’ Heal the sick, raise the dead, cleanse lepers, cast out demons. Freely you received, freely give. Do not take gold, silver, or copper in your belts, no bag for the journey, or an extra tunic, or sandals or staff, for the worker deserves his provisions. Whenever you enter a town or village, find out who is worthy there and stay with them until you leave. As you enter the house, greet those within it. And if the house is worthy, let your peace come on it, but if it is not worthy, let your peace return to you. And if anyone will not welcome you or listen to your message, shake the dust off your feet as you leave that house or that town. I tell you the truth, it will be more bearable for the region of Sodom and Gomorrah on the day of judgment than for that town! “I am sending you out like sheep surrounded by wolves, so be wise as serpents and innocent as doves. Beware of people, because they will hand you over to councils and flog you in their synagogues. And you will be brought before governors and kings because of me, as a witness to them and to the Gentiles. Whenever they hand you over for trial, do not worry about how to speak or what to say, for what you should say will be given to you at that time. For it is not you speaking, but the Spirit of your Father speaking through you. “Brother will hand over brother to death, and a father his child. Children will rise against parents and have them put to death. And you will be hated by everyone because of my name. But the one who endures to the end will be saved! Whenever they persecute you in one town, flee to another! I tell you the truth, you will not finish going through all the towns of Israel before the Son of Man comes. “A disciple is not greater than his teacher, nor a slave greater than his master. It is enough for the disciple to become like his teacher, and the slave like his master. If they have called the head of the house ‘Beelzebul,’ how much worse will they call the members of his household! “Do not be afraid of them, for nothing is hidden that will not be revealed, and nothing is secret that will not be made known. What I say to you in the dark, tell in the light, and what is whispered in your ear, proclaim from the housetops. Do not be afraid of those who kill the body but cannot kill the soul. Instead, fear the one who is able to destroy both soul and body in hell. Aren’t two sparrows sold for a penny? Yet not one of them falls to the ground apart from your Father’s will. Even all the hairs on your head are numbered. So do not be afraid; you are more valuable than many sparrows. “Whoever, then, acknowledges me before people, I will acknowledge before my Father in heaven. But whoever denies me before people, I will deny him also before my Father in heaven. “Do not think that I have come to bring peace to the earth. I have not come to bring peace but a sword! For I have come to set a man against his father, a daughter against her mother, and a daughter-in-law against her mother-in-law, and a man’s enemies will be the members of his household . “Whoever loves father or mother more than me is not worthy of me, and whoever loves son or daughter more than me is not worthy of me. And whoever does not take up his cross and follow me is not worthy of me. Whoever finds his life will lose it, and whoever loses his life because of me will find it. “Whoever receives you receives me, and whoever receives me receives the one who sent me. Whoever receives a prophet in the name of a prophet will receive a prophet’s reward. Whoever receives a righteous person in the name of a righteous person will receive a righteous person’s reward. And whoever gives only a cup of cold water to one of these little ones in the name of a disciple, I tell you the truth, he will never lose his reward.”",
     "[[SOURCE:Luke 9:1–6]] After Jesus called the twelve together, he gave them power and authority over all demons and to cure diseases, and he sent them out to proclaim the kingdom of God and to heal the sick. He said to them, “Take nothing for your journey—no staff, no bag, no bread, no money, and do not take an extra tunic. Whatever house you enter, stay there until you leave the area. Wherever they do not receive you, as you leave that town, shake the dust off your feet as a testimony against them.” Then they departed and went throughout the villages, proclaiming the good news and healing people everywhere.",
-    "[[SOURCE:1 Corinthians 9:14]] In the same way the Lord commanded those who proclaim the gospel to receive their living by the gospel."
+    "[[SOURCE:1 Corinthians 9:14]] In the same way the Lord commanded those who proclaim the gospel to receive their living by the gospel.",
+    "[[NONBIBLICAL:Thomas 73]] Jesus said, \"The harvest is great but the laborers are few. Beseech the Lord, therefore, to send out laborers to the harvest.\""
    ],
    "verseMarkers": [
     {
@@ -9362,8 +9447,14 @@ window.BASILEIAN_DATA = {
      "verse": 14
     }
    ],
-   "nonbiblical": [],
-   "notes": "1 Cor 9:14 is grouped here, echoing the \"laborer deserves his wages\" saying (Matt 10:10 // Luke 10:7).",
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 73",
+     "label": "Thomas 73",
+     "text": "Jesus said, \"The harvest is great but the laborers are few. Beseech the Lord, therefore, to send out laborers to the harvest.\""
+    }
+   ],
+   "notes": "1 Cor 9:14 is grouped here, echoing the \"laborer deserves his wages\" saying (Matt 10:10 // Luke 10:7). Thomas 73 parallels \"the harvest is great but the laborers are few\" (Matt 9:37–38; also Luke 10:2, the Seventy).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -10706,8 +10797,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 14 parallels \"what goes into your mouth will not defile you\" (Mark 7:15) and \"eat what is set before you\" (Luke 10:8); Thomas 40 parallels the plant the Father did not plant (Matt 15:13).",
     "[[SOURCE:Mark 7:1–23]] Now the Pharisees and some of the experts in the law who came from Jerusalem gathered around him. And they saw that some of Jesus’ disciples ate their bread with unclean hands, that is, unwashed. (For the Pharisees and all the Jews do not eat unless they perform a ritual washing, holding fast to the tradition of the elders. And when they come from the marketplace, they do not eat unless they wash. They hold fast to many other traditions: the washing of cups, pots, kettles, and dining couches.) The Pharisees and the experts in the law asked him, “Why do your disciples not live according to the tradition of the elders, but eat with unwashed hands?” He said to them, “Isaiah prophesied correctly about you hypocrites, as it is written: ‘ This people honors me with their lips, but their heart is far from me . They worship me in vain, teaching as doctrine the commandments of men .’ Having no regard for the command of God, you hold fast to human tradition.” He also said to them, “You neatly reject the commandment of God in order to set up your tradition. For Moses said, ‘ Honor your father and your mother ,’ and, ‘ Whoever insults his father or mother must be put to death .’ But you say that if anyone tells his father or mother, ‘Whatever help you would have received from me is corban ’ (that is, a gift for God), then you no longer permit him to do anything for his father or mother. Thus you nullify the word of God by your tradition that you have handed down. And you do many things like this.” Then he called the crowd again and said to them, “Listen to me, everyone, and understand. There is nothing outside of a person that can defile him by going into him. Rather, it is what comes out of a person that defiles him.” Now when Jesus had left the crowd and entered the house, his disciples asked him about the parable. He said to them, “Are you so foolish? Don’t you understand that whatever goes into a person from outside cannot defile him? For it does not enter his heart but his stomach, and then goes out into the sewer.” (This means all foods are clean.) He said, “What comes out of a person defiles him. For from within, out of the human heart, come evil ideas, sexual immorality, theft, murder, adultery, greed, evil, deceit, debauchery, envy, slander, pride, and folly. All these evils come from within and defile a person.”",
-    "[[SOURCE:Matthew 15:1–20]] Then Pharisees and experts in the law came from Jerusalem to Jesus and said, “Why do your disciples disobey the tradition of the elders? For they don’t wash their hands when they eat.” He answered them, “And why do you disobey the commandment of God because of your tradition? For God said, ‘ Honor your father and mother ’ and ‘ Whoever insults his father or mother must be put to death .’ But you say, ‘If someone tells his father or mother, “Whatever help you would have received from me is given to God,” he does not need to honor his father.’ You have nullified the word of God on account of your tradition. Hypocrites! Isaiah prophesied correctly about you when he said, ‘ This people honors me with their lips, but their heart is far from me, and they worship me in vain, teaching as doctrines the commandments of men .’” Then he called the crowd to him and said, “Listen and understand. What defiles a person is not what goes into the mouth; it is what comes out of the mouth that defiles a person.” Then the disciples came to him and said, “Do you know that when the Pharisees heard this saying they were offended?” And he replied, “Every plant that my heavenly Father did not plant will be uprooted. Leave them! They are blind guides. If someone who is blind leads another who is blind, both will fall into a pit.” But Peter said to him, “Explain this parable to us.” Jesus said, “Even after all this, are you still so foolish? Don’t you understand that whatever goes into the mouth enters the stomach and then passes out into the sewer? But the things that come out of the mouth come from the heart, and these things defile a person. For out of the heart come evil ideas, murder, adultery, sexual immorality, theft, false testimony, slander. These are the things that defile a person; it is not eating with unwashed hands that defiles a person.”"
+    "[[SOURCE:Matthew 15:1–20]] Then Pharisees and experts in the law came from Jerusalem to Jesus and said, “Why do your disciples disobey the tradition of the elders? For they don’t wash their hands when they eat.” He answered them, “And why do you disobey the commandment of God because of your tradition? For God said, ‘ Honor your father and mother ’ and ‘ Whoever insults his father or mother must be put to death .’ But you say, ‘If someone tells his father or mother, “Whatever help you would have received from me is given to God,” he does not need to honor his father.’ You have nullified the word of God on account of your tradition. Hypocrites! Isaiah prophesied correctly about you when he said, ‘ This people honors me with their lips, but their heart is far from me, and they worship me in vain, teaching as doctrines the commandments of men .’” Then he called the crowd to him and said, “Listen and understand. What defiles a person is not what goes into the mouth; it is what comes out of the mouth that defiles a person.” Then the disciples came to him and said, “Do you know that when the Pharisees heard this saying they were offended?” And he replied, “Every plant that my heavenly Father did not plant will be uprooted. Leave them! They are blind guides. If someone who is blind leads another who is blind, both will fall into a pit.” But Peter said to him, “Explain this parable to us.” Jesus said, “Even after all this, are you still so foolish? Don’t you understand that whatever goes into the mouth enters the stomach and then passes out into the sewer? But the things that come out of the mouth come from the heart, and these things defile a person. For out of the heart come evil ideas, murder, adultery, sexual immorality, theft, false testimony, slander. These are the things that defile a person; it is not eating with unwashed hands that defiles a person.”",
+    "[[NONBIBLICAL:Thomas 14]] Jesus said to them, \"If you fast, you will give rise to sin for yourselves; and if you pray, you will be condemned; and if you give alms, you will do harm to your spirits. When you go into any land and walk about in the districts, if they receive you, eat what they will set before you, and heal the sick among them. For what goes into your mouth will not defile you, but that which issues from your mouth - it is that which will defile you.\"",
+    "[[NONBIBLICAL:Thomas 40]] Jesus said, \"A grapevine has been planted outside of the father, but being unsound, it will be pulled up by its roots and destroyed.\""
    ],
    "verseMarkers": [
     {
@@ -10963,8 +11057,19 @@ window.BASILEIAN_DATA = {
      "verse": 20
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 14",
+     "label": "Thomas 14",
+     "text": "Jesus said to them, \"If you fast, you will give rise to sin for yourselves; and if you pray, you will be condemned; and if you give alms, you will do harm to your spirits. When you go into any land and walk about in the districts, if they receive you, eat what they will set before you, and heal the sick among them. For what goes into your mouth will not defile you, but that which issues from your mouth - it is that which will defile you.\""
+    },
+    {
+     "source": "Gospel of Thomas 40",
+     "label": "Thomas 40",
+     "text": "Jesus said, \"A grapevine has been planted outside of the father, but being unsound, it will be pulled up by its roots and destroyed.\""
+    }
+   ],
+   "notes": "Thomas 14 parallels \"what goes into your mouth will not defile you\" (Mark 7:15) and \"eat what is set before you\" (Luke 10:8); Thomas 40 parallels the plant the Father did not plant (Matt 15:13).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -11594,10 +11699,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] Johannine counterpart: John 6:66–71.",
+    "[[NOTE]] Johannine counterpart: John 6:66–71. Thomas 13 (\"Compare me to someone and tell me whom I am like\") parallels \"Who do people say that I am?\" (Mark 8:27–30).",
     "[[SOURCE:Mark 8:27–30]] Then Jesus and his disciples went to the villages of Caesarea Philippi. On the way he asked his disciples, “Who do people say that I am?” They said, “John the Baptist, others say Elijah, and still others, one of the prophets.” He asked them, “But who do you say that I am?” Peter answered him, “You are the Christ.” Then he warned them not to tell anyone about him.",
     "[[SOURCE:Matthew 16:13–20]] When Jesus came to the area of Caesarea Philippi, he asked his disciples, “Who do people say that the Son of Man is?” They answered, “Some say John the Baptist, others Elijah, and others Jeremiah or one of the prophets.” He said to them, “But who do you say that I am?” Simon Peter answered, “You are the Christ, the Son of the living God.” And Jesus answered him, “You are blessed, Simon son of Jonah, because flesh and blood did not reveal this to you, but my Father in heaven! And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overpower it. I will give you the keys of the kingdom of heaven. Whatever you bind on earth will have been bound in heaven, and whatever you release on earth will have been released in heaven.” Then he instructed his disciples not to tell anyone that he was the Christ.",
-    "[[SOURCE:Luke 9:18–21]] Once when Jesus was praying by himself, and his disciples were nearby, he asked them, “Who do the crowds say that I am?” They answered, “John the Baptist; others say Elijah; and still others that one of the prophets of long ago has risen.” Then he said to them, “But who do you say that I am?” Peter answered, “The Christ of God.” But he forcefully commanded them not to tell this to anyone,"
+    "[[SOURCE:Luke 9:18–21]] Once when Jesus was praying by himself, and his disciples were nearby, he asked them, “Who do the crowds say that I am?” They answered, “John the Baptist; others say Elijah; and still others that one of the prophets of long ago has risen.” Then he said to them, “But who do you say that I am?” Peter answered, “The Christ of God.” But he forcefully commanded them not to tell this to anyone,",
+    "[[NONBIBLICAL:Thomas 13]] Jesus said to his disciples, \"Compare me to someone and tell me whom I am like.\" Simon Peter said to him, \"You are like a righteous angel.\" Matthew said to him, \"You are like a wise philosopher.\" Thomas said to him, \"Master, my mouth is wholly incapable of saying whom you are like.\" Jesus said, \"I am not your master. Because you have drunk, you have become intoxicated from the bubbling spring which I have measured out.\" And he took him and withdrew and told him three things. When Thomas returned to his companions, they asked him, \"What did Jesus say to you?\" Thomas said to them, \"If I tell you one of the things which he told me, you will pick up stones and throw them at me; a fire will come out of the stones and burn you up.\""
    ],
    "verseMarkers": [
     {
@@ -11697,8 +11803,14 @@ window.BASILEIAN_DATA = {
      "verse": 21
     }
    ],
-   "nonbiblical": [],
-   "notes": "Johannine counterpart: John 6:66–71.",
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 13",
+     "label": "Thomas 13",
+     "text": "Jesus said to his disciples, \"Compare me to someone and tell me whom I am like.\" Simon Peter said to him, \"You are like a righteous angel.\" Matthew said to him, \"You are like a wise philosopher.\" Thomas said to him, \"Master, my mouth is wholly incapable of saying whom you are like.\" Jesus said, \"I am not your master. Because you have drunk, you have become intoxicated from the bubbling spring which I have measured out.\" And he took him and withdrew and told him three things. When Thomas returned to his companions, they asked him, \"What did Jesus say to you?\" Thomas said to them, \"If I tell you one of the things which he told me, you will pick up stones and throw them at me; a fire will come out of the stones and burn you up.\""
+    }
+   ],
+   "notes": "Johannine counterpart: John 6:66–71. Thomas 13 (\"Compare me to someone and tell me whom I am like\") parallels \"Who do people say that I am?\" (Mark 8:27–30).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -12137,9 +12249,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 106 is anchored here by its mountain-moving saying (Matt 17:20).",
     "[[SOURCE:Mark 9:14–29]] When they came to the disciples, they saw a large crowd around them and experts in the law arguing with them. When the whole crowd saw him, they were amazed and ran at once and greeted him. He asked them, “What are you arguing about with them?” A member of the crowd said to him, “Teacher, I brought you my son, who is possessed by a spirit that makes him mute. Whenever it seizes him, it throws him down, and he foams at the mouth, grinds his teeth, and becomes rigid. I asked your disciples to cast it out, but they were not able to do so.” He answered them, “You unbelieving generation! How much longer must I be with you? How much longer must I endure you? Bring him to me.” So they brought the boy to him. When the spirit saw him, it immediately threw the boy into a convulsion. He fell on the ground and rolled around, foaming at the mouth. Jesus asked his father, “How long has this been happening to him?” And he said, “From childhood. It has often thrown him into fire or water to destroy him. But if you are able to do anything, have compassion on us and help us.” Then Jesus said to him, “‘If you are able?’ All things are possible for the one who believes.” Immediately the father of the boy cried out and said, “I believe; help my unbelief!” Now when Jesus saw that a crowd was quickly gathering, he rebuked the unclean spirit, saying to it, “Mute and deaf spirit, I command you, come out of him and never enter him again.” It shrieked, threw him into terrible convulsions, and came out. The boy looked so much like a corpse that many said, “He is dead!” But Jesus gently took his hand and raised him to his feet, and he stood up. Then, after he went into the house, his disciples asked him privately, “Why couldn’t we cast it out?” He told them, “This kind can come out only by prayer.”",
     "[[SOURCE:Matthew 17:14–21]] When they came to the crowd, a man came to him, knelt before him, and said, “Lord, have mercy on my son, because he has seizures and suffers terribly, for he often falls into the fire and into the water. I brought him to your disciples, but they were not able to heal him.” Jesus answered, “You unbelieving and perverse generation! How much longer must I be with you? How much longer must I endure you? Bring him here to me.” Then Jesus rebuked the demon and it came out of him, and the boy was healed from that moment. Then the disciples came to Jesus privately and said, “Why couldn’t we cast it out?” He told them, “It was because of your little faith. I tell you the truth, if you have faith the size of a mustard seed, you will say to this mountain, ‘Move from here to there,’ and it will move; nothing will be impossible for you.”",
-    "[[SOURCE:Luke 9:37–43]] Now on the next day, when they had come down from the mountain, a large crowd met him. Then a man from the crowd cried out, “Teacher, I beg you to look at my son—he is my only child! A spirit seizes him, and he suddenly screams; it throws him into convulsions and causes him to foam at the mouth. It hardly ever leaves him alone, torturing him severely. I begged your disciples to cast it out, but they could not do so.” Jesus answered, “You unbelieving and perverse generation! How much longer must I be with you and endure you? Bring your son here.” As the boy was approaching, the demon threw him to the ground and shook him with convulsions. But Jesus rebuked the unclean spirit, healed the boy, and gave him back to his father. Then they were all astonished at the mighty power of God. But while the entire crowd was amazed at everything Jesus was doing, he said to his disciples,"
+    "[[SOURCE:Luke 9:37–43]] Now on the next day, when they had come down from the mountain, a large crowd met him. Then a man from the crowd cried out, “Teacher, I beg you to look at my son—he is my only child! A spirit seizes him, and he suddenly screams; it throws him into convulsions and causes him to foam at the mouth. It hardly ever leaves him alone, torturing him severely. I begged your disciples to cast it out, but they could not do so.” Jesus answered, “You unbelieving and perverse generation! How much longer must I be with you and endure you? Bring your son here.” As the boy was approaching, the demon threw him to the ground and shook him with convulsions. But Jesus rebuked the unclean spirit, healed the boy, and gave him back to his father. Then they were all astonished at the mighty power of God. But while the entire crowd was amazed at everything Jesus was doing, he said to his disciples,",
+    "[[NONBIBLICAL:Thomas 106]] Jesus said, \"When you make the two one, you will become the sons of man, and when you say, 'Mountain, move away,' it will move away.\""
    ],
    "verseMarkers": [
     {
@@ -12323,8 +12437,14 @@ window.BASILEIAN_DATA = {
      "verse": 43
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 106",
+     "label": "Thomas 106",
+     "text": "Jesus said, \"When you make the two one, you will become the sons of man, and when you say, 'Mountain, move away,' it will move away.\""
+    }
+   ],
+   "notes": "Thomas 106 is anchored here by its mountain-moving saying (Matt 17:20).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -12801,8 +12921,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 30 parallels \"where two or three are gathered\" (Matt 18:20); Thomas 48 parallels the agreement of two (Matt 18:19) with the mountain-moving saying (Matt 17:20); Thomas 107 parallels the lost sheep (Matt 18:12–13 // Luke 15:4–7).",
     "[[SOURCE:Matthew 18:10–22]] “See that you do not disdain one of these little ones. For I tell you that their angels in heaven always see the face of my Father in heaven. What do you think? If someone owns a hundred sheep and one of them goes astray, will he not leave the ninety-nine on the mountains and go look for the one that went astray? And if he finds it, I tell you the truth, he will rejoice more over it than over the ninety-nine that did not go astray. In the same way, your Father in heaven is not willing that one of these little ones be lost. “If your brother sins, go and show him his fault when the two of you are alone. If he listens to you, you have regained your brother. But if he does not listen, take one or two others with you, so that at the testimony of two or three witnesses every matter may be established . If he refuses to listen to them, tell it to the church. If he refuses to listen to the church, treat him like a Gentile or a tax collector. “I tell you the truth, whatever you bind on earth will have been bound in heaven, and whatever you release on earth will have been released in heaven. Again, I tell you the truth, if two of you on earth agree about whatever you ask, my Father in heaven will do it for you. For where two or three are assembled in my name, I am there among them.” Then Peter came to him and said, “Lord, how many times must I forgive my brother who sins against me? As many as seven times?” Jesus said to him, “Not seven times, I tell you, but seventy-seven times!",
-    "[[SOURCE:Luke 15:3–7, 17:1–4]] So Jesus told them this parable: “Which one of you, if he has a hundred sheep and loses one of them, would not leave the ninety-nine in the open pasture and go look for the one that is lost until he finds it? Then when he has found it, he places it on his shoulders, rejoicing. Returning home, he calls together his friends and neighbors, telling them, ‘Rejoice with me, because I have found my sheep that was lost.’ I tell you, in the same way there will be more joy in heaven over one sinner who repents than over ninety-nine righteous people who have no need to repent. Jesus said to his disciples, “Stumbling blocks are sure to come, but woe to the one through whom they come! It would be better for him to have a millstone tied around his neck and be thrown into the sea than for him to cause one of these little ones to sin. Watch yourselves! If your brother sins, rebuke him. If he repents, forgive him. Even if he sins against you seven times in a day, and seven times returns to you saying, ‘I repent,’ you must forgive him.”"
+    "[[SOURCE:Luke 15:3–7, 17:1–4]] So Jesus told them this parable: “Which one of you, if he has a hundred sheep and loses one of them, would not leave the ninety-nine in the open pasture and go look for the one that is lost until he finds it? Then when he has found it, he places it on his shoulders, rejoicing. Returning home, he calls together his friends and neighbors, telling them, ‘Rejoice with me, because I have found my sheep that was lost.’ I tell you, in the same way there will be more joy in heaven over one sinner who repents than over ninety-nine righteous people who have no need to repent. Jesus said to his disciples, “Stumbling blocks are sure to come, but woe to the one through whom they come! It would be better for him to have a millstone tied around his neck and be thrown into the sea than for him to cause one of these little ones to sin. Watch yourselves! If your brother sins, rebuke him. If he repents, forgive him. Even if he sins against you seven times in a day, and seven times returns to you saying, ‘I repent,’ you must forgive him.”",
+    "[[NONBIBLICAL:Thomas 30]] Jesus said, \"Where there are three gods, they are gods. Where there are two or one, I am with him.\"",
+    "[[NONBIBLICAL:Thomas 48]] Jesus said, \"If two make peace with each other in this one house, they will say to the mountain, 'Move Away,' and it will move away.\"",
+    "[[NONBIBLICAL:Thomas 107]] Jesus said, \"The kingdom is like a shepherd who had a hundred sheep. One of them, the largest, went astray. He left the ninety-nine sheep and looked for that one until he found it. When he had gone to such trouble, he said to the sheep, 'I care for you more than the ninety-nine.'\""
    ],
    "verseMarkers": [
     {
@@ -12932,8 +13056,24 @@ window.BASILEIAN_DATA = {
      "verse": 4
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 30",
+     "label": "Thomas 30",
+     "text": "Jesus said, \"Where there are three gods, they are gods. Where there are two or one, I am with him.\""
+    },
+    {
+     "source": "Gospel of Thomas 48",
+     "label": "Thomas 48",
+     "text": "Jesus said, \"If two make peace with each other in this one house, they will say to the mountain, 'Move Away,' and it will move away.\""
+    },
+    {
+     "source": "Gospel of Thomas 107",
+     "label": "Thomas 107",
+     "text": "Jesus said, \"The kingdom is like a shepherd who had a hundred sheep. One of them, the largest, went astray. He left the ninety-nine sheep and looked for that one until he found it. When he had gone to such trouble, he said to the sheep, 'I care for you more than the ninety-nine.'\""
+    }
+   ],
+   "notes": "Thomas 30 parallels \"where two or three are gathered\" (Matt 18:20); Thomas 48 parallels the agreement of two (Matt 18:19) with the mountain-moving saying (Matt 17:20); Thomas 107 parallels the lost sheep (Matt 18:12–13 // Luke 15:4–7).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -13067,8 +13207,10 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] \"Foxes have holes\" (Luke 9:58 // Matt 8:20) parallels Thomas 86.",
     "[[SOURCE:Luke 9:51–62]] Now when the days drew near for him to be taken up, Jesus set out resolutely to go to Jerusalem. He sent messengers on ahead of him. As they went along, they entered a Samaritan village to make things ready in advance for him, but the villagers refused to welcome him, because he was determined to go to Jerusalem. Now when his disciples James and John saw this, they said, “Lord, do you want us to call fire to come down from heaven and consume them ?” But Jesus turned and rebuked them, and they went on to another village. As they were walking along the road, someone said to him, “I will follow you wherever you go.” Jesus said to him, “Foxes have dens and the birds in the sky have nests, but the Son of Man has no place to lay his head.” Jesus said to another, “Follow me.” But he replied, “Lord, first let me go and bury my father.” But Jesus said to him, “Let the dead bury their own dead, but as for you, go and proclaim the kingdom of God.” Yet another said, “I will follow you, Lord, but first let me say goodbye to my family.” Jesus said to him, “No one who puts his hand to the plow and looks back is fit for the kingdom of God.”",
-    "[[SOURCE:Matthew 8:18–22]] Now when Jesus saw a large crowd around him, he gave orders to go to the other side of the lake. Then an expert in the law came to him and said, “Teacher, I will follow you wherever you go.” Jesus said to him, “Foxes have dens, and the birds in the sky have nests, but the Son of Man has no place to lay his head.” Another of the disciples said to him, “Lord, let me first go and bury my father.” But Jesus said to him, “Follow me, and let the dead bury their own dead.”"
+    "[[SOURCE:Matthew 8:18–22]] Now when Jesus saw a large crowd around him, he gave orders to go to the other side of the lake. Then an expert in the law came to him and said, “Teacher, I will follow you wherever you go.” Jesus said to him, “Foxes have dens, and the birds in the sky have nests, but the Son of Man has no place to lay his head.” Another of the disciples said to him, “Lord, let me first go and bury my father.” But Jesus said to him, “Follow me, and let the dead bury their own dead.”",
+    "[[NONBIBLICAL:Thomas 86]] Jesus said, \"The foxes have their holes and the birds have their nests, but the son of man has no place to lay his head and rest.\""
    ],
    "verseMarkers": [
     {
@@ -13174,8 +13316,14 @@ window.BASILEIAN_DATA = {
      "verse": 22
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 86",
+     "label": "Thomas 86",
+     "text": "Jesus said, \"The foxes have their holes and the birds have their nests, but the son of man has no place to lay his head and rest.\""
+    }
+   ],
+   "notes": "\"Foxes have holes\" (Luke 9:58 // Matt 8:20) parallels Thomas 86.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -13418,8 +13566,10 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 39 parallels the \"key of knowledge\" woe (Luke 11:52) and \"wise as serpents, innocent as doves\" (Matt 10:16).",
     "[[SOURCE:Luke 11:37–54]] As he spoke, a Pharisee invited Jesus to have a meal with him, so he went in and took his place at the table. The Pharisee was astonished when he saw that Jesus did not first wash his hands before the meal. But the Lord said to him, “Now you Pharisees clean the outside of the cup and the plate, but inside you are full of greed and wickedness. You fools! Didn’t the one who made the outside make the inside as well? But give from your heart to those in need, and then everything will be clean for you. “But woe to you Pharisees! You give a tenth of your mint, rue, and every herb, yet you neglect justice and love for God! But you should have done these things without neglecting the others. Woe to you Pharisees! You love the best seats in the synagogues and elaborate greetings in the marketplaces! Woe to you! You are like unmarked graves, and people walk over them without realizing it!” One of the experts in religious law answered him, “Teacher, when you say these things you insult us too.” But Jesus replied, “Woe to you experts in religious law as well! You load people down with burdens difficult to bear, yet you yourselves refuse to touch the burdens with even one of your fingers! Woe to you! You build the tombs of the prophets whom your ancestors killed. So you testify that you approve of the deeds of your ancestors, because they killed the prophets and you build their tombs! For this reason also the wisdom of God said, ‘I will send them prophets and apostles, some of whom they will kill and persecute,’ so that this generation may be held accountable for the blood of all the prophets that has been shed since the beginning of the world, from the blood of Abel to the blood of Zechariah, who was killed between the altar and the sanctuary. Yes, I tell you, it will be charged against this generation. Woe to you experts in religious law! You have taken away the key to knowledge! You did not go in yourselves, and you hindered those who were going in.” When he went out from there, the experts in the law and the Pharisees began to oppose him bitterly, and to ask him hostile questions about many things, plotting against him, to catch him in something he might say.",
-    "[[SOURCE:Matthew 23:1–39]] Then Jesus said to the crowds and to his disciples, “The experts in the law and the Pharisees sit on Moses’ seat. Therefore pay attention to what they tell you and do it. But do not do what they do, for they do not practice what they teach. They tie up heavy loads, hard to carry, and put them on men’s shoulders, but they themselves are not willing even to lift a finger to move them. They do all their deeds to be seen by people, for they make their phylacteries wide and their tassels long. They love the place of honor at banquets and the best seats in the synagogues and elaborate greetings in the marketplaces, and to have people call them ‘Rabbi.’ But you are not to be called ‘Rabbi,’ for you have one Teacher and you are all brothers. And call no one your ‘father’ on earth, for you have one Father, who is in heaven. Nor are you to be called ‘teacher,’ for you have one teacher, the Christ. The greatest among you will be your servant. And whoever exalts himself will be humbled, and whoever humbles himself will be exalted. “But woe to you, experts in the law and you Pharisees, hypocrites! You keep locking people out of the kingdom of heaven! For you neither enter nor permit those trying to enter to go in. “Woe to you, experts in the law and you Pharisees, hypocrites! You cross land and sea to make one convert, and when you get one, you make him twice as much a child of hell as yourselves! “Woe to you, blind guides, who say, ‘Whoever swears by the temple is bound by nothing. But whoever swears by the gold of the temple is bound by the oath.’ Blind fools! Which is greater, the gold or the temple that makes the gold sacred? And, ‘Whoever swears by the altar is bound by nothing. But if anyone swears by the gift on it he is bound by the oath.’ You are blind! For which is greater, the gift or the altar that makes the gift sacred? So whoever swears by the altar swears by it and by everything on it. And whoever swears by the temple swears by it and the one who dwells in it. And whoever swears by heaven swears by the throne of God and the one who sits on it. “Woe to you, experts in the law and you Pharisees, hypocrites! You give a tenth of mint, dill, and cumin, yet you neglect what is more important in the law—justice, mercy, and faithfulness! You should have done these things without neglecting the others. Blind guides! You strain out a gnat yet swallow a camel! “Woe to you, experts in the law and you Pharisees, hypocrites! You clean the outside of the cup and the dish, but inside they are full of greed and self-indulgence. Blind Pharisee! First clean the inside of the cup, so that the outside may become clean too! “Woe to you, experts in the law and you Pharisees, hypocrites! You are like whitewashed tombs that look beautiful on the outside but inside are full of the bones of the dead and of everything unclean. In the same way, on the outside you look righteous to people, but inside you are full of hypocrisy and lawlessness. “Woe to you, experts in the law and you Pharisees, hypocrites! You build tombs for the prophets and decorate the graves of the righteous. And you say, ‘If we had lived in the days of our ancestors, we would not have participated with them in shedding the blood of the prophets.’ By saying this you testify against yourselves that you are descendants of those who murdered the prophets. Fill up then the measure of your ancestors! You snakes, you offspring of vipers! How will you escape being condemned to hell? “For this reason I am sending you prophets and wise men and experts in the law, some of whom you will kill and crucify, and some you will flog in your synagogues and pursue from town to town, so that on you will come all the righteous blood shed on earth, from the blood of righteous Abel to the blood of Zechariah son of Barachiah, whom you murdered between the temple and the altar. I tell you the truth, this generation will be held responsible for all these things! “O Jerusalem, Jerusalem, you who kill the prophets and stone those who are sent to you! How often I have longed to gather your children together as a hen gathers her chicks under her wings, but you would have none of it! Look, your house is left to you desolate! For I tell you, you will not see me from now until you say, ‘ Blessed is the one who comes in the name of the Lord! ’”"
+    "[[SOURCE:Matthew 23:1–39]] Then Jesus said to the crowds and to his disciples, “The experts in the law and the Pharisees sit on Moses’ seat. Therefore pay attention to what they tell you and do it. But do not do what they do, for they do not practice what they teach. They tie up heavy loads, hard to carry, and put them on men’s shoulders, but they themselves are not willing even to lift a finger to move them. They do all their deeds to be seen by people, for they make their phylacteries wide and their tassels long. They love the place of honor at banquets and the best seats in the synagogues and elaborate greetings in the marketplaces, and to have people call them ‘Rabbi.’ But you are not to be called ‘Rabbi,’ for you have one Teacher and you are all brothers. And call no one your ‘father’ on earth, for you have one Father, who is in heaven. Nor are you to be called ‘teacher,’ for you have one teacher, the Christ. The greatest among you will be your servant. And whoever exalts himself will be humbled, and whoever humbles himself will be exalted. “But woe to you, experts in the law and you Pharisees, hypocrites! You keep locking people out of the kingdom of heaven! For you neither enter nor permit those trying to enter to go in. “Woe to you, experts in the law and you Pharisees, hypocrites! You cross land and sea to make one convert, and when you get one, you make him twice as much a child of hell as yourselves! “Woe to you, blind guides, who say, ‘Whoever swears by the temple is bound by nothing. But whoever swears by the gold of the temple is bound by the oath.’ Blind fools! Which is greater, the gold or the temple that makes the gold sacred? And, ‘Whoever swears by the altar is bound by nothing. But if anyone swears by the gift on it he is bound by the oath.’ You are blind! For which is greater, the gift or the altar that makes the gift sacred? So whoever swears by the altar swears by it and by everything on it. And whoever swears by the temple swears by it and the one who dwells in it. And whoever swears by heaven swears by the throne of God and the one who sits on it. “Woe to you, experts in the law and you Pharisees, hypocrites! You give a tenth of mint, dill, and cumin, yet you neglect what is more important in the law—justice, mercy, and faithfulness! You should have done these things without neglecting the others. Blind guides! You strain out a gnat yet swallow a camel! “Woe to you, experts in the law and you Pharisees, hypocrites! You clean the outside of the cup and the dish, but inside they are full of greed and self-indulgence. Blind Pharisee! First clean the inside of the cup, so that the outside may become clean too! “Woe to you, experts in the law and you Pharisees, hypocrites! You are like whitewashed tombs that look beautiful on the outside but inside are full of the bones of the dead and of everything unclean. In the same way, on the outside you look righteous to people, but inside you are full of hypocrisy and lawlessness. “Woe to you, experts in the law and you Pharisees, hypocrites! You build tombs for the prophets and decorate the graves of the righteous. And you say, ‘If we had lived in the days of our ancestors, we would not have participated with them in shedding the blood of the prophets.’ By saying this you testify against yourselves that you are descendants of those who murdered the prophets. Fill up then the measure of your ancestors! You snakes, you offspring of vipers! How will you escape being condemned to hell? “For this reason I am sending you prophets and wise men and experts in the law, some of whom you will kill and crucify, and some you will flog in your synagogues and pursue from town to town, so that on you will come all the righteous blood shed on earth, from the blood of righteous Abel to the blood of Zechariah son of Barachiah, whom you murdered between the temple and the altar. I tell you the truth, this generation will be held responsible for all these things! “O Jerusalem, Jerusalem, you who kill the prophets and stone those who are sent to you! How often I have longed to gather your children together as a hen gathers her chicks under her wings, but you would have none of it! Look, your house is left to you desolate! For I tell you, you will not see me from now until you say, ‘ Blessed is the one who comes in the name of the Lord! ’”",
+    "[[NONBIBLICAL:Thomas 39]] Jesus said, \"The pharisees and the scribes have taken the keys of knowledge (gnosis) and hidden them. They themselves have not entered, nor have they allowed to enter those who wish to. You, however, be as wise as serpents and as innocent as doves.\""
    ],
    "verseMarkers": [
     {
@@ -13759,8 +13909,14 @@ window.BASILEIAN_DATA = {
      "verse": 39
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 39",
+     "label": "Thomas 39",
+     "text": "Jesus said, \"The pharisees and the scribes have taken the keys of knowledge (gnosis) and hidden them. They themselves have not entered, nor have they allowed to enter those who wish to. You, however, be as wise as serpents and as innocent as doves.\""
+    }
+   ],
+   "notes": "Thomas 39 parallels the \"key of knowledge\" woe (Luke 11:52) and \"wise as serpents, innocent as doves\" (Matt 10:16).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -13937,10 +14093,10 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] Parallels Thomas 63; the parable's ending is also attested in Greek at P.Oxy 5575.",
+    "[[NOTE]] Thomas 72 parallels \"who made me a judge or divider?\" (Luke 12:13–14); the parable parallels Thomas 63. The parable's ending is also attested in Greek at P.Oxy 5575, which is inserted whole at IV.7 (anxiety); cross-reference only here.",
     "[[SOURCE:Luke 12:13–21]] Then someone from the crowd said to him, “Teacher, tell my brother to divide the inheritance with me.” But Jesus said to him, “Man, who made me a judge or arbitrator between you two?” Then he said to them, “Watch out and guard yourself from all types of greed, because one’s life does not consist in the abundance of his possessions.” He then told them a parable: “The land of a certain rich man produced an abundant crop, so he thought to himself, ‘What should I do, for I have nowhere to store my crops?’ Then he said, ‘I will do this: I will tear down my barns and build bigger ones, and there I will store all my grain and my goods. And I will say to myself, “You have plenty of goods stored up for many years; relax, eat, drink, celebrate!”’ But God said to him, ‘You fool! This very night your life will be demanded back from you, but who will get what you have prepared for yourself?’ So it is with the one who stores up riches for himself, but is not rich toward God.”",
-    "[[NONBIBLICAL:Thomas 63]] Jesus said, \"There was a rich man who had much money. He said, 'I shall put my money to use so that I may sow, reap, plant, and fill my storehouse with produce, with the result that I shall lack nothing.' Such were his intentions, but that same night he died. Let him who has ears hear.\"",
-    "[[NONBIBLICAL:P.Oxy 5575 (rich-fool ending)]] [Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
+    "[[NONBIBLICAL:Thomas 72]] A man said to him, \"Tell my brothers to divide my father's possessions with me.\" He said to him, \"O man, who has made me a divider?\" He turned to his disciples and said to them, \"I am not a divider, am I?\"",
+    "[[NONBIBLICAL:Thomas 63]] Jesus said, \"There was a rich man who had much money. He said, 'I shall put my money to use so that I may sow, reap, plant, and fill my storehouse with produce, with the result that I shall lack nothing.' Such were his intentions, but that same night he died. Let him who has ears hear.\""
    ],
    "verseMarkers": [
     {
@@ -14000,17 +14156,17 @@ window.BASILEIAN_DATA = {
    ],
    "nonbiblical": [
     {
+     "source": "Gospel of Thomas 72",
+     "label": "Thomas 72",
+     "text": "A man said to him, \"Tell my brothers to divide my father's possessions with me.\" He said to him, \"O man, who has made me a divider?\" He turned to his disciples and said to them, \"I am not a divider, am I?\""
+    },
+    {
      "source": "Gospel of Thomas 63",
      "label": "Thomas 63",
      "text": "Jesus said, \"There was a rich man who had much money. He said, 'I shall put my money to use so that I may sow, reap, plant, and fill my storehouse with produce, with the result that I shall lack nothing.' Such were his intentions, but that same night he died. Let him who has ears hear.\""
-    },
-    {
-     "source": "P.Oxy 5575",
-     "label": "P.Oxy 5575 (rich-fool ending)",
-     "text": "[Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
     }
    ],
-   "notes": "Parallels Thomas 63; the parable's ending is also attested in Greek at P.Oxy 5575.",
+   "notes": "Thomas 72 parallels \"who made me a judge or divider?\" (Luke 12:13–14); the parable parallels Thomas 63. The parable's ending is also attested in Greek at P.Oxy 5575, which is inserted whole at IV.7 (anxiety); cross-reference only here.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -14039,8 +14195,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 21 and 103 parallel the householder and the thief (Luke 12:39 // Matt 24:43); Thomas 21 also echoes the sickle at harvest (Mark 4:29).",
     "[[SOURCE:Luke 12:35–48]] “Get dressed for service and keep your lamps burning; be like people waiting for their master to come back from the wedding celebration, so that when he comes and knocks they can immediately open the door for him. Blessed are those slaves whom their master finds alert when he returns! I tell you the truth, he will dress himself to serve, have them take their place at the table, and will come and wait on them! Even if he comes in the second or third watch of the night and finds them alert, blessed are those slaves! But understand this: If the owner of the house had known at what hour the thief was coming, he would not have let his house be broken into. You also must be ready, because the Son of Man will come at an hour when you do not expect him.” Then Peter said, “Lord, are you telling this parable for us or for everyone?” The Lord replied, “Who then is the faithful and wise manager, whom the master puts in charge of his household servants, to give them their allowance of food at the proper time? Blessed is that slave whom his master finds at work when he returns. I tell you the truth, the master will put him in charge of all his possessions. But if that slave should say to himself, ‘My master is delayed in returning,’ and he begins to beat the other slaves, both men and women, and to eat, drink, and get drunk, then the master of that slave will come on a day when he does not expect him and at an hour he does not foresee, and will cut him in two, and assign him a place with the unfaithful. That servant who knew his master’s will but did not get ready or do what his master asked will receive a severe beating. But the one who did not know his master’s will and did things worthy of punishment will receive a light beating. From everyone who has been given much, much will be required, and from the one who has been entrusted with much, even more will be asked.",
-    "[[SOURCE:Matthew 24:43–51]] But understand this: If the owner of the house had known at what time of night the thief was coming, he would have been alert and would not have let his house be broken into. Therefore you also must be ready, because the Son of Man will come at an hour when you do not expect him. “Who then is the faithful and wise slave, whom the master has put in charge of his household, to give the other slaves their food at the proper time? Blessed is that slave whom the master finds at work when he comes. I tell you the truth, the master will put him in charge of all his possessions. But if that evil slave should say to himself, ‘My master is staying away a long time,’ and he begins to beat his fellow slaves and to eat and drink with drunkards, then the master of that slave will come on a day when he does not expect him and at an hour he does not foresee, and will cut him in two, and assign him a place with the hypocrites, where there will be weeping and gnashing of teeth."
+    "[[SOURCE:Matthew 24:43–51]] But understand this: If the owner of the house had known at what time of night the thief was coming, he would have been alert and would not have let his house be broken into. Therefore you also must be ready, because the Son of Man will come at an hour when you do not expect him. “Who then is the faithful and wise slave, whom the master has put in charge of his household, to give the other slaves their food at the proper time? Blessed is that slave whom the master finds at work when he comes. I tell you the truth, the master will put him in charge of all his possessions. But if that evil slave should say to himself, ‘My master is staying away a long time,’ and he begins to beat his fellow slaves and to eat and drink with drunkards, then the master of that slave will come on a day when he does not expect him and at an hour he does not foresee, and will cut him in two, and assign him a place with the hypocrites, where there will be weeping and gnashing of teeth.",
+    "[[NONBIBLICAL:Thomas 21]] Mary said to Jesus, \"Whom are your disciples like?\" He said, \"They are like children who have settled in a field which is not theirs. When the owners of the field come, they will say, 'Let us have back our field.' They (will) undress in their presence in order to let them have back their field and to give it back to them. Therefore I say, if the owner of a house knows that the thief is coming, he will begin his vigil before he comes and will not let him dig through into his house of his domain to carry away his goods. You, then, be on your guard against the world. Arm yourselves with great strength lest the robbers find a way to come to you, for the difficulty which you expect will (surely) materialize. Let there be among you a man of understanding. When the grain ripened, he came quickly with his sickle in his hand and reaped it. Whoever has ears to hear, let him hear.\"",
+    "[[NONBIBLICAL:Thomas 103]] Jesus said, \"Fortunate is the man who knows where the brigands will enter, so that he may get up, muster his domain, and arm himself before they invade.\""
    ],
    "verseMarkers": [
     {
@@ -14182,8 +14341,19 @@ window.BASILEIAN_DATA = {
      "verse": 51
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 21",
+     "label": "Thomas 21",
+     "text": "Mary said to Jesus, \"Whom are your disciples like?\" He said, \"They are like children who have settled in a field which is not theirs. When the owners of the field come, they will say, 'Let us have back our field.' They (will) undress in their presence in order to let them have back their field and to give it back to them. Therefore I say, if the owner of a house knows that the thief is coming, he will begin his vigil before he comes and will not let him dig through into his house of his domain to carry away his goods. You, then, be on your guard against the world. Arm yourselves with great strength lest the robbers find a way to come to you, for the difficulty which you expect will (surely) materialize. Let there be among you a man of understanding. When the grain ripened, he came quickly with his sickle in his hand and reaped it. Whoever has ears to hear, let him hear.\""
+    },
+    {
+     "source": "Gospel of Thomas 103",
+     "label": "Thomas 103",
+     "text": "Jesus said, \"Fortunate is the man who knows where the brigands will enter, so that he may get up, muster his domain, and arm himself before they invade.\""
+    }
+   ],
+   "notes": "Thomas 21 and 103 parallel the householder and the thief (Luke 12:39 // Matt 24:43); Thomas 21 also echoes the sickle at harvest (Mark 4:29).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -14205,7 +14375,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[SOURCE:Luke 12:49–59]] “I have come to bring fire on the earth—and how I wish it were already kindled! I have a baptism to undergo, and how distressed I am until it is finished! Do you think I have come to bring peace on earth? No, I tell you, but rather division! For from now on there will be five in one household divided, three against two and two against three. They will be divided, father against son and son against father, mother against daughter and daughter against mother, mother-in-law against her daughter-in-law and daughter-in-law against mother-in-law.” Jesus also said to the crowds, “When you see a cloud rising in the west, you say at once, ‘A rainstorm is coming,’ and it does. And when you see the south wind blowing, you say, ‘There will be scorching heat,’ and there is. You hypocrites! You know how to interpret the appearance of the earth and the sky, but how can you not know how to interpret the present time? “And why don’t you judge for yourselves what is right? As you are going with your accuser before the magistrate, make an effort to settle with him on the way, so that he will not drag you before the judge, and the judge hand you over to the officer, and the officer throw you into prison. I tell you, you will never get out of there until you have paid the very last cent!”"
+    "[[NOTE]] Thomas 10 parallels \"I came to cast fire on the earth\" (Luke 12:49); Thomas 91 parallels interpreting the times (Luke 12:54–56 // Matt 16:3); Thomas 16 parallels \"not peace but division\" (Luke 12:51–53 // Matt 10:34–36).",
+    "[[SOURCE:Luke 12:49–59]] “I have come to bring fire on the earth—and how I wish it were already kindled! I have a baptism to undergo, and how distressed I am until it is finished! Do you think I have come to bring peace on earth? No, I tell you, but rather division! For from now on there will be five in one household divided, three against two and two against three. They will be divided, father against son and son against father, mother against daughter and daughter against mother, mother-in-law against her daughter-in-law and daughter-in-law against mother-in-law.” Jesus also said to the crowds, “When you see a cloud rising in the west, you say at once, ‘A rainstorm is coming,’ and it does. And when you see the south wind blowing, you say, ‘There will be scorching heat,’ and there is. You hypocrites! You know how to interpret the appearance of the earth and the sky, but how can you not know how to interpret the present time? “And why don’t you judge for yourselves what is right? As you are going with your accuser before the magistrate, make an effort to settle with him on the way, so that he will not drag you before the judge, and the judge hand you over to the officer, and the officer throw you into prison. I tell you, you will never get out of there until you have paid the very last cent!”",
+    "[[NONBIBLICAL:Thomas 10]] Jesus said, \"I have cast fire upon the world, and see, I am guarding it until it blazes.\"",
+    "[[NONBIBLICAL:Thomas 91]] They said to him, \"Tell us who you are so that we may believe in you.\" He said to them, \"You read the face of the sky and of the earth, but you have not recognized the one who is before you, and you do not know how to read this moment.\"",
+    "[[NONBIBLICAL:Thomas 16]] Jesus said, \"Men think, perhaps, that it is peace which I have come to cast upon the world. They do not know that it is dissension which I have come to cast upon the earth: fire, sword, and war. For there will be five in a house: three will be against two, and two against three, the father against the son, and the son against the father. And they will stand solitary.\""
    ],
    "verseMarkers": [
     {
@@ -14275,8 +14449,24 @@ window.BASILEIAN_DATA = {
      "verse": 59
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 10",
+     "label": "Thomas 10",
+     "text": "Jesus said, \"I have cast fire upon the world, and see, I am guarding it until it blazes.\""
+    },
+    {
+     "source": "Gospel of Thomas 91",
+     "label": "Thomas 91",
+     "text": "They said to him, \"Tell us who you are so that we may believe in you.\" He said to them, \"You read the face of the sky and of the earth, but you have not recognized the one who is before you, and you do not know how to read this moment.\""
+    },
+    {
+     "source": "Gospel of Thomas 16",
+     "label": "Thomas 16",
+     "text": "Jesus said, \"Men think, perhaps, that it is peace which I have come to cast upon the world. They do not know that it is dissension which I have come to cast upon the earth: fire, sword, and war. For there will be five in a house: three will be against two, and two against three, the father against the son, and the son against the father. And they will stand solitary.\""
+    }
+   ],
+   "notes": "Thomas 10 parallels \"I came to cast fire on the earth\" (Luke 12:49); Thomas 91 parallels interpreting the times (Luke 12:54–56 // Matt 16:3); Thomas 16 parallels \"not peace but division\" (Luke 12:51–53 // Matt 10:34–36).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -14862,10 +15052,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] \"Hating father and mother\" parallels Thomas 55; \"fast from the kosmos\" (P.Oxy 5575 / Thomas 27) belongs to the same renunciation theme.",
+    "[[NOTE]] Thomas 98 (testing one's hand before killing the powerful man) parallels the king going to war (Luke 14:31); \"hating father and mother\" parallels Thomas 55 and Thomas 101; Thomas 27 (\"fast as regards the world\") belongs to the same renunciation theme. P.Oxy 5575 attests the \"fast from the world\" saying in Greek; it is inserted whole at IV.7 (anxiety); cross-reference only here.",
     "[[SOURCE:Luke 14:25–35]] Now large crowds were accompanying Jesus, and turning to them he said, “If anyone comes to me and does not hate his own father and mother, and wife and children, and brothers and sisters, and even his own life, he cannot be my disciple. Whoever does not carry his own cross and follow me cannot be my disciple. For which of you, wanting to build a tower, doesn’t sit down first and compute the cost to see if he has enough money to complete it? Otherwise, when he has laid a foundation and is not able to finish the tower, all who see it will begin to make fun of him. They will say, ‘This man began to build and was not able to finish!’ Or what king, going out to confront another king in battle, will not sit down first and determine whether he is able with 10,000 to oppose the one coming against him with 20,000? If he cannot succeed, he will send a representative while the other is still a long way off and ask for terms of peace. In the same way therefore not one of you can be my disciple if he does not renounce all his own possessions. “Salt is good, but if salt loses its flavor, how can its flavor be restored? It is of no value for the soil or for the manure pile; it is to be thrown out. The one who has ears to hear had better listen!”",
+    "[[NONBIBLICAL:Thomas 98]] Jesus said, \"The kingdom of the father is like a certain man who wanted to kill a powerful man. In his own house he drew his sword and stuck it into the wall in order to find out whether his hand could carry through. Then he slew the powerful man.\"",
     "[[NONBIBLICAL:Thomas 55 (\"hating father and mother\")]] Jesus said, \"Whoever does not hate his father and his mother cannot become a disciple to me. And whoever does not hate his brothers and sisters and take up his cross in my way will not be worthy of me.\"",
-    "[[NONBIBLICAL:P.Oxy 5575 (\"fast from the kosmos\")]] [Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
+    "[[NONBIBLICAL:Thomas 27]] Jesus said, \"If you do not fast as regards the world, you will not find the kingdom. If you do not observe the Sabbath as a Sabbath, you will not see the father.\"",
+    "[[NONBIBLICAL:Thomas 101]] Jesus said, \"Whoever does not hate his father and his mother as I do cannot become a disciple to me. And whoever does not love his father and his mother as I do cannot become a disciple to me. For my mother [...], but my true mother gave me life.\""
    ],
    "verseMarkers": [
     {
@@ -14937,17 +15129,27 @@ window.BASILEIAN_DATA = {
    ],
    "nonbiblical": [
     {
+     "source": "Gospel of Thomas 98",
+     "label": "Thomas 98",
+     "text": "Jesus said, \"The kingdom of the father is like a certain man who wanted to kill a powerful man. In his own house he drew his sword and stuck it into the wall in order to find out whether his hand could carry through. Then he slew the powerful man.\""
+    },
+    {
      "source": "Gospel of Thomas 55",
      "label": "Thomas 55 (\"hating father and mother\")",
      "text": "Jesus said, \"Whoever does not hate his father and his mother cannot become a disciple to me. And whoever does not hate his brothers and sisters and take up his cross in my way will not be worthy of me.\""
     },
     {
-     "source": "P.Oxy 5575 / Thomas 27",
-     "label": "P.Oxy 5575 (\"fast from the kosmos\")",
-     "text": "[Fragment 1]\n[…] (the rich man) died. [I tell you, don't] be anxious about [your life], what you'll eat, [nor the] body, what [you'll wear], because I tell you, [unless] you fast from [the world], you'll never find [the kingdom], and unless you […] the world, [you'll never …] the Father [… the] birds, how […] and [your] heavenly Father [feeds them …] so you […] much […]\n\n[Fragment 2]\n[…] how [they grow …] Solomon […] in [his] glory […] the Father [clothes] grass which [dries up] and is thrown into the oven, [he'll clothe] you […] so you […] also […] because [your] Father [knows] your need, [but] look for [the kingdom and all these things will be given …]\n\nNotes:\n(the rich man) died — Cp. Thomas 63: \"a rich man … died.\" See also Luke 12:16–21.\n[don't] be anxious — Cp. Matthew 6:25; Luke 12:22; Thomas 36.\n[unless] you fast from [the world] — Cp. Thomas 27.\n[the] birds — Cp. Matthew 6:26; Luke 12:24.\nhow [they grow] — Cp. Matthew 6:28–30; Luke 12:27–28; Thomas 36.\nso you — Cp. Matthew 6:32–33; Luke 12:30–31."
+     "source": "Gospel of Thomas 27",
+     "label": "Thomas 27",
+     "text": "Jesus said, \"If you do not fast as regards the world, you will not find the kingdom. If you do not observe the Sabbath as a Sabbath, you will not see the father.\""
+    },
+    {
+     "source": "Gospel of Thomas 101",
+     "label": "Thomas 101",
+     "text": "Jesus said, \"Whoever does not hate his father and his mother as I do cannot become a disciple to me. And whoever does not love his father and his mother as I do cannot become a disciple to me. For my mother [...], but my true mother gave me life.\""
     }
    ],
-   "notes": "\"Hating father and mother\" parallels Thomas 55; \"fast from the kosmos\" (P.Oxy 5575 / Thomas 27) belongs to the same renunciation theme.",
+   "notes": "Thomas 98 (testing one's hand before killing the powerful man) parallels the king going to war (Luke 14:31); \"hating father and mother\" parallels Thomas 55 and Thomas 101; Thomas 27 (\"fast as regards the world\") belongs to the same renunciation theme. P.Oxy 5575 attests the \"fast from the world\" saying in Greek; it is inserted whole at IV.7 (anxiety); cross-reference only here.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -15483,10 +15685,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] \"The kingdom is within / among you\" theme parallels Thomas 113.",
+    "[[NOTE]] Thomas 113 (\"the kingdom of the father is spread out upon the earth\") and Thomas 3 (\"the kingdom is inside of you, and it is outside of you\") parallel \"the kingdom of God is in your midst\" (Luke 17:20–21); Thomas 61 parallels \"two in one bed\" (Luke 17:34).",
     "[[SOURCE:Luke 17:20–37]] Now at one point the Pharisees asked Jesus when the kingdom of God was coming, so he answered, “The kingdom of God is not coming with signs to be observed, nor will they say, ‘Look, here it is!’ or ‘There!’ For indeed, the kingdom of God is in your midst.” Then he said to the disciples, “The days are coming when you will desire to see one of the days of the Son of Man, and you will not see it. Then people will say to you, ‘Look, there he is!’ or ‘Look, here he is!’ Do not go out or chase after them. For just like the lightning flashes and lights up the sky from one side to the other, so will the Son of Man be in his day. But first he must suffer many things and be rejected by this generation. Just as it was in the days of Noah, so too it will be in the days of the Son of Man. People were eating, they were drinking, they were marrying, they were being given in marriage—right up to the day Noah entered the ark. Then the flood came and destroyed them all. Likewise, just as it was in the days of Lot, people were eating, drinking, buying, selling, planting, building; but on the day Lot went out from Sodom, fire and sulfur rained down from heaven and destroyed them all. It will be the same on the day the Son of Man is revealed. On that day, anyone who is on the roof, with his goods in the house, must not come down to take them away, and likewise the person in the field must not turn back. Remember Lot’s wife! Whoever tries to keep his life will lose it, but whoever loses his life will preserve it. I tell you, in that night there will be two people in one bed; one will be taken and the other left. There will be two women grinding grain together; one will be taken and the other left.” Then the disciples said to him, “Where, Lord?” He replied to them, “Where the dead body is, there the vultures will gather.”",
     "[[SOURCE:Matthew 24:26–41]] So then, if someone says to you, ‘Look, he is in the wilderness,’ do not go out, or ‘Look, he is in the inner rooms,’ do not believe him. For just like the lightning comes from the east and flashes to the west, so the coming of the Son of Man will be. Wherever the corpse is, there the vultures will gather. “Immediately after the suffering of those days, the sun will be darkened, and the moon will not give its light; the stars will fall from heaven, and the powers of heaven will be shaken . Then the sign of the Son of Man will appear in heaven, and all the tribes of the earth will mourn. They will see the Son of Man arriving on the clouds of heaven with power and great glory. And he will send his angels with a loud trumpet blast, and they will gather his elect from the four winds, from one end of heaven to the other. “Learn this parable from the fig tree: Whenever its branch becomes tender and puts out its leaves, you know that summer is near. So also you, when you see all these things, know that he is near, right at the door. I tell you the truth, this generation will not pass away until all these things take place. Heaven and earth will pass away, but my words will never pass away. “But as for that day and hour no one knows it—not even the angels in heaven —except the Father alone. For just like the days of Noah were, so the coming of the Son of Man will be. For in those days before the flood, people were eating and drinking, marrying and giving in marriage, until the day Noah entered the ark. And they knew nothing until the flood came and took them all away. It will be the same at the coming of the Son of Man. Then there will be two men in the field; one will be taken and one left. There will be two women grinding grain with a mill; one will be taken and one left.",
-    "[[NONBIBLICAL:Thomas 113 (\"kingdom is within/among you\")]] His disciples said to him, \"When will the kingdom come?\" Jesus said, \"It will not come by waiting for it. It will not be a matter of saying 'here it is' or 'there it is.' Rather, the kingdom of the father is spread out upon the earth, and men do not see it.\""
+    "[[NONBIBLICAL:Thomas 61]] Jesus said, \"Two will rest on a bed: the one will die, and the other will live.\" Salome said, \"Who are you, man, that you ... have come up on my couch and eaten from my table?\" Jesus said to her, \"I am he who exists from the undivided. I was given some of the things of my father.\" \"I am your disciple.\" \"Therefore I say, if he is destroyed, he will be filled with light, but if he is divided, he will be filled with darkness.\"",
+    "[[NONBIBLICAL:Thomas 113]] His disciples said to him, \"When will the kingdom come?\" Jesus said, \"It will not come by waiting for it. It will not be a matter of saying 'here it is' or 'there it is.' Rather, the kingdom of the father is spread out upon the earth, and men do not see it.\"",
+    "[[NONBIBLICAL:Thomas 3]] Jesus said, \"If those who lead you say to you, 'See, the kingdom is in the sky,' then the birds of the sky will precede you. If they say to you, 'It is in the sea,' then the fish will precede you. Rather, the kingdom is inside of you, and it is outside of you. When you come to know yourselves, then you will become known, and you will realize that it is you who are the sons of the living father. But if you will not know yourselves, you dwell in poverty and it is you who are that poverty.\""
    ],
    "verseMarkers": [
     {
@@ -15690,12 +15894,22 @@ window.BASILEIAN_DATA = {
    ],
    "nonbiblical": [
     {
+     "source": "Gospel of Thomas 61",
+     "label": "Thomas 61",
+     "text": "Jesus said, \"Two will rest on a bed: the one will die, and the other will live.\" Salome said, \"Who are you, man, that you ... have come up on my couch and eaten from my table?\" Jesus said to her, \"I am he who exists from the undivided. I was given some of the things of my father.\" \"I am your disciple.\" \"Therefore I say, if he is destroyed, he will be filled with light, but if he is divided, he will be filled with darkness.\""
+    },
+    {
      "source": "Gospel of Thomas 113",
-     "label": "Thomas 113 (\"kingdom is within/among you\")",
+     "label": "Thomas 113",
      "text": "His disciples said to him, \"When will the kingdom come?\" Jesus said, \"It will not come by waiting for it. It will not be a matter of saying 'here it is' or 'there it is.' Rather, the kingdom of the father is spread out upon the earth, and men do not see it.\""
+    },
+    {
+     "source": "Gospel of Thomas 3",
+     "label": "Thomas 3",
+     "text": "Jesus said, \"If those who lead you say to you, 'See, the kingdom is in the sky,' then the birds of the sky will precede you. If they say to you, 'It is in the sea,' then the fish will precede you. Rather, the kingdom is inside of you, and it is outside of you. When you come to know yourselves, then you will become known, and you will realize that it is you who are the sons of the living father. But if you will not know yourselves, you dwell in poverty and it is you who are that poverty.\""
     }
    ],
-   "notes": "\"The kingdom is within / among you\" theme parallels Thomas 113.",
+   "notes": "Thomas 113 (\"the kingdom of the father is spread out upon the earth\") and Thomas 3 (\"the kingdom is inside of you, and it is outside of you\") parallel \"the kingdom of God is in your midst\" (Luke 17:20–21); Thomas 61 parallels \"two in one bed\" (Luke 17:34).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -16168,7 +16382,9 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[SOURCE:John 8:12–59]] Then Jesus spoke out again, “I am the light of the world! The one who follows me will never walk in darkness, but will have the light of life.” So the Pharisees objected, “You testify about yourself; your testimony is not true!” Jesus answered, “Even if I testify about myself, my testimony is true, because I know where I came from and where I am going. But you people do not know where I came from or where I am going. You people judge by outward appearances; I do not judge anyone. But if I judge, my evaluation is accurate, because I am not alone when I judge, but I and the Father who sent me do so together. It is written in your law that the testimony of two men is true . I testify about myself and the Father who sent me testifies about me.” Then they began asking him, “Who is your father?” Jesus answered, “You do not know either me or my Father. If you knew me you would know my Father too.” (Jesus spoke these words near the offering box while he was teaching in the temple courts. No one seized him because his time had not yet come.) Then Jesus said to them again, “I am going away, and you will look for me but will die in your sin. Where I am going you cannot come.” So the Jewish leaders began to say, “Perhaps he is going to kill himself, because he says, ‘Where I am going you cannot come.’” Jesus replied, “You people are from below; I am from above. You people are from this world; I am not from this world. Thus I told you that you will die in your sins. For unless you believe that I am he, you will die in your sins.” So they said to him, “Who are you?” Jesus replied, “What I have told you from the beginning. I have many things to say and to judge about you, but the Father who sent me is truthful, and the things I have heard from him I speak to the world.” (They did not understand that he was telling them about his Father.) Then Jesus said, “When you lift up the Son of Man, then you will know that I am he, and I do nothing on my own initiative, but I speak just what the Father taught me. And the one who sent me is with me. He has not left me alone, because I always do those things that please him.” While he was saying these things, many people believed in him. Then Jesus said to those Judeans who had believed him, “If you continue to follow my teaching, you are really my disciples and you will know the truth, and the truth will set you free.” “We are descendants of Abraham,” they replied, “and have never been anyone’s slaves! How can you say, ‘You will become free’?” Jesus answered them, “I tell you the solemn truth, everyone who practices sin is a slave of sin. The slave does not remain in the family forever, but the son remains forever. So if the son sets you free, you will be really free. I know that you are Abraham’s descendants. But you want to kill me, because my teaching makes no progress among you. I am telling you the things I have seen while with the Father; as for you, practice the things you have heard from the Father!” They answered him, “Abraham is our father!” Jesus replied, “If you are Abraham’s children, you would be doing the deeds of Abraham. But now you are trying to kill me, a man who has told you the truth I heard from God. Abraham did not do this! You people are doing the deeds of your father.” Then they said to Jesus, “We were not born as a result of immorality! We have only one Father, God himself.” Jesus replied, “If God were your Father, you would love me, for I have come from God and am now here. I have not come on my own initiative, but he sent me. Why don’t you understand what I am saying? It is because you cannot accept my teaching. You people are from your father the devil, and you want to do what your father desires. He was a murderer from the beginning, and does not uphold the truth, because there is no truth in him. Whenever he lies, he speaks according to his own nature, because he is a liar and the father of lies. But because I am telling you the truth, you do not believe me. Who among you can prove me guilty of any sin? If I am telling you the truth, why don’t you believe me? The one who belongs to God listens and responds to God’s words. You don’t listen and respond, because you don’t belong to God.” The Judeans replied, “Aren’t we correct in saying that you are a Samaritan and are possessed by a demon?” Jesus answered, “I am not possessed by a demon, but I honor my Father—and yet you dishonor me. I am not trying to get praise for myself. There is one who demands it, and he also judges. I tell you the solemn truth, if anyone obeys my teaching, he will never see death.” Then the Judeans responded, “Now we know you’re possessed by a demon! Both Abraham and the prophets died, and yet you say, ‘If anyone obeys my teaching, he will never experience death.’ You aren’t greater than our father Abraham who died, are you? And the prophets died too! Who do you claim to be?” Jesus replied, “If I glorify myself, my glory is worthless. The one who glorifies me is my Father, about whom you people say, ‘He is our God.’ Yet you do not know him, but I know him. If I were to say that I do not know him, I would be a liar like you. But I do know him, and I obey his teaching. Your father Abraham was overjoyed to see my day, and he saw it and was glad.” Then the Judeans replied, “You are not yet fifty years old! Have you seen Abraham?” Jesus said to them, “I tell you the solemn truth, before Abraham came into existence, I am!” Then they picked up stones to throw at him, but Jesus was hidden from them and went out from the temple area."
+    "[[NOTE]] Thomas 77 (\"It is I who am the light which is above them all\") is anchored to \"I am the light of the world\" (John 8:12).",
+    "[[SOURCE:John 8:12–59]] Then Jesus spoke out again, “I am the light of the world! The one who follows me will never walk in darkness, but will have the light of life.” So the Pharisees objected, “You testify about yourself; your testimony is not true!” Jesus answered, “Even if I testify about myself, my testimony is true, because I know where I came from and where I am going. But you people do not know where I came from or where I am going. You people judge by outward appearances; I do not judge anyone. But if I judge, my evaluation is accurate, because I am not alone when I judge, but I and the Father who sent me do so together. It is written in your law that the testimony of two men is true . I testify about myself and the Father who sent me testifies about me.” Then they began asking him, “Who is your father?” Jesus answered, “You do not know either me or my Father. If you knew me you would know my Father too.” (Jesus spoke these words near the offering box while he was teaching in the temple courts. No one seized him because his time had not yet come.) Then Jesus said to them again, “I am going away, and you will look for me but will die in your sin. Where I am going you cannot come.” So the Jewish leaders began to say, “Perhaps he is going to kill himself, because he says, ‘Where I am going you cannot come.’” Jesus replied, “You people are from below; I am from above. You people are from this world; I am not from this world. Thus I told you that you will die in your sins. For unless you believe that I am he, you will die in your sins.” So they said to him, “Who are you?” Jesus replied, “What I have told you from the beginning. I have many things to say and to judge about you, but the Father who sent me is truthful, and the things I have heard from him I speak to the world.” (They did not understand that he was telling them about his Father.) Then Jesus said, “When you lift up the Son of Man, then you will know that I am he, and I do nothing on my own initiative, but I speak just what the Father taught me. And the one who sent me is with me. He has not left me alone, because I always do those things that please him.” While he was saying these things, many people believed in him. Then Jesus said to those Judeans who had believed him, “If you continue to follow my teaching, you are really my disciples and you will know the truth, and the truth will set you free.” “We are descendants of Abraham,” they replied, “and have never been anyone’s slaves! How can you say, ‘You will become free’?” Jesus answered them, “I tell you the solemn truth, everyone who practices sin is a slave of sin. The slave does not remain in the family forever, but the son remains forever. So if the son sets you free, you will be really free. I know that you are Abraham’s descendants. But you want to kill me, because my teaching makes no progress among you. I am telling you the things I have seen while with the Father; as for you, practice the things you have heard from the Father!” They answered him, “Abraham is our father!” Jesus replied, “If you are Abraham’s children, you would be doing the deeds of Abraham. But now you are trying to kill me, a man who has told you the truth I heard from God. Abraham did not do this! You people are doing the deeds of your father.” Then they said to Jesus, “We were not born as a result of immorality! We have only one Father, God himself.” Jesus replied, “If God were your Father, you would love me, for I have come from God and am now here. I have not come on my own initiative, but he sent me. Why don’t you understand what I am saying? It is because you cannot accept my teaching. You people are from your father the devil, and you want to do what your father desires. He was a murderer from the beginning, and does not uphold the truth, because there is no truth in him. Whenever he lies, he speaks according to his own nature, because he is a liar and the father of lies. But because I am telling you the truth, you do not believe me. Who among you can prove me guilty of any sin? If I am telling you the truth, why don’t you believe me? The one who belongs to God listens and responds to God’s words. You don’t listen and respond, because you don’t belong to God.” The Judeans replied, “Aren’t we correct in saying that you are a Samaritan and are possessed by a demon?” Jesus answered, “I am not possessed by a demon, but I honor my Father—and yet you dishonor me. I am not trying to get praise for myself. There is one who demands it, and he also judges. I tell you the solemn truth, if anyone obeys my teaching, he will never see death.” Then the Judeans responded, “Now we know you’re possessed by a demon! Both Abraham and the prophets died, and yet you say, ‘If anyone obeys my teaching, he will never experience death.’ You aren’t greater than our father Abraham who died, are you? And the prophets died too! Who do you claim to be?” Jesus replied, “If I glorify myself, my glory is worthless. The one who glorifies me is my Father, about whom you people say, ‘He is our God.’ Yet you do not know him, but I know him. If I were to say that I do not know him, I would be a liar like you. But I do know him, and I obey his teaching. Your father Abraham was overjoyed to see my day, and he saw it and was glad.” Then the Judeans replied, “You are not yet fifty years old! Have you seen Abraham?” Jesus said to them, “I tell you the solemn truth, before Abraham came into existence, I am!” Then they picked up stones to throw at him, but Jesus was hidden from them and went out from the temple area.",
+    "[[NONBIBLICAL:Thomas 77]] Jesus said, \"It is I who am the light which is above them all. It is I who am the all. From me did the all come forth, and unto me did the all extend. Split a piece of wood, and I am there. Lift up the stone, and you will find me there.\""
    ],
    "verseMarkers": [
     {
@@ -16460,8 +16676,14 @@ window.BASILEIAN_DATA = {
      "verse": 59
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 77",
+     "label": "Thomas 77",
+     "text": "Jesus said, \"It is I who am the light which is above them all. It is I who am the all. From me did the all come forth, and unto me did the all extend. Split a piece of wood, and I am there. Lift up the stone, and you will find me there.\""
+    }
+   ],
+   "notes": "Thomas 77 (\"It is I who am the light which is above them all\") is anchored to \"I am the light of the world\" (John 8:12).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -17618,9 +17840,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 22 (the infants \"are like those who enter the kingdom\") parallels Mark 10:15.",
     "[[SOURCE:Mark 10:13–16]] Now people were bringing little children to him for him to touch, but the disciples scolded those who brought them. But when Jesus saw this, he was indignant and said to them, “Let the little children come to me and do not try to stop them, for the kingdom of God belongs to such as these. I tell you the truth, whoever does not receive the kingdom of God like a child will never enter it.” After he took the children in his arms, he placed his hands on them and blessed them.",
     "[[SOURCE:Matthew 19:13–15]] Then little children were brought to him for him to lay his hands on them and pray. But the disciples scolded those who brought them. But Jesus said, “Let the little children come to me and do not try to stop them, for the kingdom of heaven belongs to such as these.” And he placed his hands on them and went on his way.",
-    "[[SOURCE:Luke 18:15–17]] Now people were even bringing their babies to him for him to touch. But when the disciples saw it, they began to scold those who brought them. But Jesus called for the children, saying, “Let the little children come to me and do not try to stop them, for the kingdom of God belongs to such as these. I tell you the truth, whoever does not receive the kingdom of God like a child will never enter it.”"
+    "[[SOURCE:Luke 18:15–17]] Now people were even bringing their babies to him for him to touch. But when the disciples saw it, they began to scold those who brought them. But Jesus called for the children, saying, “Let the little children come to me and do not try to stop them, for the kingdom of God belongs to such as these. I tell you the truth, whoever does not receive the kingdom of God like a child will never enter it.”",
+    "[[NONBIBLICAL:Thomas 22]] Jesus saw infants being suckled. He said to his disciples, \"These infants being suckled are like those who enter the kingdom.\" They said to him, \"Shall we then, as children, enter the kingdom?\" Jesus said to them, \"When you make the two one, and when you make the inside like the outside and the outside like the inside, and the above like the below, and when you make the male and the female one and the same, so that the male not be male nor the female; and when you fashion eyes in the place of an eye, and a hand in place of a hand, and a foot in place of a foot, and a likeness in place of a likeness; then will you enter the kingdom.\""
    ],
    "verseMarkers": [
     {
@@ -17684,8 +17908,14 @@ window.BASILEIAN_DATA = {
      "verse": 17
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 22",
+     "label": "Thomas 22",
+     "text": "Jesus saw infants being suckled. He said to his disciples, \"These infants being suckled are like those who enter the kingdom.\" They said to him, \"Shall we then, as children, enter the kingdom?\" Jesus said to them, \"When you make the two one, and when you make the inside like the outside and the outside like the inside, and the above like the below, and when you make the male and the female one and the same, so that the male not be male nor the female; and when you fashion eyes in the place of an eye, and a hand in place of a hand, and a foot in place of a foot, and a likeness in place of a likeness; then will you enter the kingdom.\""
+    }
+   ],
+   "notes": "Thomas 22 (the infants \"are like those who enter the kingdom\") parallels Mark 10:15.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -17721,9 +17951,11 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 4 is anchored via \"many who are first will be last\" (Mark 10:31).",
     "[[SOURCE:Mark 10:17–31]] Now as Jesus was starting out on his way, someone ran up to him, fell on his knees, and said, “Good teacher, what must I do to inherit eternal life?” Jesus said to him, “Why do you call me good? No one is good except God alone. You know the commandments: ‘ Do not murder, do not commit adultery, do not steal, do not give false testimony, do not defraud, honor your father and mother .’” The man said to him, “Teacher, I have wholeheartedly obeyed all these laws since my youth.” As Jesus looked at him, he felt love for him and said, “You lack one thing. Go, sell whatever you have and give the money to the poor, and you will have treasure in heaven. Then come, follow me.” But at this statement, the man looked sad and went away sorrowful, for he was very rich. Then Jesus looked around and said to his disciples, “How hard it is for the rich to enter the kingdom of God!” The disciples were astonished at these words. But again Jesus said to them, “Children, how hard it is to enter the kingdom of God! It is easier for a camel to go through the eye of a needle than for a rich person to enter the kingdom of God.” They were even more astonished and said to one another, “Then who can be saved?” Jesus looked at them and replied, “This is impossible for mere humans, but not for God; all things are possible for God.” Peter began to speak to him, “Look, we have left everything to follow you!” Jesus said, “I tell you the truth, there is no one who has left home or brothers or sisters or mother or father or children or fields for my sake and for the sake of the gospel who will not receive in this age a hundred times as much—homes, brothers, sisters, mothers, children, fields, all with persecutions —and in the age to come, eternal life. But many who are first will be last, and the last first.”",
     "[[SOURCE:Matthew 19:16–30]] Now someone came up to him and said, “Teacher, what good thing must I do to gain eternal life?” He said to him, “Why do you ask me about what is good? There is only one who is good. But if you want to enter into life, keep the commandments.” “Which ones?” he asked. Jesus replied, “ Do not murder, do not commit adultery, do not steal, do not give false testimony, honor your father and mother, and love your neighbor as yourself .” The young man said to him, “I have wholeheartedly obeyed all these laws. What do I still lack?” Jesus said to him, “If you wish to be perfect, go sell your possessions and give the money to the poor, and you will have treasure in heaven. Then come, follow me.” But when the young man heard this he went away sorrowful, for he was very rich. Then Jesus said to his disciples, “I tell you the truth, it will be hard for a rich person to enter the kingdom of heaven! Again I say, it is easier for a camel to go through the eye of a needle than for a rich person to enter into the kingdom of God.” The disciples were greatly astonished when they heard this and said, “Then who can be saved?” Jesus looked at them and replied, “This is impossible for mere humans, but for God all things are possible.” Then Peter said to him, “Look, we have left everything to follow you! What then will there be for us?” Jesus said to them, “I tell you the truth: In the age when all things are renewed, when the Son of Man sits on his glorious throne, you who have followed me will also sit on twelve thrones, judging the twelve tribes of Israel. And whoever has left houses or brothers or sisters or father or mother or children or fields for my sake will receive a hundred times as much and will inherit eternal life. But many who are first will be last, and the last first.",
-    "[[SOURCE:Luke 18:18–30]] Now a certain leader asked him, “Good teacher, what must I do to inherit eternal life?” Jesus said to him, “Why do you call me good? No one is good except God alone. You know the commandments: ‘ Do not commit adultery, do not murder, do not steal, do not give false testimony, honor your father and mother .’” The man replied, “I have wholeheartedly obeyed all these laws since my youth.” When Jesus heard this, he said to him, “One thing you still lack. Sell all that you have and give the money to the poor, and you will have treasure in heaven. Then come, follow me.” But when the man heard this he became very sad, for he was extremely wealthy. When Jesus noticed this, he said, “How hard it is for the rich to enter the kingdom of God! In fact, it is easier for a camel to go through the eye of a needle than for a rich person to enter the kingdom of God.” Those who heard this said, “Then who can be saved?” He replied, “What is impossible for mere humans is possible for God.” And Peter said, “Look, we have left everything we own to follow you! Then Jesus said to them, “I tell you the truth, there is no one who has left home or wife or brothers or parents or children for the sake of God’s kingdom who will not receive many times more in this age —and in the age to come, eternal life.”"
+    "[[SOURCE:Luke 18:18–30]] Now a certain leader asked him, “Good teacher, what must I do to inherit eternal life?” Jesus said to him, “Why do you call me good? No one is good except God alone. You know the commandments: ‘ Do not commit adultery, do not murder, do not steal, do not give false testimony, honor your father and mother .’” The man replied, “I have wholeheartedly obeyed all these laws since my youth.” When Jesus heard this, he said to him, “One thing you still lack. Sell all that you have and give the money to the poor, and you will have treasure in heaven. Then come, follow me.” But when the man heard this he became very sad, for he was extremely wealthy. When Jesus noticed this, he said, “How hard it is for the rich to enter the kingdom of God! In fact, it is easier for a camel to go through the eye of a needle than for a rich person to enter the kingdom of God.” Those who heard this said, “Then who can be saved?” He replied, “What is impossible for mere humans is possible for God.” And Peter said, “Look, we have left everything we own to follow you! Then Jesus said to them, “I tell you the truth, there is no one who has left home or wife or brothers or parents or children for the sake of God’s kingdom who will not receive many times more in this age —and in the age to come, eternal life.”",
+    "[[NONBIBLICAL:Thomas 4]] Jesus said, \"The man old in days will not hesitate to ask a small child seven days old about the place of life, and he will live. For many who are first will become last, and they will become one and the same.\""
    ],
    "verseMarkers": [
     {
@@ -17985,8 +18217,14 @@ window.BASILEIAN_DATA = {
      "verse": 30
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 4",
+     "label": "Thomas 4",
+     "text": "Jesus said, \"The man old in days will not hesitate to ask a small child seven days old about the place of life, and he will live. For many who are first will become last, and they will become one and the same.\""
+    }
+   ],
+   "notes": "Thomas 4 is anchored via \"many who are first will be last\" (Mark 10:31).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -19897,11 +20135,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] Parallels Thomas 65.",
+    "[[NOTE]] Parallels Thomas 65; Thomas 66 (the rejected stone) follows it in Thomas just as the cornerstone citation follows the parable (Mark 12:10–11 // Matt 21:42).",
     "[[SOURCE:Mark 12:1–12]] Then he began to speak to them in parables: “A man planted a vineyard. He put a fence around it, dug a pit for its winepress, and built a watchtower. Then he leased it to tenant farmers and went on a journey. At harvest time he sent a slave to the tenants to collect from them his portion of the crop. But those tenants seized his slave, beat him, and sent him away empty-handed. So he sent another slave to them again. This one they struck on the head and treated outrageously. He sent another, and that one they killed. This happened to many others, some of whom were beaten, others killed. He had one left, his one dear son. Finally he sent him to them, saying, ‘They will respect my son.’ But those tenants said to one another, ‘This is the heir. Come, let’s kill him and the inheritance will be ours!’ So they seized him, killed him, and threw his body out of the vineyard. What then will the owner of the vineyard do? He will come and destroy those tenants and give the vineyard to others. Have you not read this scripture: ‘ The stone the builders rejected has become the cornerstone . This is from the Lord, and it is marvelous in our eyes ’?” Now they wanted to arrest him (but they feared the crowd), because they realized that he told this parable against them. So they left him and went away.",
     "[[SOURCE:Matthew 21:33–46]] “Listen to another parable: There was a landowner who planted a vineyard. He put a fence around it, dug a pit for its winepress, and built a watchtower. Then he leased it to tenant farmers and went on a journey. When the harvest time was near, he sent his slaves to the tenants to collect his portion of the crop. But the tenants seized his slaves, beat one, killed another, and stoned another. Again he sent other slaves, more than the first, and they treated them the same way. Finally he sent his son to them, saying, ‘They will respect my son.’ But when the tenants saw the son, they said to themselves, ‘This is the heir. Come, let’s kill him and get his inheritance!’ So they seized him, threw him out of the vineyard, and killed him. Now when the owner of the vineyard comes, what will he do to those tenants?” They said to him, “He will utterly destroy those evil men! Then he will lease the vineyard to other tenants who will give him his portion at the harvest.” Jesus said to them, “Have you never read in the scriptures: ‘ The stone the builders rejected has become the cornerstone . This is from the Lord, and it is marvelous in our eyes ’? For this reason I tell you that the kingdom of God will be taken from you and given to a people who will produce its fruit. The one who falls on this stone will be broken to pieces, and the one on whom it falls will be crushed.” When the chief priests and the Pharisees heard his parables, they realized that he was speaking about them. They wanted to arrest him, but they were afraid of the crowds, because the crowds regarded him as a prophet.",
     "[[SOURCE:Luke 20:9–19]] Then he began to tell the people this parable: “A man planted a vineyard, leased it to tenant farmers, and went on a journey for a long time. When harvest time came, he sent a slave to the tenants so that they would give him his portion of the crop. However, the tenants beat his slave and sent him away empty-handed. So he sent another slave. They beat this one too, treated him outrageously, and sent him away empty-handed. So he sent still a third. They even wounded this one, and threw him out. Then the owner of the vineyard said, ‘What should I do? I will send my one dear son; perhaps they will respect him.’ But when the tenants saw him, they said to one another, ‘This is the heir; let’s kill him so the inheritance will be ours!’ So they threw him out of the vineyard and killed him. What then will the owner of the vineyard do to them? He will come and destroy those tenants and give the vineyard to others.” When the people heard this, they said, “May this never happen!” But Jesus looked straight at them and said, “Then what is the meaning of that which is written: ‘ The stone the builders rejected has become the cornerstone ’? Everyone who falls on this stone will be broken to pieces, and the one on whom it falls will be crushed.” Then the experts in the law and the chief priests wanted to arrest him that very hour, because they realized he had told this parable against them. But they were afraid of the people.",
-    "[[NONBIBLICAL:Thomas 65]] He said, \"There was a good man who owned a vineyard. He leased it to tenant farmers so that they might work it and he might collect the produce from them. He sent his servant so that the tenants might give him the produce of the vineyard. They seized his servant and beat him, all but killing him. The servant went back and told his master. The master said, 'Perhaps he did not recognize them.' He sent another servant. The tenants beat this one as well. Then the owner sent his son and said, 'Perhaps they will show respect to my son.' Because the tenants knew that it was he who was the heir to the vineyard, they seized him and killed him. Let him who has ears hear.\""
+    "[[NONBIBLICAL:Thomas 65]] He said, \"There was a good man who owned a vineyard. He leased it to tenant farmers so that they might work it and he might collect the produce from them. He sent his servant so that the tenants might give him the produce of the vineyard. They seized his servant and beat him, all but killing him. The servant went back and told his master. The master said, 'Perhaps he did not recognize them.' He sent another servant. The tenants beat this one as well. Then the owner sent his son and said, 'Perhaps they will show respect to my son.' Because the tenants knew that it was he who was the heir to the vineyard, they seized him and killed him. Let him who has ears hear.\"",
+    "[[NONBIBLICAL:Thomas 66]] Jesus said, \"Show me the stone which the builders have rejected. That one is the cornerstone.\""
    ],
    "verseMarkers": [
     {
@@ -20132,9 +20371,14 @@ window.BASILEIAN_DATA = {
      "source": "Gospel of Thomas 65",
      "label": "Thomas 65",
      "text": "He said, \"There was a good man who owned a vineyard. He leased it to tenant farmers so that they might work it and he might collect the produce from them. He sent his servant so that the tenants might give him the produce of the vineyard. They seized his servant and beat him, all but killing him. The servant went back and told his master. The master said, 'Perhaps he did not recognize them.' He sent another servant. The tenants beat this one as well. Then the owner sent his son and said, 'Perhaps they will show respect to my son.' Because the tenants knew that it was he who was the heir to the vineyard, they seized him and killed him. Let him who has ears hear.\""
+    },
+    {
+     "source": "Gospel of Thomas 66",
+     "label": "Thomas 66",
+     "text": "Jesus said, \"Show me the stone which the builders have rejected. That one is the cornerstone.\""
     }
    ],
-   "notes": "Parallels Thomas 65.",
+   "notes": "Parallels Thomas 65; Thomas 66 (the rejected stone) follows it in Thomas just as the cornerstone citation follows the parable (Mark 12:10–11 // Matt 21:42).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -20156,9 +20400,8 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] Grouped with Luke's great banquet (Section IX) and Thomas 64.",
-    "[[SOURCE:Matthew 22:1–14]] Jesus spoke to them again in parables, saying: “The kingdom of heaven can be compared to a king who gave a wedding banquet for his son. He sent his slaves to summon those who had been invited to the banquet, but they would not come. Again he sent other slaves, saying, ‘Tell those who have been invited, “Look! The feast I have prepared for you is ready. My oxen and fattened cattle have been slaughtered, and everything is ready. Come to the wedding banquet.”’ But they were indifferent and went away, one to his farm, another to his business. The rest seized his slaves, insolently mistreated them, and killed them. The king was furious! He sent his soldiers, and they put those murderers to death and set their city on fire. Then he said to his slaves, ‘The wedding is ready, but the ones who had been invited were not worthy. So go into the main streets and invite everyone you find to the wedding banquet.’ And those slaves went out into the streets and gathered all they found, both bad and good, and the wedding hall was filled with guests. But when the king came in to see the wedding guests, he saw a man there who was not wearing wedding clothes. And he said to him, ‘Friend, how did you get in here without wedding clothes?’ But he had nothing to say. Then the king said to his attendants, ‘Tie him up hand and foot and throw him into the outer darkness, where there will be weeping and gnashing of teeth!’ For many are called, but few are chosen.”",
-    "[[NONBIBLICAL:Thomas 64]] Jesus said, \"A man had received visitors. And when he had prepared the dinner, he sent his servant to invite the guests. He went to the first one and said to him, 'My master invites you.' He said, 'I have claims against some merchants. They are coming to me this evening. I must go and give them my orders. I ask to be excused from the dinner.' He went to another and said to him, 'My master has invited you.' He said to him, 'I have just bought a house and am required for the day. I shall not have any spare time.' He went to another and said to him, 'My master invites you.' He said to him, 'My friend is going to get married, and I am to prepare the banquet. I shall not be able to come. I ask to be excused from the dinner.' He went to another and said to him, 'My master invites you.' He said to him, 'I have just bought a farm, and I am on my way to collect the rent. I shall not be able to come. I ask to be excused.' The servant returned and said to his master, 'Those whom you invited to the dinner have asked to be excused.' The master said to his servant, 'Go outside to the streets and bring back those whom you happen to meet, so that they may dine.' Businessmen and merchants will not enter the places of my father.\""
+    "[[NOTE]] Grouped with Luke's great banquet (Section IX). Thomas 64 is inserted whole at IX.13 (the great banquet); cross-reference only here.",
+    "[[SOURCE:Matthew 22:1–14]] Jesus spoke to them again in parables, saying: “The kingdom of heaven can be compared to a king who gave a wedding banquet for his son. He sent his slaves to summon those who had been invited to the banquet, but they would not come. Again he sent other slaves, saying, ‘Tell those who have been invited, “Look! The feast I have prepared for you is ready. My oxen and fattened cattle have been slaughtered, and everything is ready. Come to the wedding banquet.”’ But they were indifferent and went away, one to his farm, another to his business. The rest seized his slaves, insolently mistreated them, and killed them. The king was furious! He sent his soldiers, and they put those murderers to death and set their city on fire. Then he said to his slaves, ‘The wedding is ready, but the ones who had been invited were not worthy. So go into the main streets and invite everyone you find to the wedding banquet.’ And those slaves went out into the streets and gathered all they found, both bad and good, and the wedding hall was filled with guests. But when the king came in to see the wedding guests, he saw a man there who was not wearing wedding clothes. And he said to him, ‘Friend, how did you get in here without wedding clothes?’ But he had nothing to say. Then the king said to his attendants, ‘Tie him up hand and foot and throw him into the outer darkness, where there will be weeping and gnashing of teeth!’ For many are called, but few are chosen.”"
    ],
    "verseMarkers": [
     {
@@ -20246,14 +20489,8 @@ window.BASILEIAN_DATA = {
      "verse": 14
     }
    ],
-   "nonbiblical": [
-    {
-     "source": "Gospel of Thomas 64",
-     "label": "Thomas 64",
-     "text": "Jesus said, \"A man had received visitors. And when he had prepared the dinner, he sent his servant to invite the guests. He went to the first one and said to him, 'My master invites you.' He said, 'I have claims against some merchants. They are coming to me this evening. I must go and give them my orders. I ask to be excused from the dinner.' He went to another and said to him, 'My master has invited you.' He said to him, 'I have just bought a house and am required for the day. I shall not have any spare time.' He went to another and said to him, 'My master invites you.' He said to him, 'My friend is going to get married, and I am to prepare the banquet. I shall not be able to come. I ask to be excused from the dinner.' He went to another and said to him, 'My master invites you.' He said to him, 'I have just bought a farm, and I am on my way to collect the rent. I shall not be able to come. I ask to be excused.' The servant returned and said to his master, 'Those whom you invited to the dinner have asked to be excused.' The master said to his servant, 'Go outside to the streets and bring back those whom you happen to meet, so that they may dine.' Businessmen and merchants will not enter the places of my father.\""
-    }
-   ],
-   "notes": "Grouped with Luke's great banquet (Section IX) and Thomas 64.",
+   "nonbiblical": [],
+   "notes": "Grouped with Luke's great banquet (Section IX). Thomas 64 is inserted whole at IX.13 (the great banquet); cross-reference only here.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -20986,9 +21223,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 102 (\"a dog sleeping in the manger of oxen\") parallels Matt 23:13 // Luke 11:52; Thomas 89 parallels washing the outside of the cup (Matt 23:25–26 // Luke 11:39–41). P.Oxy 840 (Appendix B) shares the inside/outside purity theme.",
     "[[SOURCE:Mark 12:38–40]] In his teaching Jesus also said, “Watch out for the experts in the law. They like walking around in long robes and elaborate greetings in the marketplaces, and the best seats in the synagogues and the places of honor at banquets. They devour widows’ property, and as a show make long prayers. These men will receive a more severe punishment.”",
     "[[SOURCE:Matthew 23:1–36]] Then Jesus said to the crowds and to his disciples, “The experts in the law and the Pharisees sit on Moses’ seat. Therefore pay attention to what they tell you and do it. But do not do what they do, for they do not practice what they teach. They tie up heavy loads, hard to carry, and put them on men’s shoulders, but they themselves are not willing even to lift a finger to move them. They do all their deeds to be seen by people, for they make their phylacteries wide and their tassels long. They love the place of honor at banquets and the best seats in the synagogues and elaborate greetings in the marketplaces, and to have people call them ‘Rabbi.’ But you are not to be called ‘Rabbi,’ for you have one Teacher and you are all brothers. And call no one your ‘father’ on earth, for you have one Father, who is in heaven. Nor are you to be called ‘teacher,’ for you have one teacher, the Christ. The greatest among you will be your servant. And whoever exalts himself will be humbled, and whoever humbles himself will be exalted. “But woe to you, experts in the law and you Pharisees, hypocrites! You keep locking people out of the kingdom of heaven! For you neither enter nor permit those trying to enter to go in. “Woe to you, experts in the law and you Pharisees, hypocrites! You cross land and sea to make one convert, and when you get one, you make him twice as much a child of hell as yourselves! “Woe to you, blind guides, who say, ‘Whoever swears by the temple is bound by nothing. But whoever swears by the gold of the temple is bound by the oath.’ Blind fools! Which is greater, the gold or the temple that makes the gold sacred? And, ‘Whoever swears by the altar is bound by nothing. But if anyone swears by the gift on it he is bound by the oath.’ You are blind! For which is greater, the gift or the altar that makes the gift sacred? So whoever swears by the altar swears by it and by everything on it. And whoever swears by the temple swears by it and the one who dwells in it. And whoever swears by heaven swears by the throne of God and the one who sits on it. “Woe to you, experts in the law and you Pharisees, hypocrites! You give a tenth of mint, dill, and cumin, yet you neglect what is more important in the law—justice, mercy, and faithfulness! You should have done these things without neglecting the others. Blind guides! You strain out a gnat yet swallow a camel! “Woe to you, experts in the law and you Pharisees, hypocrites! You clean the outside of the cup and the dish, but inside they are full of greed and self-indulgence. Blind Pharisee! First clean the inside of the cup, so that the outside may become clean too! “Woe to you, experts in the law and you Pharisees, hypocrites! You are like whitewashed tombs that look beautiful on the outside but inside are full of the bones of the dead and of everything unclean. In the same way, on the outside you look righteous to people, but inside you are full of hypocrisy and lawlessness. “Woe to you, experts in the law and you Pharisees, hypocrites! You build tombs for the prophets and decorate the graves of the righteous. And you say, ‘If we had lived in the days of our ancestors, we would not have participated with them in shedding the blood of the prophets.’ By saying this you testify against yourselves that you are descendants of those who murdered the prophets. Fill up then the measure of your ancestors! You snakes, you offspring of vipers! How will you escape being condemned to hell? “For this reason I am sending you prophets and wise men and experts in the law, some of whom you will kill and crucify, and some you will flog in your synagogues and pursue from town to town, so that on you will come all the righteous blood shed on earth, from the blood of righteous Abel to the blood of Zechariah son of Barachiah, whom you murdered between the temple and the altar. I tell you the truth, this generation will be held responsible for all these things!",
-    "[[SOURCE:Luke 20:45–47]] As all the people were listening, Jesus said to his disciples, “Beware of the experts in the law. They like walking around in long robes, and they love elaborate greetings in the marketplaces and the best seats in the synagogues and the places of honor at banquets. They devour widows’ property, and as a show make long prayers. They will receive a more severe punishment.”"
+    "[[SOURCE:Luke 20:45–47]] As all the people were listening, Jesus said to his disciples, “Beware of the experts in the law. They like walking around in long robes, and they love elaborate greetings in the marketplaces and the best seats in the synagogues and the places of honor at banquets. They devour widows’ property, and as a show make long prayers. They will receive a more severe punishment.”",
+    "[[NONBIBLICAL:Thomas 102]] Jesus said, \"Woe to the pharisees, for they are like a dog sleeping in the manger of oxen, for neither does he eat nor does he let the oxen eat.\"",
+    "[[NONBIBLICAL:Thomas 89]] Jesus said, \"Why do you wash the outside of the cup? Do you not realize that he who made the inside is the same one who made the outside?\""
    ],
    "verseMarkers": [
     {
@@ -21238,8 +21478,19 @@ window.BASILEIAN_DATA = {
      "verse": 47
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 102",
+     "label": "Thomas 102",
+     "text": "Jesus said, \"Woe to the pharisees, for they are like a dog sleeping in the manger of oxen, for neither does he eat nor does he let the oxen eat.\""
+    },
+    {
+     "source": "Gospel of Thomas 89",
+     "label": "Thomas 89",
+     "text": "Jesus said, \"Why do you wash the outside of the cup? Do you not realize that he who made the inside is the same one who made the outside?\""
+    }
+   ],
+   "notes": "Thomas 102 (\"a dog sleeping in the manger of oxen\") parallels Matt 23:13 // Luke 11:52; Thomas 89 parallels washing the outside of the cup (Matt 23:25–26 // Luke 11:39–41). P.Oxy 840 (Appendix B) shares the inside/outside purity theme.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -21578,11 +21829,13 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[NOTE]] 1 Thess 4:15–17 is grouped here; whether it reports a dominical saying or a later prophetic word is debated.",
+    "[[NOTE]] 1 Thess 4:15–17 is grouped here; whether it reports a dominical saying or a later prophetic word is debated. Thomas 11 (\"this heaven will pass away\") and Thomas 111 (\"the heavens and the earth will be rolled up\") are anchored via \"heaven and earth will pass away\" (Mark 13:31).",
     "[[SOURCE:Mark 13:1–37]] Now as Jesus was going out of the temple courts, one of his disciples said to him, “Teacher, look at these tremendous stones and buildings!” Jesus said to him, “Do you see these great buildings? Not one stone will be left on another. All will be torn down!” So while he was sitting on the Mount of Olives opposite the temple, Peter, James, John, and Andrew asked him privately, “Tell us, when will these things happen? And what will be the sign that all these things are about to take place?” Jesus began to say to them, “Watch out that no one misleads you. Many will come in my name, saying, ‘I am he,’ and they will mislead many. When you hear of wars and rumors of wars, do not be alarmed. These things must happen, but the end is still to come. For nation will rise up in arms against nation, and kingdom against kingdom. There will be earthquakes in various places, and there will be famines. These are but the beginning of birth pains. “You must watch out for yourselves. You will be handed over to councils and beaten in the synagogues. You will stand before governors and kings because of me, as a witness to them. First the gospel must be preached to all nations. When they arrest you and hand you over for trial, do not worry about what to speak. But say whatever is given you at that time, for it is not you speaking, but the Holy Spirit. Brother will hand over brother to death, and a father his child. Children will rise against parents and have them put to death. You will be hated by everyone because of my name. But the one who endures to the end will be saved. “But when you see the abomination of desolation standing where it should not be” (let the reader understand), “then those in Judea must flee to the mountains. The one on the roof must not come down or go inside to take anything out of his house. The one in the field must not turn back to get his cloak. Woe to those who are pregnant and to those who are nursing their babies in those days! Pray that it may not be in winter. For in those days there will be suffering unlike anything that has happened from the beginning of the creation that God created until now, or ever will happen. And if the Lord had not cut short those days, no one would be saved. But because of the elect, whom he chose, he has cut them short. Then if anyone says to you, ‘Look, here is the Christ!’ or ‘Look, there he is!’ do not believe him. For false messiahs and false prophets will appear and perform signs and wonders to deceive, if possible, the elect. Be careful! I have told you everything ahead of time. “But in those days, after that suffering, the sun will be darkened and the moon will not give its light; the stars will be falling from heaven , and the powers in the heavens will be shaken . Then everyone will see the Son of Man arriving in the clouds with great power and glory. Then he will send angels and they will gather his elect from the four winds, from the ends of the earth to the ends of heaven. “Learn this parable from the fig tree: Whenever its branch becomes tender and puts out its leaves, you know that summer is near. So also you, when you see these things happening, know that he is near, right at the door. I tell you the truth, this generation will not pass away until all these things take place. Heaven and earth will pass away, but my words will never pass away. “But as for that day or hour no one knows it—neither the angels in heaven, nor the Son —except the Father. Watch out! Stay alert! For you do not know when the time will come. It is like a man going on a journey. He left his house and put his slaves in charge, assigning to each his work, and commanded the doorkeeper to stay alert. Stay alert, then, because you do not know when the owner of the house will return—whether during evening, at midnight, when the rooster crows, or at dawn— or else he might find you asleep when he returns suddenly. What I say to you I say to everyone: Stay alert!”",
     "[[SOURCE:Matthew 24:1–51]] Now as Jesus was going out of the temple courts and walking away, his disciples came to show him the temple buildings. And he said to them, “Do you see all these things? I tell you the truth, not one stone will be left on another. All will be torn down!” As he was sitting on the Mount of Olives, his disciples came to him privately and said, “Tell us, when will these things happen? And what will be the sign of your coming and of the end of the age?” Jesus answered them, “Watch out that no one misleads you. For many will come in my name, saying, ‘I am the Christ,’ and they will mislead many. You will hear of wars and rumors of wars. Make sure that you are not alarmed, for this must happen, but the end is still to come. For nation will rise up in arms against nation, and kingdom against kingdom. And there will be famines and earthquakes in various places. All these things are the beginning of birth pains. “Then they will hand you over to be persecuted and will kill you. You will be hated by all the nations because of my name. Then many will be led into sin, and they will betray one another and hate one another. And many false prophets will appear and deceive many, and because lawlessness will increase so much, the love of many will grow cold. But the person who endures to the end will be saved. And this gospel of the kingdom will be preached throughout the whole inhabited earth as a testimony to all the nations, and then the end will come. “So when you see the abomination of desolation —spoken about by Daniel the prophet—standing in the holy place” (let the reader understand), “then those in Judea must flee to the mountains. The one on the roof must not come down to take anything out of his house, and the one in the field must not turn back to get his cloak. Woe to those who are pregnant and to those who are nursing their babies in those days! Pray that your flight may not be in winter or on a Sabbath. For then there will be great suffering unlike anything that has happened from the beginning of the world until now, or ever will happen. And if those days had not been cut short, no one would be saved. But for the sake of the elect those days will be cut short. Then if anyone says to you, ‘Look, here is the Christ!’ or ‘There he is!’ do not believe him. For false messiahs and false prophets will appear and perform great signs and wonders to deceive, if possible, even the elect. Remember, I have told you ahead of time. So then, if someone says to you, ‘Look, he is in the wilderness,’ do not go out, or ‘Look, he is in the inner rooms,’ do not believe him. For just like the lightning comes from the east and flashes to the west, so the coming of the Son of Man will be. Wherever the corpse is, there the vultures will gather. “Immediately after the suffering of those days, the sun will be darkened, and the moon will not give its light; the stars will fall from heaven, and the powers of heaven will be shaken . Then the sign of the Son of Man will appear in heaven, and all the tribes of the earth will mourn. They will see the Son of Man arriving on the clouds of heaven with power and great glory. And he will send his angels with a loud trumpet blast, and they will gather his elect from the four winds, from one end of heaven to the other. “Learn this parable from the fig tree: Whenever its branch becomes tender and puts out its leaves, you know that summer is near. So also you, when you see all these things, know that he is near, right at the door. I tell you the truth, this generation will not pass away until all these things take place. Heaven and earth will pass away, but my words will never pass away. “But as for that day and hour no one knows it—not even the angels in heaven —except the Father alone. For just like the days of Noah were, so the coming of the Son of Man will be. For in those days before the flood, people were eating and drinking, marrying and giving in marriage, until the day Noah entered the ark. And they knew nothing until the flood came and took them all away. It will be the same at the coming of the Son of Man. Then there will be two men in the field; one will be taken and one left. There will be two women grinding grain with a mill; one will be taken and one left. “Therefore stay alert, because you do not know on what day your Lord will come. But understand this: If the owner of the house had known at what time of night the thief was coming, he would have been alert and would not have let his house be broken into. Therefore you also must be ready, because the Son of Man will come at an hour when you do not expect him. “Who then is the faithful and wise slave, whom the master has put in charge of his household, to give the other slaves their food at the proper time? Blessed is that slave whom the master finds at work when he comes. I tell you the truth, the master will put him in charge of all his possessions. But if that evil slave should say to himself, ‘My master is staying away a long time,’ and he begins to beat his fellow slaves and to eat and drink with drunkards, then the master of that slave will come on a day when he does not expect him and at an hour he does not foresee, and will cut him in two, and assign him a place with the hypocrites, where there will be weeping and gnashing of teeth.",
     "[[SOURCE:Luke 21:5–38]] Now while some were speaking about the temple, how it was adorned with beautiful stones and offerings, Jesus said, “As for these things that you are gazing at, the days will come when not one stone will be left on another. All will be torn down!” So they asked him, “Teacher, when will these things happen? And what will be the sign that these things are about to take place?” He said, “Watch out that you are not misled. For many will come in my name, saying, ‘I am he,’ and, ‘The time is near.’ Do not follow them! And when you hear of wars and rebellions, do not be afraid. For these things must happen first, but the end will not come at once.” Then he said to them, “Nation will rise up in arms against nation, and kingdom against kingdom. There will be great earthquakes, and famines and plagues in various places, and there will be terrifying sights and great signs from heaven. But before all this, they will seize you and persecute you, handing you over to the synagogues and prisons. You will be brought before kings and governors because of my name. This will be a time for you to serve as witnesses. Therefore be resolved not to rehearse ahead of time how to make your defense. For I will give you the words along with the wisdom that none of your adversaries will be able to withstand or contradict. You will be betrayed even by parents, brothers, relatives, and friends, and they will have some of you put to death. You will be hated by everyone because of my name. Yet not a hair of your head will perish. By your endurance you will gain your lives. “But when you see Jerusalem surrounded by armies, then know that its desolation has come near. Then those who are in Judea must flee to the mountains. Those who are inside the city must depart. Those who are out in the country must not enter it, because these are days of vengeance, to fulfill all that is written. Woe to those who are pregnant and to those who are nursing their babies in those days! For there will be great distress on the earth and wrath against this people. They will fall by the edge of the sword and be led away as captives among all nations. Jerusalem will be trampled down by the Gentiles until the times of the Gentiles are fulfilled. “And there will be signs in the sun and moon and stars, and on the earth nations will be in distress, anxious over the roaring of the sea and the surging waves. People will be fainting from fear and from the expectation of what is coming on the world, for the powers of the heavens will be shaken . Then they will see the Son of Man arriving in a cloud with power and great glory. But when these things begin to happen, stand up and raise your heads, because your redemption is drawing near.” Then he told them a parable: “Look at the fig tree and all the other trees. When they sprout leaves, you see for yourselves and know that summer is now near. So also you, when you see these things happening, know that the kingdom of God is near. I tell you the truth, this generation will not pass away until all these things take place. Heaven and earth will pass away, but my words will never pass away. “But be on your guard so that your hearts are not weighed down with dissipation and drunkenness and the worries of this life, and that day close down upon you suddenly like a trap. For it will overtake all who live on the face of the whole earth. But stay alert at all times, praying that you may have strength to escape all these things that must happen, and to stand before the Son of Man.” So every day Jesus was teaching in the temple courts, but at night he went and stayed on the Mount of Olives. And all the people came to him early in the morning to listen to him in the temple courts.",
-    "[[SOURCE:1 Thessalonians 4:15–17]] For we tell you this by the word of the Lord, that we who are alive, who are left until the coming of the Lord, will surely not go ahead of those who have fallen asleep. For the Lord himself will come down from heaven with a shout of command, with the voice of the archangel, and with the trumpet of God, and the dead in Christ will rise first. Then we who are alive, who are left, will be suddenly caught up together with them in the clouds to meet the Lord in the air. And so we will always be with the Lord."
+    "[[SOURCE:1 Thessalonians 4:15–17]] For we tell you this by the word of the Lord, that we who are alive, who are left until the coming of the Lord, will surely not go ahead of those who have fallen asleep. For the Lord himself will come down from heaven with a shout of command, with the voice of the archangel, and with the trumpet of God, and the dead in Christ will rise first. Then we who are alive, who are left, will be suddenly caught up together with them in the clouds to meet the Lord in the air. And so we will always be with the Lord.",
+    "[[NONBIBLICAL:Thomas 11]] Jesus said, \"This heaven will pass away, and the one above it will pass away. The dead are not alive, and the living will not die. In the days when you consumed what is dead, you made it what is alive. When you come to dwell in the light, what will you do? On the day when you were one you became two. But when you become two, what will you do?\"",
+    "[[NONBIBLICAL:Thomas 111]] Jesus said, \"The heavens and the earth will be rolled up in your presence. And the one who lives from the living one will not see death.\" Does not Jesus say, \"Whoever finds himself is superior to the world?\""
    ],
    "verseMarkers": [
     {
@@ -22336,8 +22589,19 @@ window.BASILEIAN_DATA = {
      "verse": 17
     }
    ],
-   "nonbiblical": [],
-   "notes": "1 Thess 4:15–17 is grouped here; whether it reports a dominical saying or a later prophetic word is debated.",
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 11",
+     "label": "Thomas 11",
+     "text": "Jesus said, \"This heaven will pass away, and the one above it will pass away. The dead are not alive, and the living will not die. In the days when you consumed what is dead, you made it what is alive. When you come to dwell in the light, what will you do? On the day when you were one you became two. But when you become two, what will you do?\""
+    },
+    {
+     "source": "Gospel of Thomas 111",
+     "label": "Thomas 111",
+     "text": "Jesus said, \"The heavens and the earth will be rolled up in your presence. And the one who lives from the living one will not see death.\" Does not Jesus say, \"Whoever finds himself is superior to the world?\""
+    }
+   ],
+   "notes": "1 Thess 4:15–17 is grouped here; whether it reports a dominical saying or a later prophetic word is debated. Thomas 11 (\"this heaven will pass away\") and Thomas 111 (\"the heavens and the earth will be rolled up\") are anchored via \"heaven and earth will pass away\" (Mark 13:31).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -22359,7 +22623,9 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
-    "[[SOURCE:Matthew 25:1–13]] “At that time the kingdom of heaven will be like ten virgins who took their lamps and went out to meet the bridegroom. Five of the virgins were foolish, and five were wise. When the foolish ones took their lamps, they did not take extra olive oil with them. But the wise ones took flasks of olive oil with their lamps. When the bridegroom was delayed a long time, they all became drowsy and fell asleep. But at midnight there was a shout, ‘Look, the bridegroom is here! Come out to meet him.’ Then all the virgins woke up and trimmed their lamps. The foolish ones said to the wise, ‘Give us some of your oil, because our lamps are going out.’ ‘No,’ they replied. ‘There won’t be enough for you and for us. Go instead to those who sell oil and buy some for yourselves.’ But while they had gone to buy it, the bridegroom arrived, and those who were ready went inside with him to the wedding banquet. Then the door was shut. Later, the other virgins came too, saying, ‘Lord, lord! Let us in!’ But he replied, ‘I tell you the truth, I do not know you!’ Therefore stay alert, because you do not know the day or the hour."
+    "[[NOTE]] Thomas 75 (\"Many are standing at the door, but it is the solitary who will enter the bridal chamber\") shares the door and bridal-chamber imagery.",
+    "[[SOURCE:Matthew 25:1–13]] “At that time the kingdom of heaven will be like ten virgins who took their lamps and went out to meet the bridegroom. Five of the virgins were foolish, and five were wise. When the foolish ones took their lamps, they did not take extra olive oil with them. But the wise ones took flasks of olive oil with their lamps. When the bridegroom was delayed a long time, they all became drowsy and fell asleep. But at midnight there was a shout, ‘Look, the bridegroom is here! Come out to meet him.’ Then all the virgins woke up and trimmed their lamps. The foolish ones said to the wise, ‘Give us some of your oil, because our lamps are going out.’ ‘No,’ they replied. ‘There won’t be enough for you and for us. Go instead to those who sell oil and buy some for yourselves.’ But while they had gone to buy it, the bridegroom arrived, and those who were ready went inside with him to the wedding banquet. Then the door was shut. Later, the other virgins came too, saying, ‘Lord, lord! Let us in!’ But he replied, ‘I tell you the truth, I do not know you!’ Therefore stay alert, because you do not know the day or the hour.",
+    "[[NONBIBLICAL:Thomas 75]] Jesus said, \"Many are standing at the door, but it is the solitary who will enter the bridal chamber.\""
    ],
    "verseMarkers": [
     {
@@ -22441,8 +22707,14 @@ window.BASILEIAN_DATA = {
      "verse": 13
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 75",
+     "label": "Thomas 75",
+     "text": "Jesus said, \"Many are standing at the door, but it is the solitary who will enter the bridal chamber.\""
+    }
+   ],
+   "notes": "Thomas 75 (\"Many are standing at the door, but it is the solitary who will enter the bridal chamber\") shares the door and bridal-chamber imagery.",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -25099,10 +25371,12 @@ window.BASILEIAN_DATA = {
     ]
    },
    "paragraphs": [
+    "[[NOTE]] Thomas 71 (\"I shall destroy this house\") parallels the temple charge (Mark 14:58; 15:29).",
     "[[SOURCE:Mark 14:53–65]] Then they led Jesus to the high priest, and all the chief priests and elders and experts in the law came together. And Peter had followed him from a distance, up to the high priest’s courtyard. He was sitting with the guards and warming himself by the fire. The chief priests and the whole Sanhedrin were looking for evidence against Jesus so that they could put him to death, but they did not find anything. Many gave false testimony against him, but their testimony did not agree. Some stood up and gave this false testimony against him: “We heard him say, ‘I will destroy this temple made with hands and in three days build another not made with hands.’” Yet even on this point their testimony did not agree. Then the high priest stood up before them and asked Jesus, “Have you no answer? What is this that they are testifying against you?” But he was silent and did not answer. Again the high priest questioned him, “Are you the Christ, the Son of the Blessed One?” “I am,” said Jesus, “and you will see the Son of Man sitting at the right hand of the Power and coming with the clouds of heaven .” Then the high priest tore his clothes and said, “Why do we still need witnesses? You have heard the blasphemy! What is your verdict?” They all condemned him as deserving death. Then some began to spit on him, and to blindfold him, and to strike him with their fists, saying, “Prophesy!” The guards also took him and beat him.",
     "[[SOURCE:Matthew 26:57–68]] Now the ones who had arrested Jesus led him to Caiaphas, the high priest, in whose house the experts in the law and the elders had gathered. But Peter was following him from a distance, all the way to the high priest’s courtyard. After going in, he sat with the guards to see the outcome. The chief priests and the whole Sanhedrin were trying to find false testimony against Jesus so that they could put him to death. But they did not find anything, though many false witnesses came forward. Finally two came forward and declared, “This man said, ‘I am able to destroy the temple of God and rebuild it in three days.’” So the high priest stood up and said to him, “Have you no answer? What is this that they are testifying against you?” But Jesus was silent. The high priest said to him, “I charge you under oath by the living God, tell us if you are the Christ, the Son of God.” Jesus said to him, “You have said it yourself. But I tell you, from now on you will see the Son of Man sitting at the right hand of the Power and coming on the clouds of heaven .” Then the high priest tore his clothes and declared, “He has blasphemed! Why do we still need witnesses? Now you have heard the blasphemy! What is your verdict?” They answered, “He is guilty and deserves death.” Then they spat in his face and struck him with their fists. And some slapped him, saying, “Prophesy for us, you Christ! Who hit you?”",
     "[[SOURCE:Luke 22:54, 22:63–71]] Then they arrested Jesus, led him away, and brought him into the high priest’s house. But Peter was following at a distance. Now the men who were holding Jesus under guard began to mock him and beat him. They blindfolded him and asked him repeatedly, “Prophesy! Who hit you?” They also said many other things against him, reviling him. When day came, the council of the elders of the people gathered together, both the chief priests and the experts in the law. Then they led Jesus away to their council and said, “If you are the Christ, tell us.” But he said to them, “If I tell you, you will not believe, and if I ask you, you will not answer. But from now on the Son of Man will be seated at the right hand of the power of God.” So they all said, “Are you the Son of God, then?” He answered them, “You say that I am.” Then they said, “Why do we need further testimony? We have heard it ourselves from his own lips!”",
-    "[[SOURCE:John 18:13–24]] They brought him first to Annas, for he was the father-in-law of Caiaphas, who was high priest that year. (Now it was Caiaphas who had advised the Jewish leaders that it was to their advantage that one man die for the people.) Simon Peter and another disciple followed them as they brought Jesus to Annas. (Now the other disciple was acquainted with the high priest, and he went with Jesus into the high priest’s courtyard.) But Peter was left standing outside by the door. So the other disciple who was acquainted with the high priest came out and spoke to the slave girl who watched the door, and brought Peter inside. The girl who was the doorkeeper said to Peter, “You’re not one of this man’s disciples too, are you?” He replied, “I am not.” (Now the slaves and the guards were standing around a charcoal fire they had made, warming themselves because it was cold. Peter also was standing with them, warming himself.) While this was happening, the high priest questioned Jesus about his disciples and about his teaching. Jesus replied, “I have spoken publicly to the world. I always taught in the synagogues and in the temple courts, where all the Jewish people assemble together. I have said nothing in secret. Why do you ask me? Ask those who heard what I said. They know what I said.” When Jesus had said this, one of the high priest’s officers who stood nearby struck him on the face and said, “Is that the way you answer the high priest?” Jesus replied, “If I have said something wrong, confirm what is wrong. But if I spoke correctly, why strike me?” Then Annas sent him, still tied up, to Caiaphas the high priest."
+    "[[SOURCE:John 18:13–24]] They brought him first to Annas, for he was the father-in-law of Caiaphas, who was high priest that year. (Now it was Caiaphas who had advised the Jewish leaders that it was to their advantage that one man die for the people.) Simon Peter and another disciple followed them as they brought Jesus to Annas. (Now the other disciple was acquainted with the high priest, and he went with Jesus into the high priest’s courtyard.) But Peter was left standing outside by the door. So the other disciple who was acquainted with the high priest came out and spoke to the slave girl who watched the door, and brought Peter inside. The girl who was the doorkeeper said to Peter, “You’re not one of this man’s disciples too, are you?” He replied, “I am not.” (Now the slaves and the guards were standing around a charcoal fire they had made, warming themselves because it was cold. Peter also was standing with them, warming himself.) While this was happening, the high priest questioned Jesus about his disciples and about his teaching. Jesus replied, “I have spoken publicly to the world. I always taught in the synagogues and in the temple courts, where all the Jewish people assemble together. I have said nothing in secret. Why do you ask me? Ask those who heard what I said. They know what I said.” When Jesus had said this, one of the high priest’s officers who stood nearby struck him on the face and said, “Is that the way you answer the high priest?” Jesus replied, “If I have said something wrong, confirm what is wrong. But if I spoke correctly, why strike me?” Then Annas sent him, still tied up, to Caiaphas the high priest.",
+    "[[NONBIBLICAL:Thomas 71]] Jesus said, \"I shall destroy this house, and no one will be able to build it [...].\""
    ],
    "verseMarkers": [
     {
@@ -25388,8 +25662,14 @@ window.BASILEIAN_DATA = {
      "verse": 24
     }
    ],
-   "nonbiblical": [],
-   "notes": null,
+   "nonbiblical": [
+    {
+     "source": "Gospel of Thomas 71",
+     "label": "Thomas 71",
+     "text": "Jesus said, \"I shall destroy this house, and no one will be able to build it [...].\""
+    }
+   ],
+   "notes": "Thomas 71 (\"I shall destroy this house\") parallels the temple charge (Mark 14:58; 15:29).",
    "disputed": null,
    "rawText": null,
    "tier": null,
@@ -28890,30 +29170,156 @@ window.BASILEIAN_DATA = {
    "title": "Thomas sayings without a narrative anchor",
    "parallel_refs": {},
    "paragraphs": [
-    "[[NOTE]] Logia 41, 86, 113 — most Thomas logia in the canon are grouped with their synoptic parallels above; only those without a narrative home are listed here.",
-    "[[NONBIBLICAL:Thomas 41]] Jesus said, \"Whoever has something in his hand will receive more, and whoever has nothing will be deprived of even the little he has.\"",
-    "[[NONBIBLICAL:Thomas 86]] Jesus said, \"The foxes have their holes and the birds have their nests, but the son of man has no place to lay his head and rest.\"",
-    "[[NONBIBLICAL:Thomas 113]] His disciples said to him, \"When will the kingdom come?\" Jesus said, \"It will not come by waiting for it. It will not be a matter of saying 'here it is' or 'there it is.' Rather, the kingdom of the father is spread out upon the earth, and men do not see it.\""
+    "[[NOTE]] Logia 1, 2, 7, 12, 17, 23, 24, 25, 38, 42, 51, 52, 53, 58, 59, 60, 67, 70, 74, 81, 82, 88, 97, 110 — included, but without a narrative home. The other 73 included logia are grouped with their synoptic parallels above; the incipit and 17 logia are not included.",
+    "[[NONBIBLICAL:Thomas 1]] And he said, \"Whoever finds the interpretation of these sayings will not experience death.\"",
+    "[[NONBIBLICAL:Thomas 2]] Jesus said, \"Let him who seeks continue seeking until he finds. When he finds, he will become troubled. When he becomes troubled, he will be astonished, and he will rule over the All.\"",
+    "[[NONBIBLICAL:Thomas 7]] Jesus said, \"Blessed is the lion which becomes man when consumed by man; and cursed is the man whom the lion consumes, and the lion becomes man.\"",
+    "[[NONBIBLICAL:Thomas 12]] The disciples said to Jesus, \"We know that you will depart from us. Who is to be our leader?\" Jesus said to them, \"Wherever you are, you are to go to James the righteous, for whose sake heaven and earth came into being.\"",
+    "[[NONBIBLICAL:Thomas 17]] Jesus said, \"I shall give you what no eye has seen and what no ear has heard and what no hand has touched and what has never occurred to the human mind.\"",
+    "[[NONBIBLICAL:Thomas 23]] Jesus said, \"I shall choose you, one out of a thousand, and two out of ten thousand, and they shall stand as a single one.\"",
+    "[[NONBIBLICAL:Thomas 24]] His disciples said to him, \"Show us the place where you are, since it is necessary for us to seek it.\" He said to them, \"Whoever has ears, let him hear. There is light within a man of light, and he lights up the whole world. If he does not shine, he is darkness.\"",
+    "[[NONBIBLICAL:Thomas 25]] Jesus said, \"Love your brother like your soul, guard him like the pupil of your eye.\"",
+    "[[NONBIBLICAL:Thomas 38]] Jesus said, \"Many times have you desired to hear these words which I am saying to you, and you have no one else to hear them from. There will be days when you will look for me and will not find me.\"",
+    "[[NONBIBLICAL:Thomas 42]] Jesus said, \"Become passers-by.\"",
+    "[[NONBIBLICAL:Thomas 51]] His disciples said to him, \"When will the repose of the dead come about, and when will the new world come?\" He said to them, \"What you look forward to has already come, but you do not recognize it.\"",
+    "[[NONBIBLICAL:Thomas 52]] His disciples said to him, \"Twenty-four prophets spoke in Israel, and all of them spoke in you.\" He said to them, \"You have omitted the one living in your presence and have spoken (only) of the dead.\"",
+    "[[NONBIBLICAL:Thomas 53]] His disciples said to him, \"Is circumcision beneficial or not?\" He said to them, \"If it were beneficial, their father would beget them already circumcised from their mother. Rather, the true circumcision in spirit has become completely profitable.\"",
+    "[[NONBIBLICAL:Thomas 58]] Jesus said, \"Blessed is the man who has suffered and found life.\"",
+    "[[NONBIBLICAL:Thomas 59]] Jesus said, \"Take heed of the living one while you are alive, lest you die and seek to see him and be unable to do so.\"",
+    "[[NONBIBLICAL:Thomas 60]] A Samaritan carrying a lamb on his way to Judea. He said to his disciples, \"That man is round about the lamb.\" They said to him, \"So that he may kill it and eat it.\" He said to them, \"While it is alive, he will not eat it, but only when he has killed it and it has become a corpse.\" They said to him, \"He cannot do so otherwise.\" He said to them, \"You too, look for a place for yourself within repose, lest you become a corpse and be eaten.\"",
+    "[[NONBIBLICAL:Thomas 67]] Jesus said, \"If one who knows the all still feels a personal deficiency, he is completely deficient.\"",
+    "[[NONBIBLICAL:Thomas 70]] Jesus said, \"That which you have will save you if you bring it forth from yourselves. That which you do not have within you will kill you if you do not have it within you.\"",
+    "[[NONBIBLICAL:Thomas 74]] He said, \"O Lord, there are many around the drinking trough, but there is nothing in the cistern.\"",
+    "[[NONBIBLICAL:Thomas 81]] Jesus said, \"Let him who has grown rich be king, and let him who possesses power renounce it.\"",
+    "[[NONBIBLICAL:Thomas 82]] Jesus said, \"He who is near me is near the fire, and he who is far from me is far from the kingdom.\"",
+    "[[NONBIBLICAL:Thomas 88]] Jesus said, \"The angels and the prophets will come to you and give to you those things you (already) have. And you too, give them those things which you have, and say to yourselves, 'When will they come and take what is theirs?'\"",
+    "[[NONBIBLICAL:Thomas 97]] Jesus said, \"The kingdom of the father is like a certain woman who was carrying a jar full of meal. While she was walking on the road, still some distance from home, the handle of the jar broke and the meal emptied out behind her on the road. She did not realize it; she had noticed no accident. When she reached her house, she set the jar down and found it empty.\"",
+    "[[NONBIBLICAL:Thomas 110]] Jesus said, \"Whoever finds the world and becomes rich, let him renounce the world.\""
    ],
    "verseMarkers": [],
    "nonbiblical": [
     {
-     "source": "Gospel of Thomas 41",
-     "label": "Thomas 41",
-     "text": "Jesus said, \"Whoever has something in his hand will receive more, and whoever has nothing will be deprived of even the little he has.\""
+     "source": "Gospel of Thomas 1",
+     "label": "Thomas 1",
+     "text": "And he said, \"Whoever finds the interpretation of these sayings will not experience death.\""
     },
     {
-     "source": "Gospel of Thomas 86",
-     "label": "Thomas 86",
-     "text": "Jesus said, \"The foxes have their holes and the birds have their nests, but the son of man has no place to lay his head and rest.\""
+     "source": "Gospel of Thomas 2",
+     "label": "Thomas 2",
+     "text": "Jesus said, \"Let him who seeks continue seeking until he finds. When he finds, he will become troubled. When he becomes troubled, he will be astonished, and he will rule over the All.\""
     },
     {
-     "source": "Gospel of Thomas 113",
-     "label": "Thomas 113",
-     "text": "His disciples said to him, \"When will the kingdom come?\" Jesus said, \"It will not come by waiting for it. It will not be a matter of saying 'here it is' or 'there it is.' Rather, the kingdom of the father is spread out upon the earth, and men do not see it.\""
+     "source": "Gospel of Thomas 7",
+     "label": "Thomas 7",
+     "text": "Jesus said, \"Blessed is the lion which becomes man when consumed by man; and cursed is the man whom the lion consumes, and the lion becomes man.\""
+    },
+    {
+     "source": "Gospel of Thomas 12",
+     "label": "Thomas 12",
+     "text": "The disciples said to Jesus, \"We know that you will depart from us. Who is to be our leader?\" Jesus said to them, \"Wherever you are, you are to go to James the righteous, for whose sake heaven and earth came into being.\""
+    },
+    {
+     "source": "Gospel of Thomas 17",
+     "label": "Thomas 17",
+     "text": "Jesus said, \"I shall give you what no eye has seen and what no ear has heard and what no hand has touched and what has never occurred to the human mind.\""
+    },
+    {
+     "source": "Gospel of Thomas 23",
+     "label": "Thomas 23",
+     "text": "Jesus said, \"I shall choose you, one out of a thousand, and two out of ten thousand, and they shall stand as a single one.\""
+    },
+    {
+     "source": "Gospel of Thomas 24",
+     "label": "Thomas 24",
+     "text": "His disciples said to him, \"Show us the place where you are, since it is necessary for us to seek it.\" He said to them, \"Whoever has ears, let him hear. There is light within a man of light, and he lights up the whole world. If he does not shine, he is darkness.\""
+    },
+    {
+     "source": "Gospel of Thomas 25",
+     "label": "Thomas 25",
+     "text": "Jesus said, \"Love your brother like your soul, guard him like the pupil of your eye.\""
+    },
+    {
+     "source": "Gospel of Thomas 38",
+     "label": "Thomas 38",
+     "text": "Jesus said, \"Many times have you desired to hear these words which I am saying to you, and you have no one else to hear them from. There will be days when you will look for me and will not find me.\""
+    },
+    {
+     "source": "Gospel of Thomas 42",
+     "label": "Thomas 42",
+     "text": "Jesus said, \"Become passers-by.\""
+    },
+    {
+     "source": "Gospel of Thomas 51",
+     "label": "Thomas 51",
+     "text": "His disciples said to him, \"When will the repose of the dead come about, and when will the new world come?\" He said to them, \"What you look forward to has already come, but you do not recognize it.\""
+    },
+    {
+     "source": "Gospel of Thomas 52",
+     "label": "Thomas 52",
+     "text": "His disciples said to him, \"Twenty-four prophets spoke in Israel, and all of them spoke in you.\" He said to them, \"You have omitted the one living in your presence and have spoken (only) of the dead.\""
+    },
+    {
+     "source": "Gospel of Thomas 53",
+     "label": "Thomas 53",
+     "text": "His disciples said to him, \"Is circumcision beneficial or not?\" He said to them, \"If it were beneficial, their father would beget them already circumcised from their mother. Rather, the true circumcision in spirit has become completely profitable.\""
+    },
+    {
+     "source": "Gospel of Thomas 58",
+     "label": "Thomas 58",
+     "text": "Jesus said, \"Blessed is the man who has suffered and found life.\""
+    },
+    {
+     "source": "Gospel of Thomas 59",
+     "label": "Thomas 59",
+     "text": "Jesus said, \"Take heed of the living one while you are alive, lest you die and seek to see him and be unable to do so.\""
+    },
+    {
+     "source": "Gospel of Thomas 60",
+     "label": "Thomas 60",
+     "text": "A Samaritan carrying a lamb on his way to Judea. He said to his disciples, \"That man is round about the lamb.\" They said to him, \"So that he may kill it and eat it.\" He said to them, \"While it is alive, he will not eat it, but only when he has killed it and it has become a corpse.\" They said to him, \"He cannot do so otherwise.\" He said to them, \"You too, look for a place for yourself within repose, lest you become a corpse and be eaten.\""
+    },
+    {
+     "source": "Gospel of Thomas 67",
+     "label": "Thomas 67",
+     "text": "Jesus said, \"If one who knows the all still feels a personal deficiency, he is completely deficient.\""
+    },
+    {
+     "source": "Gospel of Thomas 70",
+     "label": "Thomas 70",
+     "text": "Jesus said, \"That which you have will save you if you bring it forth from yourselves. That which you do not have within you will kill you if you do not have it within you.\""
+    },
+    {
+     "source": "Gospel of Thomas 74",
+     "label": "Thomas 74",
+     "text": "He said, \"O Lord, there are many around the drinking trough, but there is nothing in the cistern.\""
+    },
+    {
+     "source": "Gospel of Thomas 81",
+     "label": "Thomas 81",
+     "text": "Jesus said, \"Let him who has grown rich be king, and let him who possesses power renounce it.\""
+    },
+    {
+     "source": "Gospel of Thomas 82",
+     "label": "Thomas 82",
+     "text": "Jesus said, \"He who is near me is near the fire, and he who is far from me is far from the kingdom.\""
+    },
+    {
+     "source": "Gospel of Thomas 88",
+     "label": "Thomas 88",
+     "text": "Jesus said, \"The angels and the prophets will come to you and give to you those things you (already) have. And you too, give them those things which you have, and say to yourselves, 'When will they come and take what is theirs?'\""
+    },
+    {
+     "source": "Gospel of Thomas 97",
+     "label": "Thomas 97",
+     "text": "Jesus said, \"The kingdom of the father is like a certain woman who was carrying a jar full of meal. While she was walking on the road, still some distance from home, the handle of the jar broke and the meal emptied out behind her on the road. She did not realize it; she had noticed no accident. When she reached her house, she set the jar down and found it empty.\""
+    },
+    {
+     "source": "Gospel of Thomas 110",
+     "label": "Thomas 110",
+     "text": "Jesus said, \"Whoever finds the world and becomes rich, let him renounce the world.\""
     }
    ],
-   "notes": "Logia 41, 86, 113 — most Thomas logia in the canon are grouped with their synoptic parallels above; only those without a narrative home are listed here.",
+   "notes": "Logia 1, 2, 7, 12, 17, 23, 24, 25, 38, 42, 51, 52, 53, 58, 59, 60, 67, 70, 74, 81, 82, 88, 97, 110 — included, but without a narrative home. The other 73 included logia are grouped with their synoptic parallels above; the incipit and 17 logia are not included.",
    "disputed": null,
    "rawText": null,
    "tier": null,
