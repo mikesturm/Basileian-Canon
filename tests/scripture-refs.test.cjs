@@ -1,4 +1,4 @@
-// Scripture references in notes and the apparatus: the parser (run directly
+// Scripture references in notes, the apparatus and the Greek lexicon: the parser (run directly
 // on app.js) and the preview sheet / Open in reader flow in the browser.
 "use strict";
 const fs = require("fs");
@@ -144,5 +144,29 @@ module.exports = {
     await p.fill("#gotoInput", "see Mark 4");
     await p.tap("#gotoBtn");
     t.check(/Reference not found/.test(await p.textContent("#gotoMessage")), "Go to rejects text that isn't a reference");
+
+    // References in the Greek lexicon entry (ὡς, opened from Mark 4:31)
+    await t.open(p, "vi_4_mustard_seed");
+    await p.tap("#greekToggle");
+    await p.waitForSelector(".il-verse", { state: "attached", timeout: 15000 });
+    await p.tap('.il-verse[data-verse-id="mark.4.31"] .il-word');
+    await p.waitForSelector(".lex-fulldef", { timeout: 10000 });
+    const lexLink = text => p.locator(".lex-fulldef a.lex-ref", { hasText: new RegExp(`^${text.replace(/\./g, "\\.")}$`) }).first();
+    const lexRefs = await p.$$eval(".lex-fulldef a.lex-ref", a => a.map(x => x.textContent));
+    t.check(lexRefs[0] === "Mrk.4:26" && lexRefs.includes("11:33") && !lexRefs.some(r => /[;,]$/.test(r)),
+      `lexicon references are links, one per passage (${lexRefs.length})`);
+    await lexLink("11:33").tap();
+    await p.waitForFunction(() => document.querySelectorAll("#refSheetBody .ref-verse").length > 0, null, { timeout: 15000 });
+    t.check((await p.textContent("#refSheetTitle")) === "Romans 11:33" && /Not part of this canon/.test(await p.textContent("#refSheetNote")),
+      "a continuation (\"Rom.10:15, 11:33\") opens its own verse: Romans 11:33");
+    await p.tap("#refSheetClose");
+    t.check(await p.isVisible("#modal"), "closing the sheet leaves the lexicon open");
+    await lexLink("Mrk.4:26").tap();
+    await p.waitForFunction(() => document.querySelectorAll("#refSheetBody .ref-verse").length > 0, null, { timeout: 15000 });
+    t.check((await p.textContent("#refSheetTitle")) === "Mark 4:26" && await p.isVisible("#refSheetOpen"), "an in-canon reference can be opened in the reader");
+    await p.tap("#refSheetOpen");
+    await p.waitForTimeout(2500);
+    t.check(!(await p.isVisible("#modal")) && await inView('.nt-source-block[data-book="mark"] .verse-number[data-chapter="4"][data-verse="26"]'),
+      "Open in reader closes the lexicon and shows Mark 4:26");
   },
 };

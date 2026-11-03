@@ -77,6 +77,150 @@ const S = {
   R0: String.fromCharCode(6), R1: String.fromCharCode(7),
 };
 
+const escapeText = t => t
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;');
+
+// ─── Scripture references ─────────────────────────────────────────────────────
+//
+// Each <ref='Osis.Ref'>Display</ref> names its target in the attribute, e.g.
+// <ref='Act.13.27; 17.23'>Act.13:27 17:23</ref> or <ref='Rev.12.12'>ib. 12:12</ref>.
+// Every passage in it becomes its own <span class="lex-ref" data-ref="…">, where
+// data-ref uses the app's verse-id form: "acts.13.27", "matthew.2.13-15",
+// "isaiah.52.13-53.12", "psalms.23". The app turns these into links. Passages
+// it can't show (books outside the NET Bible, such as Sirach or 3 Kingdoms, or
+// verses NET doesn't have) keep a plain <span class="lex-ref">.
+
+const STEP_BOOKS = {
+  gen: 'genesis', exo: 'exodus', lev: 'leviticus', num: 'numbers', deu: 'deuteronomy',
+  jos: 'joshua', jdg: 'judges', rut: 'ruth', '1sa': '1samuel', '2sa': '2samuel',
+  '1ki': '1kings', '2ki': '2kings', '1ch': '1chronicles', '2ch': '2chronicles',
+  ezr: 'ezra', neh: 'nehemiah', est: 'esther', job: 'job', psa: 'psalms', pss: 'psalms',
+  pro: 'proverbs', ecc: 'ecclesiastes', sng: 'songofsolomon', isa: 'isaiah',
+  jer: 'jeremiah', lam: 'lamentations', ezk: 'ezekiel', dan: 'daniel', hos: 'hosea',
+  jol: 'joel', amo: 'amos', oba: 'obadiah', jon: 'jonah', mic: 'micah', nam: 'nahum',
+  hab: 'habakkuk', zep: 'zephaniah', hag: 'haggai', zec: 'zechariah', mal: 'malachi',
+  mat: 'matthew', matt: 'matthew', mrk: 'mark', mark: 'mark', luk: 'luke', luke: 'luke',
+  jhn: 'john', john: 'john', act: 'acts', acts: 'acts', rom: 'romans',
+  '1co': '1corinthians', '1cor': '1corinthians', '2co': '2corinthians', '2cor': '2corinthians',
+  gal: 'galatians', eph: 'ephesians', php: 'philippians', phil: 'philippians',
+  col: 'colossians', '1th': '1thessalonians', '2th': '2thessalonians',
+  '1ti': '1timothy', '1tim': '1timothy', '2ti': '2timothy', '2tim': '2timothy',
+  tit: 'titus', phm: 'philemon', heb: 'hebrews', jas: 'james',
+  '1pe': '1peter', '1pet': '1peter', '2pe': '2peter', '2pet': '2peter',
+  '1jn': '1john', '1jo': '1john', '2jn': '2john', '2jo': '2john', '3jn': '3john', '3jo': '3john',
+  jud: 'jude', jude: 'jude', rev: 'revelation',
+};
+const SINGLE_CHAPTER_BOOKS = new Set(['obadiah', 'philemon', '2john', '3john', 'jude']);
+
+// NET verse ids ("genesis.1.1", …), so a link never points at a verse the
+// app can't show. Loaded lazily by the first reference.
+let netVerses = null;
+function netHasVerse(id) {
+  if (!netVerses) {
+    const netPath = path.join(ROOT, 'net.json');
+    netVerses = fs.existsSync(netPath)
+      ? new Set(Object.keys(JSON.parse(fs.readFileSync(netPath, 'utf8'))))
+      : null;
+    if (!netVerses) console.warn('  net.json not found — references are linked without checking verses.');
+  }
+  return netVerses ? netVerses.has(id) : true;
+}
+
+const refStats = { refs: 0, linked: 0, unlinked: 0, split: 0, whole: 0 };
+
+// "Act.13.27; 17.23" -> ["acts.13.27", "acts.17.23"]. An entry is null when
+// the passage can't be shown, undefined when the attribute can't be read.
+function parseOsisRefs(osis) {
+  const m = /^\s*([1-4]?[A-Za-z]+)\.?\s*(.*)$/.exec(osis);
+  if (!m) return [];
+  const book = STEP_BOOKS[m[1].toLowerCase()] || null;
+  const rest = m[2].replace(/[\s;,.:]+$/, '');
+  if (!rest) return [];
+  const out = [];
+  for (const group of rest.split(/\s*;\s*/)) {
+    let ch = null;                            // ", 13" continues this chapter
+    for (const raw of group.split(/\s*,\s*/)) {
+      const item = raw.trim().replace(/:/g, '.').replace(/ff\.?$/, '').replace(/(\d)[a-z]$/, '$1');
+      let r, mm;
+      if ((mm = /^(\d+)\.(\d+)[a-z]?(?:-(\d+)(?:\.(\d+))?)?$/.exec(item))) {
+        ch = +mm[1];
+        const v1 = +mm[2];
+        r = mm[4] != null ? { ch, v1, ch2: +mm[3], v2: +mm[4] }
+          : { ch, v1, ch2: ch, v2: mm[3] != null ? +mm[3] : v1 };
+      } else if ((mm = /^(\d+)(?:-(\d+))?$/.exec(item))) {
+        const a = +mm[1];
+        const b = mm[2] != null ? +mm[2] : a;
+        if (ch != null) r = { ch, v1: a, ch2: ch, v2: b };
+        else if (SINGLE_CHAPTER_BOOKS.has(book)) { ch = 1; r = { ch: 1, v1: a, ch2: 1, v2: b }; }
+        else r = { ch: a, v1: null, ch2: b, v2: null };   // whole chapter(s)
+      } else {
+        out.push(undefined);
+        continue;
+      }
+      out.push(book ? refId(book, r) : null);
+    }
+  }
+  return out;
+}
+
+function refId(book, r) {
+  if (r.ch2 < r.ch || (r.ch2 === r.ch && r.v1 != null && r.v2 < r.v1)) return null;
+  if (!netHasVerse(`${book}.${r.ch}.${r.v1 ?? 1}`)) return null;
+  if (r.v1 == null) return r.ch2 !== r.ch ? `${book}.${r.ch}-${r.ch2}` : `${book}.${r.ch}`;
+  if (r.ch2 !== r.ch) return `${book}.${r.ch}.${r.v1}-${r.ch2}.${r.v2}`;
+  return r.v2 !== r.v1 ? `${book}.${r.ch}.${r.v1}-${r.v2}` : `${book}.${r.ch}.${r.v1}`;
+}
+
+// One passage number in the display text: "7:11", "44(45):15", "13-15", "9.1-32".
+const DISPLAY_NUM_RE = /\d+(?:\s?\(\d+\))?(?:[:.]\d+[a-z]?)?(?:ff\.?)?(?:\s?[-–]\s?\d+(?:[:.]\d+)?[a-z]?)?/g;
+
+// The HTML for one <ref>: a span per passage when the display text lines up
+// with the attribute ("Heb.5:4 7:11 9:4" -> three spans, comma-separated),
+// otherwise one span for the whole reference, pointing at its first passage.
+function renderRef(osis, displayRaw) {
+  const display = displayRaw.replace(/<[^>]*>/g, '').replace(/[\x01-\x07]/g, '').replace(/__/g, '');
+  const ids = parseOsisRefs(osis.replace(/^\s*['"]?|['"]?\s*$/g, ''));
+  const span = (text, id) => id
+    ? `<span class="lex-ref" data-ref="${escapeText(id)}">${escapeText(text)}</span>`
+    : `<span class="lex-ref">${escapeText(text)}</span>`;
+  const count = ok => { refStats.refs++; ok ? refStats.linked++ : refStats.unlinked++; };
+
+  const lead = /^\s*/.exec(display)[0];
+  const trail = /[\s;,.:]*$/.exec(display.slice(lead.length))[0];
+  const body = display.slice(lead.length, display.length - trail.length);
+  if (!body) return escapeText(display);
+
+  // The book ("Heb.", "2Pe.", "ib. ", "III Jo ") runs up to the first number.
+  const prefix = /^(?:[1-4]\s?(?=[A-Za-z]))?[^\d]*/.exec(body)[0];
+  const nums = [];
+  DISPLAY_NUM_RE.lastIndex = prefix.length;
+  let m;
+  while ((m = DISPLAY_NUM_RE.exec(body))) nums.push({ start: m.index, end: m.index + m[0].length });
+  const gapsOk = nums.length > 0 && nums[0].start === prefix.length &&
+    nums.every((n, i) => /^[\s,;]*$/.test(body.slice(n.end, i + 1 < nums.length ? nums[i + 1].start : body.length)));
+
+  if (gapsOk && nums.length === ids.length && !ids.includes(undefined)) {
+    if (ids.length > 1) refStats.split++;
+    let html = escapeText(lead);
+    nums.forEach((n, i) => {
+      if (i > 0) {
+        const gap = body.slice(nums[i - 1].end, n.start);
+        html += /^\s+$/.test(gap) ? ', ' : escapeText(gap);   // "6:3 7:1" -> "6:3, 7:1"
+      }
+      html += span(body.slice(i === 0 ? 0 : n.start, n.end), ids[i]);
+      count(ids[i]);
+    });
+    return html + escapeText(trail);
+  }
+  const first = ids[0] || null;              // unreadable attribute -> no link
+  refStats.whole++;
+  count(first);
+  return escapeText(lead) + span(body, first) + escapeText(trail);
+}
+
 function sanitizeDefinition(raw) {
   if (!raw) return '';
   let s = String(raw).trim();
@@ -85,14 +229,21 @@ function sanitizeDefinition(raw) {
   // once in the UI footer instead.
   s = s.replace(/†?\s*\(AS\)\s*$/i, '').replace(/\s*†\s*$/, '').trim();
 
+  // References are rendered up front and parked as numbered placeholders
+  // (R0 n R1) until the rest of the text has been escaped.
+  const refs = [];
+  s = s.replace(/<\s*ref=([^>]*)>([\s\S]*?)<\s*\/\s*ref\s*>/gi, (_, osis, display) => {
+    refs.push(renderRef(osis, display));
+    return S.R0 + (refs.length - 1) + S.R1;
+  });
+
   // Tokenise the allowed tags to sentinels before escaping.
   s = s
     .replace(/<\s*br\s*\/?\s*>/gi, S.BR)
     .replace(/<\s*b\s*>/gi, S.B0)
     .replace(/<\s*\/\s*b\s*>/gi, S.B1)
     .replace(/<\s*i\s*>/gi, S.I0)
-    .replace(/<\s*\/\s*i\s*>/gi, S.I1)
-    .replace(/<\s*ref=[^>]*>([\s\S]*?)<\s*\/\s*ref\s*>/gi, S.R0 + '$1' + S.R1);
+    .replace(/<\s*\/\s*i\s*>/gi, S.I1);
 
   // Remove any remaining unknown tags.
   s = s.replace(/<[^>]+>/g, '');
@@ -101,21 +252,16 @@ function sanitizeDefinition(raw) {
   s = s.replace(/__/g, '');
 
   // Escape residual text.
-  s = s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+  s = escapeText(s);
 
-  // Restore the safe tags.
+  // Restore the safe tags and the rendered references.
   s = s
     .split(S.BR).join('<br>')
     .split(S.B0).join('<strong>')
     .split(S.B1).join('</strong>')
     .split(S.I0).join('<em>')
     .split(S.I1).join('</em>')
-    .split(S.R0).join('<span class="lex-ref">')
-    .split(S.R1).join('</span>');
+    .replace(new RegExp(`${S.R0}(\\d+)${S.R1}`, 'g'), (_, i) => refs[Number(i)]);
 
   // Collapse leading <br>s and runaway whitespace.
   s = s.replace(/^(?:\s|<br>)+/, '').replace(/[ \t]+/g, ' ').trim();
@@ -183,6 +329,8 @@ const missing = [...corpusStrongs].filter(n => !lexicon[n]).length;
 console.log(`\n=== build-greek-lexicon ===`);
 console.log(`  Entries written: ${matched}`);
 console.log(`  Corpus numbers without a lexicon entry: ${missing}`);
+console.log(`  Scripture references: ${refStats.refs} (${refStats.linked} linked, ${refStats.unlinked} not in the NET Bible)`);
+console.log(`    ${refStats.split} multi-passage references split; ${refStats.whole} kept whole`);
 console.log(`  Wrote lexicons/strongs-lexicon.json (${sizeKB} KB)`);
 
 // ─── Patch verse-words.json glosses with the TBESG lexicon's glosses ─────────

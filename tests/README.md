@@ -27,7 +27,7 @@ app.
 | `verse-selection.test.cjs` | tap-to-select rules, highlights, Matthew/Luke same-verse cases, footnote taps |
 | `desktop.test.cjs` | mouse selection, clicking highlights, witness-view highlight scoping |
 | `features.test.cjs` | witness tabs, swipe/arrow keys, inline Greek and lexicon, Copy, Contents and Holy Week |
-| `scripture-refs.test.cjs` | the reference parser and the preview sheet / Open in reader flow |
+| `scripture-refs.test.cjs` | the reference parser, the preview sheet / Open in reader flow, and lexicon references |
 | `old-testament.test.cjs` | Old Testament reader, Hebrew study, text size and line spacing |
 | `notes.test.cjs` | highlight colours, Notes grouping, search, filters, export, print |
 | `greek-placement.test.cjs` | inline Greek lands once per verse, never inside footnotes |
