@@ -979,12 +979,16 @@
 }
 
 .lex-fulldef .lex-ref {
-  color: var(--accent, #0288d1);
+  color: var(--muted);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-[data-theme="dark"] .lex-fulldef .lex-ref { color: #4fc3f7; }
+/* References the app can open (see linkLexiconRefs); the rest — books outside
+   the NET Bible, such as Sirach — stay plain. */
+.lex-fulldef a.lex-ref { color: var(--accent, #0288d1); }
+
+[data-theme="dark"] .lex-fulldef a.lex-ref { color: #4fc3f7; }
 
 .lex-attribution {
   margin: 0.9rem 0 0;

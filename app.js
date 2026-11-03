@@ -2435,6 +2435,7 @@
       actions.push({ label: "Close", className: "button", onClick: closeModal });
 
       openModal(`${strongsNum} — Lexicon`, body, actions, { wide: true });
+      linkLexiconRefs(els.modalBody);
 
       renderLexiconConcordance(strongsNum);
     } catch (error) {
@@ -2443,6 +2444,33 @@
         { label: "Close", className: "button", onClick: closeModal }
       ]);
     }
+  }
+
+  // The lexicon's references carry their passage in verse-id form
+  // (data-ref="acts.13.27", "matthew.2.13-15", "isaiah.52.13-53.12",
+  // "psalms.23"); make each one a link that opens the reference sheet.
+  function linkLexiconRefs(root) {
+    root.querySelectorAll(".lex-fulldef span.lex-ref[data-ref]").forEach(span => {
+      const ref = parseVerseIdRef(span.dataset.ref);
+      if (!ref) return;
+      const link = document.createElement("a");
+      link.className = "lex-ref scripture-ref";
+      link.href = "#";
+      link.dataset.ref = JSON.stringify(ref);
+      link.textContent = span.textContent;
+      span.replaceWith(link);
+    });
+  }
+
+  function parseVerseIdRef(id) {
+    const m = /^([0-9a-z]+)\.(\d+)(?:\.(\d+))?(?:-(\d+)(?:\.(\d+))?)?$/.exec(String(id || ""));
+    if (!m || !SCRIPTURE_BOOK_NAME[m[1]]) return null;
+    const [, book, a, b, c, d] = m;
+    const ch = Number(a);
+    if (b == null) return { book, ch, v1: null, ch2: c != null ? Number(c) : ch, v2: null };
+    const v1 = Number(b);
+    if (d != null) return { book, ch, v1, ch2: Number(c), v2: Number(d) };
+    return { book, ch, v1, ch2: ch, v2: c != null ? Number(c) : v1 };
   }
 
   // Fill the concordance pane of the lexicon view with every indexed occurrence
